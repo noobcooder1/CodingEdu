@@ -26,8 +26,4 @@ public class HomeController {
         return "challenge"; // templates/challenge.html
     }
 
-    @GetMapping("/community")
-    public String community() {
-        return "community"; // templates/community.html
-    }
 }

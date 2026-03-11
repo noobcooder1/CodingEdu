@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${post.title} + ' - CodeEdu'">포스트 제목</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <style>
+        .detail-container {
+            max-width: 800px; margin: 40px auto 60px; background: var(--white);
+            border-radius: 20px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .detail-header { border-bottom: 2px dashed #eaeaea; padding-bottom: 20px; margin-bottom: 30px; }
+        .post-category {
+            display: inline-block; padding: 6px 14px; border-radius: 50px; font-size: .85rem; font-weight: 800; margin-bottom: 12px;
+            background: #f0f0f0; color: #555;
+        }
+        .post-category.qna { background: #E3F2FD; color: #1565C0; }
+        .post-category.tips { background: #FFF3E0; color: #E65100; }
+        .post-category.study { background: #E8F5E9; color: #2E7D32; }
+        .post-category.free { background: #F3E5F5; color: #6A1B9A; }
+        
+        .detail-header h2 { font-size: 1.8rem; font-weight: 900; color: var(--text); margin-bottom: 16px; line-height: 1.4; }
+        .detail-meta { display: flex; align-items: center; justify-content: space-between; font-size: .95rem; color: #666; }
+        .meta-left { display: flex; align-items: center; gap: 12px; }
+        .meta-author { font-weight: 800; color: var(--text); }
+        .meta-right { display: flex; align-items: center; gap: 12px; }
+        
+        .detail-content { line-height: 1.8; font-size: 1.05rem; color: #333; min-height: 300px; white-space: pre-wrap; }
+        
+        .btn-back-group { margin-top: 40px; display: flex; justify-content: center; }
+        .btn-back {
+            background: var(--blue-light); color: var(--blue); padding: 12px 30px; border-radius: 50px;
+            font-weight: 800; text-decoration: none; transition: all .2s; border: none; cursor: pointer;
+        }
+        .btn-back:hover { background: var(--blue); color: var(--white); }
+    </style>
+</head>
+<body style="background: var(--gray);">
+
+<!-- NAV -->
+<nav th:replace="~{index :: nav}"></nav>
+
+<div class="detail-container">
+    <div class="detail-header">
+        <div class="post-category" 
+             th:classappend="${post.category}"
+             th:text="${post.category == 'qna' ? '💡 질문' : post.category == 'tips' ? '🔥 꿀팁' : post.category == 'study' ? '📚 스터디' : '☕ 자유'}">카테고리</div>
+        <h2 th:text="${post.title}">게시글 제목</h2>
+        <div class="detail-meta">
+            <div class="meta-left">
+                <span class="meta-author" th:text="${post.author.nickname}">작성자</span>
+                <span class="meta-date" th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">날짜</span>
+            </div>
+            <div class="meta-right">
+                <span th:text="'👁️ ' + ${post.views}">조회 0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 내용 영역: white-space: pre-wrap 으로 엔터 유지 -->
+    <div class="detail-content" th:text="${post.content}">
+        게시글 내용
+    </div>
+
+    <!-- 댓글 영역 -->
+    <div class="comments-section" style="margin-top: 50px; border-top: 2px solid #eaeaea; padding-top: 30px;">
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text); margin-bottom: 24px;">
+            💬 댓글 <span th:text="${post.commentCount}" style="color: var(--blue);">0</span>개
+        </h3>
+
+        <!-- 댓글 목록 -->
+        <div class="comment-list" style="margin-bottom: 30px;">
+            <div th:each="comment : ${comments}" style="background: #f9f9f9; padding: 20px; border-radius: 12px; margin-bottom: 12px; border: 1px solid #f0f0f0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="font-weight: 800; color: #444;" th:text="${comment.author.nickname}">작성자</span>
+                    <span style="font-size: .85rem; color: #888;" th:text="${#temporals.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}">날짜</span>
+                </div>
+                <div style="color: #333; line-height: 1.5; white-space: pre-wrap; font-size: 0.95rem;" th:text="${comment.content}">댓글 내용</div>
+            </div>
+            
+            <div th:if="${comments.isEmpty()}" style="font-size: .95rem; color: #888; text-align: center; padding: 40px 0;">
+                아직 작성된 댓글이 없습니다. 첫 번째 댓글을 남겨보세요! ✨
+            </div>
+        </div>
+
+        <!-- 댓글 작성 폼 -->
+        <div sec:authorize="isAuthenticated()" style="background: var(--white); border: 2px solid #eee; padding: 24px; border-radius: 16px;">
+            <form th:action="@{/community/{id}/comment(id=${post.id})}" method="POST">
+                <textarea name="content" placeholder="궁금한 점이나 응원의 댓글을 남겨주세요!" required
+                          style="width: 100%; min-height: 90px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; outline: none; resize: vertical; margin-bottom: 16px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;"></textarea>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button type="submit" style="background: var(--blue); color: var(--white); padding: 12px 28px; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; transition: background .2s;">
+                        댓글 등록
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div sec:authorize="isAnonymous()" style="background: #f5f5f5; padding: 30px; border-radius: 16px; text-align: center; color: #666; border: 1px dashed #ccc;">
+            댓글을 작성하려면 <a href="/login" style="color: var(--blue); font-weight: 800; text-decoration: underline;">로그인</a>이 필요합니다.
+        </div>
+    </div>
+
+    <div class="btn-back-group">
+        <a href="/community" class="btn-back">목록으로 돌아가기</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer th:replace="~{index :: footer}"></footer>
+
+</body>
+</html>
