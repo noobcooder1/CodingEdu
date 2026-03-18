@@ -33,11 +33,6 @@ public class HomeController {
         return "index"; // templates/index.html
     }
 
-    @GetMapping("/challenge")
-    public String challenge() {
-        return "challenge"; // templates/challenge.html
-    }
-
     @GetMapping("/settings")
     public String settings(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
