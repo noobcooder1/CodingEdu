@@ -10,7 +10,7 @@
         .filter-tab {
             padding: 8px 24px; border-radius: 50px; border: 2px solid #eee;
             background: var(--white); font-size: .95rem; font-weight: 700; cursor: pointer;
-            transition: all .2s; color: var(--text-sub); box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: all .2s; color: var(--text-sub); text-decoration: none; display: inline-block;
         }
         .filter-tab.active, .filter-tab:hover {
             background: var(--blue); color: var(--white); border-color: var(--blue);
@@ -40,36 +40,19 @@
             transition: all .2s; border: none; cursor: pointer;
         }
         .btn-quiz:hover { background: var(--blue); color: var(--white); transform: scale(1.02); }
+        .login-notice {
+            display: inline-block; width: 100%; text-align: center;
+            background: #f5f5f5; color: #888; padding: 14px;
+            border-radius: 12px; font-weight: 700; font-size: .9rem; text-decoration: none;
+            border: 2px dashed #ddd; box-sizing: border-box;
+        }
+        .login-notice:hover { background: var(--blue-light); color: var(--blue); border-color: var(--blue); }
     </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-    <a href="/" class="logo">
-        <span class="logo-icon">💻</span>
-        Code<span>Edu</span>
-    </a>
-    <div class="nav-links">
-        <a href="/learn">학습하기</a>
-        <a href="/quiz" style="color: var(--blue-mid); font-weight: 800;">퀴즈</a>
-        <a href="/challenge">챌린지</a>
-        <a href="/community">커뮤니티</a>
-    </div>
-    <div class="nav-right" style="display:flex; align-items:center; gap:12px;">
-        <button class="btn-search">🔍</button>
-        <div sec:authorize="isAnonymous()">
-            <a href="/login" class="btn-login" style="text-decoration:none; display:inline-block;">로그인</a>
-            <a href="/register" class="btn-login" style="background:#fff; color:var(--blue); border:2px solid var(--blue); display:inline-block; padding:8px 18px;">회원가입</a>
-        </div>
-        <div sec:authorize="isAuthenticated()" style="display:flex; align-items:center; gap:12px;">
-            <span style="font-weight:700; font-size:.9rem; color:var(--text);"><span sec:authentication="principal.nickname">사용자</span>님 환영해요!</span>
-            <form th:action="@{/logout}" method="post" style="margin:0;">
-                <button type="submit" class="btn-login" style="background:#555;">로그아웃</button>
-            </form>
-        </div>
-    </div>
-</nav>
+<nav th:replace="~{index :: nav}"></nav>
 
 <!-- PAGE HEADER -->
 <header class="page-header">
@@ -79,127 +62,43 @@
 
 <!-- QUIZ SECTION -->
 <section style="background: var(--gray);">
+    <!-- 난이도 필터 탭 -->
     <div class="quiz-filter-tabs">
-        <button class="filter-tab active" onclick="filterQuiz('all', this)">전체</button>
-        <button class="filter-tab" onclick="filterQuiz('easy', this)">🌱 쉬움</button>
-        <button class="filter-tab" onclick="filterQuiz('medium', this)">🔥 보통</button>
-        <button class="filter-tab" onclick="filterQuiz('hard', this)">🚀 어려움</button>
+        <a th:href="@{/quiz(difficulty='all')}" class="filter-tab" th:classappend="${currentDifficulty == 'all'} ? 'active'">전체</a>
+        <a th:href="@{/quiz(difficulty='easy')}" class="filter-tab" th:classappend="${currentDifficulty == 'easy'} ? 'active'">🌱 쉬움</a>
+        <a th:href="@{/quiz(difficulty='medium')}" class="filter-tab" th:classappend="${currentDifficulty == 'medium'} ? 'active'">🔥 보통</a>
+        <a th:href="@{/quiz(difficulty='hard')}" class="filter-tab" th:classappend="${currentDifficulty == 'hard'} ? 'active'">🚀 어려움</a>
     </div>
 
-    <div class="quiz-grid" id="quiz-container">
-        <!-- JavaScript Quiz -->
-        <div class="quiz-card" data-level="easy">
-            <div class="quiz-header">
-                <span class="quiz-lang">⚡ JavaScript</span>
-                <span class="quiz-difficulty difficulty-easy">쉬움</span>
-            </div>
-            <h3>JavaScript 기초 문법</h3>
-            <p>변수 선언, 조건문(if-else), 반복문(for, while) 등 기초 문법을 확실히 익혔는지 테스트합니다.</p>
-            <div class="quiz-meta">
-                <span>📋 10문제</span>
-                <span>⏱️ 15분</span>
-                <span>👥 1,234명 응시</span>
-            </div>
-            <button class="btn-quiz" onclick="alert('퀴즈를 시작합니다!')">퀴즈 시작 ▶</button>
+    <div class="quiz-grid">
+        <div th:if="${quizzes.isEmpty()}" style="grid-column: 1/-1; text-align:center; padding:60px; color:#888; background:var(--white); border-radius:20px;">
+            등록된 퀴즈가 없습니다.
         </div>
 
-        <!-- Java Quiz -->
-        <div class="quiz-card" data-level="medium">
+        <div th:each="quiz : ${quizzes}" class="quiz-card">
             <div class="quiz-header">
-                <span class="quiz-lang">☕ Java</span>
-                <span class="quiz-difficulty difficulty-medium">보통</span>
+                <span class="quiz-lang" th:text="${quiz.icon + ' ' + quiz.topic}">⚡ JavaScript</span>
+                <span class="quiz-difficulty"
+                      th:classappend="${quiz.difficulty == 'easy'} ? 'difficulty-easy' : (${quiz.difficulty == 'medium'} ? 'difficulty-medium' : 'difficulty-hard')"
+                      th:text="${quiz.difficulty == 'easy'} ? '쉬움' : (${quiz.difficulty == 'medium'} ? '보통' : '어려움')">쉬움</span>
             </div>
-            <h3>Java 객체지향 개념</h3>
-            <p>클래스, 상속, 다형성, 캡슐화 등 자바의 핵심인 객체지향(OOP) 개념을 테스트합니다.</p>
+            <h3 th:text="${quiz.title}">퀴즈 제목</h3>
+            <p th:text="${quiz.description}">설명</p>
             <div class="quiz-meta">
-                <span>📋 15문제</span>
-                <span>⏱️ 20분</span>
-                <span>👥 987명 응시</span>
+                <span th:text="'📋 ' + ${quiz.questionCount} + '문제'">📋 5문제</span>
+                <span th:text="'⏱️ ' + ${quiz.timeLimit} + '분'">⏱️ 15분</span>
             </div>
-            <button class="btn-quiz" onclick="alert('퀴즈를 시작합니다!')">퀴즈 시작 ▶</button>
-        </div>
-
-        <!-- SQL Quiz -->
-        <div class="quiz-card" data-level="medium">
-            <div class="quiz-header">
-                <span class="quiz-lang">🗄️ SQL</span>
-                <span class="quiz-difficulty difficulty-medium">보통</span>
-            </div>
-            <h3>SQL 쿼리 작성</h3>
-            <p>SELECT, JOIN, GROUP BY, HAVING 등 실무에서 자주 쓰이는 데이터베이스 쿼리 작성을 테스트합니다.</p>
-            <div class="quiz-meta">
-                <span>📋 12문제</span>
-                <span>⏱️ 25분</span>
-                <span>👥 756명 응시</span>
-            </div>
-            <button class="btn-quiz" onclick="alert('퀴즈를 시작합니다!')">퀴즈 시작 ▶</button>
-        </div>
-
-        <!-- HTML/CSS Quiz -->
-        <div class="quiz-card" data-level="easy">
-            <div class="quiz-header">
-                <span class="quiz-lang">🎨 HTML/CSS</span>
-                <span class="quiz-difficulty difficulty-easy">쉬움</span>
-            </div>
-            <h3>HTML & CSS 기초</h3>
-            <p>시맨틱 태그, 선택자, 박스 모델(Margin/Padding), Flexbox 등 웹의 화면을 구성하는 기초를 테스트합니다.</p>
-            <div class="quiz-meta">
-                <span>📋 15문제</span>
-                <span>⏱️ 15분</span>
-                <span>👥 1,567명 응시</span>
-            </div>
-            <button class="btn-quiz" onclick="alert('퀴즈를 시작합니다!')">퀴즈 시작 ▶</button>
-        </div>
-
-        <!-- Python Quiz -->
-        <div class="quiz-card" data-level="easy">
-            <div class="quiz-header">
-                <span class="quiz-lang">🐍 Python</span>
-                <span class="quiz-difficulty difficulty-easy">쉬움</span>
-            </div>
-            <h3>Python 자료구조와 함수</h3>
-            <p>리스트, 튜플, 딕셔너리와 같은 자료구조의 활용법 및 기본적인 함수 작성법을 테스트합니다.</p>
-            <div class="quiz-meta">
-                <span>📋 12문제</span>
-                <span>⏱️ 15분</span>
-                <span>👥 2,345명 응시</span>
-            </div>
-            <button class="btn-quiz" onclick="alert('퀴즈를 시작합니다!')">퀴즈 시작 ▶</button>
-        </div>
-
-        <!-- Spring Boot Quiz -->
-        <div class="quiz-card" data-level="hard">
-            <div class="quiz-header">
-                <span class="quiz-lang">🌱 Spring Boot</span>
-                <span class="quiz-difficulty difficulty-hard">어려움</span>
-            </div>
-            <h3>Spring Boot 심화</h3>
-            <p>의존성 주입(DI), AOP(관점 지향 프로그래밍), Spring Security 구조 등 심화 개념을 테스트합니다.</p>
-            <div class="quiz-meta">
-                <span>📋 20문제</span>
-                <span>⏱️ 30분</span>
-                <span>👥 432명 응시</span>
-            </div>
-            <button class="btn-quiz" onclick="alert('퀴즈를 시작합니다!')">퀴즈 시작 ▶</button>
+            <!-- 로그인한 경우: 퀴즈 시작 링크 -->
+            <a sec:authorize="isAuthenticated()"
+               th:href="@{/quiz/{id}(id=${quiz.id})}" class="btn-quiz">퀴즈 시작 ▶</a>
+            <!-- 비로그인: 로그인 안내 -->
+            <a sec:authorize="isAnonymous()" href="/login" class="login-notice">로그인 후 풀 수 있어요 🔒</a>
         </div>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <div class="f-logo">💻 Code<span>Edu</span></div>
-    <div>© 2025 CodeEdu. 코딩은 즐거워요! 🎈</div>
-    <div>개인정보처리방침 · 이용약관 · 문의하기</div>
-</footer>
+<footer th:replace="~{index :: footer}"></footer>
 
-<script>
-    function filterQuiz(level, btn) {
-        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.quiz-card').forEach(c => {
-            c.style.display = (level === 'all' || c.dataset.level === level) ? 'flex' : 'none';
-        });
-    }
-</script>
 </body>
 </html>

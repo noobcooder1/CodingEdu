@@ -1,0 +1,71 @@
+package com.codingedu.service;
+
+import com.codingedu.entity.*;
+import com.codingedu.repository.QuizRepository;
+import com.codingedu.repository.QuizResultRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+@Transactional(readOnly = true)
+public class QuizService {
+
+    private final QuizRepository quizRepository;
+    private final QuizResultRepository quizResultRepository;
+
+    public QuizService(QuizRepository quizRepository, QuizResultRepository quizResultRepository) {
+        this.quizRepository = quizRepository;
+        this.quizResultRepository = quizResultRepository;
+    }
+
+    public List<Quiz> getQuizzesByDifficulty(String difficulty) {
+        if ("all".equals(difficulty)) {
+            return quizRepository.findAllByOrderByCreatedAtAsc();
+        }
+        return quizRepository.findByDifficultyOrderByCreatedAtAsc(difficulty);
+    }
+
+    public Quiz getQuizById(Long id) {
+        return quizRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 퀴즈입니다."));
+    }
+
+    public QuizResult getResultById(Long id) {
+        return quizResultRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 결과입니다."));
+    }
+
+    public List<QuizResult> getUserResults(User user) {
+        return quizResultRepository.findByUserOrderByCreatedAtDesc(user);
+    }
+
+    @Transactional
+    public QuizResult submitQuiz(Long quizId, Map<Long, Long> userAnswers, User user) {
+        Quiz quiz = getQuizById(quizId);
+        int score = 0;
+        for (Question question : quiz.getQuestions()) {
+            Long selectedChoiceId = userAnswers.get(question.getId());
+            if (selectedChoiceId != null) {
+                for (Choice choice : question.getChoices()) {
+                    if (choice.getId().equals(selectedChoiceId) && choice.isCorrect()) {
+                        score++;
+                        break;
+                    }
+                }
+            }
+        }
+        QuizResult result = new QuizResult();
+        result.setUser(user);
+        result.setQuiz(quiz);
+        result.setScore(score);
+        result.setTotalQuestions(quiz.getQuestions().size());
+        return quizResultRepository.save(result);
+    }
+
+    public boolean hasData() {
+        return quizRepository.count() > 0;
+    }
+}

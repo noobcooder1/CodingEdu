@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${quiz.title} + ' - CodeEdu'">퀴즈</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <style>
+        .quiz-take-wrap { max-width: 800px; margin: 40px auto 80px; }
+
+        .quiz-info-bar {
+            background: var(--white); border-radius: 20px; padding: 24px 32px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05); border: 1px solid #eee; margin-bottom: 16px;
+        }
+        .quiz-info-title { font-size: 1.4rem; font-weight: 900; color: var(--text); }
+        .quiz-topic { font-size: .9rem; color: #888; font-weight: 700; margin-bottom: 4px; }
+        .quiz-timer { font-size: 1.1rem; font-weight: 900; color: var(--blue); background: var(--blue-light); padding: 8px 18px; border-radius: 50px; }
+
+        .progress-bar { height: 6px; background: #eee; border-radius: 10px; overflow: hidden; margin-bottom: 6px; }
+        .progress-fill { height: 100%; background: var(--blue); border-radius: 10px; transition: width .3s; width: 0%; }
+        .progress-label { text-align: right; font-size: .8rem; color: #888; margin-bottom: 28px; }
+
+        .q-card {
+            background: var(--white); border-radius: 20px; padding: 32px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05); border: 1px solid #eee; margin-bottom: 20px;
+        }
+        .q-num { font-size: .85rem; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+        .q-text { font-size: 1.1rem; font-weight: 800; color: var(--text); line-height: 1.6; margin-bottom: 24px; }
+
+        .choices { display: flex; flex-direction: column; gap: 12px; }
+        .choice-label {
+            display: flex; align-items: center; gap: 14px; padding: 16px 20px;
+            border-radius: 14px; border: 2px solid #eaeaea; cursor: pointer;
+            transition: all .2s; background: #fafafa;
+        }
+        .choice-label:hover { border-color: var(--blue); background: var(--blue-light); }
+        .choice-label input[type="radio"] { display: none; }
+        .choice-label:has(input:checked) { border-color: var(--blue); background: var(--blue-light); }
+        .choice-marker {
+            width: 32px; height: 32px; border-radius: 50%; border: 2px solid #ddd;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: .85rem; flex-shrink: 0; background: white;
+            transition: all .2s;
+        }
+        .choice-label:has(input:checked) .choice-marker { background: var(--blue); border-color: var(--blue); color: white; }
+        .choice-text { font-size: 1rem; color: #333; font-weight: 600; }
+
+        .submit-section {
+            background: var(--white); border-radius: 20px; padding: 32px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05); border: 1px solid #eee; text-align: center;
+        }
+        .submit-warning { font-size: .9rem; color: #888; margin-bottom: 20px; }
+        .btn-submit-quiz {
+            background: var(--blue); color: white; border: none; padding: 16px 60px;
+            border-radius: 50px; font-size: 1.1rem; font-weight: 900; cursor: pointer;
+            transition: all .2s; box-shadow: 0 4px 16px rgba(21,101,192,0.3);
+        }
+        .btn-submit-quiz:hover { background: var(--blue-mid); transform: translateY(-3px); }
+    </style>
+</head>
+<body style="background: var(--gray);">
+
+<!-- NAV -->
+<nav th:replace="~{index :: nav}"></nav>
+
+<div class="quiz-take-wrap">
+    <!-- 상단 정보 바 -->
+    <div class="quiz-info-bar">
+        <div>
+            <div class="quiz-topic" th:text="${quiz.icon + ' ' + quiz.topic}">⚡ JavaScript</div>
+            <div class="quiz-info-title" th:text="${quiz.title}">퀴즈 제목</div>
+        </div>
+        <div style="display:flex; gap:16px; align-items:center; font-size:.9rem; color:#666;">
+            <span th:text="'📋 ' + ${quiz.questionCount} + '문제'">📋 5문제</span>
+            <div class="quiz-timer">⏱️ <span id="timer-display" th:attr="data-seconds=${quiz.timeLimit * 60}">00:00</span></div>
+        </div>
+    </div>
+
+    <!-- 진행률 -->
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-label">
+        <span id="answered-count">0</span> / <span th:text="${quiz.questionCount}">5</span> 답변 완료
+    </div>
+
+    <!-- 퀴즈 폼 -->
+    <form th:action="@{/quiz/{id}/submit(id=${quiz.id})}" method="POST">
+        <div th:each="question, stat : ${quiz.questions}" class="q-card">
+            <div class="q-num" th:text="'Q' + ${stat.count} + ' / ' + ${quiz.questionCount}">Q1 / 5</div>
+            <div class="q-text" th:text="${question.questionText}">문제 내용</div>
+            <div class="choices">
+                <label th:each="choice, ci : ${question.choices}" class="choice-label">
+                    <input type="radio"
+                           th:name="'answer_' + ${question.id}"
+                           th:value="${choice.id}"
+                           class="q-radio" required>
+                    <div class="choice-marker"
+                         th:text="${ci.index == 0 ? 'A' : ci.index == 1 ? 'B' : ci.index == 2 ? 'C' : 'D'}">A</div>
+                    <span class="choice-text" th:text="${choice.choiceText}">선택지</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- 제출 -->
+        <div class="submit-section">
+            <div class="submit-warning">⚠️ 모든 문제에 답변 후 제출하세요. 제출 후에는 수정할 수 없습니다.</div>
+            <button type="submit" class="btn-submit-quiz"
+                    onclick="return confirm('퀴즈를 제출하시겠습니까?')">✅ 퀴즈 제출하기</button>
+        </div>
+    </form>
+</div>
+
+<!-- FOOTER -->
+<footer th:replace="~{index :: footer}"></footer>
+
+<script>
+    // 타이머
+    const timerEl = document.getElementById('timer-display');
+    let remaining = parseInt(timerEl.dataset.seconds, 10);
+    function updateTimer() {
+        const m = String(Math.floor(remaining / 60)).padStart(2, '0');
+        const s = String(remaining % 60).padStart(2, '0');
+        timerEl.textContent = m + ':' + s;
+    }
+    updateTimer();
+    const iv = setInterval(() => {
+        if (remaining <= 0) { clearInterval(iv); timerEl.textContent = '시간 초과!'; return; }
+        remaining--;
+        updateTimer();
+    }, 1000);
+
+    // 진행률
+    const radios = document.querySelectorAll('.q-radio');
+    const answeredEl = document.getElementById('answered-count');
+    const fillEl = document.getElementById('progress-fill');
+    function updateProgress() {
+        const names = new Set([...radios].map(r => r.name));
+        const done = [...names].filter(n => document.querySelector(`input[name="${n}"]:checked`)).length;
+        answeredEl.textContent = done;
+        fillEl.style.width = (names.size ? done / names.size * 100 : 0) + '%';
+    }
+    radios.forEach(r => r.addEventListener('change', updateProgress));
+</script>
+</body>
+</html>
