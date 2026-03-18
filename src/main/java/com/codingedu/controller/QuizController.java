@@ -31,13 +31,19 @@ public class QuizController {
         this.userService = userService;
     }
 
-    // 1. 퀴즈 목록
-    @GetMapping("/quiz")
+    // 1. 기존 DB 기반 퀴즈 목록
+    @GetMapping("/quiz-old")
     public String list(@RequestParam(name = "difficulty", defaultValue = "all") String difficulty,
                        Model model) {
         model.addAttribute("quizzes", quizService.getQuizzesByDifficulty(difficulty));
         model.addAttribute("currentDifficulty", difficulty);
         return "quiz";
+    }
+
+    // 새로운 코딩 퀴즈 (퀴즈 탭 클릭 시 진입)
+    @GetMapping("/quiz")
+    public String codingQuiz() {
+        return "coding-quiz";
     }
 
     // 2. 퀴즈 풀기 페이지 (로그인 필요)
