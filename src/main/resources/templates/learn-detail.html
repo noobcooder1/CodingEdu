@@ -12,6 +12,7 @@
     <title th:text="${langTitle + ' - CodeEdu'}">학습하기 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
         /* ── 전체 레이아웃 ── */
         .learn-wrap {
@@ -319,8 +320,13 @@
             <div id="topicList"></div>
         </div>
 
-        <!-- 노트 영역 (로그인 시) -->
-        <div th:if="${isLoggedIn}" id="note-panel" class="note-panel">
+    </aside>
+
+    <!-- ── 메인 콘텐츠 ── -->
+    <main class="main-content" id="mainContent"></main>
+
+    <aside th:if="${isLoggedIn}" class="notes-rail">
+        <div id="note-panel" class="note-panel">
             <div class="note-title">📝 강의 노트</div>
             <textarea id="note-area"
                       placeholder="이 강의에 대한 메모를 남겨보세요..."
@@ -332,9 +338,6 @@
             </div>
         </div>
     </aside>
-
-    <!-- ── 메인 콘텐츠 ── -->
-    <main class="main-content" id="mainContent"></main>
 
 </div>
 

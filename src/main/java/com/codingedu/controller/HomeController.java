@@ -45,6 +45,9 @@ public class HomeController {
     public String index(@AuthenticationPrincipal CustomUserDetails userDetails, Model model) {
         model.addAttribute("siteUserCount", userService.countAll());
         model.addAttribute("siteCourseCount", lessonService.getAllCourses().size());
+        model.addAttribute("siteLessonCount", lessonService.getAllCourses().stream()
+                .mapToInt(course -> course.getLessonCount())
+                .sum());
         model.addAttribute("siteQuizCount", quizService.countAll());
 
         if (userDetails != null) {

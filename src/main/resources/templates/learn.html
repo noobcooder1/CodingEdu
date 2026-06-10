@@ -12,6 +12,7 @@
     <title>학습하기 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
         .filter-bar { display: flex; gap: 10px; margin-bottom: 44px; flex-wrap: wrap; }
         .filter-btn {
@@ -99,13 +100,15 @@
 
 
 <!-- PAGE HEADER -->
-<section class="page-header reveal">
-    <h1>📚 학습하기</h1>
-    <p>원하는 프로그래밍 언어를 선택하고 학습을 시작하세요!</p>
+<section class="page-header learn-page-header reveal">
+    <span class="page-kicker">COURSES</span>
+    <h1>강의</h1>
+    <p>관심 있는 강의를 선택하고 오늘의 학습을 시작하세요.</p>
 </section>
 
 <!-- MAIN CONTENT -->
-<section style="padding: 48px 5%;">
+<section class="learn-dashboard">
+  <div class="learn-catalog">
 
     <!-- 카테고리 필터 + 검색 -->
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 44px;">
@@ -197,7 +200,19 @@
             </div>
         </div>
     </th:block>
-
+  </div>
+  <aside class="progress-summary">
+      <span class="page-kicker">MY LEARNING</span>
+      <h2>학습 현황</h2>
+      <div class="progress-ring"><strong th:text="${completedCounts != null ? #aggregates.sum(completedCounts.values()) : 0}">0</strong><span>완료 강의</span></div>
+      <div class="summary-list">
+          <div th:each="c : ${courses}" th:with="done=${completedCounts != null ? (completedCounts[c.lang] ?: 0) : 0}">
+              <span th:text="${c.title}">HTML</span>
+              <strong th:text="${done} + '/' + ${c.lessonCount}">0/0</strong>
+          </div>
+      </div>
+      <a href="/mypage" class="summary-link">학습 기록 보기</a>
+  </aside>
 </section>
 
 <!-- FOOTER -->

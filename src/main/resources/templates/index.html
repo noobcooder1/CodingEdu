@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/tailwind.css">
 <link rel="stylesheet" href="/css/landing.css">
+<link rel="stylesheet" href="/css/design-refresh.css">
 </head>
 <body class="page-index">
 
@@ -23,10 +24,12 @@
   </a>
 
   <div class="nav-links">
+    <a href="/">홈</a>
     <a href="/learn">학습하기</a>
     <a href="/quiz">퀴즈</a>
     <a href="/challenge">챌린지</a>
     <a href="/community">커뮤니티</a>
+    <a href="/mypage" sec:authorize="isAuthenticated()">마이페이지</a>
   </div>
 
   <div class="nav-right">
@@ -57,145 +60,73 @@
   </div>
 </nav>
 
-<!-- ══════ HERO ══════ -->
-<section class="hero" id="heroSection">
-  <div class="hero-grad-layer" id="heroGrad"></div>
-  <div class="hero-glow-follow" id="heroGlow"></div>
-  <div class="hero-text" id="heroText">
-
-    <!-- 비로그인 -->
-    <th:block sec:authorize="isAnonymous()">
-      <div class="hero-badge">🎉 지금 무료로 시작하세요</div>
-      <h1 class="hero-title-stack">
-        <span class="hero-title-line">코딩이</span>
-        <span class="hero-title-line"><em>처음</em>이어도</span>
-        <span class="hero-title-line">괜찮아요</span>
-      </h1>
-      <h2>쉽고 재미있게 프로그래밍을 배워보세요.<br>입문자도 즐겁게 성장할 수 있어요!</h2>
-      <div class="hero-actions">
-        <a href="/learn" class="btn-start">시작하기 →</a>
-        <a href="/register" class="btn-start-ghost">무료 회원가입</a>
-      </div>
-    </th:block>
-
-    <!-- 로그인 -->
-    <th:block sec:authorize="isAuthenticated()">
-      <div class="hero-badge">👋 다시 오셨네요!</div>
-      <h1 th:text="${dashUser != null ? dashUser.nickname + '님,' : '안녕하세요,'}">안녕하세요,</h1>
-      <h2>한 걸음씩 꾸준히. 오늘의 학습을 이어가세요.</h2>
-      <div class="mini-dash">
-        <a href="/learn" class="dash-card">
-          <div class="dash-num" th:text="${totalLessons > 0 ? completedLessons + '/' + totalLessons : '0'}">0</div>
-          <div class="dash-label">📚 강의 완료</div>
-        </a>
-        <a href="/quiz" class="dash-card">
-          <div class="dash-num" th:text="${totalQuizzesTaken}">0</div>
-          <div class="dash-label">🎯 퀴즈 응시</div>
-        </a>
-        <a href="/mypage" class="dash-card">
-          <div class="dash-num" th:text="${bestGrade != null ? bestGrade + '등급' : '-'}">-</div>
-          <div class="dash-label">🏆 최고 등급</div>
-        </a>
-      </div>
-      <div class="hero-actions">
-        <a href="/learn" class="btn-start">학습 이어하기 →</a>
-      </div>
-    </th:block>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num"><span class="count-up" th:data-target="${siteUserCount}">0</span>명</div>
-        <div class="stat-label">학습자</div>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="stat">
-        <div class="stat-num"><span class="count-up" th:data-target="${siteCourseCount}">0</span>개</div>
-        <div class="stat-label">강의</div>
-      </div>
-      <div class="stat-sep"></div>
-      <div class="stat">
-        <div class="stat-num"><span class="count-up" th:data-target="${siteQuizCount}">0</span>개</div>
-        <div class="stat-label">퀴즈</div>
+<main class="home-frame">
+  <section class="home-hero">
+    <div class="home-hero-copy">
+      <span class="home-eyebrow" sec:authorize="isAnonymous()">처음이어도 괜찮아요</span>
+      <span class="home-eyebrow" sec:authorize="isAuthenticated()"
+            th:text="${dashUser != null ? dashUser.nickname + '님, 오늘도 반가워요' : '오늘도 반가워요'}">오늘도 반가워요</span>
+      <h1>코딩, <em>함께 배우고</em><br>성장하는 공간</h1>
+      <p>다양한 강의와 퀴즈, 챌린지로<br>나만의 성장을 기록해보세요.</p>
+      <div class="home-hero-actions">
+        <a href="/learn" class="home-primary-btn" sec:authorize="isAnonymous()">강의 시작하기</a>
+        <a href="/learn" class="home-primary-btn" sec:authorize="isAuthenticated()">학습 이어하기</a>
+        <a href="#recommendedCourses" class="home-secondary-btn">둘러보기</a>
       </div>
     </div>
-  </div>
-
-</section>
-
-<!-- ══════ LANGUAGES ══════ -->
-<section class="lang-section">
-  <div class="section-header reveal">
-    <span class="section-eyebrow">Curriculum</span>
-    <h2 class="section-title">언어별 학습</h2>
-    <p class="section-sub">관심 있는 언어를 선택해서 지금 바로 시작해보세요</p>
-  </div>
-
-  <div class="tabs reveal">
-    <button class="tab active" onclick="filterCards('all', this)">전체</button>
-    <button class="tab" onclick="filterCards('web', this)">웹 개발</button>
-  </div>
-
-  <div class="cards-grid" id="lang-cards">
-    <div class="lang-card reveal reveal-delay-1" data-cat="web" data-lang="html">
-      <span class="lang-icon">🌐</span>
-      <div class="lang-name">HTML</div>
-      <div class="lang-desc">웹 페이지 구조</div>
-      <span class="lang-badge badge-intro">입문</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['html'] != null ? langProgressMap['html'] : 0) + '%'}"></div></div>
+    <div class="home-hero-art">
+      <img src="/images/coding-hero-white.jpg" alt="노트북으로 코딩을 공부하는 학습자">
     </div>
-    <div class="lang-card reveal reveal-delay-2" data-cat="web" data-lang="css">
-      <span class="lang-icon">🎨</span>
-      <div class="lang-name">CSS</div>
-      <div class="lang-desc">웹 페이지 스타일링</div>
-      <span class="lang-badge badge-intro">입문</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['css'] != null ? langProgressMap['css'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-3" data-cat="web" data-lang="javascript">
-      <span class="lang-icon">⚡</span>
-      <div class="lang-name">JavaScript</div>
-      <div class="lang-desc">웹 동적 기능</div>
-      <span class="lang-badge badge-intro">입문</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}"></div></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════ FEATURES ══════ -->
-<section class="features-section">
-  <div class="section-header reveal">
-    <span class="section-eyebrow">Features</span>
-    <h2 class="section-title">더 많은 기능</h2>
-    <p class="section-sub">학습만이 아닌 퀴즈, 챌린지, 커뮤니티로 완성하는 코딩 여정</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card quiz reveal reveal-delay-1">
-      <div class="feature-icon">📝</div>
-      <div class="feature-title">퀴즈</div>
-      <div class="feature-desc">학습 후 바로 테스트! 개념을 확실하게 내 것으로 만들어보세요. 틀려도 괜찮아요 😊</div>
-      <button class="feature-btn" onclick="location.href='/quiz'">퀴즈 풀기 →</button>
-    </div>
-    <div class="feature-card challenge reveal reveal-delay-2">
-      <div class="feature-icon">🏆</div>
-      <div class="feature-title">챌린지</div>
-      <div class="feature-desc">미니 프로젝트로 실전 감각을 키워보세요. 완성하면 뱃지도 드려요! 🎖️</div>
-      <button class="feature-btn" onclick="location.href='/challenge'">챌린지 시작 →</button>
-    </div>
-    <div class="feature-card community reveal reveal-delay-3">
-      <div class="feature-icon">💬</div>
-      <div class="feature-title">커뮤니티</div>
-      <div class="feature-desc">질문하고 답변하고, 학습 경험을 나눠보세요. 함께라면 더 빠르게 성장해요 🌱</div>
-      <button class="feature-btn" onclick="location.href='/community'">참여하기 →</button>
-    </div>
-  </div>
-</section>
+  <section class="home-metrics" aria-label="서비스 현황">
+    <a href="/learn" class="metric-card">
+      <span class="metric-value"><b class="count-up" th:data-target="${siteLessonCount}">0</b></span>
+      <span class="metric-label">완료할 강의</span>
+      <img class="metric-icon" src="/images/metrics/metric-lessons.png" alt="" aria-hidden="true">
+    </a>
+    <a href="/learn" class="metric-card">
+      <span class="metric-value"><b class="count-up" th:data-target="${siteCourseCount}">0</b></span>
+      <span class="metric-label">학습 코스</span>
+      <img class="metric-icon" src="/images/metrics/metric-courses.png" alt="" aria-hidden="true">
+    </a>
+    <a href="/quiz" class="metric-card">
+      <span class="metric-value"><b class="count-up" th:data-target="${siteQuizCount}">0</b></span>
+      <span class="metric-label">도전할 퀴즈</span>
+      <img class="metric-icon" src="/images/metrics/metric-quiz.png" alt="" aria-hidden="true">
+    </a>
+    <a href="/community" class="metric-card">
+      <span class="metric-value"><b class="count-up" th:data-target="${siteUserCount}">0</b></span>
+      <span class="metric-label">함께하는 학습자</span>
+      <img class="metric-icon" src="/images/metrics/metric-learners.png" alt="" aria-hidden="true">
+    </a>
+  </section>
 
-<!-- ══════ CTA BANNER ══════ -->
-<div class="cta-banner reveal">
-  <h2>지금 바로 시작해볼까요? 🚀</h2>
-  <p>무료로 가입하고 오늘부터 코딩을 배워보세요. 어렵지 않아요!</p>
-  <a href="/register" class="btn-cta-big" sec:authorize="isAnonymous()">🎉 무료로 시작하기</a>
-  <a href="/learn"    class="btn-cta-big" sec:authorize="isAuthenticated()">📚 학습 이어하기</a>
-</div>
+  <section class="recommended-section" id="recommendedCourses">
+    <div class="recommended-heading">
+      <h2>추천 강의</h2>
+      <a href="/learn">전체 보기 <span>›</span></a>
+    </div>
+    <div class="recommended-grid">
+      <a href="/learn/html" class="course-card course-html">
+        <div class="course-cover"><span class="course-logo">HTML</span><span class="cover-code">&lt; / &gt;</span></div>
+        <div class="course-info"><h3>WEB1 - HTML &amp; Internet</h3><p>웹의 기본 구조부터 차근차근</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['html'] != null ? langProgressMap['html'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['html'] != null ? langProgressMap['html'] : 0) + '%'}"></i></span></div>
+      </a>
+      <a href="/learn/css" class="course-card course-css">
+        <div class="course-cover"><span class="course-logo">CSS</span><span class="cover-code">{ }</span></div>
+        <div class="course-info"><h3>WEB2 - CSS</h3><p>웹 페이지를 아름답게 디자인하기</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['css'] != null ? langProgressMap['css'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['css'] != null ? langProgressMap['css'] : 0) + '%'}"></i></span></div>
+      </a>
+      <a href="/learn/javascript" class="course-card course-js">
+        <div class="course-cover"><span class="course-logo">JS</span><span class="cover-code">( ) =&gt;</span></div>
+        <div class="course-info"><h3>WEB2 - JavaScript</h3><p>웹에 생동감 있는 기능 더하기</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}"></i></span></div>
+      </a>
+      <a href="/challenge" class="course-card course-project">
+        <div class="course-cover"><span class="course-logo">UI</span><span class="cover-code">⌘ + K</span></div>
+        <div class="course-info"><h3>반응형 웹 프로젝트</h3><p>배운 내용을 실전에서 완성하기</p><span class="course-progress-label">프로젝트 챌린지</span><span class="course-progress"><i style="width:20%"></i></span></div>
+      </a>
+    </div>
+  </section>
+</main>
 
 <!-- ══════ FOOTER ══════ -->
 <th:block th:fragment="footer">
@@ -217,87 +148,6 @@
 </th:block>
 
 <script>
-  /* ── Card click → language page ── */
-  document.querySelectorAll('.lang-card').forEach(function (card) {
-    card.addEventListener('click', function () {
-      location.href = '/learn/' + card.dataset.lang;
-    });
-  });
-
-  /* ── Tab filter ── */
-  function filterCards(cat, btn) {
-    document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
-    btn.classList.add('active');
-    document.querySelectorAll('.lang-card').forEach(function (c) {
-      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
-    });
-  }
-
-  /* ── Hero Interactive FX ── */
-  (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (window.matchMedia('(hover: none)').matches) return;
-    if (window.innerWidth <= 900) return;
-
-    var hero = document.getElementById('heroSection');
-    var glow = document.getElementById('heroGlow');
-    var grad = document.getElementById('heroGrad');
-    var text = document.getElementById('heroText');
-    if (!hero || !glow || !grad || !text) return;
-
-    var h1 = text.querySelector('h1');
-    var h2 = text.querySelector('h2');
-
-    var mouse = { x: 0.5, y: 0.5 };
-    var smooth = { x: 0.5, y: 0.5 };
-    var active = false;
-
-    hero.addEventListener('mouseenter', function () {
-      active = true;
-      glow.classList.add('visible');
-      grad.classList.add('visible');
-    });
-    hero.addEventListener('mouseleave', function () {
-      active = false;
-      glow.classList.remove('visible');
-      grad.classList.remove('visible');
-      if (h1) h1.style.transform = '';
-      if (h2) h2.style.transform = '';
-    });
-    hero.addEventListener('mousemove', function (e) {
-      var rect = hero.getBoundingClientRect();
-      mouse.x = (e.clientX - rect.left) / rect.width;
-      mouse.y = (e.clientY - rect.top) / rect.height;
-    });
-
-    function lerp(a, b, t) { return a + (b - a) * t; }
-
-    function tick() {
-      smooth.x = lerp(smooth.x, mouse.x, 0.08);
-      smooth.y = lerp(smooth.y, mouse.y, 0.08);
-
-      var px = (smooth.x * 100).toFixed(1);
-      var py = (smooth.y * 100).toFixed(1);
-
-      glow.style.left = px + '%';
-      glow.style.top = py + '%';
-
-      grad.style.background =
-        'radial-gradient(ellipse 80% 60% at ' + px + '% ' + py + '%, ' +
-        'rgba(16,185,129,0.07) 0%, rgba(45,212,191,0.04) 30%, transparent 70%)';
-
-      if (active) {
-        var ox = (smooth.x - 0.5) * 8;
-        var oy = (smooth.y - 0.5) * 6;
-        if (h1) h1.style.transform = 'translate(' + ox.toFixed(1) + 'px,' + oy.toFixed(1) + 'px)';
-        if (h2) h2.style.transform = 'translate(' + (ox * 0.4).toFixed(1) + 'px,' + (oy * 0.4).toFixed(1) + 'px)';
-      }
-
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  })();
-
   /* ── Number Count Up FX ── */
   document.addEventListener("DOMContentLoaded", function() {
     const counters = document.querySelectorAll(".count-up");
