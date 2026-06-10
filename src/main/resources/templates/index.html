@@ -133,10 +133,6 @@
   <div class="tabs reveal">
     <button class="tab active" onclick="filterCards('all', this)">전체</button>
     <button class="tab" onclick="filterCards('web', this)">웹 개발</button>
-    <button class="tab" onclick="filterCards('java', this)">Java 계열</button>
-    <button class="tab" onclick="filterCards('c', this)">C 계열</button>
-    <button class="tab" onclick="filterCards('mobile', this)">모바일</button>
-    <button class="tab" onclick="filterCards('etc', this)">기타</button>
   </div>
 
   <div class="cards-grid" id="lang-cards">
@@ -160,55 +156,6 @@
       <div class="lang-desc">웹 동적 기능</div>
       <span class="lang-badge badge-intro">입문</span>
       <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-4" data-cat="web" data-lang="typescript">
-      <span class="lang-icon">🔷</span>
-      <div class="lang-name">TypeScript</div>
-      <div class="lang-desc">타입 안전 JavaScript</div>
-      <span class="lang-badge badge-basic">초급</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['typescript'] != null ? langProgressMap['typescript'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-1" data-cat="java" data-lang="java">
-      <span class="lang-icon">☕</span>
-      <div class="lang-name">Java</div>
-      <div class="lang-desc">객체지향 프로그래밍</div>
-      <span class="lang-badge badge-intro">입문</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['java'] != null ? langProgressMap['java'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-2" data-cat="java" data-lang="kotlin">
-      <span class="lang-icon">🌱</span>
-      <div class="lang-name">Kotlin</div>
-      <div class="lang-desc">현대적 JVM 언어</div>
-      <span class="lang-badge badge-basic">초급</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['kotlin'] != null ? langProgressMap['kotlin'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-3" data-cat="c" data-lang="c">
-      <span class="lang-icon">🔧</span>
-      <div class="lang-name">C언어</div>
-      <div class="lang-desc">프로그래밍 기초</div>
-      <span class="lang-badge badge-intro">입문</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['c'] != null ? langProgressMap['c'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-4" data-cat="c" data-lang="cpp">
-      <span class="lang-icon">⚙️</span>
-      <div class="lang-name">C++</div>
-      <div class="lang-desc">고성능 프로그래밍</div>
-      <span class="lang-badge badge-basic">초급</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['cpp'] != null ? langProgressMap['cpp'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-1" data-cat="mobile" data-lang="swift">
-      <span class="lang-icon">📱</span>
-      <div class="lang-name">Swift</div>
-      <div class="lang-desc">iOS 앱 개발</div>
-      <span class="lang-badge badge-basic">초급</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['swift'] != null ? langProgressMap['swift'] : 0) + '%'}"></div></div>
-    </div>
-    <div class="lang-card reveal reveal-delay-2" data-cat="etc" data-lang="python">
-      <span class="lang-icon">🐍</span>
-      <div class="lang-name">Python</div>
-      <div class="lang-desc">AI / 데이터 분석</div>
-      <span class="lang-badge badge-intro">입문</span>
-      <div class="lang-bar-wrap"><div class="lang-bar" th:style="${'width:' + (langProgressMap != null and langProgressMap['python'] != null ? langProgressMap['python'] : 0) + '%'}"></div></div>
     </div>
   </div>
 </section>
@@ -337,7 +284,7 @@
 
       grad.style.background =
         'radial-gradient(ellipse 80% 60% at ' + px + '% ' + py + '%, ' +
-        'rgba(107,92,231,0.07) 0%, rgba(155,142,248,0.04) 30%, transparent 70%)';
+        'rgba(16,185,129,0.07) 0%, rgba(45,212,191,0.04) 30%, transparent 70%)';
 
       if (active) {
         var ox = (smooth.x - 0.5) * 8;

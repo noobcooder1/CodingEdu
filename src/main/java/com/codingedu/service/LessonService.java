@@ -2,8 +2,10 @@ package com.codingedu.service;
 
 import com.codingedu.entity.LearningProgress;
 import com.codingedu.entity.LessonCourse;
+import com.codingedu.entity.LessonCourseFavorite;
 import com.codingedu.entity.User;
 import com.codingedu.repository.LearningProgressRepository;
+import com.codingedu.repository.LessonCourseFavoriteRepository;
 import com.codingedu.repository.LessonCourseRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +21,14 @@ public class LessonService {
 
     private final LessonCourseRepository courseRepository;
     private final LearningProgressRepository progressRepository;
+    private final LessonCourseFavoriteRepository favoriteRepository;
 
     public LessonService(LessonCourseRepository courseRepository,
-                         LearningProgressRepository progressRepository) {
+                         LearningProgressRepository progressRepository,
+                         LessonCourseFavoriteRepository favoriteRepository) {
         this.courseRepository = courseRepository;
         this.progressRepository = progressRepository;
+        this.favoriteRepository = favoriteRepository;
     }
 
     public List<LessonCourse> getAllCourses() {
@@ -63,5 +68,29 @@ public class LessonService {
 
     public int getTotalCompletedCount(User user) {
         return progressRepository.countByUser(user);
+    }
+
+    // ── 즐겨찾기 ─────────────────────────────────────────────
+    @Transactional
+    public void toggleFavorite(User user, String lang) {
+        if (favoriteRepository.existsByUserAndLang(user, lang)) {
+            favoriteRepository.deleteByUserAndLang(user, lang);
+        } else {
+            LessonCourseFavorite fav = new LessonCourseFavorite();
+            fav.setUser(user);
+            fav.setLang(lang);
+            favoriteRepository.save(fav);
+        }
+    }
+
+    public Set<String> getFavoriteLangs(User user) {
+        try {
+            return favoriteRepository.findByUser(user).stream()
+                    .map(LessonCourseFavorite::getLang)
+                    .collect(Collectors.toSet());
+        } catch (Exception e) {
+            // 테이블이 아직 생성되지 않았을 경우 빈 Set 반환
+            return java.util.Collections.emptySet();
+        }
     }
 }

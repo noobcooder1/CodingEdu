@@ -60,11 +60,16 @@ public class SecurityConfig {
                 .failureUrl("/login?error=true")
                 .permitAll()
             )
+            .rememberMe(remember -> remember
+                .key("codingEduSecretKey2024")
+                .tokenValiditySeconds(60 * 60 * 24 * 30) // 30일
+                .rememberMeParameter("remember-me")
+            )
             .logout(logout -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
+                .deleteCookies("JSESSIONID", "remember-me")
                 .permitAll()
             );
 

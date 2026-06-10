@@ -290,16 +290,17 @@ public class DataInitializer implements CommandLineRunner {
 
     // ── 강의 코스 시드 (upsert) ──────────────────────────────────────
     private void seedLessonCourses() {
+        // html, css, javascript 외의 기존 강의 코스는 DB에서 삭제
+        lessonCourseRepository.findAll().forEach(lc -> {
+            String lang = lc.getLang();
+            if (!lang.equals("html") && !lang.equals("css") && !lang.equals("javascript")) {
+                lessonCourseRepository.delete(lc);
+            }
+        });
+
         upsertLc("html",       "WEB1 - HTML",          "🌐", "web",    "beginner",     9, "웹 페이지의 뼈대를 만드는 마크업 언어");
         upsertLc("css",        "WEB2 - CSS",            "🎨", "web",    "beginner",     6, "웹 페이지를 아름답게 꾸미는 스타일 언어");
-        upsertLc("javascript", "WEB3 - JavaScript",     "⚡", "web",    "beginner",     6, "웹 페이지에 동작을 추가하는 프로그래밍 언어");
-        upsertLc("typescript", "TypeScript",            "💙", "web",    "intermediate", 5, "타입 안전성을 갖춘 JavaScript 상위 집합");
-        upsertLc("java",       "Java 기초",             "☕", "java",   "beginner",     5, "객체지향 프로그래밍의 대표 언어");
-        upsertLc("kotlin",     "Kotlin",                "🟣", "java",   "intermediate", 4, "Android 공식 개발 언어");
-        upsertLc("c",          "C언어 기초",            "💻", "c",      "beginner",     5, "프로그래밍의 기본을 다지는 시스템 언어");
-        upsertLc("cpp",        "C++ 기초",              "⚙️", "c",      "intermediate", 4, "고성능 애플리케이션 개발 언어");
-        upsertLc("swift",      "Swift",                 "🦅", "mobile", "intermediate", 4, "iOS/macOS 앱 개발 언어");
-        upsertLc("python",     "Python",                "🐍", "etc",    "beginner",     5, "데이터 과학, AI, 웹 개발에 사용되는 언어");
+        upsertLc("javascript", "WEB2 - JavaScript",     "⚡", "web",    "beginner",     6, "웹 페이지에 동작을 추가하는 프로그래밍 언어");
     }
 
     private void upsertLc(String lang, String title, String icon,

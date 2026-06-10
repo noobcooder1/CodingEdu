@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta th:name="_csrf" th:content="${_csrf != null ? _csrf.token : ''}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf != null ? _csrf.headerName : 'X-CSRF-TOKEN'}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,7 +20,11 @@
             cursor: pointer; transition: all .2s;
         }
         .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-        .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 2px 14px rgba(107,92,231,0.28); }
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent-h));
+            color: #fff; border-color: transparent;
+            box-shadow: 0 4px 16px rgba(16,185,129,0.28);
+        }
 
         .learn-section { margin-bottom: 60px; }
         .learn-section.hidden { display: none; }
@@ -30,11 +36,11 @@
         .language-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
         .language-card {
             display: block; text-decoration: none; background: var(--bg-surface);
-            border: 1.5px solid var(--border-card); border-radius: 20px; padding: 24px 20px;
-            transition: all .2s cubic-bezier(0.34,1.56,0.64,1); color: var(--ink-1); position: relative;
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-card); border-radius: 24px; padding: 28px 24px;
+            transition: all 0.3s cubic-bezier(0.22,1,0.36,1); color: var(--ink-1); position: relative;
+            box-shadow: var(--shadow-sm); overflow: hidden;
         }
-        .language-card:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+        .language-card:hover { border-color: rgba(37,99,235,0.2); box-shadow: var(--shadow-xl); transform: translateY(-6px); }
 
         .lang-icon {
             width: 56px; height: 56px; border-radius: 14px;
@@ -64,8 +70,23 @@
         /* 진도 바 (로그인 시) */
         .progress-mini { margin-top: 12px; }
         .progress-mini-bar { height: 4px; background: var(--border); border-radius: 10px; overflow: hidden; }
-        .progress-mini-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--amber)); border-radius: 10px; }
+        .progress-mini-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--mint)); border-radius: 10px; }
         .progress-mini-label { font-size: .7rem; color: var(--ink-3); margin-top: 4px; }
+
+        /* 검색 */
+        #course-search:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+
+        /* 즐겨찾기 버튼 */
+        .fav-btn {
+            position: absolute; top: 12px; right: 12px;
+            background: none; border: none;
+            font-size: 1.3rem; cursor: pointer; padding: 4px; z-index: 2; line-height: 1;
+            transition: transform .2s;
+        }
+        .fav-btn:hover { transform: scale(1.25); }
 
         /* 모바일 대응 코드 */
         @media (max-width: 768px) { .language-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; } }
@@ -86,24 +107,60 @@
 <!-- MAIN CONTENT -->
 <section style="padding: 48px 5%;">
 
-    <!-- 카테고리 필터 -->
-    <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">전체</button>
-        <button class="filter-btn" data-filter="web">🌐 웹 개발</button>
-        <button class="filter-btn" data-filter="java">☕ Java 계열</button>
-        <button class="filter-btn" data-filter="c">💻 C 계열</button>
-        <button class="filter-btn" data-filter="mobile">📱 모바일</button>
-        <button class="filter-btn" data-filter="etc">🔧 기타 언어</button>
+    <!-- 카테고리 필터 + 검색 -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 44px;">
+        <div class="filter-bar" style="margin-bottom: 0;">
+            <button class="filter-btn active" data-filter="all">전체</button>
+            <button class="filter-btn" data-filter="web">🌐 웹 개발</button>
+
+        </div>
+        <div class="search-box">
+            <input type="text" id="course-search" placeholder="강의 검색"
+                   style="padding: 10px 18px; border-radius: 50px; border: 1.5px solid var(--border-card);
+                          background: var(--bg-surface); color: var(--ink-1); font-size: .875rem;
+                          width: 240px; outline: none; transition: all .2s;">
+        </div>
     </div>
 
     <!-- 카테고리별 섹션 -->
     <th:block th:with="
-        webCourses    = ${courses.?[category == 'web']},
-        javaCourses   = ${courses.?[category == 'java']},
-        cCourses      = ${courses.?[category == 'c']},
-        mobileCourses = ${courses.?[category == 'mobile']},
-        etcCourses    = ${courses.?[category == 'etc']}
+        favoriteCourses = ${favoriteLangs != null && !favoriteLangs.isEmpty()} ? ${courses.?[favoriteLangs.contains(lang)]} : null,
+        webCourses      = ${courses.?[category == 'web']}
     ">
+
+        <!-- 즐겨찾기 (로그인 시 상단에 표시) -->
+        <div class="learn-section" data-category="favorite" th:if="${favoriteCourses != null && !favoriteCourses.isEmpty()}">
+            <h2 class="category-title">⭐ 즐겨찾기</h2>
+            <div class="language-grid reveal">
+                <a th:each="c : ${favoriteCourses}"
+                   th:href="@{/learn/{lang}(lang=${c.lang})}"
+                   class="language-card"
+                   th:attr="data-lang=${c.lang}, data-favorite='true'">
+                    <button class="fav-btn"
+                            th:attr="data-lang=${c.lang}"
+                            th:text="'❤️'"
+                            onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite(this);">
+                    </button>
+                    <div class="lang-icon" th:classappend="${c.lang == 'javascript' ? 'js' : c.lang}"
+                         th:text="${c.icon}"></div>
+                    <h3 th:text="${c.title}">강의명</h3>
+                    <p th:text="${c.description}">설명</p>
+                    <div class="card-meta">
+                        <span class="lang-level" th:classappend="${c.level}"
+                              th:text="${c.level == 'beginner' ? '입문' : c.level == 'intermediate' ? '초급' : '중급'}">입문</span>
+                        <span class="lesson-count" th:text="'📖 ' + ${c.lessonCount} + '강'">📖 5강</span>
+                    </div>
+                    <div class="progress-mini" th:if="${completedCounts != null}"
+                         th:with="done=${completedCounts[c.lang] ?: 0}">
+                        <div class="progress-mini-bar">
+                            <div class="progress-mini-fill"
+                                 th:style="'width:' + ${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0} + '%'"></div>
+                        </div>
+                        <div class="progress-mini-label" th:text="${done} + '/' + ${c.lessonCount} + ' 완료'">0/5 완료</div>
+                    </div>
+                </a>
+            </div>
+        </div>
 
         <!-- 웹 개발 -->
         <div class="learn-section" data-category="web" th:if="${!webCourses.isEmpty()}">
@@ -111,8 +168,14 @@
             <div class="language-grid reveal">
                 <a th:each="c : ${webCourses}"
                    th:href="@{/learn/{lang}(lang=${c.lang})}"
-                   class="language-card">
-                    <div class="lang-icon" th:classappend="${c.lang == 'javascript' ? 'js' : c.lang == 'typescript' ? 'ts' : c.lang}"
+                   class="language-card"
+                   th:attr="data-lang=${c.lang}, data-favorite=${favoriteLangs != null && favoriteLangs.contains(c.lang) ? 'true' : 'false'}">
+                    <button class="fav-btn"
+                            th:attr="data-lang=${c.lang}"
+                            th:text="${favoriteLangs != null && favoriteLangs.contains(c.lang) ? '❤️' : '🤍'}"
+                            onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite(this);">
+                    </button>
+                    <div class="lang-icon" th:classappend="${c.lang == 'javascript' ? 'js' : c.lang}"
                          th:text="${c.icon}"></div>
                     <h3 th:text="${c.title}">강의명</h3>
                     <p th:text="${c.description}">설명</p>
@@ -133,114 +196,6 @@
                 </a>
             </div>
         </div>
-
-        <!-- Java 계열 -->
-        <div class="learn-section" data-category="java" th:if="${!javaCourses.isEmpty()}">
-            <h2 class="category-title">☕ Java 계열</h2>
-            <div class="language-grid reveal">
-                <a th:each="c : ${javaCourses}"
-                   th:href="@{/learn/{lang}(lang=${c.lang})}"
-                   class="language-card">
-                    <div class="lang-icon" th:classappend="${c.lang}" th:text="${c.icon}"></div>
-                    <h3 th:text="${c.title}">강의명</h3>
-                    <p th:text="${c.description}">설명</p>
-                    <div class="card-meta">
-                        <span class="lang-level" th:classappend="${c.level}"
-                              th:text="${c.level == 'beginner' ? '입문' : c.level == 'intermediate' ? '초급' : '중급'}">초급</span>
-                        <span class="lesson-count" th:text="'📖 ' + ${c.lessonCount} + '강'">📖 4강</span>
-                    </div>
-                    <div class="progress-mini" th:if="${completedCounts != null}"
-                         th:with="done=${completedCounts[c.lang] ?: 0}">
-                        <div class="progress-mini-bar">
-                            <div class="progress-mini-fill"
-                                 th:style="'width:' + ${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0} + '%'"></div>
-                        </div>
-                        <div class="progress-mini-label" th:text="${done} + '/' + ${c.lessonCount} + ' 완료'">0/4 완료</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- C 계열 -->
-        <div class="learn-section" data-category="c" th:if="${!cCourses.isEmpty()}">
-            <h2 class="category-title">💻 C 계열</h2>
-            <div class="language-grid reveal">
-                <a th:each="c : ${cCourses}"
-                   th:href="@{/learn/{lang}(lang=${c.lang})}"
-                   class="language-card">
-                    <div class="lang-icon" th:classappend="${c.lang}" th:text="${c.icon}"></div>
-                    <h3 th:text="${c.title}">강의명</h3>
-                    <p th:text="${c.description}">설명</p>
-                    <div class="card-meta">
-                        <span class="lang-level" th:classappend="${c.level}"
-                              th:text="${c.level == 'beginner' ? '입문' : c.level == 'intermediate' ? '초급' : '중급'}">입문</span>
-                        <span class="lesson-count" th:text="'📖 ' + ${c.lessonCount} + '강'">📖 5강</span>
-                    </div>
-                    <div class="progress-mini" th:if="${completedCounts != null}"
-                         th:with="done=${completedCounts[c.lang] ?: 0}">
-                        <div class="progress-mini-bar">
-                            <div class="progress-mini-fill"
-                                 th:style="'width:' + ${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0} + '%'"></div>
-                        </div>
-                        <div class="progress-mini-label" th:text="${done} + '/' + ${c.lessonCount} + ' 완료'">0/5 완료</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- 모바일 -->
-        <div class="learn-section" data-category="mobile" th:if="${!mobileCourses.isEmpty()}">
-            <h2 class="category-title">📱 모바일 개발</h2>
-            <div class="language-grid reveal">
-                <a th:each="c : ${mobileCourses}"
-                   th:href="@{/learn/{lang}(lang=${c.lang})}"
-                   class="language-card">
-                    <div class="lang-icon" th:classappend="${c.lang}" th:text="${c.icon}"></div>
-                    <h3 th:text="${c.title}">강의명</h3>
-                    <p th:text="${c.description}">설명</p>
-                    <div class="card-meta">
-                        <span class="lang-level" th:classappend="${c.level}"
-                              th:text="${c.level == 'beginner' ? '입문' : c.level == 'intermediate' ? '초급' : '중급'}">초급</span>
-                        <span class="lesson-count" th:text="'📖 ' + ${c.lessonCount} + '강'">📖 4강</span>
-                    </div>
-                    <div class="progress-mini" th:if="${completedCounts != null}"
-                         th:with="done=${completedCounts[c.lang] ?: 0}">
-                        <div class="progress-mini-bar">
-                            <div class="progress-mini-fill"
-                                 th:style="'width:' + ${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0} + '%'"></div>
-                        </div>
-                        <div class="progress-mini-label" th:text="${done} + '/' + ${c.lessonCount} + ' 완료'">0/4 완료</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <!-- 기타 -->
-        <div class="learn-section" data-category="etc" th:if="${!etcCourses.isEmpty()}">
-            <h2 class="category-title">🔧 기타 언어</h2>
-            <div class="language-grid reveal">
-                <a th:each="c : ${etcCourses}"
-                   th:href="@{/learn/{lang}(lang=${c.lang})}"
-                   class="language-card">
-                    <div class="lang-icon" th:classappend="${c.lang}" th:text="${c.icon}"></div>
-                    <h3 th:text="${c.title}">강의명</h3>
-                    <p th:text="${c.description}">설명</p>
-                    <div class="card-meta">
-                        <span class="lang-level" th:classappend="${c.level}"
-                              th:text="${c.level == 'beginner' ? '입문' : c.level == 'intermediate' ? '초급' : '중급'}">입문</span>
-                        <span class="lesson-count" th:text="'📖 ' + ${c.lessonCount} + '강'">📖 5강</span>
-                    </div>
-                    <div class="progress-mini" th:if="${completedCounts != null}"
-                         th:with="done=${completedCounts[c.lang] ?: 0}">
-                        <div class="progress-mini-bar">
-                            <div class="progress-mini-fill"
-                                 th:style="'width:' + ${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0} + '%'"></div>
-                        </div>
-                        <div class="progress-mini-label" th:text="${done} + '/' + ${c.lessonCount} + ' 완료'">0/5 완료</div>
-                    </div>
-                </a>
-            </div>
-        </div>
     </th:block>
 
 </section>
@@ -249,16 +204,72 @@
 <footer th:replace="~{index :: footer}"></footer>
 
 <script>
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            const filter = this.dataset.filter;
-            document.querySelectorAll('.learn-section').forEach(sec => {
-                sec.classList.toggle('hidden', filter !== 'all' && sec.dataset.category !== filter);
+    /* ── 필터 + 검색 ── */
+    const searchInput = document.getElementById('course-search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const sections = document.querySelectorAll('.learn-section');
+
+    function applyFilter() {
+        const activeBtn = document.querySelector('.filter-btn.active');
+        const filter = activeBtn ? activeBtn.dataset.filter : 'all';
+        const query = searchInput.value.trim().toLowerCase();
+
+        sections.forEach(sec => {
+            const cat = sec.dataset.category;
+            const cards = sec.querySelectorAll('.language-card');
+            let visibleCards = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc  = card.querySelector('p').textContent.toLowerCase();
+                const matchSearch = !query || title.includes(query) || desc.includes(query);
+                const matchCategory = filter === 'all' || cat === filter;
+
+                const show = matchSearch && matchCategory;
+                card.style.display = show ? '' : 'none';
+                if (show) visibleCards++;
             });
+
+            sec.classList.toggle('hidden', visibleCards === 0);
+        });
+    }
+
+    searchInput.addEventListener('input', applyFilter);
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            applyFilter();
         });
     });
+
+    /* ── 즐겨찾기 토글 ── */
+    async function toggleFavorite(btn) {
+        const lang = btn.dataset.lang;
+        const csrfToken = document.querySelector('meta[name="_csrf"]')?.content || '';
+        const csrfHeader = document.querySelector('meta[name="_csrf_header"]')?.content || 'X-CSRF-TOKEN';
+        try {
+            const res = await fetch(`/api/learn/${lang}/favorite`, {
+                method: 'POST',
+                headers: { [csrfHeader]: csrfToken }
+            });
+            if (res.status === 401 || res.status === 403) {
+                alert('로그인이 필요합니다.');
+                return;
+            }
+            const data = await res.json();
+            if (data.success) {
+                btn.textContent = data.favorite ? '❤️' : '🤍';
+                const card = btn.closest('.language-card');
+                card.dataset.favorite = data.favorite ? 'true' : 'false';
+                applyFilter();
+            } else if (data.message) {
+                alert(data.message);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
 </script>
 </body>
 </html>

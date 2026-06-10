@@ -3,6 +3,7 @@ package com.codingedu.controller;
 import com.codingedu.entity.LessonCourse;
 import com.codingedu.entity.LessonNote;
 import com.codingedu.entity.User;
+import com.codingedu.repository.LessonCourseFavoriteRepository;
 import com.codingedu.repository.LessonNoteRepository;
 import com.codingedu.security.CustomUserDetails;
 import com.codingedu.service.LessonContentService;
@@ -50,6 +51,7 @@ public class LearnController {
         if (userDetails != null) {
             User user = userService.findByUsername(userDetails.getUsername());
             model.addAttribute("completedCounts", lessonService.getCompletedCountMap(user));
+            model.addAttribute("favoriteLangs", lessonService.getFavoriteLangs(user));
         }
         return "learn";
     }
@@ -154,5 +156,24 @@ public class LearnController {
         String content = noteRepository.findByUserAndLangAndLessonIdx(user, lang, lessonIdx)
                 .map(LessonNote::getContent).orElse("");
         return ResponseEntity.ok(Map.of("success", true, "content", content));
+    }
+
+    // 즐겨찾기 토글 API (AJAX)
+    @PostMapping("/api/learn/{lang}/favorite")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> toggleFavorite(
+            @PathVariable String lang,
+            @AuthenticationPrincipal CustomUserDetails userDetails) {
+
+        if (userDetails == null) {
+            return ResponseEntity.status(401).body(Map.of("success", false, "message", "로그인이 필요합니다."));
+        }
+        if (!VALID_LANGS.contains(lang)) {
+            return ResponseEntity.badRequest().body(Map.of("success", false));
+        }
+        User user = userService.findByUsername(userDetails.getUsername());
+        lessonService.toggleFavorite(user, lang);
+        boolean isFavorite = lessonService.getFavoriteLangs(user).contains(lang);
+        return ResponseEntity.ok(Map.of("success", true, "favorite", isFavorite));
     }
 }

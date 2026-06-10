@@ -53,19 +53,21 @@
 
         .community-actions { display: flex; justify-content: flex-end; margin-bottom: 24px; }
         .btn-write {
-            display: inline-flex; align-items: center; gap: 8px; background: var(--accent);
-            color: var(--bg-surface); padding: 12px 28px; border-radius: 50px; font-weight: 800;
-            text-decoration: none; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 12px rgba(107,92,231,0.3);
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-h));
+            color: var(--bg-surface); padding: 12px 28px; border-radius: 14px; font-weight: 700;
+            text-decoration: none; transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
+            box-shadow: 0 6px 20px rgba(16,185,129,0.30), 0 2px 6px rgba(16,185,129,0.15);
         }
-        .btn-write:hover { transform: translateY(-3px); background: var(--accent-h); box-shadow: 0 6px 16px rgba(107,92,231,0.4); }
+        .btn-write:hover { transform: translateY(-3px) scale(1.02); filter: brightness(1.05); box-shadow: 0 10px 32px rgba(16,185,129,0.38), 0 4px 10px rgba(16,185,129,0.18); }
 
         .post-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
         .post-item {
-            display: flex; gap: 24px; background: var(--bg-surface); border-radius: 20px; padding: 24px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.04); text-decoration: none; color: inherit;
-            transition: transform .2s, box-shadow .2s; border: 1px solid var(--border);
+            display: flex; gap: 24px; background: var(--bg-surface); border-radius: 24px; padding: 26px;
+            box-shadow: var(--shadow-sm); text-decoration: none; color: inherit;
+            transition: all 0.3s cubic-bezier(0.22,1,0.36,1); border: 1px solid var(--border-card);
         }
-        .post-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: var(--accent-soft); }
+        .post-item:hover { transform: translateY(-4px) translateX(2px); box-shadow: var(--shadow-lg); border-color: rgba(16,185,129,0.15); }
         .post-item.hot { border-left: 6px solid var(--amber); background: linear-gradient(90deg, var(--amber-soft), #FFFFFF); }
         .post-category {
             padding: 6px 14px; border-radius: 50px; font-size: .8rem; font-weight: 800; height: fit-content; text-align: center;
@@ -115,9 +117,11 @@
         .search-result-info strong { color: var(--accent); }
 
         .sidebar-box {
-            background: var(--bg-surface); border-radius: 20px; padding: 28px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.05); border: 1px solid var(--border);
+            background: var(--bg-surface); border-radius: 24px; padding: 28px;
+            box-shadow: var(--shadow-md); border: 1px solid var(--border-card);
+            transition: all 0.3s ease;
         }
+        .sidebar-box:hover { box-shadow: var(--shadow-lg); border-color: rgba(16,185,129,0.08); }
         .sidebar-box h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 20px; color: var(--ink-1); padding-bottom: 12px; border-bottom: 2px dashed var(--border); display: flex; align-items: center; gap: 8px; }
         .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {

@@ -43,10 +43,7 @@ class LessonContentServiceTest {
     void lessonJsonHasExpectedLangKeysAndLessonArrays() {
         LessonContentService svc = new LessonContentService(new ObjectMapper(), new DefaultResourceLoader());
         Map<String, Object> payload = svc.buildCoursesPayload(List.of());
-        Set<String> expected = Set.of(
-                "html", "css", "javascript", "typescript", "java", "kotlin",
-                "c", "cpp", "swift", "python"
-        );
+        Set<String> expected = Set.of("html", "css", "javascript");
         assertThat(payload.keySet()).containsAll(expected);
         for (String lang : expected) {
             assertThat(payload.get(lang)).isInstanceOf(Map.class);
