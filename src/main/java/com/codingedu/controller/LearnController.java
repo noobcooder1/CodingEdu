@@ -48,11 +48,36 @@ public class LearnController {
         List<LessonCourse> courses = lessonService.getAllCourses();
         model.addAttribute("courses", courses);
 
+        Map<String, Integer> completedCounts = Map.of();
+        Set<String> favoriteLangs = Set.of();
         if (userDetails != null) {
             User user = userService.findByUsername(userDetails.getUsername());
-            model.addAttribute("completedCounts", lessonService.getCompletedCountMap(user));
-            model.addAttribute("favoriteLangs", lessonService.getFavoriteLangs(user));
+            completedCounts = lessonService.getCompletedCountMap(user);
+            favoriteLangs = lessonService.getFavoriteLangs(user);
         }
+        int totalLessons = courses.stream().mapToInt(LessonCourse::getLessonCount).sum();
+        int completedLessons = completedCounts.values().stream().mapToInt(Integer::intValue).sum();
+        Map<String, Integer> progressCounts = completedCounts;
+        long activeCourses = courses.stream()
+                .filter(course -> {
+                    int done = progressCounts.getOrDefault(course.getLang(), 0);
+                    return done > 0 && done < course.getLessonCount();
+                })
+                .count();
+        long completedCourses = courses.stream()
+                .filter(course -> course.getLessonCount() > 0
+                        && progressCounts.getOrDefault(course.getLang(), 0) >= course.getLessonCount())
+                .count();
+
+        model.addAttribute("completedCounts", completedCounts);
+        model.addAttribute("favoriteLangs", favoriteLangs);
+        model.addAttribute("totalLessons", totalLessons);
+        model.addAttribute("completedLessons", completedLessons);
+        model.addAttribute("progressPercent", totalLessons > 0
+                ? (int) Math.round(completedLessons * 100.0 / totalLessons)
+                : 0);
+        model.addAttribute("activeCourseCount", activeCourses);
+        model.addAttribute("completedCourseCount", completedCourses);
         return "learn";
     }
 

@@ -304,17 +304,454 @@
             from { opacity: 0; transform: translateX(-50%) translateY(20px); }
             to   { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
+
+        /* ── 강의 상세 작업 공간 ── */
+        body.page-lesson-detail {
+            min-width: 0;
+            background: #f7f8fc;
+            overflow-x: hidden;
+        }
+        .page-lesson-detail .learn-wrap {
+            width: 100%;
+            max-width: none;
+            min-height: 100vh !important;
+            margin: 0;
+            display: grid !important;
+            grid-template-columns: 270px minmax(0, 1fr) 340px !important;
+            background: var(--bg-surface);
+            border: 0;
+            border-radius: 0;
+            overflow: visible;
+        }
+        .page-lesson-detail .sidebar {
+            position: sticky;
+            top: 0 !important;
+            width: auto !important;
+            height: 100vh !important;
+            padding: 0;
+            background: var(--bg-surface);
+            border-right: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .lesson-brand {
+            min-height: 72px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--ink-1);
+            border-bottom: 1px solid var(--border);
+            font-size: 1.2rem;
+            font-weight: 850;
+            text-decoration: none;
+        }
+        .lesson-brand em { color: var(--accent); font-style: normal; }
+        .lesson-brand-mark {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 6px;
+            background: var(--accent);
+            color: #fff;
+            font-size: .68rem;
+        }
+        .lesson-course-summary {
+            padding: 23px 22px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .lesson-course-summary strong {
+            display: block;
+            margin-bottom: 13px;
+            color: var(--ink-1);
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+        .lesson-course-progress-copy {
+            margin-bottom: 7px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--ink-3);
+            font-size: .76rem;
+            font-weight: 700;
+        }
+        .lesson-course-progress {
+            height: 4px;
+            overflow: hidden;
+            background: #edf0f5;
+            border-radius: 5px;
+        }
+        .lesson-course-progress i {
+            width: 0;
+            height: 100%;
+            display: block;
+            background: #28c888;
+            border-radius: inherit;
+            transition: width .25s;
+        }
+        .page-lesson-detail .sidebar-topics {
+            padding: 18px 0 30px;
+            overflow-y: auto;
+        }
+        .page-lesson-detail .topics-label {
+            padding: 0 22px 12px !important;
+            color: var(--ink-3);
+            font-size: .72rem !important;
+            letter-spacing: 0;
+        }
+        .page-lesson-detail .topic-item {
+            min-height: 42px;
+            margin: 1px 10px;
+            padding: 9px 12px !important;
+            border: 0 !important;
+            border-radius: 5px;
+            color: var(--ink-2);
+            font-size: .84rem !important;
+        }
+        .page-lesson-detail .topic-item.sub {
+            padding-left: 25px !important;
+            color: var(--ink-3);
+            font-size: .78rem !important;
+        }
+        .page-lesson-detail .topic-item.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 750;
+        }
+        .page-lesson-detail .topic-item.done .topic-label {
+            text-decoration: none;
+            opacity: 1;
+        }
+        .page-lesson-detail .topic-check {
+            width: 17px;
+            height: 17px;
+            background: transparent;
+            color: #28c888;
+            font-size: .72rem;
+        }
+        .lesson-stage {
+            min-width: 0;
+            min-height: 100vh;
+            padding: 0;
+            background: var(--bg-surface);
+        }
+        .page-lesson-detail .main-content {
+            width: 100%;
+            max-width: 1020px !important;
+            margin: 0 auto;
+            padding: 46px 42px 64px !important;
+            background: transparent;
+        }
+        .lesson-heading-row {
+            min-height: 54px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .lesson-sequence {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--accent);
+            font-size: .76rem;
+            font-weight: 800;
+        }
+        .page-lesson-detail .lesson-main-title {
+            margin: 0 !important;
+            color: var(--ink-1);
+            font-size: 1.55rem !important;
+            line-height: 1.35;
+        }
+        .next-lesson-link {
+            min-height: 38px;
+            padding: 0 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 0;
+            background: transparent;
+            color: var(--ink-2);
+            font-size: .9rem;
+            font-weight: 750;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .next-lesson-link:hover { color: var(--accent); }
+        .next-lesson-link:disabled { opacity: .35; cursor: default; }
+        .page-lesson-detail .video-wrap {
+            width: 100%;
+            margin-bottom: 30px !important;
+            aspect-ratio: 16 / 9;
+            border: 1px solid #252b39;
+            border-radius: 7px !important;
+            background: #111722;
+            box-shadow: 0 10px 24px rgba(18, 25, 39, .14);
+        }
+        .page-lesson-detail .video-thumb-bg {
+            background: #111722;
+            overflow: hidden;
+        }
+        .video-thumb-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            background: #111722;
+        }
+        .video-thumb-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(8,12,20,.42), transparent 36%);
+            pointer-events: none;
+        }
+        .page-lesson-detail .play-btn {
+            bottom: 24px;
+            left: 24px;
+            width: 44px !important;
+            height: 34px !important;
+            border-radius: 5px !important;
+            background: var(--accent);
+            box-shadow: 0 5px 14px rgba(0,0,0,.3);
+        }
+        .page-lesson-detail .play-btn::after {
+            border-top-width: 7px;
+            border-bottom-width: 7px;
+            border-left-width: 12px;
+        }
+        .lesson-support-content {
+            padding-top: 4px;
+            border-top: 1px solid var(--border);
+        }
+        .page-lesson-detail .lesson-body {
+            color: var(--ink-2);
+            font-size: .9rem !important;
+            line-height: 1.8;
+        }
+        .page-lesson-detail .lesson-body h3 {
+            margin: 25px 0 10px !important;
+            padding: 0;
+            border: 0;
+            color: var(--ink-1);
+            font-size: 1rem !important;
+        }
+        .page-lesson-detail .code-block {
+            border-radius: 6px !important;
+            font-size: .78rem !important;
+        }
+        .page-lesson-detail .lesson-nav {
+            margin-top: 32px !important;
+            padding-top: 20px !important;
+        }
+        .page-lesson-detail .nav-btn {
+            padding: 10px 14px !important;
+            border-width: 1px !important;
+            border-radius: 5px !important;
+            font-size: .78rem !important;
+        }
+        .page-lesson-detail .notes-rail {
+            min-width: 0;
+            min-height: 100vh;
+            background: var(--bg-surface);
+            border-left: 1px solid var(--border);
+        }
+        .lesson-tools-head {
+            height: 72px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 44px;
+            align-items: stretch;
+            border-bottom: 1px solid var(--border);
+        }
+        .lesson-tool-tab,
+        .lesson-tools-close {
+            border: 0;
+            background: transparent;
+            color: var(--ink-2);
+            font-size: .9rem;
+            font-weight: 750;
+            cursor: pointer;
+        }
+        .lesson-tool-tab { border-bottom: 3px solid transparent; }
+        .lesson-tool-tab.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-bottom-color: var(--accent);
+        }
+        .lesson-tools-close {
+            color: var(--ink-3);
+            font-size: 1.2rem;
+        }
+        .lesson-tool-panel { display: none; padding: 22px 18px; }
+        .lesson-tool-panel.active { display: block; }
+        .page-lesson-detail .notes-rail .note-panel {
+            position: static;
+            padding: 0;
+            border: 0;
+            background: transparent;
+        }
+        .page-lesson-detail .note-title {
+            margin-bottom: 12px;
+            color: var(--ink-1);
+            font-size: .9rem !important;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+        .page-lesson-detail .note-area {
+            height: 170px !important;
+            padding: 12px;
+            border: 1px solid var(--border-card);
+            border-radius: 5px !important;
+            background: var(--bg-section);
+            font-size: .82rem !important;
+            outline: none;
+        }
+        .page-lesson-detail .note-area:focus { border-color: var(--accent); }
+        .page-lesson-detail .note-save-btn {
+            padding: 7px 13px;
+            border-radius: 5px !important;
+            font-size: .76rem !important;
+        }
+        .lesson-note-example {
+            margin-top: 18px;
+            border: 1px solid var(--border-card);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .lesson-note-example div {
+            padding: 13px 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--ink-2);
+            border-bottom: 1px solid var(--border);
+            font-size: .78rem;
+            line-height: 1.55;
+        }
+        .lesson-note-example div:last-child { border-bottom: 0; }
+        .lesson-note-example time { color: var(--ink-3); font-size: .68rem; white-space: nowrap; }
+        .lesson-login-note {
+            padding: 24px 16px;
+            color: var(--ink-3);
+            background: var(--bg-section);
+            border: 1px solid var(--border-card);
+            border-radius: 6px;
+            text-align: center;
+            font-size: .82rem;
+            line-height: 1.7;
+        }
+        .lesson-login-note a { color: var(--accent); font-weight: 750; text-decoration: none; }
+        .lesson-resource-list {
+            border: 1px solid var(--border-card);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .lesson-resource-item {
+            padding: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--ink-2);
+            border-bottom: 1px solid var(--border);
+            font-size: .8rem;
+            line-height: 1.55;
+        }
+        .lesson-resource-item:last-child { border-bottom: 0; }
+        .lesson-resource-item b { color: var(--accent); }
+        .lesson-playlist-link {
+            margin-top: 14px;
+            min-height: 42px;
+            padding: 0 13px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            color: var(--accent);
+            font-size: .78rem;
+            font-weight: 750;
+            text-decoration: none;
+        }
+        .lesson-playlist-link:hover { background: var(--accent-soft); }
+        .lesson-tools-toggle {
+            display: none;
+            position: fixed;
+            right: 18px;
+            bottom: 24px;
+            z-index: 210;
+            width: 48px;
+            height: 48px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(79,85,231,.26);
+        }
+        @media (max-width: 1180px) {
+            .page-lesson-detail .learn-wrap {
+                grid-template-columns: 240px minmax(0, 1fr) !important;
+            }
+            .page-lesson-detail .notes-rail {
+                position: fixed;
+                z-index: 205;
+                top: 0;
+                right: -340px;
+                width: 340px;
+                height: 100vh;
+                transition: right .22s;
+                box-shadow: -10px 0 28px rgba(30,38,62,.12);
+            }
+            .page-lesson-detail .notes-rail.open { right: 0; }
+            .lesson-tools-toggle { display: block; }
+        }
+        @media (max-width: 820px) {
+            .page-lesson-detail .learn-wrap { display: block !important; }
+            .page-lesson-detail .sidebar {
+                position: fixed;
+                left: -270px;
+                z-index: 220;
+                width: 270px !important;
+                transition: left .22s;
+                box-shadow: 10px 0 28px rgba(30,38,62,.12);
+            }
+            .page-lesson-detail .sidebar.open { left: 0; }
+            .page-lesson-detail .main-content { padding: 28px 18px 50px !important; }
+            .lesson-heading-row { margin-bottom: 16px; }
+            .page-lesson-detail .lesson-main-title { font-size: 1.25rem !important; }
+            .next-lesson-link { font-size: .78rem; }
+            .sidebar-toggle {
+                right: auto;
+                left: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #242842;
+                box-shadow: 0 8px 20px rgba(30,38,62,.22);
+            }
+        }
     </style>
 </head>
-<body>
-
-<!-- NAV -->
-<nav th:replace="~{index :: nav}"></nav>
+<body class="page-lesson-detail">
 
 <div class="learn-wrap">
 
     <!-- ── 사이드바 ── -->
     <aside class="sidebar" id="sidebar">
+        <a href="/learn" class="lesson-brand">
+            <span class="lesson-brand-mark">💻</span>
+            <span>Code<em>Edu</em></span>
+        </a>
+        <div class="lesson-course-summary">
+            <strong id="sideCourseTitle">강의</strong>
+            <div class="lesson-course-progress-copy">
+                <span>진도율</span>
+                <span id="sideCourseProgress">0%</span>
+            </div>
+            <div class="lesson-course-progress"><i id="sideCourseProgressFill"></i></div>
+        </div>
         <div class="sidebar-topics">
             <div class="topics-label">토픽 목록</div>
             <div id="topicList"></div>
@@ -323,19 +760,40 @@
     </aside>
 
     <!-- ── 메인 콘텐츠 ── -->
-    <main class="main-content" id="mainContent"></main>
+    <section class="lesson-stage">
+        <main class="main-content" id="mainContent"></main>
+    </section>
 
-    <aside th:if="${isLoggedIn}" class="notes-rail">
-        <div id="note-panel" class="note-panel">
-            <div class="note-title">📝 강의 노트</div>
-            <textarea id="note-area"
-                      placeholder="이 강의에 대한 메모를 남겨보세요..."
-                      class="note-area"></textarea>
-            <div class="note-actions">
-                <span id="note-status" class="note-status"></span>
-                <button id="note-save-btn" onclick="saveNote()"
-                        class="note-save-btn">저장</button>
+    <aside class="notes-rail" id="lessonTools">
+        <div class="lesson-tools-head">
+            <button class="lesson-tool-tab active" data-panel="notes" onclick="switchToolPanel('notes', this)">노트</button>
+            <button class="lesson-tool-tab" data-panel="resources" onclick="switchToolPanel('resources', this)">강의자료</button>
+            <button class="lesson-tools-close" onclick="document.getElementById('lessonTools').classList.remove('open')" aria-label="패널 닫기">×</button>
+        </div>
+        <div class="lesson-tool-panel active" id="tool-notes">
+            <div th:if="${isLoggedIn}" id="note-panel" class="note-panel">
+                <div class="note-title">현재 강의 노트</div>
+                <textarea id="note-area"
+                          placeholder="노트를 입력하세요..."
+                          class="note-area"></textarea>
+                <div class="note-actions">
+                    <span id="note-status" class="note-status"></span>
+                    <button id="note-save-btn" onclick="saveNote()"
+                            class="note-save-btn">저장</button>
+                </div>
+                <div class="lesson-note-example">
+                    <div><span>강의를 보며 중요한 내용을 자유롭게 기록해보세요.</span><time>NOTE</time></div>
+                    <div><span>작성한 노트는 현재 수업별로 자동 저장됩니다.</span><time>AUTO</time></div>
+                </div>
             </div>
+            <div th:unless="${isLoggedIn}" class="lesson-login-note">
+                로그인하면 강의별 노트를 작성하고<br>자동으로 저장할 수 있습니다.<br>
+                <a href="/login">로그인하기</a>
+            </div>
+        </div>
+        <div class="lesson-tool-panel" id="tool-resources">
+            <div class="note-title">이번 강의 핵심 자료</div>
+            <div class="lesson-resource-list" id="lessonResourceList"></div>
         </div>
     </aside>
 
@@ -343,6 +801,7 @@
 
 <!-- 모바일 토글 버튼 -->
 <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+<button class="lesson-tools-toggle" onclick="document.getElementById('lessonTools').classList.toggle('open')" aria-label="노트 및 강의자료 열기">▤</button>
 
 <script th:inline="javascript">
 const COURSES = /*[[${coursesPayload}]]*/ {};
@@ -393,8 +852,12 @@ function renderTopics() {
     // 진도 표시
     const done = [...Array(course.lessons.length).keys()].filter(i => completedIndices.has(i)).length;
     const total = course.lessons.length;
+    const progress = total > 0 ? Math.round(done * 100 / total) : 0;
     document.querySelector('.topics-label').textContent =
         `토픽 목록 (${done}/${total} 완료)`;
+    document.getElementById('sideCourseTitle').textContent = course.title;
+    document.getElementById('sideCourseProgress').textContent = progress + '%';
+    document.getElementById('sideCourseProgressFill').style.width = progress + '%';
 }
 
 function renderLesson(idx) {
@@ -417,41 +880,52 @@ function renderLesson(idx) {
     ` : "";
 
     document.getElementById("mainContent").innerHTML = `
-        <div class="lesson-meta">${course.icon} ${course.title}</div>
-        <h1 class="lesson-main-title">${l.title}</h1>
-        <div class="lesson-date">
-            ${course.date} &nbsp;|&nbsp; <span>공개</span>
+        <div class="lesson-heading-row">
+            <div>
+                <span class="lesson-sequence">${l.label}</span>
+                <h1 class="lesson-main-title">${l.title}</h1>
+            </div>
+            <button class="next-lesson-link" onclick="selectLesson(${idx + 1})"
+                    ${idx === course.lessons.length - 1 ? "disabled" : ""}>
+                다음 강의 <span>›</span>
+            </button>
         </div>
 
         <div class="video-wrap" id="videoWrap">
             <div class="video-thumb-bg" id="videoThumb">
-                <div class="video-thumb-icon">${course.icon}</div>
-                <div class="video-thumb-title">${course.title} - ${l.label}</div>
+                <img class="video-thumb-image"
+                     src="https://i.ytimg.com/vi/${l.videoId || course.videoId}/maxresdefault.jpg"
+                     alt="${l.title} 영상 썸네일"
+                     onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${l.videoId || course.videoId}/hqdefault.jpg';">
             </div>
-            <button class="play-btn" onclick="playVideo('${l.videoId || course.videoId}', ${idx}, ${Number(l.videoStart || course.videoStart || 0)})"></button>
+            <button class="play-btn" aria-label="강의 영상 재생"
+                    onclick="playVideo('${l.videoId || course.videoId}', ${idx}, ${Number(l.videoStart || course.videoStart || 0)}, '${course.playlistId || ''}', ${Number(l.playlistIndex || idx + 1)})"></button>
         </div>
 
-        <div class="lesson-body">
-            <h3>강의 소개</h3>
-            <p>${l.desc}</p>
-            ${pointsHtml}
-            ${codeBlock}
-        </div>
+        <div class="lesson-support-content">
+            <div class="lesson-body">
+                <h3>강의 소개</h3>
+                <p>${l.desc}</p>
+                ${pointsHtml}
+                ${codeBlock}
+            </div>
 
-        <div class="lesson-nav">
-            <button class="nav-btn"
-                onclick="selectLesson(${idx - 1})"
-                ${idx === 0 ? "disabled" : ""}>
-                ← 이전 강의
-            </button>
-            <button class="nav-btn next" id="nextBtn"
-                onclick="completeAndNext(${idx})">
-                ${completedIndices.has(idx) ? '다음 강의 →' : '✅ 완료 후 다음 강의 →'}
-            </button>
+            <div class="lesson-nav">
+                <button class="nav-btn"
+                    onclick="selectLesson(${idx - 1})"
+                    ${idx === 0 ? "disabled" : ""}>
+                    ← 이전 강의
+                </button>
+                <button class="nav-btn next" id="nextBtn"
+                    onclick="completeAndNext(${idx})">
+                    ${completedIndices.has(idx) ? '다음 강의 →' : '완료 후 다음 강의 →'}
+                </button>
+            </div>
         </div>
     `;
 
     window.scrollTo({ top: 0, behavior: "smooth" });
+    renderLessonResources(l);
 
     // 노트 패널 로드
     if (isLoggedIn) {
@@ -464,12 +938,45 @@ function renderLesson(idx) {
     }
 }
 
-function playVideo(videoId, idx, start = 0) {
+function renderLessonResources(lesson) {
+    const resourceList = document.getElementById('lessonResourceList');
+    if (!resourceList) return;
+    const course = COURSES[currentLang];
+    const resources = lesson.points && lesson.points.length
+        ? lesson.points
+        : [lesson.desc, '영상 시청 후 강의 완료 버튼을 눌러 진도를 기록해보세요.'];
+    const originalUrl = lesson.youtubeUrl || course.playlistUrl || '';
+    resourceList.innerHTML = resources.map((item, index) => `
+        <div class="lesson-resource-item">
+            <b>${String(index + 1).padStart(2, '0')}</b>
+            <span>${item}</span>
+        </div>
+    `).join('') + (originalUrl ? `
+        <a class="lesson-playlist-link" href="${originalUrl}" target="_blank" rel="noopener">
+            <span>생활코딩 YouTube 재생목록에서 보기</span>
+            <span>↗</span>
+        </a>
+    ` : '');
+}
+
+function switchToolPanel(panel, button) {
+    document.querySelectorAll('.lesson-tool-tab').forEach(tab => {
+        tab.classList.toggle('active', tab === button);
+    });
+    document.querySelectorAll('.lesson-tool-panel').forEach(item => {
+        item.classList.toggle('active', item.id === 'tool-' + panel);
+    });
+}
+
+function playVideo(videoId, idx, start = 0, playlistId = '', playlistIndex = 1) {
     const wrap = document.getElementById('videoWrap');
     if (!wrap || !videoId) return;
     const startParam = Number(start) > 0 ? `&start=${Number(start)}` : '';
+    const playlistParam = playlistId
+        ? `&list=${encodeURIComponent(playlistId)}&index=${Number(playlistIndex) || idx + 1}`
+        : '';
     wrap.innerHTML = `<iframe
-        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${startParam}"
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${startParam}${playlistParam}"
         style="position:absolute;inset:0;width:100%;height:100%;border:none;"
         allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
 }

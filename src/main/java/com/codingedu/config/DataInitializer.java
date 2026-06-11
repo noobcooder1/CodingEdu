@@ -298,7 +298,7 @@ public class DataInitializer implements CommandLineRunner {
             }
         });
 
-        upsertLc("html",       "WEB1 - HTML",          "🌐", "web",    "beginner",     9, "웹 페이지의 뼈대를 만드는 마크업 언어");
+        upsertLc("html",       "WEB1 - HTML & Internet", "HTML", "web", "beginner",    28, "생활코딩 WEB1 공식 재생목록으로 배우는 HTML과 인터넷");
         upsertLc("css",        "WEB2 - CSS",            "🎨", "web",    "beginner",     6, "웹 페이지를 아름답게 꾸미는 스타일 언어");
         upsertLc("javascript", "WEB2 - JavaScript",     "⚡", "web",    "beginner",     6, "웹 페이지에 동작을 추가하는 프로그래밍 언어");
     }

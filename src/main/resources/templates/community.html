@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko" data-theme="light" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
@@ -10,303 +10,232 @@
     <title>커뮤니티 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
-        .community-layout { display: flex; gap: 40px; }
-        .community-main { flex: 1; }
-        .community-sidebar { width: 320px; flex-shrink: 0; display: flex; flex-direction: column; gap: 30px; }
+        .community-page { max-width: 1400px; margin: 0 auto; padding: 48px 50px 64px; }
+        .community-title { margin-bottom: 24px; }
+        .community-title span { color: var(--accent); font-size: .78rem; font-weight: 850; }
+        .community-title h1 { margin: 5px 0 6px; color: var(--ink-1); font-size: 2.25rem; line-height: 1.25; }
+        .community-title p { color: var(--ink-3); font-size: 1.05rem; }
 
-        .community-header-row {
-            display: flex; align-items: flex-end; gap: 16px;
-            margin-bottom: 30px; flex-wrap: wrap;
-        }
-        .community-header-row .btn-write {
-            flex-shrink: 0; margin-bottom: 6px;
-        }
+        .community-layout { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: 34px; align-items: start; }
+        .community-main { min-width: 0; margin: 0; padding: 0; background: transparent; }
         .community-tabs {
-            display: flex; gap: 10px; border-bottom: 2px solid var(--border-card);
-            padding-bottom: 0; margin-bottom: 0; overflow-x: auto;
-            position: relative;
-            scrollbar-width: none; -ms-overflow-style: none;
-            flex: 1 1 auto; min-width: 0;
+            position: static; z-index: auto; height: auto; padding: 0;
+            display: flex; align-items: flex-end; gap: 28px; overflow-x: auto;
+            margin-bottom: 20px; background: transparent; border-bottom: 1px solid var(--border);
+            box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; scrollbar-width: none;
         }
         .community-tabs::-webkit-scrollbar { display: none; }
         .community-tab {
-            padding: 10px 24px; border: none; background: transparent; font-size: 1rem;
-            font-weight: 700; color: var(--ink-2); cursor: pointer; transition: color .25s;
-            position: relative; white-space: nowrap; text-decoration: none;
-            padding-bottom: 18px;
+            height: 46px; flex: 0 0 auto; display: flex; align-items: center;
+            color: var(--ink-3); border-bottom: 3px solid transparent;
+            font-size: 1rem; font-weight: 700; text-decoration: none;
         }
-        .community-tab:hover { color: var(--accent); }
-        .community-tab.active { color: var(--accent); }
-        .tab-indicator {
-            position: absolute; bottom: 0; height: 4px;
-            background: var(--accent); border-radius: 4px 4px 0 0;
-            transition: left .3s cubic-bezier(.4,0,.2,1), width .3s cubic-bezier(.4,0,.2,1);
-            pointer-events: none;
-        }
-        @keyframes slideInFromRight {
-            from { opacity: 0; transform: translateX(32px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        .post-list { animation: slideInFromRight .3s ease; }
-        .exiting { animation: none; opacity: 0; transform: translateX(-24px); transition: opacity .15s, transform .15s; }
+        .community-tab:hover { color: var(--ink-1); }
+        .community-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-        .community-actions { display: flex; justify-content: flex-end; margin-bottom: 24px; }
-        .btn-write {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-h));
-            color: var(--bg-surface); padding: 12px 28px; border-radius: 14px; font-weight: 700;
-            text-decoration: none; transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
-            box-shadow: 0 6px 20px rgba(16,185,129,0.30), 0 2px 6px rgba(16,185,129,0.15);
+        .community-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; margin-bottom: 18px; }
+        .community-search { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+        .community-search input {
+            min-width: 0; height: 44px; padding: 0 15px; color: var(--ink-1);
+            background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 6px;
+            font: inherit; font-size: .95rem; outline: none;
         }
-        .btn-write:hover { transform: translateY(-3px) scale(1.02); filter: brightness(1.05); box-shadow: 0 10px 32px rgba(16,185,129,0.38), 0 4px 10px rgba(16,185,129,0.18); }
-
-        .post-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
-        .post-item {
-            display: flex; gap: 24px; background: var(--bg-surface); border-radius: 24px; padding: 26px;
-            box-shadow: var(--shadow-sm); text-decoration: none; color: inherit;
-            transition: all 0.3s cubic-bezier(0.22,1,0.36,1); border: 1px solid var(--border-card);
+        .community-search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        .community-search button, .community-write {
+            height: 44px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center;
+            border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: #fff;
+            font-size: .92rem; font-weight: 750; text-decoration: none; cursor: pointer; white-space: nowrap;
         }
-        .post-item:hover { transform: translateY(-4px) translateX(2px); box-shadow: var(--shadow-lg); border-color: rgba(16,185,129,0.15); }
-        .post-item.hot { border-left: 6px solid var(--amber); background: linear-gradient(90deg, var(--amber-soft), #FFFFFF); }
-        .post-category {
-            padding: 6px 14px; border-radius: 50px; font-size: .8rem; font-weight: 800; height: fit-content; text-align: center;
-        }
-        .post-category.qna { background: var(--accent-soft); color: var(--accent); }
-        .post-category.tips { background: var(--amber-soft); color: var(--warning); }
-        .post-category.study { background: var(--success-soft); color: var(--success); }
-        .post-category.free { background: var(--accent-soft); color: var(--accent); }
-        
-        .post-content { flex: 1; }
-        .post-content h4 { font-size: 1.25rem; font-weight: 800; color: var(--ink-1); margin-bottom: 10px; }
-        .post-item:hover .post-content h4 { color: var(--accent); }
-        .post-content p { font-size: .9rem; color: var(--ink-3); margin-bottom: 12px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .post-meta { display: flex; gap: 16px; font-size: .85rem; color: var(--ink-3); flex-wrap: wrap; }
-        .post-meta span { display: flex; align-items: center; gap: 6px; }
-        .post-meta .author { font-weight: 700; color: var(--ink-2); }
-
-        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 50px; }
-        .page-btn {
-            width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-card);
-            background: var(--bg-surface); font-weight: 700; color: var(--ink-2);
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            transition: all .2s; font-size: 1rem;
-        }
-        .page-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-        .page-btn.active { background: var(--accent); color: var(--bg-surface); border-color: var(--accent); }
-        .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        .search-bar {
-            display: flex; gap: 10px; margin-bottom: 24px;
-        }
-        .search-bar input {
-            flex: 1; padding: 12px 18px; border-radius: 50px; border: 2px solid var(--border-card);
-            font-size: .95rem; outline: none; transition: border-color .2s;
-        }
-        .search-bar input:focus { border-color: var(--accent); }
-        .search-bar button {
-            padding: 12px 22px; border-radius: 50px; border: none;
-            background: var(--accent); color: white; font-weight: 800; cursor: pointer;
-            transition: background .2s; white-space: nowrap;
-        }
-        .search-bar button:hover { background: var(--accent-h); }
+        .community-search button { background: var(--bg-surface); color: var(--accent); }
+        .community-search button:hover { background: var(--accent-soft); }
+        .community-write:hover { background: var(--accent-h); }
         .search-result-info {
-            font-size: .9rem; color: var(--ink-2); margin-bottom: 16px;
-            padding: 10px 16px; background: var(--accent-soft); border-radius: 10px;
+            margin-bottom: 14px; padding: 10px 13px; background: var(--accent-soft);
+            color: var(--ink-2); border-radius: 5px; font-size: .82rem;
         }
         .search-result-info strong { color: var(--accent); }
+        .search-result-info a { margin-left: 10px; color: var(--ink-3); text-decoration: none; }
 
-        .sidebar-box {
-            background: var(--bg-surface); border-radius: 24px; padding: 28px;
-            box-shadow: var(--shadow-md); border: 1px solid var(--border-card);
-            transition: all 0.3s ease;
+        .community-table {
+            overflow: hidden; background: var(--bg-surface); border: 1px solid var(--border-card);
+            border-radius: 7px; box-shadow: var(--shadow-sm);
         }
-        .sidebar-box:hover { box-shadow: var(--shadow-lg); border-color: rgba(16,185,129,0.08); }
-        .sidebar-box h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 20px; color: var(--ink-1); padding-bottom: 12px; border-bottom: 2px dashed var(--border); display: flex; align-items: center; gap: 8px; }
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+        .community-table-head, .community-post-row {
+            display: grid; grid-template-columns: minmax(260px, 1fr) 125px 72px 72px 105px;
+            gap: 12px; align-items: center;
+        }
+        .community-table-head {
+            min-height: 48px; padding: 0 18px; color: var(--ink-3);
+            background: var(--bg-section); border-bottom: 1px solid var(--border);
+            font-size: .82rem; font-weight: 750;
+        }
+        .community-table-head span:not(:first-child) { text-align: center; }
+        .community-post-row {
+            min-height: 78px; padding: 13px 18px; color: var(--ink-1);
+            border-bottom: 1px solid var(--border); text-decoration: none; transition: background .18s;
+        }
+        .community-post-row:last-child { border-bottom: 0; }
+        .community-post-row:hover { background: var(--bg-section); }
+        .community-post-row:hover .community-post-title { color: var(--accent); }
+        .community-post-main { min-width: 0; }
+        .community-post-title-line { display: flex; align-items: center; gap: 8px; min-width: 0; }
+        .community-category {
+            flex: 0 0 auto; padding: 3px 6px; border-radius: 4px;
+            color: var(--accent); background: var(--accent-soft); font-size: .62rem; font-weight: 800;
+        }
+        .community-category.tips { color: #b57700; background: #fff5d6; }
+        .community-category.study { color: #14855f; background: #e5f8f0; }
+        .community-category.free { color: #6c5cc4; background: #f0edff; }
+        .community-post-title {
+            min-width: 0; overflow: hidden; color: var(--ink-1); text-overflow: ellipsis; white-space: nowrap;
+            font-size: 1rem; font-weight: 750; transition: color .18s;
+        }
+        .community-post-preview {
+            margin-top: 5px; overflow: hidden; color: var(--ink-3); text-overflow: ellipsis;
+            white-space: nowrap; font-size: .8rem;
+        }
+        .community-post-author, .community-post-stat, .community-post-date { color: var(--ink-2); font-size: .84rem; }
+        .community-post-author { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 650; }
+        .community-post-stat, .community-post-date { text-align: center; }
+        .community-post-mobile-meta { display: none; }
+        .community-empty { padding: 54px 20px; color: var(--ink-3); text-align: center; font-size: .9rem; }
+
+        .pagination { display: flex; justify-content: center; gap: 6px; margin-top: 24px; }
+        .page-btn {
+            width: 36px; height: 36px; display: grid; place-items: center;
+            border: 1px solid var(--border-card); border-radius: 5px; background: var(--bg-surface);
+            color: var(--ink-2); font-size: .8rem; font-weight: 700; cursor: pointer;
+        }
+        .page-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .page-btn:disabled { opacity: .35; cursor: default; }
+
+        .community-sidebar { display: grid; gap: 16px; }
+        .sidebar-box, .challenge-box {
+            padding: 20px; background: var(--bg-surface); border: 1px solid var(--border-card);
+            border-radius: 7px; box-shadow: var(--shadow-sm);
+        }
+        .sidebar-box h3 {
+            margin-bottom: 15px; padding-bottom: 11px; color: var(--ink-1);
+            border-bottom: 1px solid var(--border); font-size: 1.05rem; font-weight: 800;
+        }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
         .tag {
-            background: var(--bg-section); color: var(--ink-2); padding: 8px 16px;
-            border-radius: 50px; font-size: .85rem; font-weight: 700; text-decoration: none;
-            transition: all .2s; border: 1px solid transparent;
+            padding: 6px 9px; color: var(--ink-2); background: var(--bg-section); border: 1px solid transparent;
+            border-radius: 5px; font-size: .78rem; font-weight: 700; text-decoration: none;
         }
-        .tag:hover { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
-        .tag.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .tag:hover, .tag.active { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
+        .best-answerers { list-style: none; display: grid; gap: 12px; }
+        .best-answerers li { display: flex; align-items: center; gap: 9px; }
+        .rank { font-size: 1.15rem; }.name { min-width: 0; flex: 1; overflow: hidden; color: var(--ink-1); text-overflow: ellipsis; white-space: nowrap; font-size: .9rem; font-weight: 750; }
+        .score { color: var(--accent); font-size: .75rem; font-weight: 700; }
+        .sidebar-empty { color: var(--ink-3); font-size: .82rem; text-align: center; }
+        .challenge-box { color: #fff; background: #30265d; border-color: #30265d; text-align: center; }
+        .challenge-icon { font-size: 1.5rem; margin-bottom: 6px; }
+        .challenge-box h3 { margin-bottom: 5px; font-size: 1.05rem; }.challenge-box p { margin-bottom: 13px; color: rgba(255,255,255,.7); font-size: .8rem; }
+        .challenge-box a { display: inline-block; padding: 8px 15px; border-radius: 5px; background: #fff; color: #4f46c8; font-size: .78rem; font-weight: 750; text-decoration: none; }
 
-        .best-answerers { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-        .best-answerers li { display: flex; align-items: center; gap: 12px; }
-        .rank { font-size: 1.5rem; }
-        .name { font-weight: 800; font-size: 1rem; color: var(--ink-1); flex-grow: 1; }
-        .score { font-size: .85rem; color: var(--accent); font-weight: 700; background: var(--accent-soft); padding: 4px 10px; border-radius: 20px; }
-
-        /* ── 반응형: 태블릿 가로 ── */
-        @media (max-width: 1024px) {
-            .community-layout { gap: 28px; }
-            .community-sidebar { width: 280px; }
-            .sidebar-box { padding: 22px; }
+        @media (max-width: 1100px) {
+            .community-page { padding-inline: 28px; }
+            .community-layout { grid-template-columns: minmax(0, 1fr) 250px; gap: 22px; }
+            .community-table-head, .community-post-row { grid-template-columns: minmax(220px, 1fr) 105px 60px 60px 90px; }
         }
-
-        /* ── 반응형: 사이드바 축소 (옆에 유지) ── */
-        @media (max-width: 900px) {
-            .community-layout { gap: 20px; }
-            .community-sidebar { width: 240px; gap: 20px; }
-            .sidebar-box { padding: 18px; border-radius: 16px; }
-            .sidebar-box h3 { font-size: 1.02rem; margin-bottom: 14px; padding-bottom: 10px; }
-            .tag-cloud { gap: 8px; }
-            .tag { padding: 6px 12px; font-size: .8rem; }
-            .best-answerers { gap: 12px; }
-            .best-answerers .name { font-size: .92rem; }
-            .best-answerers .score { font-size: .78rem; padding: 3px 8px; }
+        @media (max-width: 850px) {
+            .community-page { padding: 32px 18px 48px; }
+            .community-layout { grid-template-columns: 1fr; }
+            .community-sidebar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .challenge-box { grid-column: 1 / -1; }
         }
-
-        /* ── 반응형: 중간 (사이드바를 아래 그리드로, 글쓰기 버튼/탭 재배치) ── */
-        @media (max-width: 768px) {
-            .community-layout { flex-direction: column; gap: 28px; }
-            .community-sidebar {
-                width: 100%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
-            .community-header-row {
-                flex-direction: column;
-                align-items: stretch;
-                margin-bottom: 20px;
-            }
-            .community-header-row .btn-write {
-                align-self: flex-start;
-                margin-bottom: 4px;
-            }
-            .community-tabs { width: 100%; }
-            .community-tab { padding: 10px 18px; font-size: .95rem; }
-            .post-item { padding: 20px; gap: 16px; }
-            .post-content h4 { font-size: 1.1rem; }
-            .search-bar input { padding: 11px 16px; font-size: .9rem; }
-            .search-bar button { padding: 11px 18px; }
-        }
-
-        /* ── 반응형: 모바일 ── */
-        @media (max-width: 600px) {
-            .community-sidebar { grid-template-columns: 1fr; gap: 16px; }
-            .sidebar-box { padding: 20px; border-radius: 16px; }
-            .post-item {
-                flex-direction: column;
-                gap: 12px;
-                padding: 18px;
-                border-radius: 16px;
-            }
-            .post-item.hot { border-left-width: 4px; }
-            .post-category { align-self: flex-start; }
-            .post-content p { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-            .post-meta { gap: 10px 14px; font-size: .8rem; }
-            .btn-write { padding: 10px 22px; font-size: .9rem; }
-            .pagination { gap: 6px; margin-top: 36px; }
-            .page-btn { width: 38px; height: 38px; font-size: .9rem; }
-            .search-result-info { font-size: .85rem; padding: 8px 12px; }
-        }
-
-        /* ── 반응형: 소형 모바일 (검색바 세로 배치) ── */
-        @media (max-width: 480px) {
-            .community-tab { padding: 8px 14px; font-size: .88rem; }
-            .search-bar { flex-direction: column; gap: 8px; }
-            .search-bar button { width: 100%; }
-            .post-item { padding: 16px; }
-            .post-content h4 { font-size: 1.02rem; }
-            .tag { padding: 6px 12px; font-size: .8rem; }
+        @media (max-width: 640px) {
+            .community-title h1 { font-size: 1.9rem; }.community-title p { font-size: .95rem; }
+            .community-tabs { gap: 20px; }.community-tab { font-size: .9rem; }
+            .community-toolbar { grid-template-columns: 1fr; }.community-write { justify-self: start; }
+            .community-table-head { display: none; }
+            .community-post-row { display: block; min-height: 0; padding: 15px; }
+            .community-post-title { font-size: .96rem; }.community-post-preview { font-size: .78rem; }
+            .community-post-author, .community-post-stat, .community-post-date { display: none; }
+            .community-post-mobile-meta { display: flex; gap: 12px; margin-top: 9px; color: var(--ink-3); font-size: .76rem; }
+            .community-sidebar { grid-template-columns: 1fr; }.challenge-box { grid-column: auto; }
         }
     </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav th:replace="~{index :: nav}"></nav>
 
+<main class="community-page">
+    <header class="community-title">
+        <span>COMMUNITY</span>
+        <h1>커뮤니티</h1>
+        <p>질문과 경험을 나누며 함께 성장하는 개발자 공간입니다.</p>
+    </header>
 
-<!-- PAGE HEADER -->
-<header class="page-header reveal" style="background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-soft) 100%);">
-    <h1 style="color: var(--accent);">💬 우리들의 커뮤니티</h1>
-    <p style="color: var(--ink-2);">혼자 끙끙 앓지 마세요! 다른 사람들의 코드 리뷰, 에러 공유, 스터디 모집까지!<br>질문하고 답변하며 다함께 성장하는 개발자 공간입니다.</p>
-</header>
+    <div class="community-layout">
+        <section class="community-main">
+            <nav class="community-tabs" aria-label="게시판 카테고리">
+                <a th:href="@{/community(category='all')}" class="community-tab" th:classappend="${currentCategory == 'all'} ? 'active'">전체</a>
+                <a th:href="@{/community(category='free')}" class="community-tab" th:classappend="${currentCategory == 'free'} ? 'active'">자유 게시판</a>
+                <a th:href="@{/community(category='qna')}" class="community-tab" th:classappend="${currentCategory == 'qna'} ? 'active'">질문 게시판</a>
+                <a th:href="@{/community(category='study')}" class="community-tab" th:classappend="${currentCategory == 'study'} ? 'active'">스터디 모집</a>
+                <a th:href="@{/community(category='tips')}" class="community-tab" th:classappend="${currentCategory == 'tips'} ? 'active'">정보 공유</a>
+            </nav>
 
-<section style="background: var(--bg-section);">
-    <div class="community-layout reveal">
-        <!-- 왼쪽: 게시판 메인 -->
-        <div class="community-main">
-            <!-- 탭 + 글쓰기 버튼 -->
-            <div class="community-header-row">
-                <div class="community-tabs" id="communityTabs">
-                    <a th:href="@{/community(category='all')}" class="community-tab" th:classappend="${currentCategory == 'all'} ? 'active'">전체보기</a>
-                    <a th:href="@{/community(category='qna')}" class="community-tab" th:classappend="${currentCategory == 'qna'} ? 'active'">💡 에러/질문(Q&A)</a>
-                    <a th:href="@{/community(category='tips')}" class="community-tab" th:classappend="${currentCategory == 'tips'} ? 'active'">🔥 꿀팁/노하우</a>
-                    <a th:href="@{/community(category='study')}" class="community-tab" th:classappend="${currentCategory == 'study'} ? 'active'">📚 스터디 모집</a>
-                    <a th:href="@{/community(category='free')}" class="community-tab" th:classappend="${currentCategory == 'free'} ? 'active'">☕ 자유게시판</a>
-                    <div class="tab-indicator" id="tabIndicator"></div>
-                </div>
-                <a th:href="@{/community/write}" class="btn-write">✏️ 새 글 작성하기</a>
+            <div class="community-toolbar">
+                <form th:action="@{/community}" method="get" class="community-search">
+                    <input type="hidden" name="category" th:value="${currentCategory}">
+                    <input type="text" name="keyword" th:value="${keyword}" placeholder="검색어를 입력하세요.">
+                    <button type="submit">검색</button>
+                </form>
+                <a th:href="@{/community/write}" class="community-write">글 작성</a>
             </div>
 
-            <!-- 검색바 -->
-            <form th:action="@{/community}" method="get" class="search-bar">
-                <input type="hidden" name="category" th:value="${currentCategory}" />
-                <input type="text" name="keyword" th:value="${keyword}"
-                       placeholder="제목 또는 내용으로 검색..." />
-                <button type="submit">🔍 검색</button>
-            </form>
-
-            <!-- 검색 결과 안내 -->
             <div th:if="${keyword != null and !keyword.isBlank()}" class="search-result-info">
-                <strong th:text="'&quot;' + ${keyword} + '&quot;'">"검색어"</strong>
-                검색 결과 —
-                <strong th:text="${postPage.totalElements} + '건'">0건</strong>
-                <a th:href="@{/community(category=${currentCategory})}"
-                   style="margin-left:12px; color:var(--ink-3); font-size:.85rem;">✕ 검색 초기화</a>
+                <strong th:text="'&quot;' + ${keyword} + '&quot;'">검색어</strong>
+                검색 결과 <strong th:text="${postPage.totalElements} + '건'">0건</strong>
+                <a th:href="@{/community(category=${currentCategory})}">검색 초기화</a>
             </div>
 
-            <!-- 게시글 리스트 -->
-            <div class="post-list" id="post-list">
-                <!-- 등록된 게시글이 없는 경우 -->
-                <div th:if="${postPage.isEmpty()}" style="text-align:center; padding: 40px; background:var(--bg-surface); border-radius:20px; color:var(--ink-3);">
-                    첫 번째 게시글의 주인공이 되어보세요! ✨
+            <div class="community-table">
+                <div class="community-table-head">
+                    <span>제목</span><span>작성자</span><span>좋아요</span><span>댓글</span><span>작성일</span>
                 </div>
-
-                <!-- 게시글 반복 출력 -->
-                <a th:each="post : ${postPage.content}" th:href="@{/community/{id}(id=${post.id})}" class="post-item" th:data-cat="${post.category}">
-                    <div class="post-category"
-                         th:classappend="${post.category}"
-                         th:text="${post.category == 'qna' ? '질문' : post.category == 'tips' ? '꿀팁' : post.category == 'study' ? '스터디' : '자유'}">카테고리</div>
-                    <div class="post-content">
-                        <h4 th:text="${post.title}">게시글 제목</h4>
-                        <p th:text="${post.content != null ? post.content.split('\n')[0] : ''}"></p>
-                        <div class="post-meta">
-                            <span class="author" th:text="${post.author.nickname}">작성자</span>
-                            <span class="date" th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}">작성일짜</span>
-                            <span class="views" th:text="'👁️ ' + ${post.views}">조회수</span>
-                            <span th:text="'💬 ' + ${commentCounts[post.id] != null ? commentCounts[post.id] : 0}">댓글수</span>
+                <div th:if="${postPage.isEmpty()}" class="community-empty">첫 번째 게시글의 주인공이 되어보세요.</div>
+                <a th:each="post : ${postPage.content}" th:href="@{/community/{id}(id=${post.id})}" class="community-post-row">
+                    <div class="community-post-main">
+                        <div class="community-post-title-line">
+                            <span class="community-category" th:classappend="${post.category}"
+                                  th:text="${post.category == 'qna' ? '질문' : post.category == 'tips' ? '정보' : post.category == 'study' ? '스터디' : '자유'}">카테고리</span>
+                            <span class="community-post-title" th:text="${post.title}">게시글 제목</span>
+                        </div>
+                        <p class="community-post-preview" th:text="${post.content != null ? post.content.split('\n')[0] : ''}">게시글 미리보기</p>
+                        <div class="community-post-mobile-meta">
+                            <span th:text="${post.author.nickname}">작성자</span>
+                            <span th:text="'좋아요 ' + ${post.likeCount}">좋아요 0</span>
+                            <span th:text="'댓글 ' + ${commentCounts[post.id] != null ? commentCounts[post.id] : 0}">댓글 0</span>
+                            <span th:text="'조회 ' + ${post.views}">조회 0</span>
                         </div>
                     </div>
+                    <span class="community-post-author" th:text="${post.author.nickname}">작성자</span>
+                    <span class="community-post-stat" th:text="${post.likeCount}">0</span>
+                    <span class="community-post-stat" th:text="${commentCounts[post.id] != null ? commentCounts[post.id] : 0}">0</span>
+                    <time class="community-post-date" th:text="${#temporals.format(post.createdAt, 'MM-dd HH:mm')}">06-11 10:00</time>
                 </a>
             </div>
 
-            <!-- 페이지네이션 -->
             <div class="pagination" th:if="${postPage.totalPages > 1}">
-                <button class="page-btn"
-                        th:disabled="${!postPage.hasPrevious()}"
-                        th:onclick="|location.href='@{/community(category=${currentCategory}, page=${currentPage - 1}, keyword=${keyword})}'|">«</button>
-                <th:block th:each="i : ${#numbers.sequence(0, postPage.totalPages - 1)}">
-                    <button class="page-btn"
-                            th:classappend="${i == currentPage} ? 'active'"
-                            th:text="${i + 1}"
-                            th:onclick="|location.href='@{/community(category=${currentCategory}, page=${i}, keyword=${keyword})}'|">1</button>
-                </th:block>
-                <button class="page-btn"
-                        th:disabled="${!postPage.hasNext()}"
-                        th:onclick="|location.href='@{/community(category=${currentCategory}, page=${currentPage + 1}, keyword=${keyword})}'|">»</button>
+                <button class="page-btn" th:disabled="${!postPage.hasPrevious()}"
+                        th:onclick="|location.href='@{/community(category=${currentCategory}, page=${currentPage - 1}, keyword=${keyword})}'|">‹</button>
+                <button th:each="i : ${#numbers.sequence(0, postPage.totalPages - 1)}" class="page-btn"
+                        th:classappend="${i == currentPage} ? 'active'" th:text="${i + 1}"
+                        th:onclick="|location.href='@{/community(category=${currentCategory}, page=${i}, keyword=${keyword})}'|">1</button>
+                <button class="page-btn" th:disabled="${!postPage.hasNext()}"
+                        th:onclick="|location.href='@{/community(category=${currentCategory}, page=${currentPage + 1}, keyword=${keyword})}'|">›</button>
             </div>
-        </div>
+        </section>
 
-        <!-- 오른쪽: 사이드바 -->
         <aside class="community-sidebar">
-            <div class="sidebar-box">
-                <h3>🏷️ 요즘 많이 찾는 태그</h3>
+            <section class="sidebar-box">
+                <h3>요즘 많이 찾는 태그</h3>
                 <div class="tag-cloud">
                     <a th:href="@{/community(keyword='Java_기초', category='all')}" th:classappend="${keyword == 'Java_기초'} ? 'active'" class="tag">#Java_기초</a>
                     <a th:href="@{/community(keyword='Spring', category='all')}" th:classappend="${keyword == 'Spring'} ? 'active'" class="tag">#Spring</a>
@@ -317,10 +246,10 @@
                     <a th:href="@{/community(keyword='이력서피드백', category='all')}" th:classappend="${keyword == '이력서피드백'} ? 'active'" class="tag">#이력서피드백</a>
                     <a th:href="@{/community(keyword='토이프로젝트', category='all')}" th:classappend="${keyword == '토이프로젝트'} ? 'active'" class="tag">#토이프로젝트</a>
                 </div>
-            </div>
+            </section>
 
-            <div class="sidebar-box">
-                <h3>⭐ 이 주의 천사 답변러</h3>
+            <section class="sidebar-box">
+                <h3>이 주의 천사 답변러</h3>
                 <ul class="best-answerers" th:if="${topAnswerers != null and !topAnswerers.isEmpty()}">
                     <li th:each="a, s : ${topAnswerers}">
                         <span class="rank" th:text="${s.index == 0 ? '🥇' : s.index == 1 ? '🥈' : '🥉'}">🥇</span>
@@ -328,107 +257,45 @@
                         <span class="score" th:text="${a.commentCount} + '개 댓글'">0개 댓글</span>
                     </li>
                 </ul>
-                <p th:if="${topAnswerers == null or topAnswerers.isEmpty()}"
-                   style="color:var(--ink-3); font-size:.9rem; text-align:center; padding:12px 0;">
-                    이번 주 활동 데이터가 없습니다.
-                </p>
-            </div>
-            
-            <div style="background: linear-gradient(135deg, var(--accent-soft), var(--amber-soft)); border-radius: 20px; padding: 24px; text-align: center;">
-                <div style="font-size: 1.5rem; margin-bottom: 8px;">🚀</div>
-                <div style="font-weight: 800; color: var(--ink-1); margin-bottom: 6px;">코딩 챌린지 참여하기</div>
-                <div style="font-size: .82rem; color: var(--ink-2); margin-bottom: 12px;">미니 프로젝트로 실력을 키워보세요!</div>
-                <a href="/challenge" style="display:inline-block; background:var(--accent); color:#fff; padding:8px 20px; border-radius:50px; font-size:.84rem; font-weight:700; text-decoration:none;">챌린지 보기 →</a>
-            </div>
+                <p th:if="${topAnswerers == null or topAnswerers.isEmpty()}" class="sidebar-empty">이번 주 활동 데이터가 없습니다.</p>
+            </section>
+
+            <section class="challenge-box">
+                <div class="challenge-icon">🚀</div>
+                <h3>코딩 챌린지 참여하기</h3>
+                <p>미니 프로젝트로 실력을 키워보세요.</p>
+                <a href="/challenge">챌린지 보기</a>
+            </section>
         </aside>
     </div>
-</section>
+</main>
 
-<!-- FOOTER -->
 <footer th:replace="~{index :: footer}"></footer>
 
-<script>
-    (function () {
-        const tabs = document.querySelectorAll('#communityTabs .community-tab');
-        const indicator = document.getElementById('tabIndicator');
-        const tabsEl = document.getElementById('communityTabs');
-        const postList = document.querySelector('.post-list');
-
-        function moveIndicator(tab) {
-            const tabsRect = tabsEl.getBoundingClientRect();
-            const tabRect = tab.getBoundingClientRect();
-            indicator.style.left = (tabRect.left - tabsRect.left + tabsEl.scrollLeft) + 'px';
-            indicator.style.width = tabRect.width + 'px';
-        }
-
-        // 페이지 로드 시 인디케이터 즉시 위치 (애니메이션 없이)
-        const activeTab = document.querySelector('#communityTabs .community-tab.active');
-        if (activeTab) {
-            indicator.style.transition = 'none';
-            moveIndicator(activeTab);
-            // 다음 프레임부터 transition 복원
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    indicator.style.transition = '';
+<script th:inline="javascript">
+    const keyword = /*[[${keyword}]]*/ '';
+    if (keyword && keyword.trim()) {
+        const escaped = keyword.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp('(' + escaped + ')', 'gi');
+        document.querySelectorAll('.community-post-title, .community-post-preview').forEach(element => {
+            Array.from(element.childNodes).forEach(node => {
+                if (node.nodeType !== 3) return;
+                const parts = node.textContent.split(regex);
+                if (parts.length === 1) return;
+                const fragment = document.createDocumentFragment();
+                parts.forEach((part, index) => {
+                    if (index % 2 === 1) {
+                        const mark = document.createElement('mark');
+                        mark.textContent = part;
+                        fragment.appendChild(mark);
+                    } else {
+                        fragment.appendChild(document.createTextNode(part));
+                    }
                 });
-            });
-        }
-
-        // 탭 클릭 시 슬라이드 아웃 후 이동
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function (e) {
-                if (this.classList.contains('active')) return;
-                e.preventDefault();
-                const href = this.href;
-
-                // 인디케이터 먼저 슬라이드
-                moveIndicator(this);
-
-                // 콘텐츠 페이드아웃
-                if (postList) {
-                    postList.style.transition = 'opacity .15s, transform .15s';
-                    postList.style.opacity = '0';
-                    postList.style.transform = 'translateX(-20px)';
-                }
-
-                setTimeout(() => { window.location.href = href; }, 180);
+                node.replaceWith(fragment);
             });
         });
-    })();
-
-    // 검색 키워드 하이라이팅
-    (function() {
-        const keyword = /*[[${keyword}]]*/ '';
-        if (!keyword || keyword.trim() === '') return;
-
-        function highlight(el, kw) {
-            if (!el) return;
-            const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp('(' + escaped + ')', 'gi');
-            Array.from(el.childNodes).forEach(node => {
-                if (node.nodeType === 3) { // TEXT_NODE
-                    const parts = node.textContent.split(regex);
-                    if (parts.length === 1) return;
-                    const frag = document.createDocumentFragment();
-                    parts.forEach((part, i) => {
-                        if (i % 2 === 1) {
-                            const mark = document.createElement('mark');
-                            mark.style.cssText = 'background:var(--amber-soft);color:var(--amber);border-radius:3px;padding:0 2px;font-weight:700;';
-                            mark.textContent = part;
-                            frag.appendChild(mark);
-                        } else {
-                            frag.appendChild(document.createTextNode(part));
-                        }
-                    });
-                    node.replaceWith(frag);
-                }
-            });
-        }
-
-        document.querySelectorAll('.post-content h4, .post-content p').forEach(el => {
-            highlight(el, keyword.trim());
-        });
-    })();
+    }
 </script>
 </body>
 </html>

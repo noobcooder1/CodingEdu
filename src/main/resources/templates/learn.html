@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko" data-theme="light" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
@@ -9,262 +9,148 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>학습하기 - CodeEdu</title>
+    <title>강의 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
     <link rel="stylesheet" href="/css/design-refresh.css">
-    <style>
-        .filter-bar { display: flex; gap: 10px; margin-bottom: 44px; flex-wrap: wrap; }
-        .filter-btn {
-            padding: 8px 20px; border-radius: 50px; border: 1.5px solid var(--border-card);
-            background: var(--bg-surface); font-size: .875rem; font-weight: 600; color: var(--ink-2);
-            cursor: pointer; transition: all .2s;
-        }
-        .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-        .filter-btn.active {
-            background: linear-gradient(135deg, var(--accent), var(--accent-h));
-            color: #fff; border-color: transparent;
-            box-shadow: 0 4px 16px rgba(16,185,129,0.28);
-        }
-
-        .learn-section { margin-bottom: 60px; }
-        .learn-section.hidden { display: none; }
-        .category-title {
-            font-size: 1.25rem; font-weight: 800; color: var(--ink-1);
-            margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--accent-soft);
-        }
-
-        .language-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .language-card {
-            display: block; text-decoration: none; background: var(--bg-surface);
-            border: 1px solid var(--border-card); border-radius: 24px; padding: 28px 24px;
-            transition: all 0.3s cubic-bezier(0.22,1,0.36,1); color: var(--ink-1); position: relative;
-            box-shadow: var(--shadow-sm); overflow: hidden;
-        }
-        .language-card:hover { border-color: rgba(37,99,235,0.2); box-shadow: var(--shadow-xl); transform: translateY(-6px); }
-
-        .lang-icon {
-            width: 56px; height: 56px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; font-weight: 900; margin-bottom: 14px;
-        }
-        .lang-icon.html    { background: var(--amber-soft);   color: var(--warning); }
-        .lang-icon.css     { background: var(--accent-soft);  color: var(--accent); }
-        .lang-icon.js      { background: var(--amber-soft);   color: var(--amber); }
-        .lang-icon.ts      { background: var(--accent-soft);  color: var(--accent-h); }
-        .lang-icon.java    { background: var(--danger-soft);  color: var(--danger); }
-        .lang-icon.kotlin  { background: var(--success-soft); color: var(--success); }
-        .lang-icon.c       { background: var(--accent-soft);  color: var(--accent); }
-        .lang-icon.cpp     { background: var(--accent-soft);  color: var(--accent-h); }
-        .lang-icon.swift   { background: var(--amber-soft);   color: var(--warning); }
-        .lang-icon.python  { background: var(--success-soft); color: var(--success); }
-
-        .language-card h3 { font-size: 1rem; font-weight: 800; color: var(--ink-1); margin-bottom: 6px; }
-        .language-card p { font-size: .82rem; color: var(--ink-2); line-height: 1.5; margin-bottom: 14px; }
-        .card-meta { display: flex; align-items: center; justify-content: space-between; }
-        .lang-level { font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; }
-        .lang-level.beginner     { background: var(--success-soft); color: var(--success); }
-        .lang-level.intermediate { background: var(--accent-soft);  color: var(--accent); }
-        .lang-level.advanced     { background: var(--danger-soft);  color: var(--danger); }
-        .lesson-count { font-size: .78rem; color: var(--ink-3); font-weight: 600; }
-
-        /* 진도 바 (로그인 시) */
-        .progress-mini { margin-top: 12px; }
-        .progress-mini-bar { height: 4px; background: var(--border); border-radius: 10px; overflow: hidden; }
-        .progress-mini-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--mint)); border-radius: 10px; }
-        .progress-mini-label { font-size: .7rem; color: var(--ink-3); margin-top: 4px; }
-
-        /* 검색 */
-        #course-search:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px var(--accent-glow);
-        }
-
-        /* 즐겨찾기 버튼 */
-        .fav-btn {
-            position: absolute; top: 12px; right: 12px;
-            background: none; border: none;
-            font-size: 1.3rem; cursor: pointer; padding: 4px; z-index: 2; line-height: 1;
-            transition: transform .2s;
-        }
-        .fav-btn:hover { transform: scale(1.25); }
-
-        /* 모바일 대응 코드 */
-        @media (max-width: 768px) { .language-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; } }
-    </style>
 </head>
-<body>
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="course-side-logo-mark">💻</span>
+            <span>Code<em>Edu</em></span>
+        </a>
 
-<!-- NAV -->
-<nav th:replace="~{index :: nav}"></nav>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn" class="active"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
-
-<!-- PAGE HEADER -->
-<section class="page-header learn-page-header reveal">
-    <span class="page-kicker">COURSES</span>
-    <h1>강의</h1>
-    <p>관심 있는 강의를 선택하고 오늘의 학습을 시작하세요.</p>
-</section>
-
-<!-- MAIN CONTENT -->
-<section class="learn-dashboard">
-  <div class="learn-catalog">
-
-    <!-- 카테고리 필터 + 검색 -->
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 44px;">
-        <div class="filter-bar" style="margin-bottom: 0;">
-            <button class="filter-btn active" data-filter="all">전체</button>
-            <button class="filter-btn" data-filter="web">🌐 웹 개발</button>
-
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
         </div>
-        <div class="search-box">
-            <input type="text" id="course-search" placeholder="강의 검색"
-                   style="padding: 10px 18px; border-radius: 50px; border: 1.5px solid var(--border-card);
-                          background: var(--bg-surface); color: var(--ink-1); font-size: .875rem;
-                          width: 240px; outline: none; transition: all .2s;">
-        </div>
-    </div>
+    </aside>
 
-    <!-- 카테고리별 섹션 -->
-    <th:block th:with="
-        favoriteCourses = ${favoriteLangs != null && !favoriteLangs.isEmpty()} ? ${courses.?[favoriteLangs.contains(lang)]} : null,
-        webCourses      = ${courses.?[category == 'web']}
-    ">
-
-        <!-- 즐겨찾기 (로그인 시 상단에 표시) -->
-        <div class="learn-section" data-category="favorite" th:if="${favoriteCourses != null && !favoriteCourses.isEmpty()}">
-            <h2 class="category-title">⭐ 즐겨찾기</h2>
-            <div class="language-grid reveal">
-                <a th:each="c : ${favoriteCourses}"
-                   th:href="@{/learn/{lang}(lang=${c.lang})}"
-                   class="language-card"
-                   th:attr="data-lang=${c.lang}, data-favorite='true'">
-                    <button class="fav-btn"
-                            th:attr="data-lang=${c.lang}"
-                            th:text="'❤️'"
-                            onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite(this);">
-                    </button>
-                    <div class="lang-icon" th:classappend="${c.lang == 'javascript' ? 'js' : c.lang}"
-                         th:text="${c.icon}"></div>
-                    <h3 th:text="${c.title}">강의명</h3>
-                    <p th:text="${c.description}">설명</p>
-                    <div class="card-meta">
-                        <span class="lang-level" th:classappend="${c.level}"
-                              th:text="${c.level == 'beginner' ? '입문' : c.level == 'intermediate' ? '초급' : '중급'}">입문</span>
-                        <span class="lesson-count" th:text="'📖 ' + ${c.lessonCount} + '강'">📖 5강</span>
-                    </div>
-                    <div class="progress-mini" th:if="${completedCounts != null}"
-                         th:with="done=${completedCounts[c.lang] ?: 0}">
-                        <div class="progress-mini-bar">
-                            <div class="progress-mini-fill"
-                                 th:style="'width:' + ${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0} + '%'"></div>
-                        </div>
-                        <div class="progress-mini-label" th:text="${done} + '/' + ${c.lessonCount} + ' 완료'">0/5 완료</div>
-                    </div>
-                </a>
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">COURSES</span>
+                <h1>강의</h1>
+                <p>생활코딩 강의로 웹 개발의 기초부터 차근차근 배워보세요.</p>
             </div>
-        </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
 
-        <!-- 웹 개발 -->
-        <div class="learn-section" data-category="web" th:if="${!webCourses.isEmpty()}">
-            <h2 class="category-title">🌐 웹 개발</h2>
-            <div class="language-grid reveal">
-                <a th:each="c : ${webCourses}"
-                   th:href="@{/learn/{lang}(lang=${c.lang})}"
-                   class="language-card"
-                   th:attr="data-lang=${c.lang}, data-favorite=${favoriteLangs != null && favoriteLangs.contains(c.lang) ? 'true' : 'false'}">
-                    <button class="fav-btn"
-                            th:attr="data-lang=${c.lang}"
-                            th:text="${favoriteLangs != null && favoriteLangs.contains(c.lang) ? '❤️' : '🤍'}"
-                            onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite(this);">
-                    </button>
-                    <div class="lang-icon" th:classappend="${c.lang == 'javascript' ? 'js' : c.lang}"
-                         th:text="${c.icon}"></div>
-                    <h3 th:text="${c.title}">강의명</h3>
-                    <p th:text="${c.description}">설명</p>
-                    <div class="card-meta">
-                        <span class="lang-level" th:classappend="${c.level}"
-                              th:text="${c.level == 'beginner' ? '입문' : c.level == 'intermediate' ? '초급' : '중급'}">입문</span>
-                        <span class="lesson-count" th:text="'📖 ' + ${c.lessonCount} + '강'">📖 5강</span>
-                    </div>
-                    <!-- 로그인 시 진도 표시 -->
-                    <div class="progress-mini" th:if="${completedCounts != null}"
-                         th:with="done=${completedCounts[c.lang] ?: 0}">
-                        <div class="progress-mini-bar">
-                            <div class="progress-mini-fill"
-                                 th:style="'width:' + ${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0} + '%'"></div>
+        <div class="course-page-grid">
+            <section class="course-catalog-v2">
+                <div class="course-tabs" role="tablist" aria-label="강의 필터">
+                    <button class="course-tab active" data-filter="all">전체</button>
+                    <button class="course-tab" data-filter="html">HTML</button>
+                    <button class="course-tab" data-filter="css">CSS</button>
+                    <button class="course-tab" data-filter="javascript">JavaScript</button>
+                    <button class="course-tab" data-filter="project">프로젝트</button>
+                </div>
+
+                <div class="course-grid-v2">
+                    <a th:each="c : ${courses}"
+                       th:href="@{/learn/{lang}(lang=${c.lang})}"
+                       class="course-card-v2"
+                       th:classappend="' course-' + ${c.lang}"
+                       th:attr="data-course-type=${c.lang}">
+                        <button class="course-favorite"
+                                th:attr="data-lang=${c.lang}"
+                                th:text="${favoriteLangs.contains(c.lang) ? '♥' : '♡'}"
+                                onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite(this);"
+                                title="즐겨찾기"></button>
+                        <div class="course-thumbnail">
+                            <span class="course-language-mark"
+                                  th:text="${c.lang == 'javascript' ? 'JS' : #strings.toUpperCase(c.lang)}">HTML</span>
+                            <span class="course-thumbnail-code"
+                                  th:text="${c.lang == 'html' ? '< / >' : c.lang == 'css' ? '{ }' : '( ) =>'}">&lt; / &gt;</span>
                         </div>
-                        <div class="progress-mini-label" th:text="${done} + '/' + ${c.lessonCount} + ' 완료'">0/5 완료</div>
-                    </div>
-                </a>
-            </div>
+                        <div class="course-card-body" th:with="done=${completedCounts[c.lang] ?: 0}, percent=${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0}">
+                            <h2 th:text="${c.title}">강의명</h2>
+                            <p th:text="${c.description}">강의 설명</p>
+                            <div class="course-progress-copy">
+                                <span>진도율</span>
+                                <strong th:text="${percent} + '%'">0%</strong>
+                            </div>
+                            <div class="course-progress-track"><i th:style="'width:' + ${percent} + '%'"></i></div>
+                        </div>
+                    </a>
+
+                    <a href="/challenge" class="course-card-v2 course-project-card" data-course-type="project">
+                        <div class="course-thumbnail">
+                            <span class="course-language-mark">UI</span>
+                            <span class="course-thumbnail-code">⌘ + K</span>
+                        </div>
+                        <div class="course-card-body">
+                            <h2>반응형 웹 프로젝트</h2>
+                            <p>배운 내용을 활용해 나만의 웹 페이지를 완성해보세요.</p>
+                            <div class="course-progress-copy"><span>프로젝트 챌린지</span><strong>도전</strong></div>
+                            <div class="course-progress-track"><i style="width:20%"></i></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="course-empty" id="courseEmpty">
+                    <strong>해당 강의가 아직 준비 중입니다.</strong>
+                    <span>다른 카테고리의 강의를 먼저 둘러보세요.</span>
+                </div>
+            </section>
+
+            <aside class="course-progress-panel">
+                <span class="course-page-kicker">MY LEARNING</span>
+                <h2>학습 현황</h2>
+                <div class="course-progress-ring" th:style="'--progress:' + ${progressPercent} + '%'">
+                    <div><span>전체 진도율</span><strong th:text="${progressPercent} + '%'">0%</strong></div>
+                </div>
+                <dl>
+                    <div><dt>전체 강의</dt><dd th:text="${courses.size()} + '개'">3개</dd></div>
+                    <div><dt>수강 중 강의</dt><dd th:text="${activeCourseCount} + '개'">0개</dd></div>
+                    <div><dt>완료한 강의</dt><dd th:text="${completedCourseCount} + '개'">0개</dd></div>
+                    <div><dt>완료한 수업</dt><dd th:text="${completedLessons} + '/' + ${totalLessons}">0/0</dd></div>
+                </dl>
+                <a href="/mypage" class="course-record-button">학습 기록 보기</a>
+            </aside>
         </div>
-    </th:block>
-  </div>
-  <aside class="progress-summary">
-      <span class="page-kicker">MY LEARNING</span>
-      <h2>학습 현황</h2>
-      <div class="progress-ring"><strong th:text="${completedCounts != null ? #aggregates.sum(completedCounts.values()) : 0}">0</strong><span>완료 강의</span></div>
-      <div class="summary-list">
-          <div th:each="c : ${courses}" th:with="done=${completedCounts != null ? (completedCounts[c.lang] ?: 0) : 0}">
-              <span th:text="${c.title}">HTML</span>
-              <strong th:text="${done} + '/' + ${c.lessonCount}">0/0</strong>
-          </div>
-      </div>
-      <a href="/mypage" class="summary-link">학습 기록 보기</a>
-  </aside>
-</section>
+    </main>
+</div>
 
-<!-- FOOTER -->
-<footer th:replace="~{index :: footer}"></footer>
-
+<script src="/js/nav.js"></script>
 <script>
-    /* ── 필터 + 검색 ── */
-    const searchInput = document.getElementById('course-search');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const sections = document.querySelectorAll('.learn-section');
+    const courseTabs = document.querySelectorAll('.course-tab');
+    const courseCards = document.querySelectorAll('.course-card-v2');
+    const courseEmpty = document.getElementById('courseEmpty');
 
-    function applyFilter() {
-        const activeBtn = document.querySelector('.filter-btn.active');
-        const filter = activeBtn ? activeBtn.dataset.filter : 'all';
-        const query = searchInput.value.trim().toLowerCase();
-
-        sections.forEach(sec => {
-            const cat = sec.dataset.category;
-            const cards = sec.querySelectorAll('.language-card');
-            let visibleCards = 0;
-
-            cards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc  = card.querySelector('p').textContent.toLowerCase();
-                const matchSearch = !query || title.includes(query) || desc.includes(query);
-                const matchCategory = filter === 'all' || cat === filter;
-
-                const show = matchSearch && matchCategory;
-                card.style.display = show ? '' : 'none';
-                if (show) visibleCards++;
-            });
-
-            sec.classList.toggle('hidden', visibleCards === 0);
-        });
-    }
-
-    searchInput.addEventListener('input', applyFilter);
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            filterBtns.forEach(b => b.classList.remove('active'));
+    courseTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            courseTabs.forEach(item => item.classList.remove('active'));
             this.classList.add('active');
-            applyFilter();
+            const filter = this.dataset.filter;
+            let visible = 0;
+            courseCards.forEach(card => {
+                const show = filter === 'all' || card.dataset.courseType === filter;
+                card.hidden = !show;
+                if (show) visible++;
+            });
+            courseEmpty.classList.toggle('visible', visible === 0);
         });
     });
 
-    /* ── 즐겨찾기 토글 ── */
     async function toggleFavorite(btn) {
-        const lang = btn.dataset.lang;
         const csrfToken = document.querySelector('meta[name="_csrf"]')?.content || '';
         const csrfHeader = document.querySelector('meta[name="_csrf_header"]')?.content || 'X-CSRF-TOKEN';
         try {
-            const res = await fetch(`/api/learn/${lang}/favorite`, {
+            const res = await fetch(`/api/learn/${btn.dataset.lang}/favorite`, {
                 method: 'POST',
                 headers: { [csrfHeader]: csrfToken }
             });
@@ -273,16 +159,9 @@
                 return;
             }
             const data = await res.json();
-            if (data.success) {
-                btn.textContent = data.favorite ? '❤️' : '🤍';
-                const card = btn.closest('.language-card');
-                card.dataset.favorite = data.favorite ? 'true' : 'false';
-                applyFilter();
-            } else if (data.message) {
-                alert(data.message);
-            }
-        } catch (e) {
-            console.error(e);
+            if (data.success) btn.textContent = data.favorite ? '♥' : '♡';
+        } catch (error) {
+            console.error(error);
         }
     }
 </script>

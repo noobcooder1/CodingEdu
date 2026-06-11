@@ -1,126 +1,459 @@
 {
   "html": {
     "title": "WEB1 - HTML & Internet",
-    "icon": "🌐",
-    "date": "2025-01-15",
-    "videoId": "pQN-pnXPaVg",
+    "icon": "HTML",
+    "date": "2017-12-13",
+    "playlistId": "PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb",
+    "videoId": "tZooW6PritE",
     "lessons": [
       {
         "id": 0,
-        "label": "프로젝트의 동기",
+        "videoId": "tZooW6PritE",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=tZooW6PritE&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=1",
+        "label": "WEB1 - 1.수업소개",
         "sub": false,
-        "title": "이 강의를 만든 이유",
-        "desc": "코딩을 배우고 싶지만 어디서 시작해야 할지 모르는 분들을 위해 이 강의를 제작했습니다. HTML은 웹의 뼈대를 담당하는 언어로, 가장 쉽게 결과를 눈으로 확인할 수 있어 처음 코딩을 배우기에 최적입니다.",
+        "title": "WEB1 - 1.수업소개",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '수업소개' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "별도 설치 없이 브라우저만 있으면 시작 가능",
-          "작성 즉시 결과 확인 가능",
-          "전 세계 모든 웹사이트의 기반 기술"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 2:26",
+          "재생목록 1번째 영상"
         ],
         "code": null
       },
       {
         "id": 1,
-        "label": "코딩과 HTML",
+        "videoId": "Z7uBInm1PJY",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Z7uBInm1PJY&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=2",
+        "label": "WEB1 - 2.프로젝트의동기",
         "sub": false,
-        "title": "코딩이란 무엇인가?",
-        "desc": "코딩(Coding)이란 컴퓨터에게 명령을 내리는 행위입니다. HTML은 HyperText Markup Language의 약자로, 웹 페이지의 구조와 내용을 정의하는 언어입니다.",
+        "title": "WEB1 - 2.프로젝트의동기",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '프로젝트의동기' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "HTML은 프로그래밍 언어가 아닌 마크업 언어",
-          "태그(Tag)를 이용해 문서 구조를 표현",
-          "브라우저가 HTML을 읽어 화면에 렌더링"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 5:17",
+          "재생목록 2번째 영상"
         ],
-        "code": "<!-- 이것이 HTML의 기본 구조입니다 -->\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>나의 첫 웹페이지</title>\n  </head>\n  <body>\n    <h1>Hello, World!</h1>\n    <p>HTML로 만든 첫 번째 페이지입니다.</p>\n  </body>\n</html>"
+        "code": null
       },
       {
         "id": 2,
-        "label": "HTML 코딩 실습 환경 준비",
+        "videoId": "QwCdCcsPVTQ",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=QwCdCcsPVTQ&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=3",
+        "label": "WEB1 - 3.기획",
         "sub": false,
-        "title": "개발 환경 설정하기",
-        "desc": "HTML 코딩을 시작하기 위한 환경을 구성합니다. 텍스트 에디터와 브라우저만 있으면 바로 시작할 수 있습니다.",
+        "title": "WEB1 - 3.기획",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '기획' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "VS Code 설치 및 기본 설정",
-          "Live Server 확장 설치로 실시간 미리보기",
-          "Chrome 개발자 도구(F12) 활용법"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 1:49",
+          "재생목록 3번째 영상"
         ],
         "code": null
       },
       {
         "id": 3,
-        "label": "기본 문법 - 태그",
+        "videoId": "MLXlXCwA0T4",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=MLXlXCwA0T4&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=4",
+        "label": "WEB1 - 4.코딩과 HTML",
         "sub": false,
-        "title": "HTML 태그의 기본 문법",
-        "desc": "HTML은 태그(Tag)라는 단위로 구성됩니다. 대부분의 태그는 열리는 태그와 닫히는 태그가 쌍을 이룹니다.",
+        "title": "WEB1 - 4.코딩과 HTML",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '코딩과 HTML' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "태그는 꺽쇠 괄호 < > 안에 작성",
-          "대부분 시작 태그와 종료 태그로 구성",
-          "태그 안에 속성(attribute)을 추가 가능"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 5:39",
+          "재생목록 4번째 영상"
         ],
-        "code": "<!-- 기본 태그 사용법 -->\n<h1>제목 1</h1>\n<h2>제목 2</h2>\n<p>단락(paragraph) 태그</p>\n\n<!-- 속성 사용 예시 -->\n<a href=\"https://www.google.com\">구글로 이동</a>\n<img src=\"photo.jpg\" alt=\"사진 설명\">"
+        "code": null
       },
       {
         "id": 4,
-        "label": "혁명적인 변화",
+        "videoId": "EtwtZbmrzB4",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=EtwtZbmrzB4&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=5",
+        "label": "WEB1 - 5. HTML코딩과 실습환경 준비 (2023년 수정판)",
         "sub": false,
-        "title": "웹이 가져온 정보 혁명",
-        "desc": "인터넷과 HTML의 등장은 인류가 정보를 공유하는 방식을 근본적으로 바꿨습니다. 누구나 정보를 생산하고 소비할 수 있는 시대가 열렸습니다.",
+        "title": "WEB1 - 5. HTML코딩과 실습환경 준비 (2023년 수정판)",
+        "desc": "생활코딩 WEB1 공식 재생목록의 'HTML코딩과 실습환경 준비 (2023년 수정판)' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "하이퍼텍스트: 문서 간 링크로 정보 연결",
-          "누구나 웹페이지를 만들 수 있는 민주화",
-          "WWW(World Wide Web)의 탄생과 발전"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 5:17",
+          "재생목록 5번째 영상"
         ],
         "code": null
       },
       {
         "id": 5,
-        "label": "HTML이 중요한 이유",
+        "videoId": "9GkFI1ovBbU",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9GkFI1ovBbU&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=6",
+        "label": "WEB1 - 6.기본문법 태그",
         "sub": false,
-        "title": "왜 HTML을 배워야 할까?",
-        "desc": "HTML은 모든 웹 기술의 기초입니다. HTML을 이해하지 않고는 CSS나 JavaScript를 제대로 활용하기 어렵습니다.",
+        "title": "WEB1 - 6.기본문법 태그",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '기본문법 태그' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "모든 웹 프레임워크의 출력 결과는 HTML",
-          "SEO(검색엔진 최적화)의 핵심",
-          "이메일 템플릿, 앱 UI(WebView) 등에도 활용"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 9:18",
+          "재생목록 6번째 영상"
         ],
         "code": null
       },
       {
         "id": 6,
-        "label": "부모 자식과 목록",
+        "videoId": "QoQsaUWx3EU",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=QoQsaUWx3EU&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=7",
+        "label": "WEB1 - 7.혁명적인 변화",
         "sub": false,
-        "title": "중첩 태그와 목록 만들기",
-        "desc": "HTML 태그는 서로 중첩(Nesting)될 수 있습니다. ul, ol, li 태그로 목록을 만들 수 있습니다.",
+        "title": "WEB1 - 7.혁명적인 변화",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '혁명적인 변화' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "부모(Parent)와 자식(Child) 관계 이해",
-          "ul: 순서 없는 목록 / ol: 순서 있는 목록",
-          "li 태그로 각 항목 정의"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 12:16",
+          "재생목록 7번째 영상"
         ],
-        "code": "<!-- 순서 없는 목록 -->\n<ul>\n  <li>HTML - 구조</li>\n  <li>CSS  - 스타일</li>\n  <li>JS   - 동작</li>\n</ul>\n\n<!-- 순서 있는 목록 -->\n<ol>\n  <li>HTML 배우기</li>\n  <li>CSS 배우기</li>\n  <li>JavaScript 배우기</li>\n</ol>"
+        "code": null
       },
       {
         "id": 7,
-        "label": "HTML 태그의 제왕",
+        "videoId": "IJR-pSLGuZM",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=IJR-pSLGuZM&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=8",
+        "label": "WEB1 - 8.통계에 기반한 학습",
         "sub": false,
-        "title": "가장 중요한 HTML 태그들",
-        "desc": "수백 개의 HTML 태그 중 실무에서 가장 많이 사용되는 핵심 태그들을 마스터합니다.",
+        "title": "WEB1 - 8.통계에 기반한 학습",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '통계에 기반한 학습' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "구조: div, span, section, article",
-          "텍스트: h1~h6, p, strong, em",
-          "미디어: img, video, audio"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 7:06",
+          "재생목록 8번째 영상"
         ],
-        "code": "<!-- 핵심 태그 모음 -->\n<div class=\"container\">\n  <header>\n    <h1>사이트 제목</h1>\n  </header>\n  <main>\n    <section>\n      <h2>섹션 제목</h2>\n      <p>본문 내용입니다. <strong>굵게</strong>, <em>기울임</em></p>\n    </section>\n  </main>\n  <footer>하단 정보</footer>\n</div>"
+        "code": null
       },
       {
         "id": 8,
-        "label": "웹사이트 완성",
+        "videoId": "SXtp7w7kdDc",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=SXtp7w7kdDc&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=9",
+        "label": "WEB1 - 9.줄바꿈 : br vs p",
         "sub": false,
-        "title": "미니 웹사이트 만들기",
-        "desc": "지금까지 배운 태그를 모두 활용해 나만의 간단한 웹사이트를 완성합니다.",
+        "title": "WEB1 - 9.줄바꿈 : br vs p",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '줄바꿈 : br vs p' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "nav, header, main, footer 구조 잡기",
-          "이미지와 링크 추가",
-          "실제 브라우저에서 확인"
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 7:35",
+          "재생목록 9번째 영상"
         ],
-        "code": "<!DOCTYPE html>\n<html lang=\"ko\" data-theme=\"light\">\n<head>\n  <meta charset=\"UTF-8\">\n  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>\n  <title>나의 포트폴리오</title>\n</head>\n<body>\n  <nav>\n    <a href=\"#about\">소개</a>\n    <a href=\"#work\">작업물</a>\n  </nav>\n  <header>\n    <h1>안녕하세요, 저는 코딩을 배우는 중입니다! 👋</h1>\n  </header>\n  <main id=\"about\">\n    <h2>자기소개</h2>\n    <p>HTML을 배우고 있는 초보 개발자입니다.</p>\n  </main>\n  <footer>\n    <p>© 2025 My Portfolio</p>\n  </footer>\n</body>\n</html>"
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "MgZRbCaF_rY",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=MgZRbCaF_rY&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=10",
+        "label": "WEB1 - 10. html이 중요한 이유",
+        "sub": false,
+        "title": "WEB1 - 10. html이 중요한 이유",
+        "desc": "생활코딩 WEB1 공식 재생목록의 'html이 중요한 이유' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 9:39",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "RhE-RHdi-NY",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=RhE-RHdi-NY&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=11",
+        "label": "WEB1 - 11. 최후의 문법 속성 & img",
+        "sub": false,
+        "title": "WEB1 - 11. 최후의 문법 속성 & img",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '최후의 문법 속성 & img' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 5:59",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "aUtnyev_1vg",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=aUtnyev_1vg&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=12",
+        "label": "WEB1 - 12. 부모자식과 목록",
+        "sub": false,
+        "title": "WEB1 - 12. 부모자식과 목록",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '부모자식과 목록' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 10:08",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "sVt5nyz3Gdo",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=sVt5nyz3Gdo&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=13",
+        "label": "WEB1 - 13. 문서의구조와 슈퍼스타들",
+        "sub": false,
+        "title": "WEB1 - 13. 문서의구조와 슈퍼스타들",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '문서의구조와 슈퍼스타들' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 9:08",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "V3pkC1hE-as",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=V3pkC1hE-as&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=14",
+        "label": "WEB1 - 14. HTML 태그의 제왕",
+        "sub": false,
+        "title": "WEB1 - 14. HTML 태그의 제왕",
+        "desc": "생활코딩 WEB1 공식 재생목록의 'HTML 태그의 제왕' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 8:42",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "w5S0GACgL3U",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=w5S0GACgL3U&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=15",
+        "label": "WEB1 - 15. 웹사이트 완성",
+        "sub": false,
+        "title": "WEB1 - 15. 웹사이트 완성",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '웹사이트 완성' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 8:36",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 15,
+        "videoId": "pYOEy_mAMpI",
+        "playlistIndex": 16,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pYOEy_mAMpI&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=16",
+        "label": "WEB1 - 16. 원시웹",
+        "sub": false,
+        "title": "WEB1 - 16. 원시웹",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '원시웹' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 14:17",
+          "재생목록 16번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 16,
+        "videoId": "yBPyzaccbkc",
+        "playlistIndex": 17,
+        "youtubeUrl": "https://www.youtube.com/watch?v=yBPyzaccbkc&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=17",
+        "label": "WEB1 - 17. 인터넷을 여는 열쇠 : 서버와 클라이언트",
+        "sub": false,
+        "title": "WEB1 - 17. 인터넷을 여는 열쇠 : 서버와 클라이언트",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '인터넷을 여는 열쇠 : 서버와 클라이언트' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 9:26",
+          "재생목록 17번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 17,
+        "videoId": "MN1g0490WAg",
+        "playlistIndex": 18,
+        "youtubeUrl": "https://www.youtube.com/watch?v=MN1g0490WAg&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=18",
+        "label": "WEB1 - 18. 웹호스팅 : github page (2022년 수정판)",
+        "sub": false,
+        "title": "WEB1 - 18. 웹호스팅 : github page (2022년 수정판)",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '웹호스팅 : github page (2022년 수정판)' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 11:15",
+          "재생목록 18번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 18,
+        "videoId": "pyoTcvNrbmk",
+        "playlistIndex": 19,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pyoTcvNrbmk&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=19",
+        "label": "WEB1 - 19. 웹서버 운영하기 (2023년 수정판. VSCode Live server)",
+        "sub": false,
+        "title": "WEB1 - 19. 웹서버 운영하기 (2023년 수정판. VSCode Live server)",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '웹서버 운영하기 (2023년 수정판. VSCode Live server)' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 7:59",
+          "재생목록 19번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 19,
+        "videoId": "bTSDDyuMuUo",
+        "playlistIndex": 20,
+        "youtubeUrl": "https://www.youtube.com/watch?v=bTSDDyuMuUo&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=20",
+        "label": "WEB1 - 20. 수업을 마치며 1/3",
+        "sub": false,
+        "title": "WEB1 - 20. 수업을 마치며 1/3",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '수업을 마치며 1/3' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 5:16",
+          "재생목록 20번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 20,
+        "videoId": "JUNFoER12kk",
+        "playlistIndex": 21,
+        "youtubeUrl": "https://www.youtube.com/watch?v=JUNFoER12kk&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=21",
+        "label": "WEB1 - 21. 수업을 마치며 2/3",
+        "sub": false,
+        "title": "WEB1 - 21. 수업을 마치며 2/3",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '수업을 마치며 2/3' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 10:18",
+          "재생목록 21번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 21,
+        "videoId": "WD-LFlMi6iA",
+        "playlistIndex": 22,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WD-LFlMi6iA&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=22",
+        "label": "WEB1 - 22. 수업을 마치며 3/3",
+        "sub": false,
+        "title": "WEB1 - 22. 수업을 마치며 3/3",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '수업을 마치며 3/3' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 4:56",
+          "재생목록 22번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 22,
+        "videoId": "YVxCFGv9Eqk",
+        "playlistIndex": 23,
+        "youtubeUrl": "https://www.youtube.com/watch?v=YVxCFGv9Eqk&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=23",
+        "label": "WEB1 부록 - 코드의 힘",
+        "sub": true,
+        "title": "WEB1 부록 - 코드의 힘",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '부록 - 코드의 힘' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 1:21",
+          "재생목록 23번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 23,
+        "videoId": "7T7r_oSp0SE",
+        "playlistIndex": 24,
+        "youtubeUrl": "https://www.youtube.com/watch?v=7T7r_oSp0SE&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=24",
+        "label": "WEB1 부록 - 코드의 힘 : 동영상 삽입",
+        "sub": true,
+        "title": "WEB1 부록 - 코드의 힘 : 동영상 삽입",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '부록 - 코드의 힘 : 동영상 삽입' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 4:43",
+          "재생목록 24번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 24,
+        "videoId": "LVLHprUg-PM",
+        "playlistIndex": 25,
+        "youtubeUrl": "https://www.youtube.com/watch?v=LVLHprUg-PM&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=25",
+        "label": "WEB1 부록 - 코드의 힘 : 댓글 기능 추가",
+        "sub": true,
+        "title": "WEB1 부록 - 코드의 힘 : 댓글 기능 추가",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '부록 - 코드의 힘 : 댓글 기능 추가' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 7:31",
+          "재생목록 25번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 25,
+        "videoId": "d4H1ua2USa8",
+        "playlistIndex": 26,
+        "youtubeUrl": "https://www.youtube.com/watch?v=d4H1ua2USa8&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=26",
+        "label": "WEB1 부록 - 코드의 힘 : 채팅 기능 추가",
+        "sub": true,
+        "title": "WEB1 부록 - 코드의 힘 : 채팅 기능 추가",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '부록 - 코드의 힘 : 채팅 기능 추가' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 4:49",
+          "재생목록 26번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 26,
+        "videoId": "4QCZxcCBtCI",
+        "playlistIndex": 27,
+        "youtubeUrl": "https://www.youtube.com/watch?v=4QCZxcCBtCI&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=27",
+        "label": "WEB1 부록 :  코드의 힘 : 웹사이트 방문자 분석기",
+        "sub": true,
+        "title": "WEB1 부록 :  코드의 힘 : 웹사이트 방문자 분석기",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '부록 :  코드의 힘 : 웹사이트 방문자 분석기' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 10:05",
+          "재생목록 27번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 27,
+        "videoId": "CU-j2cUUxko",
+        "playlistIndex": 28,
+        "youtubeUrl": "https://www.youtube.com/watch?v=CU-j2cUUxko&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=28",
+        "label": "WEB1 - 엔딩 크래딧",
+        "sub": true,
+        "title": "WEB1 - 엔딩 크래딧",
+        "desc": "생활코딩 WEB1 공식 재생목록의 '엔딩 크래딧' 강의입니다. 영상과 함께 HTML 및 인터넷의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB1 공식 재생목록",
+          "영상 길이 8:08",
+          "재생목록 28번째 영상"
+        ],
+        "code": null
       }
     ]
   },
