@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko" data-theme="light" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
@@ -11,430 +11,947 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
     <style>
-        /* ══ 공통 칩 스타일 ════════════════════════════════════════ */
-        .qf-chip {
-            display: inline-flex; align-items: center; gap: 4px;
-            padding: 6px 15px; border-radius: 999px; white-space: nowrap;
-            font-size: .83rem; font-weight: 500; text-decoration: none;
-            color: var(--ink-2); background: var(--bg-section);
-            border: 1.5px solid transparent; line-height: 1.4;
-            transition: color .15s, background .15s, border-color .15s,
-                        box-shadow .15s, transform .15s;
+        .page-quiz-dashboard {
+            min-height: 100vh;
+            background: #f7f8fc;
         }
-        .qf-chip:hover {
-            color: var(--accent); background: var(--accent-soft);
-            border-color: rgba(16,185,129,.25); transform: translateY(-1px);
+        .page-quiz-dashboard .nav-links a[href="/quiz"] {
+            color: var(--accent);
+            font-weight: 800;
         }
-        .qf-chip.active {
-            background: linear-gradient(135deg, var(--accent), var(--accent-h));
-            color: #fff; font-weight: 600;
-            box-shadow: 0 4px 16px rgba(16,185,129,.30);
-        }
+        .page-quiz-dashboard .nav-links a[href="/quiz"]::after { width: 100%; }
 
-        /* ══ 버전 1: 카드형 칩 필터 ════════════════════════════════ */
-        .qf1 {
-            margin-bottom: 36px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 24px; overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-        .qf1-row { display: flex; align-items: flex-start; gap: 16px; padding: 14px 22px; }
-        .qf1-row + .qf1-row { border-top: 1px solid var(--border-card); }
-        .qf1-label {
-            font-size: .69rem; font-weight: 700; color: var(--ink-3);
-            letter-spacing: .08em; text-transform: uppercase;
-            white-space: nowrap; padding-top: 7px;
-            min-width: 44px; text-align: right; flex-shrink: 0;
-        }
-        .qf1-chips { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
-        .qf1-lang-wrap { flex: 1; display: flex; flex-direction: column; gap: 8px; }
-        .qf1-lang-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-        .qf1-lang-chips.collapsed { max-height: 34px; overflow: hidden; }
-        .qf1-more {
-            align-self: flex-start; display: inline-flex; align-items: center; gap: 5px;
-            padding: 4px 12px; border-radius: 999px;
-            border: 1.5px solid var(--border-card);
-            background: transparent; font-size: .77rem; font-weight: 600;
-            color: var(--ink-3); cursor: pointer; line-height: 1.4;
-            transition: border-color .15s, color .15s, background .15s;
-        }
-        .qf1-more:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-
-        /* ══ 버전 2: 드롭다운 필터바 ═══════════════════════════════ */
-        .qf2 { position: relative; margin-bottom: 36px; }
-        .qf2-bar {
-            display: flex; align-items: center; gap: 2px; flex-wrap: wrap;
-            background: var(--bg-card); border: 1px solid var(--border-card);
-            border-radius: 20px; padding: 10px 14px; box-shadow: var(--shadow-sm);
-        }
-        .qf2-bar-icon { font-size: .88rem; padding: 0 6px; color: var(--ink-3); flex-shrink: 0; }
-        .qf2-sep { width: 1px; height: 20px; background: var(--border-card); margin: 0 4px; flex-shrink: 0; }
-        .qf2-trigger {
-            display: inline-flex; align-items: center; gap: 5px;
-            padding: 7px 13px; border-radius: 10px;
-            border: none; background: transparent; cursor: pointer;
-            font-size: .84rem; font-weight: 500; color: var(--ink-2);
-            transition: background .15s, color .15s;
-        }
-        .qf2-trigger:hover, .qf2-trigger.open { background: var(--accent-soft); color: var(--accent); }
-        .qf2-trigger.has-filter { color: var(--accent); font-weight: 700; }
-        .qf2-badge {
-            background: var(--accent); color: #fff;
-            font-size: .69rem; font-weight: 700;
-            padding: 2px 8px; border-radius: 999px; white-space: nowrap;
-        }
-        .qf2-arrow { width: 12px; height: 12px; flex-shrink: 0; display: block; transition: transform .2s; }
-        .qf2-trigger.open .qf2-arrow { transform: rotate(180deg); }
-        .qf2-spacer { flex: 1; min-width: 4px; }
-        .qf2-reset {
-            display: inline-flex; align-items: center; gap: 4px;
-            font-size: .78rem; font-weight: 600; color: var(--ink-3);
-            text-decoration: none; padding: 6px 12px; border-radius: 10px;
-            border: 1.5px solid var(--border-card); white-space: nowrap;
-            transition: color .15s, border-color .15s, background .15s;
-        }
-        .qf2-reset:hover { color: var(--danger); border-color: var(--danger); background: rgba(239,68,68,.06); }
-        .qf2-panel {
-            display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0;
-            background: var(--bg-card); border: 1.5px solid var(--border-card);
-            border-radius: 18px; padding: 20px 22px;
-            box-shadow: 0 16px 56px rgba(0,0,0,.13); z-index: 200;
-        }
-        .qf2-panel.open { display: block; animation: qfIn .16s ease; }
-        @keyframes qfIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
-        .qf2-panel-title {
-            font-size: .7rem; font-weight: 700; color: var(--ink-3);
-            text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px;
-        }
-        .qf2-panel-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-
-        /* 모바일 */
-        /* 모바일 대응 코드 */
-        @media (max-width: 600px) {
-            .qf1-row { flex-direction: column; gap: 8px; }
-            .qf1-label { text-align: left; padding-top: 0; }
-            .qf2-sep { display: none; }
-            .qf2-trigger { flex: 1; justify-content: center; }
-            .qf2-panel {
-                position: fixed; bottom: 0; left: 0; right: 0; top: auto;
-                border-radius: 20px 20px 0 0; border-bottom: none;
-                max-height: 65vh; overflow-y: auto;
-            }
-        }
-
-        /* 연습 퀴즈 배너 */
-        .practice-banner {
-            background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-section) 100%);
-            border-radius: 22px; padding: 28px 32px;
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 40px; gap: 20px; flex-wrap: wrap;
-            border: 1.5px solid rgba(16,185,129,0.12);
-        }
-        .practice-banner-text { }
-        .practice-banner-title {
-            font-size: 1.1rem; font-weight: 800;
-            color: var(--ink-1); letter-spacing: -0.02em;
-            margin-bottom: 5px;
-        }
-        .practice-banner-sub { font-size: .88rem; color: var(--ink-2); }
-        .btn-practice {
-            background: var(--accent); color: white;
-            padding: 11px 26px; border-radius: 50px;
-            font-weight: 700; text-decoration: none; font-size: .9rem;
-            white-space: nowrap; flex-shrink: 0;
-            transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-            box-shadow: 0 2px 12px rgba(16,185,129,0.25);
-        }
-        .btn-practice:hover {
-            background: var(--accent-h);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(16,185,129,0.38);
-        }
-
-        /* 퀴즈 카드 그리드 */
-        .quiz-grid {
+        .quiz-shell {
+            min-height: calc(100vh - 72px);
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 22px;
+            grid-template-columns: 240px minmax(0, 1fr);
         }
-        .quiz-card {
-            background: var(--bg-card);
-            border-radius: 22px; padding: 26px;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s, border-color 0.2s;
-            display: flex; flex-direction: column;
-            border: 1.5px solid var(--border-card);
+        .quiz-sidebar {
+            position: sticky;
+            top: 72px;
+            height: calc(100vh - 72px);
+            padding: 34px 22px 28px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, .86);
+            border-right: 1px solid #e7eaf1;
+            border-top-right-radius: 32px;
+            box-shadow: 12px 0 32px rgba(28, 39, 68, .04);
         }
-        .quiz-card:hover {
-            transform: translateY(-7px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
+        .quiz-side-nav {
+            position: static;
+            top: auto;
+            z-index: auto;
+            width: auto;
+            height: auto;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: stretch;
+            gap: 8px;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            backdrop-filter: none;
         }
-        .quiz-card-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 16px;
+        .quiz-side-nav a {
+            min-height: 46px;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-radius: 8px;
+            color: var(--ink-1);
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .18s, color .18s, transform .18s, box-shadow .18s;
         }
-        .quiz-lang {
-            font-weight: 700; font-size: 1rem;
-            color: var(--ink-1); display: flex; align-items: center; gap: 6px;
-            letter-spacing: -0.01em;
+        .quiz-side-nav a:hover {
+            background: #eef0ff;
+            color: #4f55e7;
+            transform: translateY(-1px);
+        }
+        .quiz-side-nav a.active {
+            background: #4f55e7;
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(79, 85, 231, .24);
+        }
+        .quiz-side-nav img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            opacity: .78;
+        }
+        .quiz-side-nav a.active img {
+            opacity: 1;
+            filter: brightness(0) invert(1);
+        }
+        .quiz-point-card {
+            margin-top: auto;
+            overflow: hidden;
+            border: 1px solid #e7eaf1;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(28, 39, 68, .06);
+        }
+        .quiz-point-copy {
+            min-height: 118px;
+            padding: 20px 18px;
+            display: grid;
+            align-content: center;
+            gap: 12px;
+            color: var(--ink-1);
+            font-size: .88rem;
+            font-weight: 800;
+        }
+        .quiz-trophy {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            font-size: 1.7rem;
+            border-radius: 8px;
+            background: #fff7d6;
+        }
+        .quiz-point-total {
+            padding: 16px 18px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            border-top: 1px solid #eef0f5;
+            color: var(--ink-2);
+            font-size: .86rem;
+            font-weight: 700;
+        }
+        .quiz-point-total strong {
+            color: var(--ink-1);
+            font-size: 1.05rem;
+        }
+
+        .quiz-main {
+            min-width: 0;
+            padding: 42px 44px 56px;
+        }
+        .quiz-layout {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 290px;
+            gap: 36px;
+            align-items: start;
+        }
+        .quiz-content {
+            min-width: 0;
+        }
+        .quiz-heading {
+            margin-bottom: 24px;
+        }
+        .quiz-heading h1 {
+            margin: 0 0 6px;
+            color: var(--ink-1);
+            font-size: 2rem;
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+        .quiz-heading p {
+            margin: 0;
+            color: var(--ink-2);
+            font-size: .98rem;
+            font-weight: 500;
+        }
+
+        .quiz-stat-grid {
+            margin-bottom: 26px;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            background: transparent;
+        }
+        .quiz-stat-card {
+            min-height: 94px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #fff;
+            border: 1px solid #e7eaf1;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(28, 39, 68, .05);
+        }
+        .quiz-stat-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: #4f55e7;
+            background: #eef0ff;
+            font-size: 1.35rem;
+            flex: 0 0 auto;
+        }
+        .quiz-stat-icon.green { color: #13a86f; background: #e9fbf3; }
+        .quiz-stat-icon.orange { color: #f06423; background: #fff0e8; }
+        .quiz-stat-icon.blue { color: #2685ff; background: #e9f3ff; }
+        .quiz-stat-label {
+            display: block;
+            color: var(--ink-3);
+            font-size: .78rem;
+            font-weight: 750;
+        }
+        .quiz-stat-value {
+            margin-top: 3px;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            color: var(--ink-1);
+            font-size: 1.45rem;
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+        .quiz-stat-value small {
+            color: var(--ink-2);
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+        .quiz-list-head {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 18px;
+            border-bottom: 1px solid #e7eaf1;
+        }
+        .quiz-tabs {
+            min-width: 0;
+            min-height: 48px;
+            display: flex;
+            align-items: flex-end;
+            gap: 28px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .quiz-tabs::-webkit-scrollbar { display: none; }
+        .quiz-tabs a {
+            height: 48px;
+            padding: 0 2px;
+            display: inline-flex;
+            align-items: center;
+            border-bottom: 3px solid transparent;
+            color: #64748b;
+            font-size: .95rem;
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .quiz-tabs a:hover {
+            color: var(--ink-1);
+        }
+        .quiz-tabs a.active {
+            color: #3652ff;
+            border-bottom-color: #3652ff;
+        }
+        .quiz-controls {
+            padding-bottom: 10px;
+            display: flex;
+            gap: 10px;
+            flex: 0 0 auto;
+        }
+        .quiz-select {
+            height: 36px;
+            min-width: 118px;
+            padding: 0 34px 0 14px;
+            border: 1px solid #e5e9f1;
+            border-radius: 8px;
+            color: var(--ink-2);
+            background: #fff;
+            font-size: .82rem;
+            font-weight: 750;
+            box-shadow: 0 4px 14px rgba(28, 39, 68, .04);
+        }
+        .quiz-list {
+            padding: 0;
+            display: grid;
+            gap: 0;
+            background: transparent;
+        }
+        .quiz-row {
+            min-height: 106px;
+            padding: 18px 24px;
+            display: grid;
+            grid-template-columns: 70px minmax(0, 1fr) 168px 104px;
+            align-items: center;
+            gap: 24px;
+            color: var(--ink-1);
+            background: #fff;
+            border: 1px solid #e5e9f1;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(28, 39, 68, .045);
+            text-decoration: none;
+            transition: border-color .18s, box-shadow .18s, transform .18s;
+        }
+        .quiz-row + .quiz-row {
+            margin-top: -1px;
+        }
+        .quiz-row:hover {
+            position: relative;
+            z-index: 1;
+            border-color: #ccd2ff;
+            box-shadow: 0 14px 34px rgba(28, 39, 68, .08);
+            transform: translateY(-2px);
+        }
+        .quiz-logo {
+            width: 56px;
+            height: 56px;
+            display: grid;
+            place-items: center;
+            border-radius: 8px;
+            color: #10131c;
+            background: #f4dc38;
+            font-size: 1.35rem;
+            font-weight: 900;
+            box-shadow: inset 0 -10px 18px rgba(255, 255, 255, .16);
+        }
+        .quiz-logo-html { color: #fff; background: linear-gradient(145deg, #ff6f32, #e24a1f); }
+        .quiz-logo-css { color: #fff; background: linear-gradient(145deg, #3b8cff, #2c63dc); }
+        .quiz-logo-js { background: linear-gradient(145deg, #ffe45a, #f2c718); }
+        .quiz-logo-ts { color: #fff; background: linear-gradient(145deg, #2f7ee7, #265bc7); }
+        .quiz-logo-java { color: #fff; background: linear-gradient(145deg, #f26d43, #2d56cf); }
+        .quiz-logo-python { color: #fff; background: linear-gradient(145deg, #3776ab, #ffd43b); }
+        .quiz-logo-sql { color: #fff; background: linear-gradient(145deg, #1e293b, #3b82f6); }
+        .quiz-logo-react { color: #111827; background: linear-gradient(145deg, #76e4ff, #4ec5e8); }
+        .quiz-logo-git { color: #fff; background: linear-gradient(145deg, #f97316, #ef4444); }
+        .quiz-logo-project { color: #fff; background: linear-gradient(145deg, #7c5ce8, #35226e); }
+        .quiz-row-copy {
+            min-width: 0;
+        }
+        .quiz-title-line {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            min-width: 0;
+        }
+        .quiz-title-line h2 {
+            margin: 0;
+            overflow: hidden;
+            color: var(--ink-1);
+            font-size: 1.1rem;
+            line-height: 1.35;
+            font-weight: 900;
+            letter-spacing: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         .quiz-difficulty {
-            padding: 4px 12px; border-radius: 50px;
-            font-size: .72rem; font-weight: 700; color: white;
+            padding: 3px 9px;
+            border-radius: 999px;
+            font-size: .68rem;
+            font-weight: 900;
+            white-space: nowrap;
         }
-        .difficulty-easy   { background: var(--success); }
-        .difficulty-medium { background: var(--warning); }
-        .difficulty-hard   { background: var(--danger); }
-
-        .quiz-card h3 {
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--ink-1); margin-bottom: 10px;
-            letter-spacing: -0.02em; line-height: 1.35;
-        }
-        .quiz-card p {
-            font-size: .88rem; color: var(--ink-2);
-            line-height: 1.65; flex-grow: 1; margin-bottom: 20px;
+        .quiz-difficulty.easy { color: #10a875; background: #e8fbf3; }
+        .quiz-difficulty.medium { color: #3652ff; background: #eef0ff; }
+        .quiz-difficulty.hard { color: #a855f7; background: #f4e8ff; }
+        .quiz-description {
+            margin: 5px 0 9px;
+            overflow: hidden;
+            color: var(--ink-2);
+            font-size: .86rem;
+            font-weight: 500;
+            line-height: 1.5;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         .quiz-meta {
-            display: flex; gap: 14px; font-size: .8rem;
-            color: var(--ink-3); margin-bottom: 20px;
-            flex-wrap: wrap; font-weight: 500;
+            display: flex;
+            gap: 18px;
+            color: #71809b;
+            font-size: .75rem;
+            font-weight: 750;
         }
-        .quiz-meta span { display: flex; align-items: center; gap: 4px; }
+        .quiz-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quiz-accuracy {
+            min-width: 0;
+        }
+        .quiz-accuracy-label {
+            display: block;
+            margin-bottom: 3px;
+            color: #71809b;
+            font-size: .73rem;
+            font-weight: 800;
+        }
+        .quiz-accuracy-value {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--ink-1);
+            font-size: 1.08rem;
+            line-height: 1;
+            font-weight: 900;
+        }
+        .quiz-progress {
+            width: 100%;
+            height: 4px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #e4e8f0;
+        }
+        .quiz-progress i {
+            display: block;
+            height: 100%;
+            min-width: 6px;
+            border-radius: inherit;
+            background: #3652ff;
+        }
+        .quiz-progress i.green { background: #19c37d; }
+        .quiz-progress i.blue { background: #3652ff; }
+        .quiz-progress i.violet { background: #a855f7; }
+        .quiz-progress i.orange { background: #f97316; }
+        .quiz-action {
+            justify-self: end;
+            min-width: 92px;
+            padding: 10px 14px;
+            border-radius: 6px;
+            color: #fff;
+            background: #4f55e7;
+            text-align: center;
+            font-size: .84rem;
+            font-weight: 850;
+            text-decoration: none;
+            box-shadow: 0 8px 18px rgba(79, 85, 231, .22);
+        }
+        .quiz-login {
+            background: #eef0ff;
+            color: #4f55e7;
+            box-shadow: none;
+        }
+        .quiz-empty {
+            padding: 56px 24px;
+            display: grid;
+            place-items: center;
+            gap: 10px;
+            color: var(--ink-3);
+            background: #fff;
+            border: 1px dashed #cfd5e2;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 750;
+        }
+        .quiz-more {
+            width: min(480px, 100%);
+            height: 46px;
+            margin: 16px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid #e7eaf1;
+            border-radius: 8px;
+            color: var(--ink-1);
+            background: #fff;
+            font-size: .88rem;
+            font-weight: 850;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(28, 39, 68, .04);
+        }
 
-        /* 시작/잠금 버튼 */
-        .btn-quiz {
-            display: block; width: 100%; text-align: center;
-            background: var(--accent-soft); color: var(--accent);
-            padding: 13px; border-radius: 14px;
-            font-weight: 700; font-size: .9rem; text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
-            border: none; cursor: pointer;
+        .quiz-aside {
+            display: grid;
+            gap: 16px;
         }
-        .btn-quiz:hover {
-            background: var(--accent); color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(16,185,129,0.28);
+        .quiz-panel {
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e7eaf1;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(28, 39, 68, .05);
         }
-        .login-notice {
-            display: block; width: 100%; text-align: center;
-            background: var(--bg-section); color: var(--ink-3);
-            padding: 13px; border-radius: 14px;
-            font-weight: 600; font-size: .88rem; text-decoration: none;
-            border: 1.5px dashed var(--border-card);
-            transition: all 0.2s;
+        .quiz-panel-head {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
         }
-        .login-notice:hover {
-            background: var(--accent-soft); color: var(--accent);
-            border-color: var(--accent);
+        .quiz-panel h2 {
+            margin: 0;
+            color: var(--ink-1);
+            font-size: .95rem;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+        .quiz-panel-link {
+            color: #8a95aa;
+            font-size: .72rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .quiz-status-main {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        .quiz-status-ring {
+            width: 92px;
+            height: 92px;
+            padding: 7px;
+            flex: 0 0 auto;
+            border-radius: 50%;
+            background: conic-gradient(#4f55e7 var(--progress), #edf0f8 0);
+        }
+        .quiz-status-ring div {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--ink-1);
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+        .quiz-status-copy {
+            color: #64748b;
+            font-size: .78rem;
+            font-weight: 750;
+            line-height: 1.55;
+        }
+        .quiz-panel dl {
+            margin: 0;
+        }
+        .quiz-panel dl div {
+            padding: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            color: #64748b;
+            font-size: .82rem;
+            font-weight: 750;
+        }
+        .quiz-panel dd {
+            color: var(--ink-1);
+            font-weight: 900;
+        }
+        .quiz-record-btn {
+            margin-top: 14px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #6d72ff;
+            border-radius: 6px;
+            color: #4f55e7;
+            background: #fff;
+            font-size: .82rem;
+            font-weight: 850;
+            text-decoration: none;
+        }
+        .ranking-list,
+        .activity-list {
+            display: grid;
+            gap: 8px;
+        }
+        .ranking-item {
+            min-height: 40px;
+            display: grid;
+            grid-template-columns: 24px 28px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink-1);
+            font-size: .82rem;
+            font-weight: 850;
+        }
+        .ranking-item.current {
+            margin-inline: -8px;
+            padding: 0 8px;
+            border-radius: 8px;
+            color: #3652ff;
+            background: #eef0ff;
+        }
+        .rank-avatar,
+        .activity-icon {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #f3f5fb;
+            font-size: .86rem;
+        }
+        .rank-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .rank-points {
+            font-size: .78rem;
+        }
+        .activity-item {
+            min-height: 48px;
+            display: grid;
+            grid-template-columns: 34px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 10px;
+        }
+        .activity-icon.good { color: #3652ff; background: #eef0ff; }
+        .activity-icon.review { color: #f97316; background: #fff0e8; }
+        .activity-title {
+            overflow: hidden;
+            color: var(--ink-1);
+            font-size: .8rem;
+            font-weight: 850;
+            line-height: 1.35;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .activity-meta {
+            color: #8a95aa;
+            font-size: .72rem;
+            font-weight: 750;
+        }
+        .activity-time {
+            color: #8a95aa;
+            font-size: .72rem;
+            font-weight: 750;
+            white-space: nowrap;
+        }
+        .panel-empty {
+            padding: 10px 0;
+            color: #8a95aa;
+            font-size: .8rem;
+            font-weight: 750;
+            line-height: 1.6;
         }
 
-        /* 빈 상태 */
-        .empty-state {
-            grid-column: 1/-1; text-align: center;
-            padding: 72px 20px; color: var(--ink-3);
-            background: var(--bg-section); border-radius: 22px;
-            font-size: .95rem; font-weight: 500;
-            border: 1.5px dashed var(--border-card);
+        [data-theme="dark"] .page-quiz-dashboard,
+        [data-theme="dark"].page-quiz-dashboard {
+            background: #11131a;
         }
-        .empty-state .empty-icon { font-size: 3rem; display: block; margin-bottom: 16px; }
+        [data-theme="dark"] .quiz-sidebar,
+        [data-theme="dark"] .quiz-stat-card,
+        [data-theme="dark"] .quiz-row,
+        [data-theme="dark"] .quiz-panel,
+        [data-theme="dark"] .quiz-point-card,
+        [data-theme="dark"] .quiz-more,
+        [data-theme="dark"] .quiz-empty {
+            background: #171a23;
+            border-color: #292d38;
+        }
+        [data-theme="dark"] .quiz-select,
+        [data-theme="dark"] .quiz-status-ring div {
+            background: #171a23;
+            border-color: #292d38;
+        }
+        [data-theme="dark"] .quiz-sidebar {
+            box-shadow: none;
+        }
+
+        @media (max-width: 1320px) {
+            .quiz-main { padding-inline: 28px; }
+            .quiz-layout {
+                grid-template-columns: 1fr;
+            }
+            .quiz-aside {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .quiz-panel {
+                min-width: 0;
+            }
+        }
+        @media (max-width: 980px) {
+            .quiz-shell {
+                display: block;
+            }
+            .quiz-sidebar {
+                position: static;
+                height: auto;
+                padding: 12px 14px;
+                border-right: 0;
+                border-bottom: 1px solid #e7eaf1;
+                border-radius: 0;
+            }
+            .quiz-side-nav {
+                display: flex;
+                gap: 6px;
+                overflow-x: auto;
+            }
+            .quiz-side-nav a {
+                min-height: 38px;
+                padding: 0 11px;
+                gap: 8px;
+                flex: 0 0 auto;
+                font-size: .88rem;
+            }
+            .quiz-side-nav img {
+                width: 17px;
+                height: 17px;
+            }
+            .quiz-point-card {
+                display: none;
+            }
+            .quiz-stat-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .quiz-row {
+                grid-template-columns: 62px minmax(0, 1fr) 132px;
+            }
+            .quiz-action {
+                grid-column: 2 / 4;
+                justify-self: stretch;
+            }
+            .quiz-aside {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 680px) {
+            .quiz-main {
+                padding: 28px 16px 42px;
+            }
+            .quiz-heading h1 {
+                font-size: 1.75rem;
+            }
+            .quiz-stat-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .quiz-stat-card {
+                min-height: 82px;
+                padding: 16px;
+            }
+            .quiz-list-head {
+                display: grid;
+                align-items: stretch;
+            }
+            .quiz-controls {
+                padding-bottom: 12px;
+                flex-wrap: wrap;
+            }
+            .quiz-select {
+                flex: 1 1 130px;
+            }
+            .quiz-row {
+                grid-template-columns: 54px minmax(0, 1fr);
+                align-items: start;
+                gap: 14px;
+                padding: 16px;
+            }
+            .quiz-logo {
+                width: 48px;
+                height: 48px;
+                font-size: 1.05rem;
+            }
+            .quiz-title-line {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .quiz-title-line h2,
+            .quiz-description {
+                white-space: normal;
+            }
+            .quiz-accuracy,
+            .quiz-action {
+                grid-column: 1 / -1;
+            }
+        }
     </style>
 </head>
-<body>
+<body class="page-quiz-dashboard">
 
 <nav th:replace="~{index :: nav}"></nav>
 
-<header class="page-header reveal">
-    <h1>코딩 퀴즈</h1>
-    <p>배운 내용을 퀴즈로 확인하고 실력을 테스트해보세요</p>
-</header>
+<div class="quiz-shell">
+    <aside class="quiz-sidebar">
+        <nav class="quiz-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz" class="active" aria-current="page"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
-<section style="background: var(--bg-surface);">
-
-    <!-- 연습 퀴즈 배너 -->
-    <div class="practice-banner reveal">
-        <div class="practice-banner-text">
-            <div class="practice-banner-title">⚡ 빠른 연습 퀴즈</div>
-            <div class="practice-banner-sub">난이도·주제를 직접 골라 즉석에서 풀어보는 연습 모드</div>
-        </div>
-        <a href="/quiz/practice" class="btn-practice">연습하러 가기 →</a>
-    </div>
-
-    <!-- ★ 버전 1: 카드형 칩 필터 ━ 기본 사용 중 (th:if="false"로 비활성화) ★ -->
-    <div th:if="true" class="qf1">
-        <div class="qf1-row">
-            <span class="qf1-label">난이도</span>
-            <div class="qf1-chips">
-                <a th:href="@{/quiz(difficulty='all',   topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='all'}    ? ' active'">전체</a>
-                <a th:href="@{/quiz(difficulty='easy',  topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='easy'}   ? ' active'">🌱 쉬움</a>
-                <a th:href="@{/quiz(difficulty='medium',topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='medium'} ? ' active'">🔥 보통</a>
-                <a th:href="@{/quiz(difficulty='hard',  topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='hard'}   ? ' active'">🚀 어려움</a>
+        <div class="quiz-point-card">
+            <div class="quiz-point-copy">
+                <span>퀴즈 모아 포인트를<br>모아보세요!</span>
+                <span class="quiz-trophy">🏆</span>
+            </div>
+            <div class="quiz-point-total">
+                <span>내 포인트</span>
+                <strong th:text="${quizStats.points} + 'P'">0P</strong>
             </div>
         </div>
-        <div class="qf1-row">
-            <span class="qf1-label">언어</span>
-            <div class="qf1-lang-wrap">
-                <div class="qf1-lang-chips" id="qf1-lang">
-                    <a th:href="@{/quiz(difficulty=${currentDifficulty},topic='all')}" class="qf-chip" th:classappend="${currentTopic=='all'} ? ' active'">전체</a>
-                    <a th:each="t : ${topics}"
-                       th:href="@{/quiz(difficulty=${currentDifficulty},topic=${t.topic})}"
-                       class="qf-chip"
-                       th:classappend="${currentTopic==t.topic} ? ' active'"
-                       th:text="${t.icon + ' ' + t.topic}">⚡ JavaScript</a>
+    </aside>
+
+    <main class="quiz-main">
+        <div class="quiz-layout">
+            <div class="quiz-content">
+                <header class="quiz-heading">
+                    <h1>퀴즈</h1>
+                    <p>배운 내용을 퀴즈로 확인하고 실력을 향상시켜보세요!</p>
+                </header>
+
+                <section class="quiz-stat-grid" aria-label="퀴즈 요약">
+                    <div class="quiz-stat-card">
+                        <span class="quiz-stat-icon">▣</span>
+                        <div>
+                            <span class="quiz-stat-label">총 퀴즈 횟수</span>
+                            <strong class="quiz-stat-value"><span th:text="${quizStats.totalAttempts}">0</span><small>회</small></strong>
+                        </div>
+                    </div>
+                    <div class="quiz-stat-card">
+                        <span class="quiz-stat-icon green">◎</span>
+                        <div>
+                            <span class="quiz-stat-label">정답률</span>
+                            <strong class="quiz-stat-value"><span th:text="${quizStats.accuracy}">0</span><small>%</small></strong>
+                        </div>
+                    </div>
+                    <div class="quiz-stat-card">
+                        <span class="quiz-stat-icon orange">♨</span>
+                        <div>
+                            <span class="quiz-stat-label">연속 완료</span>
+                            <strong class="quiz-stat-value"><span th:text="${quizStats.streakDays}">0</span><small>일</small></strong>
+                        </div>
+                    </div>
+                    <div class="quiz-stat-card">
+                        <span class="quiz-stat-icon blue">✪</span>
+                        <div>
+                            <span class="quiz-stat-label">획득한 포인트</span>
+                            <strong class="quiz-stat-value"><span th:text="${quizStats.points}">0</span><small>P</small></strong>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="quiz-list-head">
+                    <nav class="quiz-tabs" aria-label="퀴즈 주제">
+                        <a th:href="@{/quiz(difficulty=${currentDifficulty},topic='all',sort=${currentSort})}"
+                           th:classappend="${currentTopic == 'all'} ? ' active'">전체</a>
+                        <a th:each="t : ${topics}"
+                           th:href="@{/quiz(difficulty=${currentDifficulty},topic=${t.topic},sort=${currentSort})}"
+                           th:classappend="${currentTopic == t.topic} ? ' active'"
+                           th:text="${t.topic}">JavaScript</a>
+                    </nav>
+
+                    <form class="quiz-controls" method="get" action="/quiz">
+                        <input type="hidden" name="topic" th:value="${currentTopic}">
+                        <select class="quiz-select" name="difficulty" aria-label="난이도" onchange="this.form.submit()">
+                            <option value="all" th:selected="${currentDifficulty == 'all'}">난이도 전체</option>
+                            <option value="easy" th:selected="${currentDifficulty == 'easy'}">쉬움</option>
+                            <option value="medium" th:selected="${currentDifficulty == 'medium'}">보통</option>
+                            <option value="hard" th:selected="${currentDifficulty == 'hard'}">어려움</option>
+                        </select>
+                        <select class="quiz-select" name="sort" aria-label="정렬" onchange="this.form.submit()">
+                            <option value="latest" th:selected="${currentSort == 'latest'}">최신순</option>
+                            <option value="oldest" th:selected="${currentSort == 'oldest'}">오래된순</option>
+                            <option value="difficulty" th:selected="${currentSort == 'difficulty'}">난이도순</option>
+                        </select>
+                    </form>
                 </div>
-                <button class="qf1-more" id="qf1-more" hidden onclick="qf1Toggle(this)">더보기</button>
+
+                <section class="quiz-list" aria-label="퀴즈 목록">
+                    <div th:if="${quizCards.isEmpty()}" class="quiz-empty">
+                        <strong>등록된 퀴즈가 없습니다.</strong>
+                        <span>다른 필터를 선택해보세요.</span>
+                    </div>
+
+                    <article th:each="card : ${quizCards}" class="quiz-row">
+                        <div class="quiz-logo" th:classappend="' quiz-logo-' + ${card.theme}" th:text="${card.mark}">JS</div>
+                        <div class="quiz-row-copy">
+                            <div class="quiz-title-line">
+                                <h2 th:text="${card.quiz.title}">JavaScript 기초 문법</h2>
+                                <span class="quiz-difficulty"
+                                      th:classappend="${card.difficultyTone}"
+                                      th:text="${card.difficultyLabel}">쉬움</span>
+                            </div>
+                            <p class="quiz-description" th:text="${card.quiz.description}">퀴즈 설명</p>
+                            <div class="quiz-meta">
+                                <span th:text="${card.quiz.questionCount} + '문제'">5문제</span>
+                                <span th:text="'제한 시간 ' + ${card.quiz.timeLimit} + '분'">제한 시간 10분</span>
+                            </div>
+                        </div>
+                        <div class="quiz-accuracy">
+                            <span class="quiz-accuracy-label">정답률</span>
+                            <strong class="quiz-accuracy-value" th:text="${card.accuracy} + '%'">90%</strong>
+                            <div class="quiz-progress"><i th:class="${card.progressTone}" th:style="'width:' + ${card.accuracy} + '%'"></i></div>
+                        </div>
+                        <a sec:authorize="isAuthenticated()"
+                           th:href="@{/quiz/{id}(id=${card.quiz.id})}"
+                           class="quiz-action">퀴즈 시작</a>
+                        <a sec:authorize="isAnonymous()" href="/login" class="quiz-action quiz-login">로그인</a>
+                    </article>
+                </section>
+
+                <a class="quiz-more" href="/quiz/practice">빠른 연습 퀴즈 보기 <span>⌄</span></a>
             </div>
+
+            <aside class="quiz-aside" aria-label="퀴즈 사이드 정보">
+                <section class="quiz-panel">
+                    <div class="quiz-panel-head">
+                        <h2>내 학습 현황</h2>
+                    </div>
+                    <div class="quiz-status-main">
+                        <div class="quiz-status-ring" th:style="'--progress:' + ${quizStats.progressPercent} + '%'">
+                            <div th:text="${quizStats.progressPercent} + '%'">0%</div>
+                        </div>
+                        <p class="quiz-status-copy">전체 퀴즈 진행률</p>
+                    </div>
+                    <dl>
+                        <div><dt>완료한 퀴즈</dt><dd th:text="${quizStats.completedQuizzes} + '개'">0개</dd></div>
+                        <div><dt>풀지 않은 퀴즈</dt><dd th:text="${quizStats.availableQuizzes - quizStats.completedQuizzes} + '개'">0개</dd></div>
+                        <div><dt>평균 정답률</dt><dd th:text="${quizStats.accuracy} + '%'">0%</dd></div>
+                    </dl>
+                    <a sec:authorize="isAuthenticated()" href="/mypage" class="quiz-record-btn">학습 기록 보기</a>
+                    <a sec:authorize="isAnonymous()" href="/login" class="quiz-record-btn">로그인하고 기록 보기</a>
+                </section>
+
+                <section class="quiz-panel">
+                    <div class="quiz-panel-head">
+                        <h2>주간 랭킹</h2>
+                        <a href="/community" class="quiz-panel-link">전체 랭킹 ›</a>
+                    </div>
+                    <div class="ranking-list" th:if="${!leaderboard.isEmpty()}">
+                        <div th:each="rank, stat : ${leaderboard}" class="ranking-item">
+                            <strong th:text="${stat.count}">1</strong>
+                            <span class="rank-avatar">👤</span>
+                            <span class="rank-name" th:text="${rank.nickname}">김코딩</span>
+                            <span class="rank-points" th:text="${rank.points} + 'P'">0P</span>
+                        </div>
+                    </div>
+                    <p class="panel-empty" th:if="${leaderboard.isEmpty()}">아직 랭킹 데이터가 없습니다. 첫 퀴즈를 완료하면 순위가 만들어져요.</p>
+                </section>
+
+                <section class="quiz-panel">
+                    <div class="quiz-panel-head">
+                        <h2>최근 활동</h2>
+                    </div>
+                    <div class="activity-list" th:if="${!recentQuizActivities.isEmpty()}">
+                        <div th:each="activity : ${recentQuizActivities}" class="activity-item">
+                            <span class="activity-icon"
+                                  th:classappend="${activity.tone}"
+                                  th:text="${activity.tone == 'good' ? '✓' : '★'}">✓</span>
+                            <div>
+                                <div class="activity-title" th:text="${activity.title} + ' 퀴즈 완료'">퀴즈 완료</div>
+                                <div class="activity-meta" th:text="'정답률 ' + ${activity.percentage} + '%'">정답률 90%</div>
+                            </div>
+                            <span class="activity-time" th:text="${activity.whenLabel}">방금 전</span>
+                        </div>
+                    </div>
+                    <p class="panel-empty" th:if="${recentQuizActivities.isEmpty()}">최근 퀴즈 활동이 없습니다. 오늘 하나 풀고 기록을 시작해보세요.</p>
+                </section>
+            </aside>
         </div>
-    </div>
+    </main>
+</div>
 
-    <!-- ★ 버전 2: 드롭다운 필터바 ━ th:if="true"로 변경하면 활성화 ★ -->
-    <div th:if="false" class="qf2" id="qf2">
-        <div class="qf2-bar">
-            <span class="qf2-bar-icon">⚙️</span>
-            <div class="qf2-sep"></div>
-            <button class="qf2-trigger"
-                    th:classappend="${currentDifficulty != 'all'} ? ' has-filter'"
-                    data-panel="qf2-diff" onclick="qf2Open(this)">
-                <span>난이도</span>
-                <span class="qf2-badge" th:if="${currentDifficulty != 'all'}"
-                      th:text="${currentDifficulty=='easy'} ? '🌱 쉬움' : (${currentDifficulty=='medium'} ? '🔥 보통' : '🚀 어려움')"></span>
-                <svg class="qf2-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="qf2-sep"></div>
-            <button class="qf2-trigger"
-                    th:classappend="${currentTopic != 'all'} ? ' has-filter'"
-                    data-panel="qf2-lang" onclick="qf2Open(this)">
-                <span>언어</span>
-                <span class="qf2-badge" th:if="${currentTopic != 'all'}" th:text="${currentTopic}"></span>
-                <svg class="qf2-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
-            </button>
-            <div class="qf2-spacer"></div>
-            <a th:if="${currentDifficulty != 'all' || currentTopic != 'all'}"
-               th:href="@{/quiz}" class="qf2-reset">✕ 초기화</a>
-        </div>
-        <div class="qf2-panel" id="qf2-diff">
-            <div class="qf2-panel-title">난이도 선택</div>
-            <div class="qf2-panel-chips">
-                <a th:href="@{/quiz(difficulty='all',   topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='all'}    ? ' active'">전체</a>
-                <a th:href="@{/quiz(difficulty='easy',  topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='easy'}   ? ' active'">🌱 쉬움</a>
-                <a th:href="@{/quiz(difficulty='medium',topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='medium'} ? ' active'">🔥 보통</a>
-                <a th:href="@{/quiz(difficulty='hard',  topic=${currentTopic})}" class="qf-chip" th:classappend="${currentDifficulty=='hard'}   ? ' active'">🚀 어려움</a>
-            </div>
-        </div>
-        <div class="qf2-panel" id="qf2-lang">
-            <div class="qf2-panel-title">언어 / 주제 선택</div>
-            <div class="qf2-panel-chips">
-                <a th:href="@{/quiz(difficulty=${currentDifficulty},topic='all')}" class="qf-chip" th:classappend="${currentTopic=='all'} ? ' active'">전체</a>
-                <a th:each="t : ${topics}"
-                   th:href="@{/quiz(difficulty=${currentDifficulty},topic=${t.topic})}"
-                   class="qf-chip"
-                   th:classappend="${currentTopic==t.topic} ? ' active'"
-                   th:text="${t.icon + ' ' + t.topic}">⚡ JavaScript</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 퀴즈 카드 -->
-    <div class="quiz-grid reveal">
-        <div th:if="${quizzes.isEmpty()}" class="empty-state">
-            <span class="empty-icon">📭</span>
-            등록된 퀴즈가 없습니다.
-        </div>
-
-        <div th:each="quiz : ${quizzes}" class="quiz-card">
-            <div class="quiz-card-header">
-                <span class="quiz-lang" th:text="${quiz.icon + ' ' + quiz.topic}">⚡ JavaScript</span>
-                <span class="quiz-difficulty"
-                      th:classappend="${quiz.difficulty == 'easy'} ? 'difficulty-easy' : (${quiz.difficulty == 'medium'} ? 'difficulty-medium' : 'difficulty-hard')"
-                      th:text="${quiz.difficulty == 'easy'} ? '쉬움' : (${quiz.difficulty == 'medium'} ? '보통' : '어려움')">쉬움</span>
-            </div>
-            <h3 th:text="${quiz.title}">퀴즈 제목</h3>
-            <p th:text="${quiz.description}">설명</p>
-            <div class="quiz-meta">
-                <span th:text="'📋 ' + ${quiz.questionCount} + '문제'">📋 5문제</span>
-                <span th:text="'⏱ ' + ${quiz.timeLimit} + '분'">⏱ 15분</span>
-            </div>
-            <a sec:authorize="isAuthenticated()"
-               th:href="@{/quiz/{id}(id=${quiz.id})}" class="btn-quiz">퀴즈 시작 →</a>
-            <a sec:authorize="isAnonymous()" href="/login" class="login-notice">로그인 후 풀 수 있어요 🔒</a>
-        </div>
-    </div>
-</section>
-
-<footer th:replace="~{index :: footer}"></footer>
-
-<script>
-/* ── 버전 1: 언어 칩 접기/펼치기 ─────────────────────────────── */
-(function () {
-    var lang = document.getElementById('qf1-lang');
-    var btn  = document.getElementById('qf1-more');
-    if (!lang || !btn) return;
-
-    lang.classList.add('collapsed');
-
-    requestAnimationFrame(function () {
-        /* 한 줄 이내면 버튼 숨김 */
-        if (lang.scrollHeight <= lang.clientHeight + 2) {
-            lang.classList.remove('collapsed');
-            return;
-        }
-        /* 숨겨진 칩 개수 */
-        var topY   = lang.getBoundingClientRect().top;
-        var chips  = lang.querySelectorAll('a');
-        var hidden = 0;
-        chips.forEach(function (c) {
-            if (c.getBoundingClientRect().top > topY + 34) hidden++;
-        });
-        btn.removeAttribute('hidden');
-        btn.textContent = '+' + hidden + ' 더보기';
-
-        /* 선택된 칩이 접힌 영역에 있으면 자동 펼치기 */
-        var active = lang.querySelector('a.active');
-        if (active && active.getBoundingClientRect().top > topY + 34) {
-            lang.classList.remove('collapsed');
-            btn.textContent = '접기 ↑';
-        }
-    });
-}());
-
-function qf1Toggle(btn) {
-    var lang      = document.getElementById('qf1-lang');
-    var collapsed = lang.classList.toggle('collapsed');
-    if (collapsed) {
-        requestAnimationFrame(function () {
-            var topY   = lang.getBoundingClientRect().top;
-            var hidden = 0;
-            lang.querySelectorAll('a').forEach(function (c) {
-                if (c.getBoundingClientRect().top > topY + 34) hidden++;
-            });
-            btn.textContent = '+' + hidden + ' 더보기';
-        });
-    } else {
-        btn.textContent = '접기 ↑';
-    }
-}
-
-/* ── 버전 2: 드롭다운 패널 ───────────────────────────────────── */
-function qf2Open(trigger) {
-    var panelId = trigger.getAttribute('data-panel');
-    var panel   = document.getElementById(panelId);
-    if (!panel) return;
-    var isOpen  = panel.classList.contains('open');
-
-    document.querySelectorAll('.qf2-panel').forEach(function (p) { p.classList.remove('open'); });
-    document.querySelectorAll('.qf2-trigger').forEach(function (t) { t.classList.remove('open'); });
-
-    if (!isOpen) { panel.classList.add('open'); trigger.classList.add('open'); }
-}
-
-document.addEventListener('click', function (e) {
-    if (!e.target.closest('#qf2')) {
-        document.querySelectorAll('.qf2-panel').forEach(function (p) { p.classList.remove('open'); });
-        document.querySelectorAll('.qf2-trigger').forEach(function (t) { t.classList.remove('open'); });
-    }
-});
-</script>
+<script src="/js/nav.js"></script>
 </body>
 </html>

@@ -460,178 +460,868 @@
   "css": {
     "title": "WEB2 - CSS",
     "icon": "🎨",
-    "videoId": "1Rs2ND1ryYc",
-    "date": "2025-02-01",
+    "playlistId": "PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B",
+    "videoId": "Ok0bBJPtgJI",
+    "date": "2017-10-26",
     "lessons": [
       {
         "id": 0,
-        "label": "CSS란 무엇인가?",
+        "videoId": "Ok0bBJPtgJI",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Ok0bBJPtgJI&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=1",
+        "label": "WEB2 CSS - 1. 수업 소개",
         "sub": false,
-        "title": "CSS 소개 및 역할",
-        "desc": "CSS(Cascading Style Sheets)는 HTML 문서에 시각적 스타일을 입히는 언어입니다. 색상, 크기, 위치, 애니메이션까지 화면의 모든 것을 CSS로 제어합니다.",
+        "title": "WEB2 CSS - 1. 수업 소개",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '수업 소개' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "HTML이 구조라면 CSS는 디자인",
-          "선택자(Selector)로 스타일 대상 지정",
-          "속성(Property)과 값(Value)으로 스타일 정의"
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "CSS 수업의 목표와 흐름",
+          "재생목록 1번째 영상"
         ],
-        "code": "/* CSS 기본 문법 */\n선택자 {\n  속성: 값;\n}\n\n/* 예시 */\nh1 {\n  color: var(--accent);\n  font-size: 2rem;\n  font-weight: 900;\n}"
+        "code": null
       },
       {
         "id": 1,
-        "label": "선택자(Selector)",
+        "videoId": "-OWx2vM4tLI",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-OWx2vM4tLI&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=2",
+        "label": "WEB2 CSS - 2. CSS가 등장하기 전의 상황",
         "sub": false,
-        "title": "다양한 CSS 선택자",
-        "desc": "CSS 선택자는 스타일을 적용할 HTML 요소를 지정하는 방법입니다. 태그, 클래스, ID, 속성 등 다양한 선택자를 활용합니다.",
+        "title": "WEB2 CSS - 2. CSS가 등장하기 전의 상황",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 'CSS가 등장하기 전의 상황' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "태그 선택자: 모든 해당 태그에 적용",
-          "클래스 선택자(.): 재사용 가능",
-          "ID 선택자(#): 페이지에서 고유한 요소"
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "CSS 이전의 웹 문서 스타일링",
+          "재생목록 2번째 영상"
         ],
-        "code": "/* 태그 선택자 */\np { color: var(--ink-1); }\n\n/* 클래스 선택자 */\n.card { background: white; border-radius: 12px; }\n\n/* ID 선택자 */\n#header { height: 64px; }\n\n/* 자식 선택자 */\n.nav > a { font-weight: 600; }\n\n/* 가상 클래스 */\nbutton:hover { background: var(--accent-h); }"
+        "code": null
       },
       {
         "id": 2,
-        "label": "박스 모델",
+        "videoId": "L41Zjl7XANI",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=L41Zjl7XANI&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=3",
+        "label": "WEB2 CSS - 3. CSS의 등장",
         "sub": false,
-        "title": "CSS 박스 모델 이해하기",
-        "desc": "모든 HTML 요소는 박스(Box)로 이루어져 있습니다. content - padding - border - margin 4단계 구조를 이해해야 레이아웃을 자유롭게 조작할 수 있습니다.",
+        "title": "WEB2 CSS - 3. CSS의 등장",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 'CSS의 등장' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "content: 실제 내용이 들어가는 영역",
-          "padding: 내용과 테두리 사이 안쪽 여백",
-          "margin: 요소 바깥쪽 여백"
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "CSS가 웹에 필요한 이유",
+          "재생목록 3번째 영상"
         ],
-        "code": ".box {\n  /* 콘텐츠 크기 */\n  width: 200px;\n  height: 100px;\n\n  /* 안쪽 여백 */\n  padding: 16px 24px;\n\n  /* 테두리 */\n  border: 2px solid var(--accent);\n  border-radius: 12px;\n\n  /* 바깥 여백 */\n  margin: 20px auto;\n\n  /* 박스 크기 계산 방식 */\n  box-sizing: border-box;\n}"
+        "code": null
       },
       {
         "id": 3,
-        "label": "Flexbox 레이아웃",
+        "videoId": "h0AlL9YI6bM",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=h0AlL9YI6bM&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=4",
+        "label": "WEB2 CSS - 4. CSS의 기본 문법",
         "sub": false,
-        "title": "Flexbox로 레이아웃 잡기",
-        "desc": "Flexbox는 요소를 수평·수직으로 배치하는 현대적인 레이아웃 방식입니다. 복잡한 레이아웃을 몇 줄의 코드로 구현할 수 있습니다.",
+        "title": "WEB2 CSS - 4. CSS의 기본 문법",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 'CSS의 기본 문법' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "display: flex 로 활성화",
-          "justify-content: 주축(가로) 정렬",
-          "align-items: 교차축(세로) 정렬"
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "선택자와 선언의 기본 구조",
+          "재생목록 4번째 영상"
         ],
-        "code": ".container {\n  display: flex;\n  justify-content: space-between; /* 가로 정렬 */\n  align-items: center;           /* 세로 정렬 */\n  gap: 16px;                     /* 간격 */\n  flex-wrap: wrap;               /* 줄바꿈 허용 */\n}\n\n.item {\n  flex: 1;      /* 남은 공간 균등 분배 */\n  min-width: 200px;\n}"
+        "code": null
       },
       {
         "id": 4,
-        "label": "Grid 레이아웃",
+        "videoId": "nC2-nJEXL2U",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=nC2-nJEXL2U&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=5",
+        "label": "WEB2 CSS - 5. 혁명적 변화",
         "sub": false,
-        "title": "CSS Grid로 복잡한 레이아웃",
-        "desc": "Grid는 행(Row)과 열(Column)을 모두 제어할 수 있는 2차원 레이아웃 시스템입니다. 카드 그리드, 대시보드 레이아웃에 적합합니다.",
+        "title": "WEB2 CSS - 5. 혁명적 변화",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '혁명적 변화' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "display: grid 로 활성화",
-          "grid-template-columns로 열 정의",
-          "gap으로 행/열 간격 설정"
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "CSS 도입이 만든 변화",
+          "재생목록 5번째 영상"
         ],
-        "code": ".cards-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));\n  gap: 24px;\n}\n\n/* 특정 영역 병합 */\n.featured {\n  grid-column: span 2;\n  grid-row: span 2;\n}"
+        "code": null
       },
       {
         "id": 5,
-        "label": "반응형 디자인",
+        "videoId": "WcED6Ia1IY4",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WcED6Ia1IY4&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=6",
+        "label": "WEB2 CSS - 6. CSS 속성을 스스로 알아내기",
         "sub": false,
-        "title": "미디어 쿼리로 반응형 만들기",
-        "desc": "미디어 쿼리(Media Query)를 사용해 화면 크기에 따라 다른 스타일을 적용합니다. 모바일 우선(Mobile-First) 방식이 표준입니다.",
+        "title": "WEB2 CSS - 6. CSS 속성을 스스로 알아내기",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 'CSS 속성을 스스로 알아내기' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "브레이크포인트: 모바일(480), 태블릿(768), 데스크탑(1024)",
-          "모바일 우선: 기본 스타일 → 큰 화면 추가",
-          "viewport 메타 태그 필수"
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "필요한 CSS 속성을 찾는 방법",
+          "재생목록 6번째 영상"
         ],
-        "code": "/* 모바일 기본 */\n.grid { grid-template-columns: 1fr; }\n\n/* 태블릿 */\n@media (min-width: 768px) {\n  .grid { grid-template-columns: 1fr 1fr; }\n}\n\n/* 데스크탑 */\n@media (min-width: 1024px) {\n  .grid { grid-template-columns: repeat(3, 1fr); }\n}"
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "8-rCMmamtDE",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=8-rCMmamtDE&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=7",
+        "label": "WEB2 CSS - 7. CSS 선택자의 기본",
+        "sub": false,
+        "title": "WEB2 CSS - 7. CSS 선택자의 기본",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 'CSS 선택자의 기본' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "스타일을 적용할 대상을 고르는 방법",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "MLjCVUspcDo",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=MLjCVUspcDo&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=8",
+        "label": "WEB2 CSS - 8. 박스 모델",
+        "sub": false,
+        "title": "WEB2 CSS - 8. 박스 모델",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '박스 모델' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "요소를 박스로 이해하는 CSS 레이아웃 기초",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "4ir8XAf7wxI",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=4ir8XAf7wxI&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=9",
+        "label": "WEB2 CSS - 9. 박스 모델 써먹기",
+        "sub": false,
+        "title": "WEB2 CSS - 9. 박스 모델 써먹기",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '박스 모델 써먹기' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "박스 모델을 실제 레이아웃에 적용",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "M1eQFIBY2vI",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=M1eQFIBY2vI&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=10",
+        "label": "WEB2 CSS - 10. 그리드 소개",
+        "sub": false,
+        "title": "WEB2 CSS - 10. 그리드 소개",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '그리드 소개' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "CSS Grid의 기본 개념",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "AL8RSY8rADY",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=AL8RSY8rADY&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=11",
+        "label": "WEB2 CSS - 11. 그리드 써먹기",
+        "sub": false,
+        "title": "WEB2 CSS - 11. 그리드 써먹기",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '그리드 써먹기' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "CSS Grid를 실제 화면 구성에 적용",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "aA4xunvDWU8",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=aA4xunvDWU8&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=12",
+        "label": "WEB2 CSS - 12. 미디어 쿼리 소개",
+        "sub": false,
+        "title": "WEB2 CSS - 12. 미디어 쿼리 소개",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '미디어 쿼리 소개' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "화면 크기에 대응하는 CSS",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "qe3nSIg2k3Y",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=qe3nSIg2k3Y&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=13",
+        "label": "WEB2 CSS - 13. 미디어 쿼리 써먹기",
+        "sub": false,
+        "title": "WEB2 CSS - 13. 미디어 쿼리 써먹기",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '미디어 쿼리 써먹기' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "반응형 레이아웃에 미디어 쿼리 적용",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "djBrHjeitUo",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=djBrHjeitUo&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=14",
+        "label": "WEB2 CSS - 14. CSS 코드의 재사용",
+        "sub": false,
+        "title": "WEB2 CSS - 14. CSS 코드의 재사용",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 'CSS 코드의 재사용' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "중복 스타일을 줄이고 CSS를 재사용하는 방법",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "42Bps7nCx8I",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=42Bps7nCx8I&list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B&index=15",
+        "label": "WEB2 CSS - 15. 수업을 마치며",
+        "sub": false,
+        "title": "WEB2 CSS - 15. 수업을 마치며",
+        "desc": "생활코딩 WEB2 CSS 공식 재생목록의 '수업을 마치며' 강의입니다. 영상과 함께 CSS의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 CSS 공식 재생목록",
+          "CSS 수업 정리와 다음 학습 방향",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
       }
     ]
   },
   "javascript": {
     "title": "WEB2 - JavaScript",
     "icon": "⚡",
-    "videoId": "q4c69koKcOc",
-    "date": "2025-02-20",
+    "playlistId": "PLuHgQVnccGMBB348PWRN0fREzYcYgFybf",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf",
+    "videoId": "dPRtcRwKo-Y",
+    "date": "2017-12-01",
     "lessons": [
       {
         "id": 0,
-        "videoId": "q4c69koKcOc",
-        "label": "수업의 목적",
+        "videoId": "dPRtcRwKo-Y",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=dPRtcRwKo-Y&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=1",
+        "label": "WEB2 JavaScript - 1. 수업소개",
         "sub": false,
-        "title": "수업의 목적",
-        "desc": "JavaScript는 웹 페이지에 동적인 기능을 추가하는 프로그래밍 언어입니다. 버튼 클릭, 데이터 통신, 애니메이션 등 웹의 모든 상호작용을 담당합니다.",
+        "title": "WEB2 JavaScript - 1. 수업소개",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '수업소개' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "브라우저 내장 언어 - 별도 설치 불필요",
-          "HTML/CSS와 함께 웹의 3대 기술",
-          "Node.js로 서버 개발도 가능"
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "수업소개",
+          "재생목록 1번째 영상"
         ],
-        "code": "// 첫 번째 JavaScript 코드\nconsole.log(\"Hello, JavaScript!\");\n\n// 브라우저 알림\nalert(\"안녕하세요!\");\n\n// HTML 요소 변경\ndocument.title = \"새로운 제목\";"
+        "code": null
       },
       {
         "id": 1,
-        "videoId": "absJhWQAS40",
-        "label": "변수와 대입 연산자",
+        "videoId": "q4c69koKcOc",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=q4c69koKcOc&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=2",
+        "label": "WEB2 JavaScript - 2. 수업의 목적",
         "sub": false,
-        "title": "변수와 대입 연산자",
-        "desc": "JavaScript에서 데이터를 저장하려면 변수를 사용합니다. let(변경 가능), const(변경 불가)를 상황에 맞게 사용합니다.",
+        "title": "WEB2 JavaScript - 2. 수업의 목적",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '수업의 목적' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "const: 재할당 불가, 기본적으로 const 사용",
-          "let: 재할당 필요할 때 사용",
-          "var: 구버전, 현재는 사용 지양"
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "수업의 목적",
+          "재생목록 2번째 영상"
         ],
-        "code": "// 변수 선언\nconst name = \"코딩에듀\";    // 문자열\nlet score = 100;             // 숫자\nconst isPass = true;         // 불리언\nconst grades = [90, 85, 92]; // 배열\nconst user = {               // 객체\n  id: 1,\n  nickname: \"김코딩\"\n};\n\n// 템플릿 리터럴\nconsole.log(`${name}: ${score}점`);"
+        "code": null
       },
       {
         "id": 2,
-        "videoId": "wjlbT3hvDMc",
-        "label": "조건문",
+        "videoId": "Ru5zGHkOgic",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Ru5zGHkOgic&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=3",
+        "label": "WEB2 JavaScript - 3. HTML과 JS의 만남 : script 태그",
         "sub": false,
-        "title": "조건문",
-        "desc": "if/else로 조건에 따라 다른 동작을 하고, for/while로 같은 작업을 반복합니다.",
+        "title": "WEB2 JavaScript - 3. HTML과 JS의 만남 : script 태그",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 'HTML과 JS의 만남 : script 태그' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "if/else if/else: 조건 분기",
-          "for...of: 배열 순회에 적합",
-          "while: 조건이 참인 동안 반복"
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "HTML과 JS의 만남 : script 태그",
+          "재생목록 3번째 영상"
         ],
-        "code": "// 조건문\nconst score = 87;\nif (score >= 90) {\n  console.log(\"A\");\n} else if (score >= 80) {\n  console.log(\"B\");  // 출력\n} else {\n  console.log(\"C\");\n}\n\n// 배열 순회\nconst langs = [\"HTML\", \"CSS\", \"JS\"];\nfor (const lang of langs) {\n  console.log(`${lang} 학습 중`);\n}"
+        "code": null
       },
       {
         "id": 3,
-        "videoId": "WpTdoEvmFxw",
-        "label": "함수예고",
+        "videoId": "-hdtrReY9Zw",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-hdtrReY9Zw&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=4",
+        "label": "WEB2 JavaScript - 4. HTML과 JS의 만남 : 이벤트",
         "sub": false,
-        "title": "함수예고",
-        "desc": "함수는 특정 작업을 수행하는 코드 블록입니다. 재사용성을 높이고 코드를 구조화합니다.",
+        "title": "WEB2 JavaScript - 4. HTML과 JS의 만남 : 이벤트",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 'HTML과 JS의 만남 : 이벤트' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "function 키워드로 선언",
-          "화살표 함수(=>): 간결한 문법",
-          "매개변수와 반환값(return)"
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "HTML과 JS의 만남 : 이벤트",
+          "재생목록 4번째 영상"
         ],
-        "code": "// 일반 함수\nfunction add(a, b) {\n  return a + b;\n}\n\n// 화살표 함수\nconst multiply = (a, b) => a * b;\n\n// 기본값 매개변수\nconst greet = (name = \"사용자\") => {\n  return `안녕하세요, ${name}님!`;\n};\n\nconsole.log(add(3, 5));       // 8\nconsole.log(multiply(4, 6)); // 24\nconsole.log(greet());         // 안녕하세요, 사용자님!"
+        "code": null
       },
       {
         "id": 4,
-        "videoId": "S62m_ddSls4",
-        "label": "웹브라우저 제어",
+        "videoId": "-VKIqaEdDVU",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-VKIqaEdDVU&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=5",
+        "label": "WEB2 JavaScript - 5. HTML과 JS의 만남 (콘솔)",
         "sub": false,
-        "title": "웹브라우저 제어",
-        "desc": "DOM(Document Object Model)은 HTML 문서를 JavaScript로 제어하기 위한 API입니다. 요소를 선택하고 내용·스타일을 변경할 수 있습니다.",
+        "title": "WEB2 JavaScript - 5. HTML과 JS의 만남 (콘솔)",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 'HTML과 JS의 만남 (콘솔)' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "querySelector: CSS 선택자로 요소 탐색",
-          "textContent/innerHTML: 내용 변경",
-          "addEventListener: 이벤트 감지"
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "HTML과 JS의 만남 (콘솔)",
+          "재생목록 5번째 영상"
         ],
-        "code": "// 요소 선택\nconst btn = document.querySelector(\"#submit-btn\");\nconst output = document.querySelector(\".result\");\n\n// 클릭 이벤트\nbtn.addEventListener(\"click\", () => {\n  const input = document.querySelector(\"#nameInput\").value;\n  output.textContent = `안녕하세요, ${input}님!`;\n  output.style.color = \"var(--accent)\";\n  output.style.fontWeight = \"bold\";\n});"
+        "code": null
       },
       {
         "id": 5,
-        "videoId": "ufjCFdG_4fo",
-        "label": "fetch API",
+        "videoId": "P8C8VNiM33A",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=P8C8VNiM33A&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=6",
+        "label": "WEB2 JavaScript - 6. 데이터타입 - 문자열과 숫자",
         "sub": false,
-        "title": "fetch API",
-        "desc": "fetch API와 async/await로 서버에서 데이터를 가져와 화면에 표시합니다. 비동기(Async) 개념을 이해하면 실전 개발이 가능합니다.",
+        "title": "WEB2 JavaScript - 6. 데이터타입 - 문자열과 숫자",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '데이터타입 - 문자열과 숫자' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
         "points": [
-          "동기: 순서대로, 비동기: 기다리지 않고 진행",
-          "Promise와 async/await",
-          "fetch로 REST API 호출"
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "데이터타입 - 문자열과 숫자",
+          "재생목록 6번째 영상"
         ],
-        "code": "// 게시글 목록 불러오기\nasync function loadPosts() {\n  try {\n    const response = await fetch(\"/api/posts\");\n    if (!response.ok) throw new Error(\"요청 실패\");\n\n    const posts = await response.json();\n    const list = document.querySelector(\"#post-list\");\n\n    posts.forEach(post => {\n      const li = document.createElement(\"li\");\n      li.textContent = post.title;\n      list.appendChild(li);\n    });\n  } catch (error) {\n    console.error(\"오류:\", error.message);\n  }\n}\nloadPosts();"
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "absJhWQAS40",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=absJhWQAS40&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=7",
+        "label": "WEB2 JavaScript - 7. 변수와 대입 연산자",
+        "sub": false,
+        "title": "WEB2 JavaScript - 7. 변수와 대입 연산자",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '변수와 대입 연산자' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "변수와 대입 연산자",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "S62m_ddSls4",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=S62m_ddSls4&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=8",
+        "label": "WEB2 JavaScript - 8. 웹브라우저 제어",
+        "sub": false,
+        "title": "WEB2 JavaScript - 8. 웹브라우저 제어",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '웹브라우저 제어' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "웹브라우저 제어",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "HQgNj50Xt9g",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=HQgNj50Xt9g&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=9",
+        "label": "WEB2 JavaScript - 9. CSS 기초 : style 속성",
+        "sub": false,
+        "title": "WEB2 JavaScript - 9. CSS 기초 : style 속성",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 'CSS 기초 : style 속성' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "CSS 기초 : style 속성",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "H2eMtredsK4",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=H2eMtredsK4&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=10",
+        "label": "WEB2 JavaScript - 10. CSS 기초 (style 태그)",
+        "sub": false,
+        "title": "WEB2 JavaScript - 10. CSS 기초 (style 태그)",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 'CSS 기초 (style 태그)' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "CSS 기초 (style 태그)",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "GCtWMXc-rtw",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=GCtWMXc-rtw&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=11",
+        "label": "WEB2 JavaScript - 11. CSS 기초 : 선택자",
+        "sub": false,
+        "title": "WEB2 JavaScript - 11. CSS 기초 : 선택자",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 'CSS 기초 : 선택자' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "CSS 기초 : 선택자",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "5tqfbgfA1LY",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=5tqfbgfA1LY&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=12",
+        "label": "WEB2 JavaScript - 12. 제어할 태그 선택하기",
+        "sub": false,
+        "title": "WEB2 JavaScript - 12. 제어할 태그 선택하기",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '제어할 태그 선택하기' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "제어할 태그 선택하기",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "p71PrgY0bbM",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=p71PrgY0bbM&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=13",
+        "label": "WEB2 JavaScript - 13. 프로그램, 프로그래밍, 프로그래머",
+        "sub": false,
+        "title": "WEB2 JavaScript - 13. 프로그램, 프로그래밍, 프로그래머",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '프로그램, 프로그래밍, 프로그래머' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "프로그램, 프로그래밍, 프로그래머",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "UT2oYysmZjE",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=UT2oYysmZjE&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=14",
+        "label": "WEB2 JavaScript - 14. 조건문 예고",
+        "sub": false,
+        "title": "WEB2 JavaScript - 14. 조건문 예고",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '조건문 예고' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "조건문 예고",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "A2qp-jpk_XA",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=A2qp-jpk_XA&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=15",
+        "label": "WEB2 JavaScript - 15. 비교 연산자와 블리언",
+        "sub": false,
+        "title": "WEB2 JavaScript - 15. 비교 연산자와 블리언",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '비교 연산자와 블리언' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "비교 연산자와 블리언",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 15,
+        "videoId": "wjlbT3hvDMc",
+        "playlistIndex": 16,
+        "youtubeUrl": "https://www.youtube.com/watch?v=wjlbT3hvDMc&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=16",
+        "label": "WEB2 JavaScript - 16. 조건문",
+        "sub": false,
+        "title": "WEB2 JavaScript - 16. 조건문",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '조건문' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "조건문",
+          "재생목록 16번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 16,
+        "videoId": "Gt2iGEEKXww",
+        "playlistIndex": 17,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Gt2iGEEKXww&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=17",
+        "label": "WEB2 JavaScript - 17. 조건문의 활용",
+        "sub": false,
+        "title": "WEB2 JavaScript - 17. 조건문의 활용",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '조건문의 활용' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "조건문의 활용",
+          "재생목록 17번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 17,
+        "videoId": "vwRkFRke7ls",
+        "playlistIndex": 18,
+        "youtubeUrl": "https://www.youtube.com/watch?v=vwRkFRke7ls&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=18",
+        "label": "WEB2 JavaScript - 18. 리팩토링 중복의 제거",
+        "sub": false,
+        "title": "WEB2 JavaScript - 18. 리팩토링 중복의 제거",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '리팩토링 중복의 제거' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "리팩토링 중복의 제거",
+          "재생목록 18번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 18,
+        "videoId": "ANDqF-NlWqQ",
+        "playlistIndex": 19,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ANDqF-NlWqQ&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=19",
+        "label": "WEB2 JavaScript - 19. 반복문 예고",
+        "sub": false,
+        "title": "WEB2 JavaScript - 19. 반복문 예고",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '반복문 예고' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "반복문 예고",
+          "재생목록 19번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 19,
+        "videoId": "aBJzzhQ6y-o",
+        "playlistIndex": 20,
+        "youtubeUrl": "https://www.youtube.com/watch?v=aBJzzhQ6y-o&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=20",
+        "label": "WEB2 JavaScript - 20. 배열",
+        "sub": false,
+        "title": "WEB2 JavaScript - 20. 배열",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '배열' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "배열",
+          "재생목록 20번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 20,
+        "videoId": "ZupPmuWPSdE",
+        "playlistIndex": 21,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZupPmuWPSdE&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=21",
+        "label": "WEB2 JavaScript - 21. 반복문",
+        "sub": false,
+        "title": "WEB2 JavaScript - 21. 반복문",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '반복문' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "반복문",
+          "재생목록 21번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 21,
+        "videoId": "BjkfkKdlvLo",
+        "playlistIndex": 22,
+        "youtubeUrl": "https://www.youtube.com/watch?v=BjkfkKdlvLo&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=22",
+        "label": "WEB2 JavaScript - 22. 배열과 반복문",
+        "sub": false,
+        "title": "WEB2 JavaScript - 22. 배열과 반복문",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '배열과 반복문' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "배열과 반복문",
+          "재생목록 22번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 22,
+        "videoId": "hZdBDoYHd7E",
+        "playlistIndex": 23,
+        "youtubeUrl": "https://www.youtube.com/watch?v=hZdBDoYHd7E&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=23",
+        "label": "WEB2 JavaScript - 23. 배열과 반복문의 활용",
+        "sub": false,
+        "title": "WEB2 JavaScript - 23. 배열과 반복문의 활용",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '배열과 반복문의 활용' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "배열과 반복문의 활용",
+          "재생목록 23번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 23,
+        "videoId": "WpTdoEvmFxw",
+        "playlistIndex": 24,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WpTdoEvmFxw&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=24",
+        "label": "WEB2 JavaScript - 24. 함수예고",
+        "sub": false,
+        "title": "WEB2 JavaScript - 24. 함수예고",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '함수예고' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "함수예고",
+          "재생목록 24번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 24,
+        "videoId": "IOuePUzLdnQ",
+        "playlistIndex": 25,
+        "youtubeUrl": "https://www.youtube.com/watch?v=IOuePUzLdnQ&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=25",
+        "label": "WEB2 JavaScript - 25. 함수",
+        "sub": false,
+        "title": "WEB2 JavaScript - 25. 함수",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '함수' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "함수",
+          "재생목록 25번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 25,
+        "videoId": "MXf9UqMXuGM",
+        "playlistIndex": 26,
+        "youtubeUrl": "https://www.youtube.com/watch?v=MXf9UqMXuGM&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=26",
+        "label": "WEB2 JavaScript - 26. 함수 : 매개변수와 인자",
+        "sub": false,
+        "title": "WEB2 JavaScript - 26. 함수 : 매개변수와 인자",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '함수 : 매개변수와 인자' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "함수 : 매개변수와 인자",
+          "재생목록 26번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 26,
+        "videoId": "6MzCHO8M3Uc",
+        "playlistIndex": 27,
+        "youtubeUrl": "https://www.youtube.com/watch?v=6MzCHO8M3Uc&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=27",
+        "label": "WEB2 JavaScript - 27. 함수 (리턴)",
+        "sub": false,
+        "title": "WEB2 JavaScript - 27. 함수 (리턴)",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '함수 (리턴)' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "함수 (리턴)",
+          "재생목록 27번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 27,
+        "videoId": "WsPJ8FsoMcU",
+        "playlistIndex": 28,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WsPJ8FsoMcU&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=28",
+        "label": "WEB2 JavaScript - 28. 함수의 활용",
+        "sub": false,
+        "title": "WEB2 JavaScript - 28. 함수의 활용",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '함수의 활용' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "함수의 활용",
+          "재생목록 28번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 28,
+        "videoId": "6lJEbSYA4B4",
+        "playlistIndex": 29,
+        "youtubeUrl": "https://www.youtube.com/watch?v=6lJEbSYA4B4&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=29",
+        "label": "WEB2 JavaScript - 29. 객체 예고",
+        "sub": false,
+        "title": "WEB2 JavaScript - 29. 객체 예고",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '객체 예고' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "객체 예고",
+          "재생목록 29번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 29,
+        "videoId": "2j04s1erzTs",
+        "playlistIndex": 30,
+        "youtubeUrl": "https://www.youtube.com/watch?v=2j04s1erzTs&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=30",
+        "label": "WEB2 JavaScript - 30. 객체 쓰기와 읽기",
+        "sub": false,
+        "title": "WEB2 JavaScript - 30. 객체 쓰기와 읽기",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '객체 쓰기와 읽기' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "객체 쓰기와 읽기",
+          "재생목록 30번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 30,
+        "videoId": "GIB8O6R3wko",
+        "playlistIndex": 31,
+        "youtubeUrl": "https://www.youtube.com/watch?v=GIB8O6R3wko&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=31",
+        "label": "WEB2 JavaScript - 31. 객체와 반복문",
+        "sub": false,
+        "title": "WEB2 JavaScript - 31. 객체와 반복문",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '객체와 반복문' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "객체와 반복문",
+          "재생목록 31번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 31,
+        "videoId": "mjzx1qbyPwU",
+        "playlistIndex": 32,
+        "youtubeUrl": "https://www.youtube.com/watch?v=mjzx1qbyPwU&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=32",
+        "label": "WEB2 JavaScript - 32. 객체프로퍼티와 메소드",
+        "sub": false,
+        "title": "WEB2 JavaScript - 32. 객체프로퍼티와 메소드",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '객체프로퍼티와 메소드' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "객체프로퍼티와 메소드",
+          "재생목록 32번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 32,
+        "videoId": "JNaX6EG9-FI",
+        "playlistIndex": 33,
+        "youtubeUrl": "https://www.youtube.com/watch?v=JNaX6EG9-FI&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=33",
+        "label": "WEB2 JavaScript - 33. 객체의 활용",
+        "sub": false,
+        "title": "WEB2 JavaScript - 33. 객체의 활용",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '객체의 활용' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "객체의 활용",
+          "재생목록 33번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 33,
+        "videoId": "1f7Svm6ivDY",
+        "playlistIndex": 34,
+        "youtubeUrl": "https://www.youtube.com/watch?v=1f7Svm6ivDY&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=34",
+        "label": "WEB2 JavaScript - 34. 파일로 쪼개서 정리 정돈하기",
+        "sub": false,
+        "title": "WEB2 JavaScript - 34. 파일로 쪼개서 정리 정돈하기",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '파일로 쪼개서 정리 정돈하기' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "파일로 쪼개서 정리 정돈하기",
+          "재생목록 34번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 34,
+        "videoId": "pJTpl3umvE8",
+        "playlistIndex": 35,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pJTpl3umvE8&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=35",
+        "label": "WEB2 JavaScript - 35. 라이브러리와 프레임워크",
+        "sub": false,
+        "title": "WEB2 JavaScript - 35. 라이브러리와 프레임워크",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '라이브러리와 프레임워크' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "라이브러리와 프레임워크",
+          "재생목록 35번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 35,
+        "videoId": "FrqgeNgUSB0",
+        "playlistIndex": 36,
+        "youtubeUrl": "https://www.youtube.com/watch?v=FrqgeNgUSB0&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=36",
+        "label": "WEB2 JavaScript - 36. UI vs API",
+        "sub": false,
+        "title": "WEB2 JavaScript - 36. UI vs API",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 'UI vs API' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "UI vs API",
+          "재생목록 36번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 36,
+        "videoId": "BXdUSq8yhH4",
+        "playlistIndex": 37,
+        "youtubeUrl": "https://www.youtube.com/watch?v=BXdUSq8yhH4&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=37",
+        "label": "WEB2 JavaScript - 37. 수업을 마치며",
+        "sub": false,
+        "title": "WEB2 JavaScript - 37. 수업을 마치며",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 '수업을 마치며' 강의입니다. 영상과 함께 JavaScript의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "수업을 마치며",
+          "재생목록 37번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 37,
+        "videoId": "bmdPy3pP-ts",
+        "playlistIndex": 38,
+        "youtubeUrl": "https://www.youtube.com/watch?v=bmdPy3pP-ts&list=PLuHgQVnccGMBB348PWRN0fREzYcYgFybf&index=38",
+        "label": "WEB2-JavaScript : Long take",
+        "sub": false,
+        "title": "WEB2-JavaScript : Long take",
+        "desc": "생활코딩 WEB2 JavaScript 공식 재생목록의 Long take 영상입니다. 전체 흐름을 한 번에 복습할 수 있습니다.",
+        "points": [
+          "생활코딩 WEB2 JavaScript 공식 재생목록",
+          "전체 강의를 긴 흐름으로 복습",
+          "재생목록 38번째 영상"
+        ],
+        "code": null
       }
     ]
   }

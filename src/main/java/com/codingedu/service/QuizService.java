@@ -7,6 +7,8 @@ import com.codingedu.repository.QuizResultRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +28,7 @@ public class QuizService {
     }
 
     public record TopicInfo(String topic, String icon) {}
+    public record QuizLeaderboardEntry(String nickname, int points, int attempts, int averagePercentage) {}
 
     public List<Quiz> getQuizzes(String difficulty, String topic) {
         boolean allDiff  = "all".equals(difficulty);
@@ -54,6 +57,47 @@ public class QuizService {
 
     public List<QuizResult> getUserResults(User user) {
         return quizResultRepository.findByUserOrderByCreatedAtDesc(user);
+    }
+
+    public Map<Long, Integer> getAveragePercentageByQuizId() {
+        Map<Long, int[]> totals = new HashMap<>();
+        for (QuizResult result : quizResultRepository.findAll()) {
+            if (result.getQuiz() == null || result.getQuiz().getId() == null) continue;
+            int[] sum = totals.computeIfAbsent(result.getQuiz().getId(), ignored -> new int[2]);
+            sum[0] += result.getScore();
+            sum[1] += result.getTotalQuestions();
+        }
+
+        Map<Long, Integer> averages = new HashMap<>();
+        totals.forEach((quizId, sum) -> {
+            int pct = sum[1] > 0 ? (sum[0] * 100 / sum[1]) : 0;
+            averages.put(quizId, pct);
+        });
+        return averages;
+    }
+
+    public List<QuizLeaderboardEntry> getLeaderboard(int limit) {
+        Map<Long, LeaderboardAccumulator> totals = new HashMap<>();
+        for (QuizResult result : quizResultRepository.findAll()) {
+            User user = result.getUser();
+            if (user == null || user.getId() == null) continue;
+            LeaderboardAccumulator acc = totals.computeIfAbsent(user.getId(),
+                    ignored -> new LeaderboardAccumulator(user.getNickname()));
+            acc.score += result.getScore();
+            acc.totalQuestions += result.getTotalQuestions();
+            acc.attempts++;
+        }
+
+        return totals.values().stream()
+                .map(acc -> new QuizLeaderboardEntry(
+                        acc.nickname,
+                        acc.score * 50 + acc.attempts * 25,
+                        acc.attempts,
+                        acc.totalQuestions > 0 ? acc.score * 100 / acc.totalQuestions : 0))
+                .sorted(Comparator.comparingInt(QuizLeaderboardEntry::points).reversed()
+                        .thenComparing(QuizLeaderboardEntry::nickname))
+                .limit(Math.max(0, limit))
+                .collect(java.util.stream.Collectors.toList());
     }
 
     /**
@@ -198,5 +242,16 @@ public class QuizService {
     public List<Quiz> getQuizzesByDifficulty(String difficulty) {
         return "all".equals(difficulty) ? quizRepository.findAllByOrderByCreatedAtAsc()
                 : quizRepository.findByDifficultyOrderByCreatedAtAsc(difficulty);
+    }
+
+    private static class LeaderboardAccumulator {
+        private final String nickname;
+        private int score;
+        private int totalQuestions;
+        private int attempts;
+
+        private LeaderboardAccumulator(String nickname) {
+            this.nickname = nickname;
+        }
     }
 }
