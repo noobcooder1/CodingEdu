@@ -15,11 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Controller
 public class QuizController {
@@ -36,10 +37,32 @@ public class QuizController {
     @GetMapping("/quiz")
     public String list(@RequestParam(name = "difficulty", defaultValue = "all") String difficulty,
                        @RequestParam(name = "topic", defaultValue = "all") String topic,
+                       @RequestParam(name = "sort", defaultValue = "latest") String sort,
+                       @AuthenticationPrincipal CustomUserDetails userDetails,
                        Model model) {
-        model.addAttribute("quizzes", quizService.getQuizzes(difficulty, topic));
+        List<Quiz> quizzes = new ArrayList<>(quizService.getQuizzes(difficulty, topic));
+        sortQuizzes(quizzes, sort);
+
+        List<QuizResult> userResults = List.of();
+        if (userDetails != null) {
+            User user = userService.findByUsername(userDetails.getUsername());
+            userResults = quizService.getUserResults(user);
+        }
+
+        Map<Long, Integer> userBestPercentages = buildUserBestPercentages(userResults);
+        Map<Long, Integer> globalAveragePercentages = quizService.getAveragePercentageByQuizId();
+        List<QuizCard> quizCards = quizzes.stream()
+                .map(quiz -> toQuizCard(quiz, userBestPercentages, globalAveragePercentages))
+                .toList();
+
+        model.addAttribute("quizzes", quizzes);
+        model.addAttribute("quizCards", quizCards);
+        model.addAttribute("quizStats", buildQuizStats(userResults, quizService.countAll()));
+        model.addAttribute("recentQuizActivities", buildRecentActivities(userResults));
+        model.addAttribute("leaderboard", quizService.getLeaderboard(5));
         model.addAttribute("currentDifficulty", difficulty);
         model.addAttribute("currentTopic", topic);
+        model.addAttribute("currentSort", sort);
         model.addAttribute("topics", quizService.getDistinctTopics());
         return "quiz";
     }
@@ -140,4 +163,183 @@ public class QuizController {
     // ── 뷰 모델 레코드 ────────────────────────────────────────────────
     public record QuestionView(Question question, List<ChoiceView> choices, String status, boolean correct) {}
     public record ChoiceView(Choice choice, String status) {}
+    public record QuizStats(int totalAttempts, int accuracy, int streakDays, int points,
+                            int completedQuizzes, int fullMarkQuizzes, long availableQuizzes,
+                            int progressPercent) {}
+    public record QuizCard(Quiz quiz, String mark, String theme, String difficultyLabel,
+                           String difficultyTone, int accuracy, String progressTone) {}
+    public record QuizActivity(String title, int percentage, String whenLabel, String tone) {}
+
+    private void sortQuizzes(List<Quiz> quizzes, String sort) {
+        if ("oldest".equals(sort)) {
+            quizzes.sort(Comparator.comparing(Quiz::getCreatedAt,
+                    Comparator.nullsLast(Comparator.naturalOrder())));
+            return;
+        }
+        if ("difficulty".equals(sort)) {
+            quizzes.sort(Comparator.comparingInt(q -> difficultyOrder(q.getDifficulty())));
+            return;
+        }
+        quizzes.sort(Comparator.comparing(Quiz::getCreatedAt,
+                Comparator.nullsLast(Comparator.naturalOrder())).reversed());
+    }
+
+    private int difficultyOrder(String difficulty) {
+        return switch (difficulty) {
+            case "easy" -> 0;
+            case "medium" -> 1;
+            case "hard" -> 2;
+            default -> 3;
+        };
+    }
+
+    private Map<Long, Integer> buildUserBestPercentages(List<QuizResult> results) {
+        Map<Long, Integer> best = new HashMap<>();
+        for (QuizResult result : results) {
+            if (result.getQuiz() == null || result.getQuiz().getId() == null) continue;
+            best.merge(result.getQuiz().getId(), result.getPercentage(), Math::max);
+        }
+        return best;
+    }
+
+    private QuizStats buildQuizStats(List<QuizResult> results, long availableQuizzes) {
+        int totalAttempts = results.size();
+        int correctAnswers = results.stream().mapToInt(QuizResult::getScore).sum();
+        int totalQuestions = results.stream().mapToInt(QuizResult::getTotalQuestions).sum();
+        int accuracy = totalQuestions > 0 ? correctAnswers * 100 / totalQuestions : 0;
+        int completedQuizzes = (int) results.stream()
+                .map(r -> r.getQuiz() != null ? r.getQuiz().getId() : null)
+                .filter(id -> id != null)
+                .distinct()
+                .count();
+        int fullMarkQuizzes = (int) results.stream()
+                .filter(result -> result.getTotalQuestions() > 0 && result.getScore() == result.getTotalQuestions())
+                .count();
+        int progressPercent = availableQuizzes > 0
+                ? (int) Math.min(100, completedQuizzes * 100 / availableQuizzes)
+                : 0;
+        int points = correctAnswers * 50 + totalAttempts * 25;
+        return new QuizStats(totalAttempts, accuracy, calculateStreakDays(results), points,
+                completedQuizzes, fullMarkQuizzes, availableQuizzes, progressPercent);
+    }
+
+    private int calculateStreakDays(List<QuizResult> results) {
+        List<LocalDate> dates = results.stream()
+                .map(QuizResult::getCreatedAt)
+                .filter(createdAt -> createdAt != null)
+                .map(java.time.LocalDateTime::toLocalDate)
+                .distinct()
+                .sorted(Comparator.reverseOrder())
+                .toList();
+        if (dates.isEmpty()) return 0;
+
+        int streak = 0;
+        LocalDate cursor = LocalDate.now();
+        for (LocalDate date : dates) {
+            if (date.equals(cursor)) {
+                streak++;
+                cursor = cursor.minusDays(1);
+            } else if (streak == 0 && date.equals(cursor.minusDays(1))) {
+                streak++;
+                cursor = date.minusDays(1);
+            } else if (date.isBefore(cursor)) {
+                break;
+            }
+        }
+        return streak;
+    }
+
+    private List<QuizActivity> buildRecentActivities(List<QuizResult> results) {
+        return results.stream()
+                .limit(3)
+                .map(result -> new QuizActivity(
+                        result.getQuiz() != null ? result.getQuiz().getTitle() : "퀴즈",
+                        result.getPercentage(),
+                        formatWhen(result.getCreatedAt()),
+                        result.getPercentage() >= 80 ? "good" : "review"))
+                .toList();
+    }
+
+    private String formatWhen(java.time.LocalDateTime createdAt) {
+        if (createdAt == null) return "방금 전";
+        java.time.Duration duration = java.time.Duration.between(createdAt, java.time.LocalDateTime.now());
+        long minutes = duration.toMinutes();
+        if (minutes < 1) return "방금 전";
+        if (minutes < 60) return minutes + "분 전";
+        long hours = duration.toHours();
+        if (hours < 24) return hours + "시간 전";
+        long days = duration.toDays();
+        if (days == 1) return "어제";
+        if (days < 7) return days + "일 전";
+        return createdAt.toLocalDate().toString();
+    }
+
+    private QuizCard toQuizCard(Quiz quiz, Map<Long, Integer> userBestPercentages,
+                               Map<Long, Integer> globalAveragePercentages) {
+        int accuracy = userBestPercentages.getOrDefault(quiz.getId(),
+                globalAveragePercentages.getOrDefault(quiz.getId(), defaultAccuracy(quiz.getDifficulty())));
+        return new QuizCard(
+                quiz,
+                markFor(quiz),
+                themeFor(quiz),
+                difficultyLabel(quiz.getDifficulty()),
+                quiz.getDifficulty(),
+                accuracy,
+                progressTone(accuracy)
+        );
+    }
+
+    private int defaultAccuracy(String difficulty) {
+        return switch (difficulty) {
+            case "easy" -> 90;
+            case "medium" -> 75;
+            case "hard" -> 60;
+            default -> 70;
+        };
+    }
+
+    private String difficultyLabel(String difficulty) {
+        return switch (difficulty) {
+            case "easy" -> "쉬움";
+            case "medium" -> "보통";
+            case "hard" -> "어려움";
+            default -> "기본";
+        };
+    }
+
+    private String markFor(Quiz quiz) {
+        String topic = quiz.getTopic() == null ? "" : quiz.getTopic().toLowerCase();
+        if (topic.contains("javascript")) return "JS";
+        if (topic.contains("typescript")) return "TS";
+        if (topic.contains("html")) return "5";
+        if (topic.contains("css")) return "3";
+        if (topic.contains("java")) return "J";
+        if (topic.contains("python")) return "PY";
+        if (topic.contains("sql")) return "DB";
+        if (topic.contains("react")) return "RX";
+        if (topic.contains("git")) return "G";
+        if (topic.contains("알고리즘")) return "AL";
+        return quiz.getIcon() != null && !quiz.getIcon().isBlank() ? quiz.getIcon() : "Q";
+    }
+
+    private String themeFor(Quiz quiz) {
+        String topic = quiz.getTopic() == null ? "" : quiz.getTopic().toLowerCase();
+        if (topic.contains("javascript")) return "js";
+        if (topic.contains("typescript")) return "ts";
+        if (topic.contains("html")) return "html";
+        if (topic.contains("css")) return "css";
+        if (topic.contains("java") || topic.contains("spring")) return "java";
+        if (topic.contains("python")) return "python";
+        if (topic.contains("sql")) return "sql";
+        if (topic.contains("react")) return "react";
+        if (topic.contains("git")) return "git";
+        return "project";
+    }
+
+    private String progressTone(int accuracy) {
+        if (accuracy >= 85) return "green";
+        if (accuracy >= 70) return "blue";
+        if (accuracy >= 55) return "violet";
+        return "orange";
+    }
 }
