@@ -12,13 +12,7 @@
     <link rel="stylesheet" href="/css/tailwind.css">
     <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
-        .community-page { max-width: 1400px; margin: 0 auto; padding: 48px 50px 64px; }
-        .community-title { margin-bottom: 24px; }
-        .community-title span { color: var(--accent); font-size: .78rem; font-weight: 850; }
-        .community-title h1 { margin: 5px 0 6px; color: var(--ink-1); font-size: 2.25rem; line-height: 1.25; }
-        .community-title p { color: var(--ink-3); font-size: 1.05rem; }
-
-        .community-layout { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: 34px; align-items: start; }
+        .community-layout { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: 34px; align-items: start; }
         .community-main { min-width: 0; margin: 0; padding: 0; background: transparent; }
         .community-tabs {
             position: static; z-index: auto; height: auto; padding: 0;
@@ -137,18 +131,15 @@
         .challenge-box a { display: inline-block; padding: 8px 15px; border-radius: 5px; background: #fff; color: #4f46c8; font-size: .78rem; font-weight: 750; text-decoration: none; }
 
         @media (max-width: 1100px) {
-            .community-page { padding-inline: 28px; }
             .community-layout { grid-template-columns: minmax(0, 1fr) 250px; gap: 22px; }
             .community-table-head, .community-post-row { grid-template-columns: minmax(220px, 1fr) 105px 60px 60px 90px; }
         }
         @media (max-width: 850px) {
-            .community-page { padding: 32px 18px 48px; }
             .community-layout { grid-template-columns: 1fr; }
             .community-sidebar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .challenge-box { grid-column: 1 / -1; }
         }
         @media (max-width: 640px) {
-            .community-title h1 { font-size: 1.9rem; }.community-title p { font-size: .95rem; }
             .community-tabs { gap: 20px; }.community-tab { font-size: .9rem; }
             .community-toolbar { grid-template-columns: 1fr; }.community-write { justify-self: start; }
             .community-table-head { display: none; }
@@ -160,15 +151,39 @@
         }
     </style>
 </head>
-<body>
-<nav th:replace="~{index :: nav}"></nav>
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
 
-<main class="community-page">
-    <header class="community-title">
-        <span>COMMUNITY</span>
-        <h1>커뮤니티</h1>
-        <p>질문과 경험을 나누며 함께 성장하는 개발자 공간입니다.</p>
-    </header>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community" class="active"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
+
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
+        </div>
+    </aside>
+
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">COMMUNITY</span>
+                <h1>커뮤니티</h1>
+                <p>질문과 경험을 나누며 함께 성장하는 개발자 공간입니다.</p>
+            </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
 
     <div class="community-layout">
         <section class="community-main">
@@ -268,10 +283,10 @@
             </section>
         </aside>
     </div>
-</main>
+    </main>
+</div>
 
-<footer th:replace="~{index :: footer}"></footer>
-
+<script src="/js/nav.js"></script>
 <script th:inline="javascript">
     const keyword = /*[[${keyword}]]*/ '';
     if (keyword && keyword.trim()) {

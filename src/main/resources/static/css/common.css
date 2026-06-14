@@ -210,6 +210,10 @@ nav > .nav-right { justify-self: end; }
 .logo-name em { color: var(--accent); font-style: normal; }
 .logo-name em i { font-style: italic; margin-right: 1px; }
 
+/* 브랜드 워드마크 (전 페이지 공통) */
+.brand-text { font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; }
+.brand-text b { color: #4f55e7; font-weight: 800; }
+
 .nav-links {
   display: flex; gap: 36px; align-items: center;
   justify-content: center;
@@ -327,21 +331,32 @@ nav > .nav-right { justify-self: end; }
 
 /* Theme toggle */
 .theme-toggle {
-  width: 46px; height: 26px; border-radius: 50px;
+  width: 56px; height: 30px; border-radius: 50px;
   background: var(--bg-section); border: 1.5px solid var(--border);
   position: relative; cursor: pointer; outline: none; flex-shrink: 0;
   padding: 0;
   transition: background 0.3s, border-color 0.3s;
 }
-.theme-toggle::after {
-  content: '';
-  position: absolute; top: 3px; left: 3px;
-  width: 18px; height: 18px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--mint));
-  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+/* 트랙에 표시되는 반대편 힌트 아이콘 */
+.theme-toggle::before {
+  content: '🌙';
+  position: absolute; top: 50%; right: 7px; transform: translateY(-50%);
+  font-size: .66rem; line-height: 1; opacity: .5; pointer-events: none;
 }
-[data-theme="dark"] .theme-toggle::after { transform: translateX(19px); }
+[data-theme="dark"] .theme-toggle::before { content: '☀️'; right: auto; left: 7px; }
+/* 노브 = 현재 모드 아이콘 */
+.theme-toggle::after {
+  content: '☀️';
+  position: absolute; top: 50%; left: 4px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #fff;
+  display: grid; place-items: center;
+  font-size: .78rem; line-height: 1;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.22);
+  transform: translateY(-50%);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.3s;
+}
+[data-theme="dark"] .theme-toggle::after { content: '🌙'; background: #2b3048; transform: translate(23px, -50%); }
 
 /* ══════════════════════════════════════════════
    BUTTONS
@@ -559,9 +574,9 @@ section { padding: 100px 7%; }
   .nav-user-name, .nav-user-suffix, .nav-mobile-hide { display: none !important; }
   .nav-mobile-only { display: inline-flex !important; }
   .nav-right .btn-login { padding: 8px 14px; font-size: 0.78rem; }
-  .theme-toggle { width: 42px; height: 24px; }
-  .theme-toggle::after { width: 16px; height: 16px; top: 3px; left: 3px; }
-  [data-theme="dark"] .theme-toggle::after { transform: translateX(17px); }
+  .theme-toggle { width: 52px; height: 28px; }
+  .theme-toggle::after { width: 20px; height: 20px; left: 4px; }
+  [data-theme="dark"] .theme-toggle::after { transform: translate(20px, -50%); }
   section { padding: 56px 4%; }
   .page-header { padding: 48px 4%; }
   .page-header h1 { font-size: 1.8rem; }

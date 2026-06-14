@@ -15,21 +15,35 @@
             min-height: 100vh;
             background: #f7f8fc;
         }
-        .page-quiz-dashboard .nav-links a[href="/quiz"] {
-            color: var(--accent);
-            font-weight: 800;
-        }
-        .page-quiz-dashboard .nav-links a[href="/quiz"]::after { width: 100%; }
-
         .quiz-shell {
-            min-height: calc(100vh - 72px);
+            min-height: 100vh;
             display: grid;
             grid-template-columns: 240px minmax(0, 1fr);
         }
+        .quiz-side-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 12px 26px;
+            color: var(--ink-1);
+            font-size: 1.18rem;
+            font-weight: 850;
+            text-decoration: none;
+        }
+        .quiz-side-logo em { color: #4f55e7; font-style: normal; }
+        .quiz-side-logo-mark {
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 6px;
+            background: #4f55e7;
+            font-size: .82rem;
+        }
         .quiz-sidebar {
             position: sticky;
-            top: 72px;
-            height: calc(100vh - 72px);
+            top: 0;
+            height: 100vh;
             padding: 34px 22px 28px;
             display: flex;
             flex-direction: column;
@@ -128,6 +142,24 @@
             color: var(--ink-1);
             font-size: 1.05rem;
         }
+        .quiz-side-account {
+            margin-top: 14px;
+            padding-top: 16px;
+            display: grid;
+            gap: 8px;
+            border-top: 1px solid #e7eaf1;
+        }
+        .quiz-side-account a {
+            padding: 9px 10px;
+            border: 1px solid #e4e8f0;
+            border-radius: 6px;
+            color: var(--ink-2);
+            font-size: .82rem;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+        }
+        .quiz-side-account a.primary { background: #4f55e7; border-color: #4f55e7; color: #fff; }
 
         .quiz-main {
             min-width: 0;
@@ -146,9 +178,15 @@
         }
         .quiz-heading {
             margin-bottom: 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
         }
+        .quiz-heading .theme-toggle { flex: 0 0 auto; margin-top: 6px; }
+        .quiz-kicker { display: block; color: #4f55e7; font-size: .72rem; font-weight: 850; letter-spacing: .04em; }
         .quiz-heading h1 {
-            margin: 0 0 6px;
+            margin: 5px 0 7px;
             color: var(--ink-1);
             font-size: 2rem;
             line-height: 1.2;
@@ -252,8 +290,8 @@
             color: var(--ink-1);
         }
         .quiz-tabs a.active {
-            color: #3652ff;
-            border-bottom-color: #3652ff;
+            color: #4f55e7;
+            border-bottom-color: #4f55e7;
         }
         .quiz-controls {
             padding-bottom: 10px;
@@ -354,7 +392,7 @@
             white-space: nowrap;
         }
         .quiz-difficulty.easy { color: #10a875; background: #e8fbf3; }
-        .quiz-difficulty.medium { color: #3652ff; background: #eef0ff; }
+        .quiz-difficulty.medium { color: #4f55e7; background: #eef0ff; }
         .quiz-difficulty.hard { color: #a855f7; background: #f4e8ff; }
         .quiz-description {
             margin: 5px 0 9px;
@@ -408,10 +446,10 @@
             height: 100%;
             min-width: 6px;
             border-radius: inherit;
-            background: #3652ff;
+            background: #4f55e7;
         }
         .quiz-progress i.green { background: #19c37d; }
-        .quiz-progress i.blue { background: #3652ff; }
+        .quiz-progress i.blue { background: #4f55e7; }
         .quiz-progress i.violet { background: #a855f7; }
         .quiz-progress i.orange { background: #f97316; }
         .quiz-action {
@@ -573,7 +611,7 @@
             margin-inline: -8px;
             padding: 0 8px;
             border-radius: 8px;
-            color: #3652ff;
+            color: #4f55e7;
             background: #eef0ff;
         }
         .rank-avatar,
@@ -601,7 +639,7 @@
             align-items: center;
             gap: 10px;
         }
-        .activity-icon.good { color: #3652ff; background: #eef0ff; }
+        .activity-icon.good { color: #4f55e7; background: #eef0ff; }
         .activity-icon.review { color: #f97316; background: #fff0e8; }
         .activity-title {
             overflow: hidden;
@@ -694,7 +732,8 @@
                 width: 17px;
                 height: 17px;
             }
-            .quiz-point-card {
+            .quiz-point-card,
+            .quiz-side-account {
                 display: none;
             }
             .quiz-stat-grid {
@@ -766,10 +805,12 @@
 </head>
 <body class="page-quiz-dashboard">
 
-<nav th:replace="~{index :: nav}"></nav>
-
 <div class="quiz-shell">
     <aside class="quiz-sidebar">
+        <a href="/" class="quiz-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
+
         <nav class="quiz-side-nav" aria-label="주요 메뉴">
             <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
             <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
@@ -790,14 +831,24 @@
                 <strong th:text="${quizStats.points} + 'P'">0P</strong>
             </div>
         </div>
+
+        <div class="quiz-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
+        </div>
     </aside>
 
     <main class="quiz-main">
         <div class="quiz-layout">
             <div class="quiz-content">
                 <header class="quiz-heading">
-                    <h1>퀴즈</h1>
-                    <p>배운 내용을 퀴즈로 확인하고 실력을 향상시켜보세요!</p>
+                    <div>
+                        <span class="quiz-kicker">QUIZ</span>
+                        <h1>퀴즈</h1>
+                        <p>배운 내용을 퀴즈로 확인하고 실력을 향상시켜보세요!</p>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
                 </header>
 
                 <section class="quiz-stat-grid" aria-label="퀴즈 요약">
