@@ -69,10 +69,22 @@
                                 th:text="${favoriteLangs.contains(c.lang) ? '♥' : '♡'}"
                                 onclick="event.preventDefault(); event.stopPropagation(); toggleFavorite(this);"
                                 title="즐겨찾기"></button>
-                        <div class="course-thumbnail">
+                        <div class="course-thumbnail course-youtube-thumbnail"
+                             th:with="courseVideoId=${courseVideoIds[c.lang]}"
+                             th:classappend="${courseVideoId == null or #strings.isEmpty(courseVideoId)} ? ' course-thumbnail-fallback' : ''">
+                            <img th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+                                 th:src="|https://i.ytimg.com/vi/${courseVideoId}/maxresdefault.jpg|"
+                                 th:attr="data-fallback-src=|https://i.ytimg.com/vi/${courseVideoId}/hqdefault.jpg|"
+                                 th:alt="${c.title} + ' 유튜브 썸네일'"
+                                 loading="lazy">
+                            <span class="course-play-badge"
+                                  th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+                                  aria-hidden="true"></span>
                             <span class="course-language-mark"
+                                  th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}"
                                   th:text="${c.lang == 'javascript' ? 'JS' : #strings.toUpperCase(c.lang)}">HTML</span>
                             <span class="course-thumbnail-code"
+                                  th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}"
                                   th:text="${c.lang == 'html' ? '< / >' : c.lang == 'css' ? '{ }' : '( ) =>'}">&lt; / &gt;</span>
                         </div>
                         <div class="course-card-body" th:with="done=${completedCounts[c.lang] ?: 0}, percent=${c.lessonCount > 0 ? done * 100 / c.lessonCount : 0}">
@@ -129,6 +141,13 @@
     const courseTabs = document.querySelectorAll('.course-tab');
     const courseCards = document.querySelectorAll('.course-card-v2');
     const courseEmpty = document.getElementById('courseEmpty');
+
+    document.querySelectorAll('.course-youtube-thumbnail img[data-fallback-src]').forEach(img => {
+        img.addEventListener('error', function handleThumbnailError() {
+            this.removeEventListener('error', handleThumbnailError);
+            if (this.dataset.fallbackSrc) this.src = this.dataset.fallbackSrc;
+        });
+    });
 
     courseTabs.forEach(tab => {
         tab.addEventListener('click', function () {

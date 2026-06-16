@@ -3,6 +3,7 @@ package com.codingedu.controller;
 import com.codingedu.entity.User;
 import com.codingedu.security.CustomUserDetails;
 import com.codingedu.security.CustomUserDetailsService;
+import com.codingedu.service.LessonContentService;
 import com.codingedu.service.LessonService;
 import com.codingedu.service.PostService;
 import com.codingedu.service.QuizService;
@@ -25,17 +26,20 @@ public class HomeController {
 
     private final UserService userService;
     private final CustomUserDetailsService customUserDetailsService;
+    private final LessonContentService lessonContentService;
     private final LessonService lessonService;
     private final QuizService quizService;
     private final PostService postService;
 
     public HomeController(UserService userService,
                           CustomUserDetailsService customUserDetailsService,
+                          LessonContentService lessonContentService,
                           LessonService lessonService,
                           QuizService quizService,
                           PostService postService) {
         this.userService = userService;
         this.customUserDetailsService = customUserDetailsService;
+        this.lessonContentService = lessonContentService;
         this.lessonService = lessonService;
         this.quizService = quizService;
         this.postService = postService;
@@ -49,6 +53,8 @@ public class HomeController {
                 .mapToInt(course -> course.getLessonCount())
                 .sum());
         model.addAttribute("siteQuizCount", quizService.countAll());
+        var courseVideoIds = lessonContentService.getCourseVideoIds();
+        model.addAttribute("courseVideoIds", courseVideoIds != null ? courseVideoIds : java.util.Map.of());
 
         if (userDetails != null) {
             User user = userService.findByUsername(userDetails.getUsername());
