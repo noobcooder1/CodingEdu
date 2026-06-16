@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f5bea">
+  <title>CodingEdu 발표자료</title>
+  <style>
+    :root {
+      --paper: #fbfcff;
+      --soft: #eef3ff;
+      --ink: #111827;
+      --muted: #65728a;
+      --line: #dce4f4;
+      --blue: #4f5bea;
+      --blue-deep: #2934bf;
+      --green: #12b981;
+      --yellow: #f7b731;
+      --violet: #7c5cf2;
+      --white: #ffffff;
+      --shadow: 0 22px 50px rgba(30, 41, 59, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #e9eef8;
+      color: var(--ink);
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .deck {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(79, 91, 234, 0.13), transparent 30%),
+        radial-gradient(circle at 8% 88%, rgba(18, 185, 129, 0.10), transparent 28%),
+        var(--paper);
+    }
+
+    .slide.active {
+      display: block;
+      animation: appear 240ms ease-out;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-inner {
+      width: min(100%, 1600px);
+      height: 100%;
+      margin: 0 auto;
+      padding: clamp(28px, 3.2vw, 58px) clamp(44px, 5vw, 92px) clamp(48px, 5vw, 70px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .slide-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: clamp(18px, 2.7vh, 38px);
+      color: var(--muted);
+      font-size: clamp(15px, 1.1vw, 19px);
+      font-weight: 800;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--blue);
+      font-weight: 950;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 10px 22px rgba(79, 91, 234, 0.24);
+    }
+
+    .slide-number {
+      color: #8b96ad;
+      font-variant-numeric: tabular-nums;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(56px, 6vw, 100px);
+      line-height: 1.04;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 980px;
+      font-size: clamp(40px, 4.35vw, 72px);
+      line-height: 1.12;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: clamp(24px, 2vw, 34px);
+      line-height: 1.24;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    p,
+    li {
+      font-size: clamp(18px, 1.35vw, 23px);
+      line-height: 1.5;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    ul {
+      margin: 18px 0 0;
+      padding-left: 24px;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    .accent {
+      color: var(--blue);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #e9edff;
+      color: var(--blue);
+      font-size: clamp(14px, 1vw, 17px);
+      line-height: 1;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 18px;
+      margin-bottom: clamp(30px, 4vh, 54px);
+    }
+
+    .slide:not(:first-child) .section-heading {
+      margin-top: clamp(18px, 3vh, 46px);
+    }
+
+    .lead {
+      max-width: 780px;
+      font-size: clamp(21px, 1.8vw, 29px);
+      color: #526078;
+      font-weight: 760;
+    }
+
+    .two-col {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(430px, 0.9fr);
+      gap: clamp(30px, 4vw, 76px);
+      align-items: center;
+    }
+
+    .cover-visual {
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(220, 228, 244, 0.9);
+      border-radius: 42px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(233, 237, 255, 0.84)),
+        radial-gradient(circle at 78% 20%, rgba(79, 91, 234, 0.18), transparent 28%);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-visual::before,
+    .cover-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(79, 91, 234, 0.12);
+    }
+
+    .cover-visual::before {
+      width: 260px;
+      height: 260px;
+      right: -60px;
+      top: -30px;
+    }
+
+    .cover-visual::after {
+      width: 180px;
+      height: 180px;
+      left: 60px;
+      bottom: 34px;
+      background: rgba(18, 185, 129, 0.13);
+    }
+
+    .mock-browser {
+      width: min(82%, 620px);
+      min-height: 360px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--white);
+      box-shadow: 0 26px 48px rgba(30, 41, 59, 0.14);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mock-bar {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 22px;
+      border-bottom: 1px solid var(--line);
+      background: #f8faff;
+    }
+
+    .mock-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #c8d2e6;
+    }
+
+    .mock-content {
+      min-height: 306px;
+      display: grid;
+      place-items: center;
+      padding: 42px;
+      background:
+        linear-gradient(135deg, rgba(79, 91, 234, 0.08), rgba(18, 185, 129, 0.08)),
+        repeating-linear-gradient(0deg, transparent 0, transparent 32px, rgba(220, 228, 244, 0.55) 33px);
+      color: var(--blue);
+      font-size: clamp(32px, 3vw, 50px);
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(20px, 2vw, 30px);
+    }
+
+    .card-grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      min-height: 245px;
+      padding: clamp(28px, 2.8vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 14px 30px rgba(30, 41, 59, 0.08);
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 22px;
+      color: var(--blue);
+      background: #e9edff;
+      font-size: 28px;
+      font-weight: 950;
+    }
+
+    .card:nth-child(2) .icon {
+      color: #0f9f83;
+      background: #dcf8ed;
+    }
+
+    .card:nth-child(3) .icon {
+      color: #c88900;
+      background: #fff3d3;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .stack-card {
+      min-height: 245px;
+      padding: 34px 30px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: 0 12px 26px rgba(30, 41, 59, 0.08);
+    }
+
+    .stack-card b {
+      display: block;
+      margin-bottom: 24px;
+      color: var(--blue);
+      font-size: clamp(22px, 1.7vw, 30px);
+      font-weight: 950;
+    }
+
+    .stack-card p {
+      font-size: clamp(17px, 1.25vw, 21px);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .flow-step {
+      min-height: 235px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 14px 30px rgba(30, 41, 59, 0.08);
+      position: relative;
+    }
+
+    .flow-step em {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background: var(--blue);
+      color: white;
+      font-style: normal;
+      font-weight: 950;
+    }
+
+    .flow-step:nth-child(2) em { background: var(--green); }
+    .flow-step:nth-child(3) em { background: var(--yellow); color: #1f2937; }
+    .flow-step:nth-child(4) em { background: var(--violet); }
+
+    .screen-layout {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.75fr);
+      gap: clamp(28px, 4vw, 64px);
+      align-items: center;
+      padding-top: clamp(14px, 2.6vh, 42px);
+    }
+
+    .screen-placeholder {
+      min-height: 500px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, #ffffff, #f3f6ff),
+        repeating-linear-gradient(45deg, #eef3ff 0, #eef3ff 16px, #f8faff 16px, #f8faff 32px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .placeholder-top {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 26px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .placeholder-body {
+      min-height: 432px;
+      display: grid;
+      place-items: center;
+      padding: 46px;
+      color: #8b96ad;
+      text-align: center;
+    }
+
+    .placeholder-body strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: clamp(38px, 3.4vw, 62px);
+      line-height: 1.05;
+      font-weight: 950;
+    }
+
+    .placeholder-body span {
+      font-size: clamp(20px, 1.5vw, 26px);
+      font-weight: 850;
+    }
+
+    .screen-copy {
+      display: grid;
+      gap: 22px;
+    }
+
+    .screen-copy .eyebrow {
+      margin-bottom: 4px;
+    }
+
+    .note {
+      margin-top: 30px;
+      padding: 26px 32px;
+      border-left: 8px solid var(--blue);
+      border-radius: 24px;
+      background: rgba(233, 237, 255, 0.82);
+    }
+
+    .note p {
+      color: #3d4a63;
+      font-weight: 800;
+    }
+
+    .nav {
+      position: fixed;
+      right: 30px;
+      bottom: 26px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid rgba(220, 228, 244, 0.9);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 16px 40px rgba(30, 41, 59, 0.14);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav button {
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 950;
+    }
+
+    .nav button:disabled {
+      cursor: not-allowed;
+      opacity: 0.36;
+    }
+
+    .counter {
+      min-width: 86px;
+      text-align: center;
+      color: #526078;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 21;
+      height: 6px;
+      width: 0;
+      border-radius: 0 999px 999px 0;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      transition: width 220ms ease;
+    }
+
+    @media (max-height: 920px) {
+      .slide-inner {
+        padding-top: 26px;
+        padding-bottom: 44px;
+      }
+
+      .slide-top {
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: clamp(50px, 5.4vw, 86px);
+      }
+
+      h2 {
+        font-size: clamp(36px, 3.95vw, 64px);
+        line-height: 1.08;
+      }
+
+      h3 {
+        font-size: clamp(22px, 1.75vw, 30px);
+      }
+
+      p,
+      li {
+        font-size: clamp(17px, 1.2vw, 21px);
+        line-height: 1.42;
+      }
+
+      ul {
+        margin-top: 12px;
+      }
+
+      li + li {
+        margin-top: 7px;
+      }
+
+      .section-heading {
+        gap: 14px;
+        margin-bottom: 34px;
+      }
+
+      .slide:not(:first-child) .section-heading {
+        margin-top: 28px;
+      }
+
+      .lead {
+        font-size: clamp(20px, 1.55vw, 26px);
+      }
+
+      .card-grid,
+      .stack-grid,
+      .flow {
+        gap: 18px;
+      }
+
+      .card {
+        min-height: 220px;
+        padding: 28px 30px;
+      }
+
+      .icon {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 14px;
+        border-radius: 18px;
+      }
+
+      .stack-card {
+        min-height: 220px;
+        padding: 30px 26px;
+      }
+
+      .stack-card b {
+        margin-bottom: 20px;
+      }
+
+      .flow-step {
+        min-height: 210px;
+        padding: 26px;
+      }
+
+      .flow-step em {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 14px;
+      }
+
+      .screen-placeholder {
+        min-height: 430px;
+      }
+
+      .placeholder-top {
+        height: 56px;
+      }
+
+      .placeholder-body {
+        min-height: 374px;
+        padding: 34px;
+      }
+
+      .screen-copy {
+        gap: 16px;
+      }
+
+      .screen-layout {
+        padding-top: 24px;
+      }
+
+      .note {
+        margin-top: 28px;
+        padding: 24px 28px;
+      }
+
+      .nav {
+        bottom: 18px;
+        padding: 10px;
+      }
+    }
+
+    @media (max-height: 780px) {
+      .slide-inner {
+        padding-top: 20px;
+        padding-bottom: 34px;
+      }
+
+      .slide-top {
+        margin-bottom: 12px;
+      }
+
+      .slide:not(:first-child) .section-heading {
+        margin-top: 16px;
+      }
+
+      h2 {
+        font-size: clamp(32px, 3.4vw, 54px);
+      }
+
+      .card {
+        min-height: 158px;
+        padding: 18px 22px;
+      }
+
+      .icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .screen-placeholder {
+        min-height: 380px;
+      }
+
+      .screen-layout {
+        padding-top: 12px;
+      }
+
+      .placeholder-body {
+        min-height: 324px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      body {
+        overflow: auto;
+      }
+
+      .slide {
+        min-height: 100%;
+      }
+
+      .two-col,
+      .card-grid,
+      .card-grid.two,
+      .stack-grid,
+      .flow,
+      .screen-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .cover-visual,
+      .screen-placeholder {
+        min-height: 360px;
+      }
+    }
+
+    @media print {
+      html,
+      body {
+        overflow: visible;
+        background: white;
+      }
+
+      .slide {
+        position: relative;
+        display: block !important;
+        min-height: 100vh;
+        page-break-after: always;
+      }
+
+      .nav,
+      .progress {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="CodingEdu 발표자료">
+    <section class="slide active" data-title="표지">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">C</span> CodingEdu</span>
+          <span class="slide-number">2026.06.17 발표</span>
+        </div>
+        <div class="two-col">
+          <div class="section-heading">
+            <p class="eyebrow">코딩 스터디 웹사이트</p>
+            <h1>코딩을 함께 배우고<br><span class="accent">성장하는 공간</span></h1>
+            <p class="lead">강의, 퀴즈, 챌린지, 커뮤니티를 하나로 묶은 온라인 코딩 학습 플랫폼입니다.</p>
+          </div>
+          <div class="cover-visual" aria-hidden="true">
+            <div class="mock-browser">
+              <div class="mock-bar">
+                <span class="mock-dot"></span>
+                <span class="mock-dot"></span>
+                <span class="mock-dot"></span>
+              </div>
+              <div class="mock-content">CodingEdu<br>Presentation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="프로젝트 개요">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">01</span> Overview</span>
+          <span class="slide-number">1 / 9</span>
+        </div>
+        <div class="section-heading">
+          <p class="eyebrow">1. 프로젝트 개요와 설명</p>
+          <h2>초보 학습자가<br><span class="accent">학습 흐름을 잃지 않도록</span><br>만든 웹사이트입니다.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="icon">?</div>
+            <h3>개발 배경</h3>
+            <p>프로그래밍 입문자는 자료는 많지만 어떤 순서로 공부해야 할지 판단하기 어렵습니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">▶</div>
+            <h3>서비스 목표</h3>
+            <p>강의 시청, 복습 퀴즈, 활동 기록을 연결해 자기주도 학습을 돕습니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">✓</div>
+            <h3>기대 효과</h3>
+            <p>진도율과 커뮤니티 활동을 통해 사용자가 꾸준히 학습하도록 유도합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="서비스 흐름">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">02</span> Flow</span>
+          <span class="slide-number">2 / 9</span>
+        </div>
+        <div class="section-heading">
+          <p class="eyebrow">사용자 학습 흐름</p>
+          <h2>강의를 듣고, 퀴즈로 확인하고,<br><span class="accent">커뮤니티에서 이어갑니다.</span></h2>
+        </div>
+        <div class="flow">
+          <article class="flow-step">
+            <em>1</em>
+            <h3>강의 선택</h3>
+            <p>HTML, CSS, JavaScript 강의를 선택합니다.</p>
+          </article>
+          <article class="flow-step">
+            <em>2</em>
+            <h3>영상 학습</h3>
+            <p>유튜브 강의를 보고 노트와 진도율을 기록합니다.</p>
+          </article>
+          <article class="flow-step">
+            <em>3</em>
+            <h3>퀴즈 복습</h3>
+            <p>퀴즈를 풀고 정답률과 포인트를 확인합니다.</p>
+          </article>
+          <article class="flow-step">
+            <em>4</em>
+            <h3>커뮤니티</h3>
+            <p>질문과 답변, 댓글로 학습을 이어갑니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="기술 스택">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">03</span> Tech Stack</span>
+          <span class="slide-number">3 / 9</span>
+        </div>
+        <div class="section-heading">
+          <p class="eyebrow">2. 사용한 기술 스택 정리</p>
+          <h2>Spring Boot 기반으로<br><span class="accent">서버 렌더링 웹 서비스</span>를 구현했습니다.</h2>
+        </div>
+        <div class="stack-grid">
+          <article class="stack-card">
+            <b>Backend</b>
+            <p>Java 21<br>Spring Boot 3.4.1<br>Spring MVC</p>
+          </article>
+          <article class="stack-card">
+            <b>View</b>
+            <p>Thymeleaf<br>HTML<br>CSS<br>JavaScript</p>
+          </article>
+          <article class="stack-card">
+            <b>Database</b>
+            <p>Spring Data JPA<br>MySQL / TiDB<br>H2 Test DB</p>
+          </article>
+          <article class="stack-card">
+            <b>Security</b>
+            <p>Spring Security<br>BCrypt<br>CSRF</p>
+          </article>
+        </div>
+        <div class="note">
+          <p>발표 포인트: “회원별 학습 기록과 퀴즈 결과를 DB에 저장하고, Thymeleaf 화면에서 바로 보여주는 구조”라고 설명하면 깔끔합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="실제 화면: 홈">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">04</span> Screen 1</span>
+          <span class="slide-number">4 / 9</span>
+        </div>
+        <div class="screen-layout">
+          <div class="screen-placeholder">
+            <div class="placeholder-top">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="placeholder-body">
+              <div>
+                <strong>홈 화면</strong>
+                <span>나중에 실제 캡처 이미지 삽입</span>
+              </div>
+            </div>
+          </div>
+          <div class="screen-copy">
+            <p class="eyebrow">3. 실제 화면 기능 설명</p>
+            <h2>홈 화면은<br><span class="accent">서비스의 첫 인상</span>입니다.</h2>
+            <ul>
+              <li>서비스 소개와 핵심 문구 제공</li>
+              <li>추천 강의 카드 표시</li>
+              <li>완료 강의, 학습 코스, 퀴즈 등 학습 현황 표시</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="실제 화면: 강의">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">05</span> Screen 2</span>
+          <span class="slide-number">5 / 9</span>
+        </div>
+        <div class="screen-layout">
+          <div class="screen-placeholder">
+            <div class="placeholder-top">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="placeholder-body">
+              <div>
+                <strong>강의 화면</strong>
+                <span>강의 목록 또는 강의 상세 캡처 영역</span>
+              </div>
+            </div>
+          </div>
+          <div class="screen-copy">
+            <p class="eyebrow">강의 기능</p>
+            <h2>생활코딩 영상으로<br><span class="accent">입문 학습 흐름</span>을 구성했습니다.</h2>
+            <ul>
+              <li>HTML, CSS, JavaScript 강의 목록 제공</li>
+              <li>YouTube 영상 재생 및 썸네일 표시</li>
+              <li>레슨별 완료 처리와 진도율 관리</li>
+              <li>개인 학습 노트 저장</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="실제 화면: 퀴즈">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">06</span> Screen 3</span>
+          <span class="slide-number">6 / 9</span>
+        </div>
+        <div class="screen-layout">
+          <div class="screen-placeholder">
+            <div class="placeholder-top">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="placeholder-body">
+              <div>
+                <strong>퀴즈 화면</strong>
+                <span>퀴즈 목록 또는 결과 화면 캡처 영역</span>
+              </div>
+            </div>
+          </div>
+          <div class="screen-copy">
+            <p class="eyebrow">퀴즈 기능</p>
+            <h2>학습 내용을<br><span class="accent">바로 복습</span>할 수 있습니다.</h2>
+            <ul>
+              <li>주제와 난이도별 퀴즈 제공</li>
+              <li>문제 풀이 후 자동 채점</li>
+              <li>정답률, 연속 완료, 획득 포인트 표시</li>
+              <li>마이페이지에서 퀴즈 이력 확인</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="실제 화면: 커뮤니티">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">07</span> Screen 4</span>
+          <span class="slide-number">7 / 9</span>
+        </div>
+        <div class="screen-layout">
+          <div class="screen-placeholder">
+            <div class="placeholder-top">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="placeholder-body">
+              <div>
+                <strong>커뮤니티 화면</strong>
+                <span>게시판 화면 캡처 영역</span>
+              </div>
+            </div>
+          </div>
+          <div class="screen-copy">
+            <p class="eyebrow">커뮤니티 기능</p>
+            <h2>혼자 공부하다 막히는 부분을<br><span class="accent">함께 해결</span>합니다.</h2>
+            <ul>
+              <li>게시글 작성, 조회, 수정, 삭제</li>
+              <li>댓글 작성과 알림 기능</li>
+              <li>카테고리 탭과 검색 기능</li>
+              <li>인기 태그와 활동 정보 제공</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="실제 화면: 마이페이지와 관리자">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">08</span> Screen 5</span>
+          <span class="slide-number">8 / 9</span>
+        </div>
+        <div class="screen-layout">
+          <div class="screen-placeholder">
+            <div class="placeholder-top">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="placeholder-body">
+              <div>
+                <strong>마이페이지 / 관리자</strong>
+                <span>개인 기록 또는 관리자 화면 캡처 영역</span>
+              </div>
+            </div>
+          </div>
+          <div class="screen-copy">
+            <p class="eyebrow">보조 기능</p>
+            <h2>개인 기록과 관리 기능으로<br><span class="accent">서비스 운영 흐름</span>을 완성했습니다.</h2>
+            <ul>
+              <li>개인 학습 기록과 활동 내역 확인</li>
+              <li>회원 정보 수정과 계정 설정</li>
+              <li>관리자 페이지에서 사용자, 퀴즈, 챌린지 관리</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="마무리">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">09</span> Closing</span>
+          <span class="slide-number">9 / 9</span>
+        </div>
+        <div class="section-heading">
+          <p class="eyebrow">결과와 개선 방향</p>
+          <h2>CodingEdu는<br><span class="accent">학습, 복습, 소통</span>을 한 서비스 안에서 연결했습니다.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="icon">✓</div>
+            <h3>구현 결과</h3>
+            <p>강의, 퀴즈, 커뮤니티, 마이페이지, 관리자 기능의 기본 흐름을 구현했습니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">+</div>
+            <h3>개선 방향</h3>
+            <p>실습 코드 에디터, 추천 강의, 배지/레벨 시스템을 추가하면 더 완성도 있는 서비스가 됩니다.</p>
+          </article>
+          <article class="card">
+            <div class="icon">▶</div>
+            <h3>시연 안내</h3>
+            <p>이후 실제 웹사이트에서 홈, 강의, 퀴즈, 커뮤니티 순서로 화면을 보여주겠습니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav" aria-label="슬라이드 이동">
+    <button id="prev" type="button" aria-label="이전 슬라이드">←</button>
+    <span class="counter" id="counter">표지</span>
+    <button id="next" type="button" aria-label="다음 슬라이드">→</button>
+  </nav>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const counter = document.getElementById("counter");
+    const progress = document.getElementById("progress");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    let index = Math.max(0, Math.min(slides.length - 1, Number(location.hash.slice(1)) - 1 || 0));
+
+    function render(nextIndex) {
+      index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      slides.forEach((slide, slideIndex) => slide.classList.toggle("active", slideIndex === index));
+      counter.textContent = index === 0 ? "표지" : `${index} / ${slides.length - 1}`;
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+      prev.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+      document.title = `${slides[index].dataset.title} · CodingEdu`;
+      history.replaceState(null, "", `#${index + 1}`);
+    }
+
+    prev.addEventListener("click", () => render(index - 1));
+    next.addEventListener("click", () => render(index + 1));
+
+    window.addEventListener("keydown", (event) => {
+      const targetTag = event.target?.tagName?.toLowerCase();
+      if (["button", "a", "input", "textarea", "select"].includes(targetTag)) return;
+      if (["ArrowRight", "PageDown", " ", "Enter"].includes(event.key)) {
+        event.preventDefault();
+        render(index + 1);
+      }
+      if (["ArrowLeft", "PageUp", "Backspace"].includes(event.key)) {
+        event.preventDefault();
+        render(index - 1);
+      }
+      if (event.key === "Home") render(0);
+      if (event.key === "End") render(slides.length - 1);
+      if (event.key.toLowerCase() === "f") document.documentElement.requestFullscreen?.();
+    });
+
+    window.addEventListener("hashchange", () => render(Number(location.hash.slice(1)) - 1 || 0));
+    render(index);
+  </script>
+</body>
+</html>
