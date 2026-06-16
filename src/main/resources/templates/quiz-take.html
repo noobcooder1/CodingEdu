@@ -10,9 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
         html, body { height: 100%; overflow: hidden; }
         body { display: flex; flex-direction: column; }
+        .quiz-take-topbar {
+            height: 60px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px;
+            background: var(--bg-surface); border-bottom: 1px solid var(--border);
+        }
+        .quiz-take-topbar .brand-text { font-size: 1.2rem; text-decoration: none; }
+        .quiz-take-exit {
+            color: var(--ink-2); font-size: .9rem; font-weight: 700; text-decoration: none;
+            padding: 8px 16px; border-radius: 50px; border: 1px solid var(--border-card);
+            transition: background .15s, color .15s;
+        }
+        .quiz-take-exit:hover { background: var(--bg-section); color: var(--ink-1); }
 
         .quiz-page {
             flex: 1;
@@ -189,7 +203,7 @@
             background: var(--accent);
             border-color: var(--accent);
             color: white;
-            box-shadow: 0 2px 8px rgba(16,185,129,0.3);
+            box-shadow: 0 2px 8px rgba(79,85,231,0.3);
         }
         .choice-text {
             font-size: .93rem;
@@ -248,12 +262,12 @@
             font-weight: 700;
             cursor: pointer;
             transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-            box-shadow: 0 2px 12px rgba(16,185,129,0.25);
+            box-shadow: 0 2px 12px rgba(79,85,231,0.25);
         }
         .btn-next:hover {
             background: var(--accent-h);
             transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(16,185,129,0.38);
+            box-shadow: 0 4px 20px rgba(79,85,231,0.38);
         }
 
         .btn-submit-quiz {
@@ -278,7 +292,10 @@
 </head>
 <body>
 
-<nav th:replace="~{index :: nav}"></nav>
+<header class="quiz-take-topbar">
+    <a href="/" class="brand-text"><b>Coding</b>Edu</a>
+    <a href="/quiz" class="quiz-take-exit">✕ 나가기</a>
+</header>
 
 <div class="quiz-page">
 <div class="quiz-take-wrap">

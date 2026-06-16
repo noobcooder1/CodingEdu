@@ -10,8 +10,10 @@
     <title th:text="${profileUser.nickname} + '님의 프로필 - CodeEdu'">프로필 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
-        .profile-wrap { max-width: 960px; margin: 0 auto; padding: 40px 20px 80px; }
+        .course-page-heading { max-width: 960px; }
+        .profile-wrap { max-width: 960px; margin: 0 auto; padding: 0; }
 
         /* ── 프로필 카드 ── */
         .profile-hero {
@@ -83,12 +85,41 @@
         }
     </style>
 </head>
-<body>
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
 
-<nav th:replace="~{index :: nav}"></nav>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
+        </div>
+    </aside>
 
-<div class="profile-wrap">
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">PROFILE</span>
+                <h1 th:text="${profileUser.nickname} + '님의 프로필'">프로필</h1>
+                <p>학습 진도와 활동 내역을 확인하세요.</p>
+            </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
+
+        <div class="profile-wrap">
 
     <!-- 프로필 헤더 -->
     <div class="profile-hero">
@@ -181,8 +212,10 @@
         <div class="empty">아직 활동 기록이 없습니다.</div>
     </div>
 
+        </div>
+    </main>
 </div>
 
-<footer th:replace="~{index :: footer}"></footer>
+<script src="/js/nav.js"></script>
 </body>
 </html>

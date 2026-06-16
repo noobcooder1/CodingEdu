@@ -331,6 +331,8 @@
             padding: 0;
             background: var(--bg-surface);
             border-right: 1px solid var(--border);
+            border-top-right-radius: 32px;
+            box-shadow: 12px 0 32px rgba(28, 39, 68, .04);
             overflow: hidden;
         }
         .lesson-brand {
@@ -556,6 +558,9 @@
             min-height: 100vh;
             background: var(--bg-surface);
             border-left: 1px solid var(--border);
+            border-top-left-radius: 32px;
+            box-shadow: -12px 0 32px rgba(28, 39, 68, .04);
+            overflow: hidden;
         }
         .lesson-tools-head {
             height: 72px;
@@ -741,8 +746,7 @@
     <!-- ── 사이드바 ── -->
     <aside class="sidebar" id="sidebar">
         <a href="/learn" class="lesson-brand">
-            <span class="lesson-brand-mark">💻</span>
-            <span>Code<em>Edu</em></span>
+            <span class="brand-text"><b>Coding</b>Edu</span>
         </a>
         <div class="lesson-course-summary">
             <strong id="sideCourseTitle">강의</strong>

@@ -10,13 +10,14 @@
     <title>마이페이지 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
         .mypage-layout {
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 36px;
-            padding: 48px 5%;
-            max-width: 1280px;
+            padding: 0;
+            max-width: 1240px;
             margin: 0 auto;
         }
 
@@ -35,12 +36,12 @@
         }
         .profile-card:hover {
             box-shadow: var(--shadow-lg);
-            border-color: rgba(16,185,129,0.12);
+            border-color: rgba(79,85,231,0.12);
         }
         .profile-avatar-wrap {
             width: 92px; height: 92px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--mint));
+            background: linear-gradient(135deg, var(--accent), var(--accent-h));
             padding: 3px;
             margin: 0 auto 18px;
         }
@@ -68,10 +69,10 @@
             border: 1px solid var(--border-card);
             transition: all 0.2s ease;
         }
-        .stat-box:hover { transform: translateY(-2px); border-color: rgba(16,185,129,0.15); }
+        .stat-box:hover { transform: translateY(-2px); border-color: rgba(79,85,231,0.15); }
         .stat-box .num {
             font-size: 1.5rem; font-weight: 800;
-            background: linear-gradient(135deg, var(--accent), var(--mint));
+            background: linear-gradient(135deg, var(--accent), var(--accent-h));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -91,7 +92,7 @@
         }
         .section-block:hover {
             box-shadow: var(--shadow-md);
-            border-color: rgba(16,185,129,0.08);
+            border-color: rgba(79,85,231,0.08);
         }
         .block-title {
             font-size: 1.15rem; font-weight: 800; color: var(--ink-1);
@@ -125,7 +126,7 @@
         .big-progress-inner {
             position: relative; z-index: 1;
             font-size: 1.15rem; font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--mint));
+            background: linear-gradient(135deg, var(--accent), var(--accent-h));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -150,7 +151,7 @@
             display: block;
         }
         .course-progress-item:hover {
-            border-color: rgba(16,185,129,0.2);
+            border-color: rgba(79,85,231,0.2);
             box-shadow: var(--shadow-md);
             transform: translateY(-3px);
         }
@@ -158,7 +159,7 @@
         .course-item-name { font-size: .92rem; font-weight: 700; }
         .course-item-count { font-size: .78rem; color: var(--ink-3); font-weight: 600; }
         .mini-bar { height: 6px; background: var(--border-card); border-radius: 100px; overflow: hidden; }
-        .mini-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--mint)); border-radius: 100px; transition: width .5s cubic-bezier(0.22,1,0.36,1); }
+        .mini-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-h)); border-radius: 100px; transition: width .5s cubic-bezier(0.22,1,0.36,1); }
         .course-item-pct { font-size: .78rem; color: var(--accent); font-weight: 700; margin-top: 6px; }
 
         /* 퀴즈 이력 */
@@ -174,7 +175,7 @@
             transition: all 0.25s ease;
         }
         .quiz-history-item:hover {
-            border-color: rgba(16,185,129,0.18);
+            border-color: rgba(79,85,231,0.18);
             background: var(--bg-surface);
             box-shadow: var(--shadow-sm);
             transform: translateX(4px);
@@ -214,7 +215,7 @@
             background: var(--bg);
         }
         .post-item:hover {
-            border-color: rgba(16,185,129,0.18);
+            border-color: rgba(79,85,231,0.18);
             background: var(--bg-surface);
             box-shadow: var(--shadow-sm);
             transform: translateX(4px);
@@ -271,20 +272,41 @@
         }
     </style>
 </head>
-<body>
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
 
-<!-- NAV -->
-<nav th:replace="~{index :: nav}"></nav>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage" class="active"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
+        </div>
+    </aside>
 
-<!-- PAGE HEADER -->
-<section class="page-header reveal">
-    <h1>👤 마이페이지</h1>
-    <p>나의 학습 현황과 활동을 한눈에 확인하세요!</p>
-</section>
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">MY PAGE</span>
+                <h1>마이페이지</h1>
+                <p>나의 학습 현황과 활동을 한눈에 확인하세요.</p>
+            </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
 
-<!-- MAIN -->
-<div class="mypage-layout">
+        <div class="mypage-layout">
 
     <!-- 사이드바: 프로필 -->
     <aside>
@@ -325,7 +347,7 @@
     </aside>
 
     <!-- 메인 콘텐츠 -->
-    <main>
+    <div class="mypage-content">
 
         <!-- 전체 학습 진도 -->
         <div class="section-block reveal">
@@ -460,11 +482,12 @@
             </div>
         </div>
 
+    </div>
+        </div>
     </main>
 </div>
 
-<!-- FOOTER -->
-<footer th:replace="~{index :: footer}"></footer>
+<script src="/js/nav.js"></script>
 
 </body>
 </html>

@@ -10,12 +10,14 @@
     <title th:text="${challenge.title} + ' - CodeEdu'">챌린지 상세 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
+        .course-page-heading { max-width: 1100px; }
         .detail-layout {
             display: grid;
             grid-template-columns: 1fr 340px;
             gap: 32px;
-            padding: 48px 5%;
+            padding: 0;
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -95,7 +97,7 @@
             cursor: pointer; transition: all .2s; text-align: center;
             text-decoration: none; margin-bottom: 12px;
         }
-        .btn-join:hover { background: var(--accent-h); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(16,185,129,.3); }
+        .btn-join:hover { background: var(--accent-h); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(79,85,231,.3); }
         .btn-join.joined { background: var(--success); }
         .btn-join.joined:hover { background: var(--success); }
         .btn-leave {
@@ -129,27 +131,49 @@
         }
     </style>
 </head>
-<body>
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
 
-<!-- NAV -->
-<nav th:replace="~{index :: nav}"></nav>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge" class="active"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
+        </div>
+    </aside>
 
-<div style="padding: 24px 5% 0; max-width: 1100px; margin: 0 auto;">
-    <a href="/challenge" class="back-link">← 챌린지 목록으로</a>
-</div>
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">CHALLENGE</span>
+                <h1>챌린지 상세</h1>
+                <p>미션에 참여하고 포트폴리오를 채워보세요.</p>
+            </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
 
-<!-- 완료 인증 토스트 -->
-<div th:if="${completeMsg}"
-     style="max-width:1100px; margin:20px auto 0; padding:0 5%;">
-    <div style="background:var(--success-soft); border-left:4px solid var(--success); color:var(--success); padding:14px 18px; border-radius:10px; font-weight:700; font-size:.95rem;"
-         th:text="${completeMsg}"></div>
-</div>
+        <div th:if="${completeMsg}" style="max-width:1100px; margin:0 auto 20px;">
+            <div style="background:var(--success-soft); border-left:4px solid var(--success); color:var(--success); padding:14px 18px; border-radius:10px; font-weight:700; font-size:.95rem;"
+                 th:text="${completeMsg}"></div>
+        </div>
 
-<div class="detail-layout">
+        <div class="detail-layout">
 
-    <!-- 메인 정보 -->
-    <main>
+            <!-- 메인 정보 -->
+            <div class="detail-main">
         <div class="detail-card reveal" th:classappend="${challenge.featured ? 'featured' : ''}">
             <div class="detail-header">
                 <div class="detail-icon" th:text="${challenge.icon}">🚀</div>
@@ -211,7 +235,7 @@
                       th:text="'⏱ 기간: ' + ${challenge.totalTasks} + '일'">⏱ 기간</span>
             </div>
         </div>
-    </main>
+    </div>
 
     <!-- 사이드바 -->
     <aside>
@@ -301,10 +325,11 @@
         </div>
     </aside>
 
+        </div>
+    </main>
 </div>
 
-<!-- FOOTER -->
-<footer th:replace="~{index :: footer}"></footer>
+<script src="/js/nav.js"></script>
 
 </body>
 </html>
