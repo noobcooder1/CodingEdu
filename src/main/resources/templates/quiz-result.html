@@ -10,8 +10,10 @@
     <title>퀴즈 결과 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
-        .result-container { max-width: 800px; margin: 40px auto 80px; }
+        .course-page-heading { max-width: 800px; }
+        .result-container { max-width: 800px; margin: 0 auto; }
 
         .score-card {
             background: var(--bg-surface); border-radius: 24px; padding: 48px;
@@ -73,7 +75,7 @@
         .btn-retry {
             background: var(--accent); color: white; padding: 14px 36px;
             border-radius: 50px; font-weight: 800; text-decoration: none;
-            box-shadow: 0 4px 12px rgba(16,185,129,0.3); transition: all .2s;
+            box-shadow: 0 4px 12px rgba(79,85,231,0.3); transition: all .2s;
         }
         .btn-retry:hover { background: var(--accent-h); transform: translateY(-2px); }
         .btn-list {
@@ -84,13 +86,41 @@
         .btn-list:hover { background: var(--accent-soft); }
     </style>
 </head>
-<body style="background: var(--bg-section);">
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
 
-<!-- NAV -->
-<nav th:replace="~{index :: nav}"></nav>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz" class="active"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
+        </div>
+    </aside>
 
-<div class="result-container">
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">QUIZ RESULT</span>
+                <h1>퀴즈 결과</h1>
+                <p>채점 결과와 문제별 해설을 확인하세요.</p>
+            </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
+
+        <div class="result-container">
 
     <!-- 점수 카드 -->
     <div class="score-card reveal">
@@ -158,10 +188,11 @@
         <a href="/quiz" class="btn-list">퀴즈 목록으로</a>
         <a href="/mypage" class="btn-list" style="border-color:var(--ink-3); color:var(--ink-2);">📊 내 이력 보기</a>
     </div>
+        </div>
+    </main>
 </div>
 
-<!-- FOOTER -->
-<footer th:replace="~{index :: footer}"></footer>
+<script src="/js/nav.js"></script>
 
 </body>
 </html>

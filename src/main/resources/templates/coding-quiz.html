@@ -10,11 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/tailwind.css">
+<link rel="stylesheet" href="/css/design-refresh.css">
 <style>
+  .course-page-heading { max-width: 660px; }
   .quiz-wrap {
-    background: var(--bg-section);
-    padding: 40px 5%;
-    min-height: calc(100vh - 68px - 90px);
+    padding: 0;
     display: flex; align-items: flex-start; justify-content: center;
   }
   .card {
@@ -62,7 +62,7 @@
     text-align: center;
   }
   .diff-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .diff-btn.selected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px rgba(16,185,129,0.12); }
+  .diff-btn.selected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px rgba(79,85,231,0.12); }
   .diff-btn .lbl {
     font-size: .95rem; font-weight: 800;
     color: var(--ink-1); margin-bottom: 4px;
@@ -107,12 +107,12 @@
     background: var(--accent); color: white;
     font-size: 1rem; font-weight: 700; letter-spacing: -0.01em;
     transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-    box-shadow: 0 2px 12px rgba(16,185,129,0.25);
+    box-shadow: 0 2px 12px rgba(79,85,231,0.25);
   }
   .play-btn:hover:not(:disabled) {
     background: var(--accent-h);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(16,185,129,0.38);
+    box-shadow: 0 4px 20px rgba(79,85,231,0.38);
   }
   .play-btn:disabled { opacity: 0.38; cursor: not-allowed; transform: none; box-shadow: none; }
 
@@ -251,18 +251,41 @@
   }
 </style>
 </head>
-<body>
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
 
-<nav th:replace="~{index :: nav}"></nav>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz" class="active"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
-<header class="page-header reveal">
-    <h1>⚡ 연습 퀴즈</h1>
-    <p>난이도와 주제를 골라 즉석에서 풀어보는 빠른 연습 모드<br>
-       <a href="/quiz" style="color:var(--accent); font-weight:600; font-size:.88rem;">← 정식 퀴즈 목록으로</a>
-    </p>
-</header>
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
+        </div>
+    </aside>
 
-<div class="quiz-wrap">
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">PRACTICE</span>
+                <h1>연습 퀴즈</h1>
+                <p>난이도와 주제를 골라 즉석에서 풀어보는 빠른 연습 모드입니다.</p>
+            </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
+
+        <div class="quiz-wrap">
   <div class="card reveal">
 
     <!-- INTRO SCREEN -->
@@ -366,8 +389,10 @@
 
   </div>
 </div>
+    </main>
+</div>
 
-<footer th:replace="~{index :: footer}"></footer>
+<script src="/js/nav.js"></script>
 
 <script>
   const DIFFICULTIES = {

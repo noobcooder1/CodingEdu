@@ -10,12 +10,18 @@
     <title>계정 설정 - CodeEdu</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
-        .settings-container {
-            min-height: calc(100vh - 64px - 100px);
-            background: var(--bg-section); padding: 40px 5%;
+        .course-page-heading { max-width: 1100px; }
+        .settings-wrapper { max-width: 1100px; margin: 0 auto; }
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: start;
         }
-        .settings-wrapper { max-width: 600px; margin: 0 auto; }
+        .settings-grid > .settings-card { margin: 0; }
+        @media (max-width: 820px) { .settings-grid { grid-template-columns: 1fr; } }
         .settings-header {
             text-align: center; margin-bottom: 40px;
         }
@@ -112,25 +118,45 @@
 
         /* 모바일 대응 코드 */
         @media (max-width: 640px) {
-            .settings-container { padding: 20px; }
             .form-row { flex-direction: column; }
-            .settings-header h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
-<body>
+<body class="page-courses">
+<div class="course-app-shell">
+    <aside class="course-sidebar">
+        <a href="/" class="course-side-logo">
+            <span class="brand-text"><b>Coding</b>Edu</span>
+        </a>
 
-<!-- NAV -->
-<nav th:replace="~{index :: nav}"></nav>
+        <nav class="course-side-nav" aria-label="주요 메뉴">
+            <a href="/"><img src="/images/course-menu/home.png" alt="" aria-hidden="true">홈</a>
+            <a href="/learn"><img src="/images/course-menu/courses.png" alt="" aria-hidden="true">강의</a>
+            <a href="/quiz"><img src="/images/course-menu/quiz.png" alt="" aria-hidden="true">퀴즈</a>
+            <a href="/challenge"><img src="/images/course-menu/challenge.png" alt="" aria-hidden="true">챌린지</a>
+            <a href="/community"><img src="/images/course-menu/community.png" alt="" aria-hidden="true">커뮤니티</a>
+            <a href="/mypage"><img src="/images/course-menu/mypage.png" alt="" aria-hidden="true">마이페이지</a>
+            <a href="/settings" class="active"><img src="/images/course-menu/settings.png" alt="" aria-hidden="true">설정</a>
+        </nav>
 
-
-<div class="settings-container">
-    <div class="settings-wrapper">
-        
-        <div class="settings-header">
-            <h1>⚙️ 계정 설정</h1>
-            <p>프로필 정보를 관리하고 보안을 강화하세요.</p>
+        <div class="course-side-account">
+            <a href="/login" sec:authorize="isAnonymous()">로그인</a>
+            <a href="/register" sec:authorize="isAnonymous()" class="primary">회원가입</a>
+            <a href="/mypage" sec:authorize="isAuthenticated()" class="primary">내 학습 기록</a>
         </div>
+    </aside>
+
+    <main class="course-page-main">
+        <header class="course-page-heading">
+            <div>
+                <span class="course-page-kicker">SETTINGS</span>
+                <h1>계정 설정</h1>
+                <p>프로필 정보를 관리하고 보안을 강화하세요.</p>
+            </div>
+            <button class="course-theme-button" id="themeToggle" title="테마 전환" aria-label="다크/라이트 모드 전환"></button>
+        </header>
+
+        <div class="settings-wrapper">
 
         <!-- 성공 메시지 -->
         <div th:if="${successMessage}" class="success-msg" th:text="${successMessage}"></div>
@@ -138,6 +164,7 @@
         <!-- 에러 메시지 -->
         <div th:if="${errorMessage}" class="error-msg" th:text="${errorMessage}"></div>
 
+        <div class="settings-grid">
         <!-- 📋 기본 정보 섹션 -->
         <div class="settings-card reveal">
             <h2>📋 기본 정보</h2>
@@ -242,6 +269,7 @@
                 🗑️ 계정 삭제
             </button>
         </div>
+        </div>
 
         <!-- 계정 삭제 확인 모달 -->
         <div id="deleteModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:9999; align-items:center; justify-content:center;">
@@ -272,18 +300,11 @@
             </div>
         </div>
 
-        <!-- 하단 버튼 -->
-        <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
-            <a href="/" class="btn-secondary" style="display: inline-block; width: auto; padding: 14px 32px; text-decoration: none;">
-                ← 홈으로 돌아가기
-            </a>
         </div>
-
-    </div>
+    </main>
 </div>
 
-<!-- FOOTER -->
-<footer th:replace="~{index :: footer}"></footer>
+<script src="/js/nav.js"></script>
 
 </body>
 </html>
