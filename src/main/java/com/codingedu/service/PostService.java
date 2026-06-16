@@ -3,6 +3,7 @@ package com.codingedu.service;
 import com.codingedu.entity.Post;
 import com.codingedu.entity.PostLike;
 import com.codingedu.entity.User;
+import com.codingedu.repository.CommentRepository;
 import com.codingedu.repository.PostLikeRepository;
 import com.codingedu.repository.PostRepository;
 import org.springframework.data.domain.Page;
@@ -23,10 +24,13 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final PostLikeRepository postLikeRepository;
+    private final CommentRepository commentRepository;
 
-    public PostService(PostRepository postRepository, PostLikeRepository postLikeRepository) {
+    public PostService(PostRepository postRepository, PostLikeRepository postLikeRepository,
+                       CommentRepository commentRepository) {
         this.postRepository = postRepository;
         this.postLikeRepository = postLikeRepository;
+        this.commentRepository = commentRepository;
     }
 
     public boolean isLikedByUser(Post post, User user) {
@@ -140,6 +144,25 @@ public class PostService {
         if (!post.getAuthor().getUsername().equals(username)) {
             throw new IllegalArgumentException("No permission to delete this post.");
         }
+        removePostWithChildren(post);
+    }
+
+    // ── 관리자: 전체 게시글 조회 / 권한 검사 없이 삭제 ──
+    public java.util.List<Post> getAllPosts() {
+        return postRepository.findAll(
+                org.springframework.data.domain.Sort.by(
+                        org.springframework.data.domain.Sort.Direction.DESC, "createdAt"));
+    }
+
+    @Transactional
+    public void deletePostByAdmin(Long id) {
+        removePostWithChildren(getPostById(id));
+    }
+
+    // 게시글 삭제 시 댓글·좋아요(자식 행)를 먼저 제거 (FK 제약 회피)
+    private void removePostWithChildren(Post post) {
+        postLikeRepository.deleteByPost(post);
+        commentRepository.deleteByPostId(post.getId());
         postRepository.delete(post);
     }
 

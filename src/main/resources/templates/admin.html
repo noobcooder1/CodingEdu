@@ -151,6 +151,7 @@
         <button class="tab-btn" th:classappend="${activeTab == 'users'} ? ' active'" onclick="switchTab('users')">👥 사용자</button>
         <button class="tab-btn" th:classappend="${activeTab == 'quizzes'} ? ' active'" onclick="switchTab('quizzes')">🧩 퀴즈</button>
         <button class="tab-btn" th:classappend="${activeTab == 'challenges'} ? ' active'" onclick="switchTab('challenges')">🏆 챌린지</button>
+        <button class="tab-btn" th:classappend="${activeTab == 'posts'} ? ' active'" onclick="switchTab('posts')">💬 게시글</button>
     </div>
 
     <!-- 대시보드 탭 -->
@@ -172,6 +173,10 @@
                 <div class="num" th:text="${courseCount}">0</div>
                 <div class="lbl">강의 코스</div>
             </div>
+            <div class="stat-card">
+                <div class="num" th:text="${postCount}">0</div>
+                <div class="lbl">게시글</div>
+            </div>
         </div>
         <div class="section-card">
             <h2>빠른 이동</h2>
@@ -179,6 +184,7 @@
                 <button class="btn-add" onclick="switchTab('users')">👥 사용자 관리</button>
                 <button class="btn-add" onclick="switchTab('quizzes')" style="background:var(--success);">🧩 퀴즈 관리</button>
                 <button class="btn-add" onclick="switchTab('challenges')" style="background:var(--amber);">🏆 챌린지 관리</button>
+                <button class="btn-add" onclick="switchTab('posts')" style="background:var(--danger);">💬 게시글 관리</button>
             </div>
         </div>
     </div>
@@ -443,6 +449,49 @@
             </div>
         </div>
     </div>
+
+    <!-- 게시글 탭 -->
+    <div class="tab-pane" th:classappend="${activeTab == 'posts'} ? ' active'" id="tab-posts">
+        <div class="section-card">
+            <h2>게시글 목록 (<span th:text="${postCount}">0</span>개)</h2>
+            <div style="overflow-x:auto;">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th><th>카테고리</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회</th><th>좋아요</th><th>댓글</th><th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="p : ${posts}">
+                            <td th:text="${p.id}"></td>
+                            <td>
+                                <span class="badge badge-active"
+                                      th:text="${p.category == 'qna' ? '질문' : p.category == 'tips' ? '정보' : p.category == 'study' ? '스터디' : '자유'}">자유</span>
+                            </td>
+                            <td>
+                                <a th:href="@{/community/{id}(id=${p.id})}" th:text="${p.title}"
+                                   style="color:var(--ink-1); text-decoration:none; font-weight:700;">제목</a>
+                            </td>
+                            <td th:text="${p.author != null ? p.author.nickname : '-'}"></td>
+                            <td th:text="${p.createdAt != null ? #temporals.format(p.createdAt, 'yyyy-MM-dd') : '-'}"></td>
+                            <td th:text="${p.views}"></td>
+                            <td th:text="${p.likeCount}"></td>
+                            <td th:text="${p.commentCount}"></td>
+                            <td>
+                                <form th:action="@{/admin/posts/{id}/delete(id=${p.id})}" method="post"
+                                      onsubmit="return confirm('이 게시글을 삭제하시겠습니까?')">
+                                    <button type="submit" class="btn-sm btn-danger">삭제</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr th:if="${posts.isEmpty()}">
+                            <td colspan="9" style="text-align:center; color:var(--ink-3); padding:20px;">게시글이 없습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -450,7 +499,7 @@ function switchTab(name) {
     document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
-    document.querySelectorAll('.tab-btn')[['dashboard','users','quizzes','challenges'].indexOf(name)].classList.add('active');
+    document.querySelectorAll('.tab-btn')[['dashboard','users','quizzes','challenges','posts'].indexOf(name)].classList.add('active');
     // URL 업데이트 (새로고침 없이)
     const url = new URL(window.location);
     url.searchParams.set('tab', name);

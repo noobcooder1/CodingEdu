@@ -42,13 +42,17 @@ public class AdminController {
         var allQuizzes = quizService.getQuizzesByDifficulty("all");
         var allChallenges = challengeService.getAllChallenges();
 
+        var allPosts = postService.getAllPosts();
+
         model.addAttribute("userCount", allUsers.size());
         model.addAttribute("quizCount", allQuizzes.size());
         model.addAttribute("challengeCount", allChallenges.size());
         model.addAttribute("courseCount", lessonService.getAllCourses().size());
+        model.addAttribute("postCount", allPosts.size());
         model.addAttribute("users", allUsers);
         model.addAttribute("quizzes", allQuizzes);
         model.addAttribute("challenges", allChallenges);
+        model.addAttribute("posts", allPosts);
         model.addAttribute("activeTab", tab);
 
         if (quizId != null) {
@@ -141,5 +145,14 @@ public class AdminController {
         challengeService.deleteChallenge(id);
         ra.addFlashAttribute("msg", "챌린지가 삭제되었습니다.");
         return "redirect:/admin?tab=challenges";
+    }
+
+    // ── 게시글 관리 ─────────────────────────────────────────────
+
+    @PostMapping("/posts/{id}/delete")
+    public String deletePost(@PathVariable Long id, RedirectAttributes ra) {
+        postService.deletePostByAdmin(id);
+        ra.addFlashAttribute("msg", "게시글이 삭제되었습니다.");
+        return "redirect:/admin?tab=posts";
     }
 }
