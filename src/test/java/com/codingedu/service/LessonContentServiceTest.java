@@ -54,4 +54,15 @@ class LessonContentServiceTest {
             assertThat((List<?>) course.get("lessons")).isNotEmpty();
         }
     }
+
+    @Test
+    void loadsCourseVideoIdsForThumbnails() {
+        LessonContentService svc = new LessonContentService(new ObjectMapper(), new DefaultResourceLoader());
+        Map<String, String> videoIds = svc.getCourseVideoIds();
+
+        assertThat(videoIds)
+                .containsEntry("html", "tZooW6PritE")
+                .containsEntry("css", "Ok0bBJPtgJI")
+                .containsEntry("javascript", "dPRtcRwKo-Y");
+    }
 }

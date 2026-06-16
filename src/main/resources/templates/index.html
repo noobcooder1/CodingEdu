@@ -108,15 +108,60 @@
     </div>
     <div class="recommended-grid">
       <a href="/learn/html" class="course-card course-html">
-        <div class="course-cover"><span class="course-logo">HTML</span><span class="cover-code">&lt; / &gt;</span></div>
+        <div class="course-cover course-youtube-thumbnail"
+             th:with="courseVideoId=${courseVideoIds['html']}"
+             th:classappend="${courseVideoId == null or #strings.isEmpty(courseVideoId)} ? ' course-thumbnail-fallback' : ''">
+          <img th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+               th:src="|https://i.ytimg.com/vi/${courseVideoId}/maxresdefault.jpg|"
+               th:attr="data-fallback-src=|https://i.ytimg.com/vi/${courseVideoId}/hqdefault.jpg|"
+               alt="WEB1 - HTML &amp; Internet 유튜브 썸네일"
+               loading="lazy">
+          <span class="course-play-badge"
+                th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+                aria-hidden="true"></span>
+          <span class="course-logo"
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">HTML</span>
+          <span class="cover-code"
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">&lt; / &gt;</span>
+        </div>
         <div class="course-info"><h3>WEB1 - HTML &amp; Internet</h3><p>웹의 기본 구조부터 차근차근</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['html'] != null ? langProgressMap['html'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['html'] != null ? langProgressMap['html'] : 0) + '%'}"></i></span></div>
       </a>
       <a href="/learn/css" class="course-card course-css">
-        <div class="course-cover"><span class="course-logo">CSS</span><span class="cover-code">{ }</span></div>
+        <div class="course-cover course-youtube-thumbnail"
+             th:with="courseVideoId=${courseVideoIds['css']}"
+             th:classappend="${courseVideoId == null or #strings.isEmpty(courseVideoId)} ? ' course-thumbnail-fallback' : ''">
+          <img th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+               th:src="|https://i.ytimg.com/vi/${courseVideoId}/maxresdefault.jpg|"
+               th:attr="data-fallback-src=|https://i.ytimg.com/vi/${courseVideoId}/hqdefault.jpg|"
+               alt="WEB2 - CSS 유튜브 썸네일"
+               loading="lazy">
+          <span class="course-play-badge"
+                th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+                aria-hidden="true"></span>
+          <span class="course-logo"
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">CSS</span>
+          <span class="cover-code"
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">{ }</span>
+        </div>
         <div class="course-info"><h3>WEB2 - CSS</h3><p>웹 페이지를 아름답게 디자인하기</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['css'] != null ? langProgressMap['css'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['css'] != null ? langProgressMap['css'] : 0) + '%'}"></i></span></div>
       </a>
       <a href="/learn/javascript" class="course-card course-js">
-        <div class="course-cover"><span class="course-logo">JS</span><span class="cover-code">( ) =&gt;</span></div>
+        <div class="course-cover course-youtube-thumbnail"
+             th:with="courseVideoId=${courseVideoIds['javascript']}"
+             th:classappend="${courseVideoId == null or #strings.isEmpty(courseVideoId)} ? ' course-thumbnail-fallback' : ''">
+          <img th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+               th:src="|https://i.ytimg.com/vi/${courseVideoId}/maxresdefault.jpg|"
+               th:attr="data-fallback-src=|https://i.ytimg.com/vi/${courseVideoId}/hqdefault.jpg|"
+               alt="WEB2 - JavaScript 유튜브 썸네일"
+               loading="lazy">
+          <span class="course-play-badge"
+                th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
+                aria-hidden="true"></span>
+          <span class="course-logo"
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">JS</span>
+          <span class="cover-code"
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">( ) =&gt;</span>
+        </div>
         <div class="course-info"><h3>WEB2 - JavaScript</h3><p>웹에 생동감 있는 기능 더하기</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}"></i></span></div>
       </a>
       <a href="/challenge" class="course-card course-project">
@@ -148,6 +193,13 @@
 <script>
   /* ── Number Count Up FX ── */
   document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.course-youtube-thumbnail img[data-fallback-src]').forEach(img => {
+      img.addEventListener('error', function handleThumbnailError() {
+        this.removeEventListener('error', handleThumbnailError);
+        if (this.dataset.fallbackSrc) this.src = this.dataset.fallbackSrc;
+      });
+    });
+
     const counters = document.querySelectorAll(".count-up");
     if (!counters.length) return;
 

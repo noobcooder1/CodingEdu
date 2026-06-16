@@ -47,6 +47,8 @@ public class LearnController {
     public String learn(@AuthenticationPrincipal CustomUserDetails userDetails, Model model) {
         List<LessonCourse> courses = lessonService.getAllCourses();
         model.addAttribute("courses", courses);
+        Map<String, String> courseVideoIds = lessonContentService.getCourseVideoIds();
+        model.addAttribute("courseVideoIds", courseVideoIds != null ? courseVideoIds : Map.of());
 
         Map<String, Integer> completedCounts = Map.of();
         Set<String> favoriteLangs = Set.of();
