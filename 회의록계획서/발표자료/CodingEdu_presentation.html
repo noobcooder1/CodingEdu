@@ -186,7 +186,7 @@
     }
 
     .slide:not(:first-child) .section-heading {
-      margin-top: clamp(18px, 3vh, 46px);
+      margin-top: clamp(28px, 4vh, 62px);
     }
 
     .lead {
@@ -285,6 +285,18 @@
       text-align: center;
     }
 
+    .mock-content.image-frame {
+      padding: 0;
+      background: #fff;
+    }
+
+    .mock-content.image-frame img {
+      width: 100%;
+      min-height: 306px;
+      display: block;
+      object-fit: contain;
+    }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -360,8 +372,8 @@
 
     .flow {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .flow-step {
@@ -399,7 +411,7 @@
       grid-template-columns: minmax(0, 1.05fr) minmax(390px, 0.75fr);
       gap: clamp(28px, 4vw, 64px);
       align-items: center;
-      padding-top: clamp(14px, 2.6vh, 42px);
+      padding-top: clamp(24px, 3.6vh, 54px);
     }
 
     .screen-placeholder {
@@ -444,6 +456,19 @@
     .placeholder-body span {
       font-size: clamp(20px, 1.5vw, 26px);
       font-weight: 850;
+    }
+
+    .placeholder-body.shot {
+      min-height: 432px;
+      padding: 0;
+      display: block;
+    }
+    .placeholder-body.shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
     }
 
     .screen-copy {
@@ -564,7 +589,7 @@
       }
 
       .slide:not(:first-child) .section-heading {
-        margin-top: 28px;
+        margin-top: 40px;
       }
 
       .lead {
@@ -627,7 +652,7 @@
       }
 
       .screen-layout {
-        padding-top: 24px;
+        padding-top: 34px;
       }
 
       .note {
@@ -652,7 +677,7 @@
       }
 
       .slide:not(:first-child) .section-heading {
-        margin-top: 16px;
+        margin-top: 24px;
       }
 
       h2 {
@@ -674,7 +699,7 @@
       }
 
       .screen-layout {
-        padding-top: 12px;
+        padding-top: 20px;
       }
 
       .placeholder-body {
@@ -748,7 +773,9 @@
                 <span class="mock-dot"></span>
                 <span class="mock-dot"></span>
               </div>
-              <div class="mock-content">CodingEdu<br>Presentation</div>
+              <div class="mock-content image-frame">
+                <img src="../../coding.png.png" alt="코딩 학습 일러스트">
+              </div>
             </div>
           </div>
         </div>
@@ -759,7 +786,7 @@
       <div class="slide-inner">
         <div class="slide-top">
           <span class="brand"><span class="brand-mark">01</span> Overview</span>
-          <span class="slide-number">1 / 9</span>
+          <span class="slide-number">1 / 10</span>
         </div>
         <div class="section-heading">
           <p class="eyebrow">1. 프로젝트 개요와 설명</p>
@@ -789,7 +816,7 @@
       <div class="slide-inner">
         <div class="slide-top">
           <span class="brand"><span class="brand-mark">02</span> Flow</span>
-          <span class="slide-number">2 / 9</span>
+          <span class="slide-number">2 / 10</span>
         </div>
         <div class="section-heading">
           <p class="eyebrow">사용자 학습 흐름</p>
@@ -813,6 +840,11 @@
           </article>
           <article class="flow-step">
             <em>4</em>
+            <h3>챌린지 도전</h3>
+            <p>실전 미션 챌린지에 참여해 포트폴리오를 쌓습니다.</p>
+          </article>
+          <article class="flow-step">
+            <em>5</em>
             <h3>커뮤니티</h3>
             <p>질문과 답변, 댓글로 학습을 이어갑니다.</p>
           </article>
@@ -824,7 +856,7 @@
       <div class="slide-inner">
         <div class="slide-top">
           <span class="brand"><span class="brand-mark">03</span> Tech Stack</span>
-          <span class="slide-number">3 / 9</span>
+          <span class="slide-number">3 / 10</span>
         </div>
         <div class="section-heading">
           <p class="eyebrow">2. 사용한 기술 스택 정리</p>
@@ -858,7 +890,7 @@
       <div class="slide-inner">
         <div class="slide-top">
           <span class="brand"><span class="brand-mark">04</span> Screen 1</span>
-          <span class="slide-number">4 / 9</span>
+          <span class="slide-number">4 / 10</span>
         </div>
         <div class="screen-layout">
           <div class="screen-placeholder">
@@ -867,11 +899,8 @@
               <span class="mock-dot"></span>
               <span class="mock-dot"></span>
             </div>
-            <div class="placeholder-body">
-              <div>
-                <strong>홈 화면</strong>
-                <span>나중에 실제 캡처 이미지 삽입</span>
-              </div>
+            <div class="placeholder-body shot">
+              <img src="screenshots/home.png" alt="홈 화면">
             </div>
           </div>
           <div class="screen-copy">
@@ -891,7 +920,7 @@
       <div class="slide-inner">
         <div class="slide-top">
           <span class="brand"><span class="brand-mark">05</span> Screen 2</span>
-          <span class="slide-number">5 / 9</span>
+          <span class="slide-number">5 / 10</span>
         </div>
         <div class="screen-layout">
           <div class="screen-placeholder">
@@ -900,11 +929,8 @@
               <span class="mock-dot"></span>
               <span class="mock-dot"></span>
             </div>
-            <div class="placeholder-body">
-              <div>
-                <strong>강의 화면</strong>
-                <span>강의 목록 또는 강의 상세 캡처 영역</span>
-              </div>
+            <div class="placeholder-body shot">
+              <img src="screenshots/learn.png" alt="강의 화면">
             </div>
           </div>
           <div class="screen-copy">
@@ -925,7 +951,7 @@
       <div class="slide-inner">
         <div class="slide-top">
           <span class="brand"><span class="brand-mark">06</span> Screen 3</span>
-          <span class="slide-number">6 / 9</span>
+          <span class="slide-number">6 / 10</span>
         </div>
         <div class="screen-layout">
           <div class="screen-placeholder">
@@ -934,11 +960,8 @@
               <span class="mock-dot"></span>
               <span class="mock-dot"></span>
             </div>
-            <div class="placeholder-body">
-              <div>
-                <strong>퀴즈 화면</strong>
-                <span>퀴즈 목록 또는 결과 화면 캡처 영역</span>
-              </div>
+            <div class="placeholder-body shot">
+              <img src="screenshots/quiz.png" alt="퀴즈 화면">
             </div>
           </div>
           <div class="screen-copy">
@@ -955,11 +978,11 @@
       </div>
     </section>
 
-    <section class="slide" data-title="실제 화면: 커뮤니티">
+    <section class="slide" data-title="실제 화면: 챌린지">
       <div class="slide-inner">
         <div class="slide-top">
           <span class="brand"><span class="brand-mark">07</span> Screen 4</span>
-          <span class="slide-number">7 / 9</span>
+          <span class="slide-number">7 / 10</span>
         </div>
         <div class="screen-layout">
           <div class="screen-placeholder">
@@ -968,11 +991,39 @@
               <span class="mock-dot"></span>
               <span class="mock-dot"></span>
             </div>
-            <div class="placeholder-body">
-              <div>
-                <strong>커뮤니티 화면</strong>
-                <span>게시판 화면 캡처 영역</span>
-              </div>
+            <div class="placeholder-body shot">
+              <img src="screenshots/challenge.png" alt="챌린지 화면">
+            </div>
+          </div>
+          <div class="screen-copy">
+            <p class="eyebrow">챌린지 기능</p>
+            <h2>학습을 넘어<br><span class="accent">실전 미션</span>에 도전합니다.</h2>
+            <ul>
+              <li>진행 중 / 예정 챌린지 목록 제공</li>
+              <li>원하는 챌린지에 참여 신청</li>
+              <li>참여 현황과 진행률 확인</li>
+              <li>완료 인증으로 포트폴리오 완성</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="실제 화면: 커뮤니티">
+      <div class="slide-inner">
+        <div class="slide-top">
+          <span class="brand"><span class="brand-mark">08</span> Screen 5</span>
+          <span class="slide-number">8 / 10</span>
+        </div>
+        <div class="screen-layout">
+          <div class="screen-placeholder">
+            <div class="placeholder-top">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="placeholder-body shot">
+              <img src="screenshots/community.png" alt="커뮤니티 화면">
             </div>
           </div>
           <div class="screen-copy">
@@ -992,8 +1043,8 @@
     <section class="slide" data-title="실제 화면: 마이페이지와 관리자">
       <div class="slide-inner">
         <div class="slide-top">
-          <span class="brand"><span class="brand-mark">08</span> Screen 5</span>
-          <span class="slide-number">8 / 9</span>
+          <span class="brand"><span class="brand-mark">09</span> Screen 6</span>
+          <span class="slide-number">9 / 10</span>
         </div>
         <div class="screen-layout">
           <div class="screen-placeholder">
@@ -1002,11 +1053,8 @@
               <span class="mock-dot"></span>
               <span class="mock-dot"></span>
             </div>
-            <div class="placeholder-body">
-              <div>
-                <strong>마이페이지 / 관리자</strong>
-                <span>개인 기록 또는 관리자 화면 캡처 영역</span>
-              </div>
+            <div class="placeholder-body shot">
+              <img src="screenshots/mypage.png" alt="마이페이지 화면">
             </div>
           </div>
           <div class="screen-copy">
@@ -1025,8 +1073,8 @@
     <section class="slide" data-title="마무리">
       <div class="slide-inner">
         <div class="slide-top">
-          <span class="brand"><span class="brand-mark">09</span> Closing</span>
-          <span class="slide-number">9 / 9</span>
+          <span class="brand"><span class="brand-mark">10</span> Closing</span>
+          <span class="slide-number">10 / 10</span>
         </div>
         <div class="section-heading">
           <p class="eyebrow">결과와 개선 방향</p>
@@ -1036,7 +1084,7 @@
           <article class="card">
             <div class="icon">✓</div>
             <h3>구현 결과</h3>
-            <p>강의, 퀴즈, 커뮤니티, 마이페이지, 관리자 기능의 기본 흐름을 구현했습니다.</p>
+            <p>강의, 퀴즈, 챌린지, 커뮤니티, 마이페이지, 관리자 기능의 기본 흐름을 구현했습니다.</p>
           </article>
           <article class="card">
             <div class="icon">+</div>
@@ -1046,7 +1094,7 @@
           <article class="card">
             <div class="icon">▶</div>
             <h3>시연 안내</h3>
-            <p>이후 실제 웹사이트에서 홈, 강의, 퀴즈, 커뮤니티 순서로 화면을 보여주겠습니다.</p>
+            <p>이후 실제 웹사이트에서 홈, 강의, 퀴즈, 챌린지, 커뮤니티 순서로 화면을 보여주겠습니다.</p>
           </article>
         </div>
       </div>
