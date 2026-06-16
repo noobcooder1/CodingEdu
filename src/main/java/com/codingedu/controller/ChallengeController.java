@@ -87,11 +87,17 @@ public class ChallengeController {
 
     @PostMapping("/{id}/join")
     public String join(@PathVariable Long id,
-                       @AuthenticationPrincipal UserDetails userDetails) {
+                       @AuthenticationPrincipal UserDetails userDetails,
+                       RedirectAttributes ra) {
         if (userDetails == null) return "redirect:/login";
         User user = userService.findByUsername(userDetails.getUsername());
         Challenge challenge = challengeService.getChallengeById(id);
-        challengeService.join(user, challenge);
+        try {
+            challengeService.join(user, challenge);
+            ra.addFlashAttribute("completeMsg", "🎯 챌린지에 참여했어요! 함께 완주해봐요!");
+        } catch (IllegalArgumentException e) {
+            ra.addFlashAttribute("challengeError", "지금은 참여할 수 없는 챌린지예요. 이미 종료되었거나 아직 시작 전일 수 있어요.");
+        }
         return "redirect:/challenge/" + id;
     }
 
@@ -113,8 +119,12 @@ public class ChallengeController {
         if (userDetails == null) return "redirect:/login";
         User user = userService.findByUsername(userDetails.getUsername());
         Challenge challenge = challengeService.getChallengeById(id);
-        challengeService.complete(user, challenge, githubUrl);
-        ra.addFlashAttribute("completeMsg", "🎉 챌린지 완료를 인증했습니다! 수고하셨어요!");
+        try {
+            challengeService.complete(user, challenge, githubUrl);
+            ra.addFlashAttribute("completeMsg", "🎉 챌린지 완료를 인증했습니다! 수고하셨어요!");
+        } catch (IllegalArgumentException e) {
+            ra.addFlashAttribute("challengeError", "완료 인증에 실패했어요. 챌린지 상태나 GitHub 저장소 주소를 확인해주세요.");
+        }
         return "redirect:/challenge/" + id;
     }
 }
