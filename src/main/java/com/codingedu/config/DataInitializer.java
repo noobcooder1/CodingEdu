@@ -50,8 +50,40 @@ public class DataInitializer implements CommandLineRunner {
         seedAdminUser();
         seedLessonCourses();
         seedChallenges();
+        refreshChallengeWindows();
         seedQuizzes();
         seedPosts();
+    }
+
+    // ── 챌린지 기간 갱신: 시드 날짜가 지나 종료된 챌린지를 다시 참여 가능하게 재배치 ──
+    private void refreshChallengeWindows() {
+        LocalDate today = LocalDate.now();
+        List<Challenge> all = challengeRepository.findAll();
+        boolean changed = false;
+        for (Challenge c : all) {
+            int span = c.getTotalTasks() > 0 ? c.getTotalTasks() : 30;
+            if ("active".equals(c.getStatus())) {
+                boolean ended = c.getEndDate() == null || !c.getEndDate().isAfter(today);
+                boolean notStarted = c.getStartDate() != null && c.getStartDate().isAfter(today);
+                if (ended || notStarted) {
+                    LocalDate start = today.minusDays(Math.min(span / 3, 12));
+                    c.setStartDate(start);
+                    c.setEndDate(start.plusDays(span));
+                    changed = true;
+                }
+            } else if ("upcoming".equals(c.getStatus())) {
+                if (c.getStartDate() == null || !c.getStartDate().isAfter(today)) {
+                    LocalDate start = today.plusDays(14);
+                    c.setStartDate(start);
+                    c.setEndDate(start.plusDays(span));
+                    changed = true;
+                }
+            }
+        }
+        if (changed) {
+            challengeRepository.saveAll(all);
+            System.out.println("[DataInitializer] 챌린지 기간 갱신 완료");
+        }
     }
 
     // ── 퀴즈 시드 (제목 기준 upsert) ────────────────────────────────

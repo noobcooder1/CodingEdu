@@ -170,6 +170,11 @@
                  th:text="${completeMsg}"></div>
         </div>
 
+        <div th:if="${challengeError}" style="max-width:1100px; margin:0 auto 20px;">
+            <div style="background:var(--danger-soft); border-left:4px solid var(--danger); color:var(--danger); padding:14px 18px; border-radius:10px; font-weight:700; font-size:.95rem;"
+                 th:text="${challengeError}"></div>
+        </div>
+
         <div class="detail-layout">
 
             <!-- 메인 정보 -->
