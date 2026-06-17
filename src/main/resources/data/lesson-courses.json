@@ -3616,5 +3616,1489 @@
         "code": null
       }
     ]
+  },
+  "mysql": {
+    "title": "DATABASE2 - MySQL",
+    "icon": "SQL",
+    "date": "2018-02-12",
+    "playlistId": "PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW",
+    "videoId": "h_XDmyz--0w",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "h_XDmyz--0w",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=h_XDmyz--0w&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=1",
+        "label": "DATABASE2 MySQL - 1. Course Introduction",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 1. Course Introduction",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '1. Course Introduction' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 4:41",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "l3jMQh-NqLY",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=l3jMQh-NqLY&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=2",
+        "label": "DATABASE2 MySQL - 2. Purpose of a Database",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 2. Purpose of a Database",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '2. Purpose of a Database' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 9:31",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "pX0cs1fADtU",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pX0cs1fADtU&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=3",
+        "label": "DATABASE2 MySQL - 3.0.MySQL 설치",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 3.0.MySQL 설치",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '3.0.MySQL 설치' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 2:34",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "FE0C768AQt0",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=FE0C768AQt0&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=4",
+        "label": "DATABASE2 MySQL - 3.1.MySQL 설치 (Windows)",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 3.1.MySQL 설치 (Windows)",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '3.1.MySQL 설치 (Windows)' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 8:31",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "_A7yOpPJi8g",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=_A7yOpPJi8g&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=5",
+        "label": "DATABASE2 MySQL - 3.2.MySQL 설치 (MacOS)",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 3.2.MySQL 설치 (MacOS)",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '3.2.MySQL 설치 (MacOS)' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 5:38",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "rPvpZBF1BcY",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=rPvpZBF1BcY&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=6",
+        "label": "DATABASE2 MySQL - 3.3. MySQL 설치 (Linux)",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 3.3. MySQL 설치 (Linux)",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '3.3. MySQL 설치 (Linux)' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 4:52",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "JHd5-CnhJRY",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=JHd5-CnhJRY&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=7",
+        "label": "DATABASE2 MySQL - 3.4. MySQL 설치 (codeanywhere.com)",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 3.4. MySQL 설치 (codeanywhere.com)",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '3.4. MySQL 설치 (codeanywhere.com)' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 5:37",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "IWEa4DN_1Yk",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=IWEa4DN_1Yk&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=8",
+        "label": "DATABASE2 MySQL - 4.MySQL의 구조",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 4.MySQL의 구조",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '4.MySQL의 구조' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 3:23",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "bzhFcbin8_g",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=bzhFcbin8_g&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=9",
+        "label": "DATABASE2 MySQL - 5.서버접속",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 5.서버접속",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '5.서버접속' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 3:38",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "x06B6UkitcM",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=x06B6UkitcM&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=10",
+        "label": "DATABASE2 MySQL - 5.MySQL 서버접속",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 5.MySQL 서버접속",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '5.MySQL 서버접속' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 3:38",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "9stHa3mRbNI",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9stHa3mRbNI&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=11",
+        "label": "DATABASE2 MySQL - 6. Using Schemas",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 6. Using Schemas",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '6. Using Schemas' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 5:39",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "f_m-RcdISxk",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=f_m-RcdISxk&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=12",
+        "label": "DATABASE2 MySQL - 7.SQL and Table Structure",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 7.SQL and Table Structure",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '7.SQL and Table Structure' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 5:24",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "d3ye07XRexs",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=d3ye07XRexs&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=13",
+        "label": "DATABASE2 MySQL - 8.1. Creating a Table",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 8.1. Creating a Table",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '8.1. Creating a Table' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 14:13",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "fPULu-Q-OlQ",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=fPULu-Q-OlQ&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=14",
+        "label": "DATABASE2 MySQL - 8.2 Creating a Table",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 8.2 Creating a Table",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '8.2 Creating a Table' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 9:24",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "0pU6_5BQ2Dk",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=0pU6_5BQ2Dk&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=15",
+        "label": "DATABASE2 MySQL - 9.CRUD",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 9.CRUD",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '9.CRUD' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 1:59",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 15,
+        "videoId": "75LHpeOQiOs",
+        "playlistIndex": 16,
+        "youtubeUrl": "https://www.youtube.com/watch?v=75LHpeOQiOs&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=16",
+        "label": "DATABASE2 MySQL - 10.INSERT",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 10.INSERT",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '10.INSERT' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 9:27",
+          "재생목록 16번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 16,
+        "videoId": "FCnJH6fLc64",
+        "playlistIndex": 17,
+        "youtubeUrl": "https://www.youtube.com/watch?v=FCnJH6fLc64&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=17",
+        "label": "DATABASE2 MySQL - 11.SELECT",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 11.SELECT",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '11.SELECT' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 9:54",
+          "재생목록 17번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 17,
+        "videoId": "pNINXzXaWWM",
+        "playlistIndex": 18,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pNINXzXaWWM&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=18",
+        "label": "DATABASE2 MySQL - 12.UPDATE",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 12.UPDATE",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '12.UPDATE' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 3:45",
+          "재생목록 18번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 18,
+        "videoId": "GDY2_t-9l-s",
+        "playlistIndex": 19,
+        "youtubeUrl": "https://www.youtube.com/watch?v=GDY2_t-9l-s&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=19",
+        "label": "DATABASE2 MySQL - 13.DELETE",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 13.DELETE",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '13.DELETE' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 1:23",
+          "재생목록 19번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 19,
+        "videoId": "_LpWcVkTytU",
+        "playlistIndex": 20,
+        "youtubeUrl": "https://www.youtube.com/watch?v=_LpWcVkTytU&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=20",
+        "label": "DATABASE2 MySQL - 14.수업의 정상",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 14.수업의 정상",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '14.수업의 정상' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 3:52",
+          "재생목록 20번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 20,
+        "videoId": "-w1vJgslUG0",
+        "playlistIndex": 21,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-w1vJgslUG0&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=21",
+        "label": "DATABASE2 MySQL - 15.관계형데이터베이스의 필요성",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 15.관계형데이터베이스의 필요성",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '15.관계형데이터베이스의 필요성' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 12:48",
+          "재생목록 21번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 21,
+        "videoId": "LeTeb3ImxI0",
+        "playlistIndex": 22,
+        "youtubeUrl": "https://www.youtube.com/watch?v=LeTeb3ImxI0&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=22",
+        "label": "DATABASE2 MySQL - 16.테이블 분리하기",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 16.테이블 분리하기",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '16.테이블 분리하기' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 8:41",
+          "재생목록 22번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 22,
+        "videoId": "q0UHWaDRwlk",
+        "playlistIndex": 23,
+        "youtubeUrl": "https://www.youtube.com/watch?v=q0UHWaDRwlk&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=23",
+        "label": "DATABASE2 MySQL - 17.JOIN",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 17.JOIN",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '17.JOIN' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 11:48",
+          "재생목록 23번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 23,
+        "videoId": "hjgaxlTQMXk",
+        "playlistIndex": 24,
+        "youtubeUrl": "https://www.youtube.com/watch?v=hjgaxlTQMXk&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=24",
+        "label": "DATABASE2 MySQL - 18.인터넷과 데이터베이스",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 18.인터넷과 데이터베이스",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '18.인터넷과 데이터베이스' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 12:53",
+          "재생목록 24번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 24,
+        "videoId": "yWy1PlkMMIw",
+        "playlistIndex": 25,
+        "youtubeUrl": "https://www.youtube.com/watch?v=yWy1PlkMMIw&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=25",
+        "label": "DATABASE2 MySQL - 19.MySQL Client",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 19.MySQL Client",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '19.MySQL Client' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 4:03",
+          "재생목록 25번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 25,
+        "videoId": "JWB6sUd1R-Q",
+        "playlistIndex": 26,
+        "youtubeUrl": "https://www.youtube.com/watch?v=JWB6sUd1R-Q&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=26",
+        "label": "DATABASE2 MySQL - 20.MySQL Workbench",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 20.MySQL Workbench",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '20.MySQL Workbench' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 13:26",
+          "재생목록 26번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 26,
+        "videoId": "ySH4-hEdiTs",
+        "playlistIndex": 27,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ySH4-hEdiTs&list=PLuHgQVnccGMCgrP_9HL3dAcvdt8qOZxjW&index=27",
+        "label": "DATABASE2 MySQL - 21. Finishing the Class",
+        "sub": false,
+        "title": "DATABASE2 MySQL - 21. Finishing the Class",
+        "desc": "생활코딩 DATABASE2 MySQL 공식 재생목록의 '21. Finishing the Class' 강의입니다. MySQL과 관계형 데이터베이스의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 DATABASE2 MySQL 공식 재생목록",
+          "영상 길이 13:53",
+          "재생목록 27번째 영상"
+        ],
+        "code": null
+      }
+    ]
+  },
+  "sqljoin": {
+    "title": "SQL JOIN",
+    "icon": "JOIN",
+    "date": "2019-01-01",
+    "playlistId": "PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq",
+    "videoId": "2Xa54XBXbk0",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "2Xa54XBXbk0",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=2Xa54XBXbk0&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=1",
+        "label": "SQL JOIN - 1. 수업소개",
+        "sub": false,
+        "title": "SQL JOIN - 1. 수업소개",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '1. 수업소개' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 1:50",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "yCbJ1D1Ylik",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=yCbJ1D1Ylik&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=2",
+        "label": "SQL JOIN - 2. Splitting a Table",
+        "sub": false,
+        "title": "SQL JOIN - 2. Splitting a Table",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '2. Splitting a Table' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 9:49",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "2cplRFxGC9o",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=2cplRFxGC9o&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=3",
+        "label": "SQL JOIN - 3. JOIN Practice Preparation",
+        "sub": false,
+        "title": "SQL JOIN - 3. JOIN Practice Preparation",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '3. JOIN Practice Preparation' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 5:31",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "pJqBR2TNe24",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pJqBR2TNe24&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=4",
+        "label": "SQL JOIN - 4. LEFT JOIN",
+        "sub": false,
+        "title": "SQL JOIN - 4. LEFT JOIN",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '4. LEFT JOIN' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 14:55",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "WnB1Kn8VbfU",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WnB1Kn8VbfU&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=5",
+        "label": "SQL JOIN - 5. INNER JOIN",
+        "sub": false,
+        "title": "SQL JOIN - 5. INNER JOIN",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '5. INNER JOIN' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 5:24",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "Zn-cECPEORU",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Zn-cECPEORU&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=6",
+        "label": "SQL JOIN - 6. FULL OUTER JOIN",
+        "sub": false,
+        "title": "SQL JOIN - 6. FULL OUTER JOIN",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '6. FULL OUTER JOIN' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 6:08",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "bifvrEkXx-4",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=bifvrEkXx-4&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=7",
+        "label": "SQL JOIN - 7. EXCLUSIVE JOIN",
+        "sub": false,
+        "title": "SQL JOIN - 7. EXCLUSIVE JOIN",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '7. EXCLUSIVE JOIN' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 4:29",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "Au8xMoxt1aE",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Au8xMoxt1aE&list=PLuHgQVnccGMAG1O1BRZCT3wkD_aPmPylq&index=8",
+        "label": "SQL JOIN - 8. 수업을 마치며",
+        "sub": false,
+        "title": "SQL JOIN - 8. 수업을 마치며",
+        "desc": "생활코딩 SQL JOIN 공식 재생목록의 '8. 수업을 마치며' 강의입니다. 테이블 분리와 JOIN의 핵심 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 SQL JOIN 공식 재생목록",
+          "영상 길이 2:43",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      }
+    ]
+  },
+  "python": {
+    "title": "Python 입문수업",
+    "icon": "PY",
+    "date": "2019-01-01",
+    "playlistId": "PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR",
+    "videoId": "-3DHpwy498o",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "-3DHpwy498o",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-3DHpwy498o&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=1",
+        "label": "생활코딩 Python 입문수업 : 1. 오리엔테이션",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 : 1. 오리엔테이션",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 : 1. 오리엔테이션' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 6:39",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "qYOk-d9bIBs",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=qYOk-d9bIBs&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=2",
+        "label": "생활코딩 Python 입문수업 - 2.0. 설치",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 - 2.0. 설치",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 - 2.0. 설치' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 1:54",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "9fU6ZzxQpKs",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9fU6ZzxQpKs&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=3",
+        "label": "Life Coding Python Introductory Course - 2.1. Installing Directly on Your Computer",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 2.1. Installing Directly on Your Computer",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 2.1. Installing Directly on Your Computer' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 3:47",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "a-351Tut0eQ",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=a-351Tut0eQ&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=4",
+        "label": "Life Coding Python Introductory Course - 2.2. Jupyter Notebook",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 2.2. Jupyter Notebook",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 2.2. Jupyter Notebook' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 2:39",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "WSpz6HXFYLQ",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WSpz6HXFYLQ&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=5",
+        "label": "생활코딩 Python 입문수업 - 2.3. ideone com",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 - 2.3. ideone com",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 - 2.3. ideone com' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 1:30",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "rqtAZ_1CYjA",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=rqtAZ_1CYjA&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=6",
+        "label": "Life Coding Python Introductory Course - 3.0. Execution",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 3.0. Execution",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 3.0. Execution' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 2:21",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "OIKoBa-TCN0",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=OIKoBa-TCN0&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=7",
+        "label": "Life Coding Python Introductory Course - 3.1. Running with the Python Shell",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 3.1. Running with the Python Shell",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 3.1. Running with the Python Shell' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 6:20",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "26VBVedAOUo",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=26VBVedAOUo&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=8",
+        "label": "생활코딩 Python 입문수업 - 3.2. 파이썬 파일로 실행",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 - 3.2. 파이썬 파일로 실행",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 - 3.2. 파이썬 파일로 실행' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 4:11",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "T9j8_P3-3b0",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=T9j8_P3-3b0&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=9",
+        "label": "Life Coding Python Introductory Course - 4.0. Data Types",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 4.0. Data Types",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 4.0. Data Types' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 1:49",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "LlKSao9UtnI",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=LlKSao9UtnI&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=10",
+        "label": "생활코딩 Python 입문수업 - 4.1. 숫자형 데이터 타입",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 - 4.1. 숫자형 데이터 타입",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 - 4.1. 숫자형 데이터 타입' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 7:36",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "yXWQW552BsI",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=yXWQW552BsI&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=11",
+        "label": "Life Coding Python Introductory Course - 4.2. String Data Type",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 4.2. String Data Type",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 4.2. String Data Type' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 6:49",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "qRYRlEc2Zqg",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=qRYRlEc2Zqg&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=12",
+        "label": "생활코딩 Python 입문수업 - 4.3. 리스트 데이터 타입",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 - 4.3. 리스트 데이터 타입",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 - 4.3. 리스트 데이터 타입' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 8:39",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "f0KepGxLcbY",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=f0KepGxLcbY&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=13",
+        "label": "생활코딩 Python 입문수업 - 5. 메뉴얼과 검색",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 - 5. 메뉴얼과 검색",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 - 5. 메뉴얼과 검색' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 8:48",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "BiaDwCKRyxg",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=BiaDwCKRyxg&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=14",
+        "label": "Life Coding Python Introductory Course - 6. Variables",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 6. Variables",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 6. Variables' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 5:23",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "Z2POhN_uRFc",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Z2POhN_uRFc&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=15",
+        "label": "생활코딩 Python 입문수업 - 7. 디버깅",
+        "sub": false,
+        "title": "생활코딩 Python 입문수업 - 7. 디버깅",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 '생활코딩 Python 입문수업 - 7. 디버깅' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 9:50",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 15,
+        "videoId": "SOdyJY6njEI",
+        "playlistIndex": 16,
+        "youtubeUrl": "https://www.youtube.com/watch?v=SOdyJY6njEI&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=16",
+        "label": "Life Coding Python Introductory Course - 8. Input and Output",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 8. Input and Output",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 8. Input and Output' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 3:41",
+          "재생목록 16번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 16,
+        "videoId": "jkSlShmagzs",
+        "playlistIndex": 17,
+        "youtubeUrl": "https://www.youtube.com/watch?v=jkSlShmagzs&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=17",
+        "label": "Life Coding Python Introductory Course - 9. pypi pip",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - 9. pypi pip",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - 9. pypi pip' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 9:51",
+          "재생목록 17번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 17,
+        "videoId": "3baRvzep-EE",
+        "playlistIndex": 18,
+        "youtubeUrl": "https://www.youtube.com/watch?v=3baRvzep-EE&list=PLuHgQVnccGMDtnr4nTSFfmocHL5FeH1xR&index=18",
+        "label": "Life Coding Python Introductory Course - Lesson 10. Concluding the Course",
+        "sub": false,
+        "title": "Life Coding Python Introductory Course - Lesson 10. Concluding the Course",
+        "desc": "생활코딩 Python 입문수업 공식 재생목록의 'Life Coding Python Introductory Course - Lesson 10. Concluding the Course' 강의입니다. Python 프로그래밍의 기본 문법과 실행 환경을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Python 입문수업 공식 재생목록",
+          "영상 길이 3:15",
+          "재생목록 18번째 영상"
+        ],
+        "code": null
+      }
+    ]
+  },
+  "react": {
+    "title": "React 2022 개정판",
+    "icon": "REACT",
+    "date": "2022-01-01",
+    "playlistId": "PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7",
+    "videoId": "AoMv0SIjZL8",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "AoMv0SIjZL8",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=AoMv0SIjZL8&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=1",
+        "label": "React 2022 Edition - 1. Introduction",
+        "sub": false,
+        "title": "React 2022 Edition - 1. Introduction",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022 Edition - 1. Introduction' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 2:12",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "txX3bL22esU",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=txX3bL22esU&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=2",
+        "label": "React 2022년 개정판 - 2. 실습환경구축",
+        "sub": false,
+        "title": "React 2022년 개정판 - 2. 실습환경구축",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022년 개정판 - 2. 실습환경구축' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 6:01",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "XQ-XqLVJBwg",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=XQ-XqLVJBwg&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=3",
+        "label": "React 2022 Revised Edition - 3. How to Modify Source Code",
+        "sub": false,
+        "title": "React 2022 Revised Edition - 3. How to Modify Source Code",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022 Revised Edition - 3. How to Modify Source Code' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 9:09",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "WT58gOl8Eh8",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WT58gOl8Eh8&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=4",
+        "label": "React 2022 Edition - 4. Creating Components",
+        "sub": false,
+        "title": "React 2022 Edition - 4. Creating Components",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022 Edition - 4. Creating Components' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 6:09",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "t9e3hMJ_s-c",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=t9e3hMJ_s-c&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=5",
+        "label": "React 2022년 개정판 - 5. props",
+        "sub": false,
+        "title": "React 2022년 개정판 - 5. props",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022년 개정판 - 5. props' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 11:47",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "s3cDPbcoy_4",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=s3cDPbcoy_4&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=6",
+        "label": "React 2022 Edition - 6. Events",
+        "sub": false,
+        "title": "React 2022 Edition - 6. Events",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022 Edition - 6. Events' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 7:40",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "vmunrKR0uOU",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=vmunrKR0uOU&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=7",
+        "label": "React 2022 Edition - 7. State",
+        "sub": false,
+        "title": "React 2022 Edition - 7. State",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022 Edition - 7. State' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 14:14",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "kctNCMFxciQ",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=kctNCMFxciQ&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=8",
+        "label": "React 2022년 개정판 - 8. Create",
+        "sub": false,
+        "title": "React 2022년 개정판 - 8. Create",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022년 개정판 - 8. Create' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 20:22",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "bW_WOrYzVWw",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=bW_WOrYzVWw&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=9",
+        "label": "React 2022 Edition - 9. Update",
+        "sub": false,
+        "title": "React 2022 Edition - 9. Update",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022 Edition - 9. Update' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 20:45",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "OZPRKFqPWG4",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=OZPRKFqPWG4&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=10",
+        "label": "React 2022 Edition - 10. Delete & End of Class",
+        "sub": false,
+        "title": "React 2022 Edition - 10. Delete & End of Class",
+        "desc": "생활코딩 React 2022 개정판 공식 재생목록의 'React 2022 Edition - 10. Delete & End of Class' 강의입니다. 컴포넌트, props, state, CRUD 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 React 2022 개정판 공식 재생목록",
+          "영상 길이 4:52",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      }
+    ]
+  },
+  "nextjs": {
+    "title": "Next.js 13",
+    "icon": "NEXT",
+    "date": "2023-01-01",
+    "playlistId": "PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ",
+    "videoId": "9KOaR6QMb9A",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "9KOaR6QMb9A",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9KOaR6QMb9A&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=1",
+        "label": "Next.js 13- 0. Next.js 란 무엇인가? (14 버전 호환됩니다)",
+        "sub": false,
+        "title": "Next.js 13- 0. Next.js 란 무엇인가? (14 버전 호환됩니다)",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13- 0. Next.js 란 무엇인가? (14 버전 호환됩니다)' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 2:43",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "smAU6-ZdcoQ",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=smAU6-ZdcoQ&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=2",
+        "label": "Next.js 13 - 1. Installation and Running",
+        "sub": false,
+        "title": "Next.js 13 - 1. Installation and Running",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 1. Installation and Running' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 4:08",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "siBQ-y84ZO0",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=siBQ-y84ZO0&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=3",
+        "label": "Next.js 13 - 2. 샘플앱 세탁",
+        "sub": false,
+        "title": "Next.js 13 - 2. 샘플앱 세탁",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 2. 샘플앱 세탁' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 2:41",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "WuhJN-_pWfI",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WuhJN-_pWfI&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=4",
+        "label": "Next.js 13 - 3. 배포",
+        "sub": false,
+        "title": "Next.js 13 - 3. 배포",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 3. 배포' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 3:22",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "4xEw3Nz5hTY",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=4xEw3Nz5hTY&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=5",
+        "label": "Next.js 13 - 4. 뼈대 만들기",
+        "sub": false,
+        "title": "Next.js 13 - 4. 뼈대 만들기",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 4. 뼈대 만들기' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 4:53",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "xE-GT8gjgJw",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=xE-GT8gjgJw&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=6",
+        "label": "Next.js 13 - 5. Routing",
+        "sub": false,
+        "title": "Next.js 13 - 5. Routing",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 5. Routing' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 7:11",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "en-OkqU-agI",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=en-OkqU-agI&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=7",
+        "label": "Next.js 13 - 6. Single Page Application",
+        "sub": false,
+        "title": "Next.js 13 - 6. Single Page Application",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 6. Single Page Application' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 3:12",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "Ypkm0s69FTM",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Ypkm0s69FTM&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=8",
+        "label": "Next.js 13 - 7. 정적 자원 사용하기",
+        "sub": false,
+        "title": "Next.js 13 - 7. 정적 자원 사용하기",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 7. 정적 자원 사용하기' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 59",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "9TdWS8fmcRo",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9TdWS8fmcRo&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=9",
+        "label": "Next.js 13 - 8. css",
+        "sub": false,
+        "title": "Next.js 13 - 8. css",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 8. css' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 55",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "WhTB0q1nvDM",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WhTB0q1nvDM&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=10",
+        "label": "Next.js 13 - 9. backend (check pinned comment for json-server errors!)",
+        "sub": false,
+        "title": "Next.js 13 - 9. backend (check pinned comment for json-server errors!)",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 9. backend (check pinned comment for json-server errors!)' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 4:06",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "t-Jt961oNeg",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=t-Jt961oNeg&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=11",
+        "label": "Next.js 13 - 10. 글목록 가져오기",
+        "sub": false,
+        "title": "Next.js 13 - 10. 글목록 가져오기",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 10. 글목록 가져오기' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 10:40",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "nHCBiiTYma4",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=nHCBiiTYma4&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=12",
+        "label": "Next.js 13 - 11. 글 읽기",
+        "sub": false,
+        "title": "Next.js 13 - 11. 글 읽기",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 11. 글 읽기' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 1:44",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "esmAbm-UyB4",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=esmAbm-UyB4&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=13",
+        "label": "Next.js 13 - 12. 글생성",
+        "sub": false,
+        "title": "Next.js 13 - 12. 글생성",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 12. 글생성' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 8:19",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "jFjIBgjwuTc",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=jFjIBgjwuTc&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=14",
+        "label": "Next.js 13 - 13 cache",
+        "sub": false,
+        "title": "Next.js 13 - 13 cache",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 13 cache' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 7:27",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "SLtcQdVHheQ",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=SLtcQdVHheQ&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=15",
+        "label": "Next.js 13 - 14. update & delete버튼구현",
+        "sub": false,
+        "title": "Next.js 13 - 14. update & delete버튼구현",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 14. update & delete버튼구현' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 5:28",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 15,
+        "videoId": "kt1YRfbsoHw",
+        "playlistIndex": 16,
+        "youtubeUrl": "https://www.youtube.com/watch?v=kt1YRfbsoHw&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=16",
+        "label": "Next.js 13 - 15. 글수정",
+        "sub": false,
+        "title": "Next.js 13 - 15. 글수정",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 15. 글수정' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 6:44",
+          "재생목록 16번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 16,
+        "videoId": "AgtBj7XVToQ",
+        "playlistIndex": 17,
+        "youtubeUrl": "https://www.youtube.com/watch?v=AgtBj7XVToQ&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=17",
+        "label": "Next.js 13 - 16. 글 삭제",
+        "sub": false,
+        "title": "Next.js 13 - 16. 글 삭제",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 16. 글 삭제' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 1:55",
+          "재생목록 17번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 17,
+        "videoId": "IFBMrrBjbfM",
+        "playlistIndex": 18,
+        "youtubeUrl": "https://www.youtube.com/watch?v=IFBMrrBjbfM&list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ&index=18",
+        "label": "Next.js 13 - 17. 환경변수 & 졸업",
+        "sub": false,
+        "title": "Next.js 13 - 17. 환경변수 & 졸업",
+        "desc": "생활코딩 Next.js 13 공식 재생목록의 'Next.js 13 - 17. 환경변수 & 졸업' 강의입니다. Next.js의 라우팅, 배포, CRUD, 환경변수 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Next.js 13 공식 재생목록",
+          "영상 길이 7:04",
+          "재생목록 18번째 영상"
+        ],
+        "code": null
+      }
+    ]
+  },
+  "git": {
+    "title": "GIT1",
+    "icon": "GIT",
+    "date": "2017-01-01",
+    "playlistId": "PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf",
+    "videoId": "uKtBJ65UWoM",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "uKtBJ65UWoM",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=uKtBJ65UWoM&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=1",
+        "label": "Git1 - 1. Introduction",
+        "sub": false,
+        "title": "Git1 - 1. Introduction",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'Git1 - 1. Introduction' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 5:01",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "R6UOOTrUUmQ",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=R6UOOTrUUmQ&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=2",
+        "label": "GIT1 - 2.git을 구경합시다!",
+        "sub": false,
+        "title": "GIT1 - 2.git을 구경합시다!",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'GIT1 - 2.git을 구경합시다!' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 1:18",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "9btOcOLjb30",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9btOcOLjb30&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=3",
+        "label": "GIT1 - 3.1.git의 목적 1 - 버전관리 1",
+        "sub": false,
+        "title": "GIT1 - 3.1.git의 목적 1 - 버전관리 1",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'GIT1 - 3.1.git의 목적 1 - 버전관리 1' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 4:52",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "9fSEVG5D6vk",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9fSEVG5D6vk&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=4",
+        "label": "GIT1 - 3.2. The Purpose of Git 1 - Version Control 2",
+        "sub": false,
+        "title": "GIT1 - 3.2. The Purpose of Git 1 - Version Control 2",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'GIT1 - 3.2. The Purpose of Git 1 - Version Control 2' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 9:18",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "hr-T5mdIigg",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=hr-T5mdIigg&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=5",
+        "label": "GIT1 - 4.git의 목적 2 - 백업",
+        "sub": false,
+        "title": "GIT1 - 4.git의 목적 2 - 백업",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'GIT1 - 4.git의 목적 2 - 백업' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 6:34",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "ZgCsQpnWl14",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZgCsQpnWl14&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=6",
+        "label": "GIT1 - 5.git의 목적 3 - 협업",
+        "sub": false,
+        "title": "GIT1 - 5.git의 목적 3 - 협업",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'GIT1 - 5.git의 목적 3 - 협업' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 5:43",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "TZhy1HcYTgg",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=TZhy1HcYTgg&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=7",
+        "label": "GIT1 - 6.git의 종류",
+        "sub": false,
+        "title": "GIT1 - 6.git의 종류",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'GIT1 - 6.git의 종류' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 6:29",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "-RTMkCq2fjY",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-RTMkCq2fjY&list=PLuHgQVnccGMCNJESahrVV-uYGMNYK_vMf&index=8",
+        "label": "GIT1 - 7.수업을 마치며",
+        "sub": false,
+        "title": "GIT1 - 7.수업을 마치며",
+        "desc": "생활코딩 GIT1 공식 재생목록의 'GIT1 - 7.수업을 마치며' 강의입니다. 버전관리, 백업, 협업을 위한 Git의 기본 목적과 흐름을 학습합니다.",
+        "points": [
+          "생활코딩 GIT1 공식 재생목록",
+          "영상 길이 5:28",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      }
+    ]
   }
 }

@@ -23,8 +23,8 @@ import java.util.Set;
 public class LearnController {
 
     private static final java.util.Set<String> VALID_LANGS = java.util.Set.of(
-        "html", "css", "javascript", "typescript", "java", "kotlin",
-        "c", "cpp", "swift", "python"
+        "html", "css", "javascript", "mysql", "sqljoin", "python", "react", "nextjs", "git",
+        "typescript", "java", "kotlin", "c", "cpp", "swift"
     );
 
     private final LessonService lessonService;

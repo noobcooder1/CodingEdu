@@ -52,11 +52,11 @@
             <section class="course-catalog-v2">
                 <div class="course-tabs" role="tablist" aria-label="강의 필터">
                     <button class="course-tab active" data-filter="all">전체</button>
-                    <button class="course-tab" data-filter="html">HTML</button>
-                    <button class="course-tab" data-filter="css">CSS</button>
-                    <button class="course-tab" data-filter="javascript">JavaScript</button>
-                    <button class="course-tab" data-filter="java">Java</button>
-                    <button class="course-tab" data-filter="php">PHP</button>
+                    <button class="course-tab" data-filter="html,css,javascript">웹 기초</button>
+                    <button class="course-tab" data-filter="react,nextjs">프론트엔드</button>
+                    <button class="course-tab" data-filter="java,php,python">프로그래밍</button>
+                    <button class="course-tab" data-filter="mysql,sqljoin">데이터베이스</button>
+                    <button class="course-tab" data-filter="git">개발 도구</button>
                 </div>
 
                 <div class="course-grid-v2">
@@ -142,9 +142,10 @@
             courseTabs.forEach(item => item.classList.remove('active'));
             this.classList.add('active');
             const filter = this.dataset.filter;
+            const filterTypes = filter === 'all' ? [] : filter.split(',').map(type => type.trim());
             let visible = 0;
             courseCards.forEach(card => {
-                const show = filter === 'all' || card.dataset.courseType === filter;
+                const show = filter === 'all' || filterTypes.includes(card.dataset.courseType);
                 card.hidden = !show;
                 if (show) visible++;
             });

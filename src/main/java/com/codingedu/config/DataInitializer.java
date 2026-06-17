@@ -327,7 +327,10 @@ public class DataInitializer implements CommandLineRunner {
         // 공식 강의 코스 외의 기존 강의 코스는 DB에서 삭제
         lessonCourseRepository.findAll().forEach(lc -> {
             String lang = lc.getLang();
-            if (!lang.equals("html") && !lang.equals("css") && !lang.equals("javascript") && !lang.equals("java") && !lang.equals("php")) {
+            if (!lang.equals("html") && !lang.equals("css") && !lang.equals("javascript")
+                    && !lang.equals("java") && !lang.equals("php") && !lang.equals("mysql")
+                    && !lang.equals("sqljoin") && !lang.equals("python") && !lang.equals("react")
+                    && !lang.equals("nextjs") && !lang.equals("git")) {
                 lessonCourseRepository.delete(lc);
             }
         });
@@ -337,6 +340,12 @@ public class DataInitializer implements CommandLineRunner {
         upsertLc("javascript", "WEB2 - JavaScript",     "⚡", "web",    "beginner",    38, "웹 페이지에 동작을 추가하는 프로그래밍 언어");
         upsertLc("java",       "Java 입문 수업",          "JAVA", "backend", "beginner", 100, "생활코딩 Java 입문 수업 공식 재생목록으로 배우는 Java 기초와 객체지향");
         upsertLc("php",        "WEB2-PHP",               "PHP", "backend", "beginner", 42, "생활코딩 WEB2-PHP 공식 재생목록으로 배우는 PHP와 웹 애플리케이션");
+        upsertLc("mysql",      "DATABASE2 - MySQL",      "SQL", "database", "beginner", 27, "생활코딩 DATABASE2 MySQL 공식 재생목록으로 배우는 관계형 데이터베이스와 SQL 기초");
+        upsertLc("sqljoin",    "SQL JOIN",               "JOIN", "database", "beginner", 8, "생활코딩 SQL JOIN 공식 재생목록으로 배우는 테이블 분리와 JOIN 기초");
+        upsertLc("python",     "Python 입문수업",          "PY", "programming", "beginner", 18, "생활코딩 Python 입문수업 공식 재생목록으로 배우는 Python 기초");
+        upsertLc("react",      "React 2022 개정판",       "REACT", "frontend", "beginner", 10, "생활코딩 React 2022 개정판 공식 재생목록으로 배우는 React 기초와 CRUD 흐름");
+        upsertLc("nextjs",     "Next.js 13",              "NEXT", "frontend", "beginner", 18, "생활코딩 Next.js 13 공식 재생목록으로 배우는 Next.js 앱 라우팅과 CRUD");
+        upsertLc("git",        "GIT1",                    "GIT", "tool", "beginner", 8, "생활코딩 GIT1 공식 재생목록으로 배우는 버전관리, 백업, 협업 기초");
     }
 
     private void upsertLc(String lang, String title, String icon,
