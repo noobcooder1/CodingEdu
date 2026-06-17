@@ -472,22 +472,78 @@
             text-align: center;
             font-weight: 750;
         }
-        .quiz-more {
-            width: min(480px, 100%);
-            height: 46px;
-            margin: 16px auto 0;
+        .quiz-practice-banner {
+            margin: 24px 0 32px;
+            padding: 26px 32px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: 1px solid #e7eaf1;
+            justify-content: space-between;
+            gap: 20px;
+            background: linear-gradient(135deg, #4f55e7 0%, #3b42c4 100%);
+            border-radius: 12px;
+            color: #fff;
+            box-shadow: 0 12px 32px rgba(79, 85, 231, .25);
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-practice-banner::after {
+            content: '⚡';
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            font-size: 8rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        .practice-banner-copy {
+            position: relative;
+            z-index: 1;
+        }
+        .practice-banner-copy h3 {
+            margin: 0 0 6px;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: #fff;
+        }
+        .practice-banner-copy p {
+            margin: 0;
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .practice-banner-btn {
+            position: relative;
+            z-index: 1;
+            padding: 13px 28px;
             border-radius: 8px;
-            color: var(--ink-1);
             background: #fff;
-            font-size: .88rem;
+            color: #4f55e7;
+            font-size: .95rem;
             font-weight: 850;
             text-decoration: none;
-            box-shadow: 0 8px 24px rgba(28, 39, 68, .04);
+            transition: all .2s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .practice-banner-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: #f8fafc;
+        }
+        @media (max-width: 768px) {
+            .quiz-practice-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 22px;
+                gap: 18px;
+            }
+            .practice-banner-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
 
         .quiz-aside {
@@ -687,6 +743,16 @@
             box-shadow: none;
         }
 
+        [data-theme="dark"] .quiz-practice-banner {
+            background: linear-gradient(135deg, #373dbd 0%, #2a319c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+        [data-theme="dark"] .practice-banner-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2a319c;
+        }
+
         @media (max-width: 1320px) {
             .quiz-main { padding-inline: 28px; }
             .quiz-layout {
@@ -872,6 +938,14 @@
                     </div>
                 </section>
 
+                <section class="quiz-practice-banner">
+                    <div class="practice-banner-copy">
+                        <h3>⚡ 바로 풀어보는 연습 퀴즈</h3>
+                        <p>로그인 없이도 프론트엔드 개념을 빠르게 복습할 수 있습니다.</p>
+                    </div>
+                    <a href="/quiz/practice" class="practice-banner-btn">지금 시작하기 ›</a>
+                </section>
+
                 <div class="quiz-list-head">
                     <nav class="quiz-tabs" aria-label="퀴즈 주제">
                         <a th:href="@{/quiz(difficulty=${currentDifficulty},topic='all',sort=${currentSort})}"
@@ -930,8 +1004,6 @@
                         <a sec:authorize="isAnonymous()" href="/login" class="quiz-action quiz-login">로그인</a>
                     </article>
                 </section>
-
-                <a class="quiz-more" href="/quiz/practice">빠른 연습 퀴즈 보기 <span>⌄</span></a>
             </div>
 
             <aside class="quiz-aside" aria-label="퀴즈 사이드 정보">

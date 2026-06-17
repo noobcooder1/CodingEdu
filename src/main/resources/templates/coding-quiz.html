@@ -20,7 +20,7 @@
   .card {
     width: 100%; max-width: 660px;
     background: var(--bg-surface);
-    border-radius: 26px;
+    border-radius: 8px;
     padding: 40px 36px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-card);
@@ -34,87 +34,92 @@
   .intro-hero {
     text-align: center;
     padding-bottom: 28px;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     border-bottom: 1px solid var(--border);
   }
-  .intro-icon { font-size: 3.2rem; margin-bottom: 12px; display: block; }
+  .intro-icon { font-size: 3rem; margin-bottom: 14px; display: block; }
   .intro-hero h1 {
-    font-size: 1.7rem; font-weight: 800;
-    color: var(--ink-1); letter-spacing: -0.03em;
-    margin: 0 0 8px;
+    font-size: 1.85rem; font-weight: 900;
+    color: var(--ink-1); letter-spacing: -0.02em;
+    margin: 0 0 10px;
   }
-  .intro-hero p { color: var(--ink-2); font-size: .92rem; }
+  .intro-hero p { color: var(--ink-2); font-size: .95rem; font-weight: 500; }
 
   .section-label {
-    font-size: .76rem; font-weight: 700;
-    color: var(--ink-3); letter-spacing: 0.08em;
-    text-transform: uppercase; margin-bottom: 12px;
+    font-size: .78rem; font-weight: 850;
+    color: var(--ink-3); letter-spacing: 0.05em;
+    text-transform: uppercase; margin-bottom: 14px;
   }
 
   /* 난이도 선택 */
-  .diff-btns { display: flex; gap: 10px; margin-bottom: 24px; }
+  .diff-btns { display: flex; gap: 12px; margin-bottom: 28px; }
   .diff-btn {
-    flex: 1; padding: 14px 10px; border-radius: 16px;
-    border: 1.5px solid var(--border-card);
-    background: var(--bg);
+    flex: 1; padding: 18px 12px; border-radius: 8px;
+    border: 1px solid var(--border-card);
+    background: var(--bg-section);
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    transition: all 0.2s ease;
     text-align: center;
   }
-  .diff-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .diff-btn.selected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px rgba(79,85,231,0.12); }
+  .diff-btn:hover { border-color: var(--accent); background: var(--bg-surface); transform: translateY(-2px); }
+  .diff-btn.selected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent-soft); }
   .diff-btn .lbl {
-    font-size: .95rem; font-weight: 800;
-    color: var(--ink-1); margin-bottom: 4px;
+    font-size: 1rem; font-weight: 850;
+    color: var(--ink-1); margin-bottom: 5px;
     letter-spacing: -0.01em;
   }
   .diff-btn.selected .lbl { color: var(--accent); }
-  .diff-btn .desc { color: var(--ink-3); font-size: .78rem; }
+  .diff-btn .desc { color: var(--ink-3); font-size: .8rem; font-weight: 600; }
 
   /* 장르 선택 */
-  .genre-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .genre-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
   .genre-btn {
-    padding: 7px 16px; border-radius: 50px;
-    border: 1.5px solid var(--border-card);
-    background: var(--bg);
-    color: var(--ink-2); font-size: .84rem; font-weight: 500;
+    padding: 8px 18px; border-radius: 6px;
+    border: 1px solid var(--border-card);
+    background: var(--bg-section);
+    color: var(--ink-2); font-size: .88rem; font-weight: 700;
     cursor: pointer;
-    transition: all 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    transition: all 0.15s ease;
   }
-  .genre-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .genre-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--bg-surface); }
   .genre-btn.selected {
     border-color: var(--accent); background: var(--accent-soft);
-    color: var(--accent); font-weight: 700;
+    color: var(--accent); font-weight: 800;
   }
 
   /* 문제 수 선택 */
-  .count-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+  .count-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
   .count-btn {
-    padding: 9px 22px; border-radius: 50px;
-    border: 1.5px solid var(--border-card); background: var(--bg);
-    color: var(--ink-2); font-size: .9rem; font-weight: 600;
+    padding: 9px 24px; border-radius: 6px;
+    border: 1px solid var(--border-card); background: var(--bg-section);
+    color: var(--ink-2); font-size: .9rem; font-weight: 750;
     cursor: pointer;
-    transition: all 0.18s cubic-bezier(0.34,1.56,0.64,1);
+    transition: all 0.15s ease;
   }
-  .count-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .count-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--bg-surface); }
   .count-btn.selected {
     border-color: var(--accent); background: var(--accent-soft); color: var(--accent);
   }
 
   /* 시작 버튼 */
-  .play-btn {
-    width: 100%; padding: 15px; border-radius: 50px; border: none; cursor: pointer;
+  .quiz-play-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; min-width: 160px; padding: 18px 24px; 
+    border-radius: 8px; border: none; cursor: pointer;
     background: var(--accent); color: white;
-    font-size: 1rem; font-weight: 700; letter-spacing: -0.01em;
-    transition: background 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-    box-shadow: 0 2px 12px rgba(79,85,231,0.25);
+    font-size: 1.15rem; font-weight: 850; letter-spacing: -0.01em;
+    transition: all .2s ease;
+    box-shadow: 0 4px 12px rgba(79,85,231,0.2);
+    text-align: center; white-space: nowrap;
+    box-sizing: border-box;
+    margin-top: 10px;
   }
-  .play-btn:hover:not(:disabled) {
+  .quiz-play-btn:hover:not(:disabled) {
     background: var(--accent-h);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(79,85,231,0.38);
+    box-shadow: 0 6px 16px rgba(79,85,231,0.3);
   }
-  .play-btn:disabled { opacity: 0.38; cursor: not-allowed; transform: none; box-shadow: none; }
+  .quiz-play-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
 
   /* ── QUIZ SCREEN ── */
   .quiz-header {
@@ -231,11 +236,11 @@
 
   .result-btns { display: flex; flex-direction: column; gap: 10px; }
   .btn-secondary {
-    width: 100%; padding: 14px; border-radius: 50px;
-    border: 1.5px solid var(--border-card);
+    width: 100%; padding: 14px; border-radius: 8px;
+    border: 1px solid var(--border-card);
     background: var(--bg-surface); color: var(--ink-2);
-    font-size: .92rem; font-weight: 600; cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    font-size: .95rem; font-weight: 750; cursor: pointer;
+    transition: all 0.2s ease;
   }
   .btn-secondary:hover {
     border-color: var(--accent); color: var(--accent);
@@ -321,7 +326,7 @@
       </div>
 
       <p id="error-msg" style="display:none;"></p>
-      <button id="btn-start" class="play-btn" disabled onclick="startQuiz()">시작하기 →</button>
+      <button id="btn-start" class="quiz-play-btn" disabled onclick="startQuiz()">시작하기 →</button>
     </div>
 
 
@@ -352,7 +357,7 @@
         <span style="color:var(--amber); margin-left:8px; display:none; font-weight:700;" id="q-exp-bonus">🔥 연속 보너스!</span>
       </div>
 
-      <button class="play-btn" id="btn-next" style="display:none;" onclick="nextQuestion()">다음 문제 →</button>
+      <button class="quiz-play-btn" id="btn-next" style="display:none;" onclick="nextQuestion()">다음 문제 →</button>
     </div>
 
 
@@ -382,7 +387,7 @@
       <div class="history-dots" id="r-history"></div>
 
       <div class="result-btns">
-        <button class="play-btn" onclick="startQuiz()">한번 더 도전!</button>
+        <button class="quiz-play-btn" onclick="startQuiz()">한번 더 도전!</button>
         <button class="btn-secondary" onclick="setScreen('intro')">⚙️ 설정 변경</button>
       </div>
     </div>
@@ -430,7 +435,7 @@
     { genre:"자료구조/알고리즘", difficulty:"hard",   q:"인접한 정점부터 먼저 탐색하는 그래프 탐색 알고리즘은?", options:["DFS","BFS","Dijkstra","Binary Search"], answer:1, explanation:"너비 우선 탐색(BFS)은 큐를 사용하며 가까운 곳부터 탐색합니다." }
   ];
 
-  let state = { difficulty:null, genres:[...GENRES], count:5, questions:[], currentIdx:0, totalXP:0, streak:0, sessionScore:0, answers:[] };
+  let state = { difficulty:'normal', genres:[...GENRES], count:5, questions:[], currentIdx:0, totalXP:0, streak:0, sessionScore:0, answers:[] };
 
   const genreContainer = document.getElementById("genre-container");
   GENRES.forEach(g => {
@@ -439,6 +444,11 @@
     btn.innerText = `✓ ${g}`;
     btn.onclick = () => toggleGenre(g, btn);
     genreContainer.appendChild(btn);
+  });
+
+  // 초기 난이도 시각적 활성화
+  document.querySelectorAll('.diff-btn').forEach(b => {
+    if (b.dataset.diff === state.difficulty) b.classList.add('selected');
   });
 
   function setScreen(id) {
@@ -479,6 +489,9 @@
     const btn = document.getElementById('btn-start');
     btn.disabled = !(state.difficulty && state.genres.length > 0);
   }
+
+  // 초기 로드 시 버튼 상태 확인
+  checkStartReady();
 
   function generateQuestions() {
     let available = OFFLINE_QUESTIONS.filter(q => state.genres.includes(q.genre));
