@@ -330,33 +330,83 @@ nav > .nav-right { justify-self: end; }
 }
 
 /* Theme toggle */
-.theme-toggle {
-  width: 56px; height: 30px; border-radius: 50px;
-  background: var(--bg-section); border: 1.5px solid var(--border);
-  position: relative; cursor: pointer; outline: none; flex-shrink: 0;
+.theme-toggle,
+.course-theme-button {
+  width: 58px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, .22);
+  background:
+    radial-gradient(circle at 25% 50%, rgba(255, 184, 77, .2) 0 17%, transparent 18%),
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(238,242,255,.9));
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
   padding: 0;
-  transition: background 0.3s, border-color 0.3s;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.95), 0 7px 18px rgba(30,41,59,.08);
+  transition: background .28s ease, border-color .28s ease, box-shadow .28s ease;
 }
-/* 트랙에 표시되는 반대편 힌트 아이콘 */
-.theme-toggle::before {
-  content: '🌙';
-  position: absolute; top: 50%; right: 7px; transform: translateY(-50%);
-  font-size: .66rem; line-height: 1; opacity: .5; pointer-events: none;
+.theme-toggle:focus-visible,
+.course-theme-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
-[data-theme="dark"] .theme-toggle::before { content: '☀️'; right: auto; left: 7px; }
-/* 노브 = 현재 모드 아이콘 */
-.theme-toggle::after {
-  content: '☀️';
-  position: absolute; top: 50%; left: 4px;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: #fff;
-  display: grid; place-items: center;
-  font-size: .78rem; line-height: 1;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.22);
+.theme-toggle::before,
+.course-theme-button::before {
+  content: '☾';
+  position: absolute;
+  top: 50%;
+  right: 10px;
   transform: translateY(-50%);
-  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.3s;
+  color: #c6a151;
+  font-size: .78rem;
+  line-height: 1;
+  opacity: .7;
+  pointer-events: none;
 }
-[data-theme="dark"] .theme-toggle::after { content: '🌙'; background: #2b3048; transform: translate(23px, -50%); }
+.theme-toggle::after,
+.course-theme-button::after {
+  content: '☀';
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #f59e0b;
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  font-size: .78rem;
+  line-height: 1;
+  box-shadow: 0 5px 12px rgba(15,23,42,.16), inset 0 1px 0 rgba(255,255,255,.95);
+  transform: translateY(-50%);
+  transition: transform .34s cubic-bezier(.2,.8,.2,1), color .28s ease, background .28s ease;
+}
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .course-theme-button {
+  border-color: rgba(129, 140, 248, .22);
+  background:
+    radial-gradient(circle at 73% 50%, rgba(129, 140, 248, .25) 0 17%, transparent 18%),
+    linear-gradient(135deg, #172033, #111827);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.08), 0 7px 18px rgba(2,6,23,.24);
+}
+[data-theme="dark"] .theme-toggle::before,
+[data-theme="dark"] .course-theme-button::before {
+  content: '☀';
+  left: 10px;
+  right: auto;
+  color: #fbbf24;
+  opacity: .55;
+}
+[data-theme="dark"] .theme-toggle::after,
+[data-theme="dark"] .course-theme-button::after {
+  content: '☾';
+  color: #c7d2fe;
+  background: linear-gradient(145deg, #29344f, #1e293b);
+  transform: translate(26px, -50%);
+}
 
 /* ══════════════════════════════════════════════
    BUTTONS
@@ -830,9 +880,12 @@ section { padding: 100px 7%; }
   .nav-user-name, .nav-user-suffix, .nav-mobile-hide { display: none !important; }
   .nav-mobile-only { display: inline-flex !important; }
   .nav-right .btn-login { padding: 8px 14px; font-size: 0.78rem; }
-  .theme-toggle { width: 52px; height: 28px; }
-  .theme-toggle::after { width: 20px; height: 20px; left: 4px; }
-  [data-theme="dark"] .theme-toggle::after { transform: translate(20px, -50%); }
+  .theme-toggle,
+  .course-theme-button { width: 54px; height: 30px; }
+  .theme-toggle::after,
+  .course-theme-button::after { width: 24px; height: 24px; left: 3px; }
+  [data-theme="dark"] .theme-toggle::after,
+  [data-theme="dark"] .course-theme-button::after { transform: translate(24px, -50%); }
   section { padding: 56px 4%; }
   .page-header { padding: 48px 4%; }
   .page-header h1 { font-size: 1.8rem; }

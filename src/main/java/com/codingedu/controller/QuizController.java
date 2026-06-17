@@ -45,7 +45,6 @@ public class QuizController {
                        @AuthenticationPrincipal CustomUserDetails userDetails,
                        Model model) {
         List<Quiz> quizzes = new ArrayList<>(quizService.getQuizzes(difficulty, topic));
-        sortQuizzes(quizzes, sort);
 
         List<QuizResult> userResults = List.of();
         if (userDetails != null) {
@@ -55,6 +54,8 @@ public class QuizController {
 
         Map<Long, Integer> userBestPercentages = buildUserBestPercentages(userResults);
         Map<Long, Integer> globalAveragePercentages = quizService.getAveragePercentageByQuizId();
+        sortQuizzes(quizzes, sort, userBestPercentages, globalAveragePercentages);
+
         List<QuizCard> quizCards = quizzes.stream()
                 .map(quiz -> toQuizCard(quiz, userBestPercentages, globalAveragePercentages))
                 .toList();
@@ -175,7 +176,7 @@ public class QuizController {
                            String difficultyTone, int accuracy, String progressTone) {}
     public record QuizActivity(String title, int percentage, String whenLabel, String tone) {}
 
-    private void sortQuizzes(List<Quiz> quizzes, String sort) {
+    private void sortQuizzes(List<Quiz> quizzes, String sort, Map<Long, Integer> userBestPercentages, Map<Long, Integer> globalAveragePercentages) {
         if ("oldest".equals(sort)) {
             quizzes.sort(Comparator.comparing(Quiz::getCreatedAt,
                     Comparator.nullsLast(Comparator.naturalOrder())));
@@ -183,6 +184,16 @@ public class QuizController {
         }
         if ("difficulty".equals(sort)) {
             quizzes.sort(Comparator.comparingInt(q -> difficultyOrder(q.getDifficulty())));
+            return;
+        }
+        if ("accuracy".equals(sort)) {
+            quizzes.sort((q1, q2) -> {
+                int a1 = userBestPercentages.getOrDefault(q1.getId(),
+                        globalAveragePercentages.getOrDefault(q1.getId(), defaultAccuracy(q1.getDifficulty())));
+                int a2 = userBestPercentages.getOrDefault(q2.getId(),
+                        globalAveragePercentages.getOrDefault(q2.getId(), defaultAccuracy(q2.getDifficulty())));
+                return Integer.compare(a2, a1);
+            });
             return;
         }
         quizzes.sort(Comparator.comparing(Quiz::getCreatedAt,
