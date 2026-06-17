@@ -1324,5 +1324,2297 @@
         "code": null
       }
     ]
+  },
+  "java": {
+    "title": "Java 입문 수업",
+    "icon": "JAVA",
+    "date": "2019-01-01",
+    "playlistId": "PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck",
+    "videoId": "jdTsJzXmgU0",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "jdTsJzXmgU0",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=jdTsJzXmgU0&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=1",
+        "label": "We have renewed our Java classes",
+        "sub": false,
+        "title": "We have renewed our Java classes",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'We have renewed our Java classes' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 2:23",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "qR90tdW0Hbo",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=qR90tdW0Hbo&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=2",
+        "label": "Java - 소개와 수업 소개",
+        "sub": false,
+        "title": "Java - 소개와 수업 소개",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 소개와 수업 소개' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:10",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "kyFrm3zKryE",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=kyFrm3zKryE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=3",
+        "label": "Java - 설치",
+        "sub": false,
+        "title": "Java - 설치",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 설치' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 15:07",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "2HNmQaMQiw4",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=2HNmQaMQiw4&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=4",
+        "label": "Java - Installation and Running 2: Installing Java on Linux",
+        "sub": false,
+        "title": "Java - Installation and Running 2: Installing Java on Linux",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Installation and Running 2: Installing Java on Linux' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:29",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "mBIgiAl9trI",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=mBIgiAl9trI&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=5",
+        "label": "Java - 설치와 실행 2 : 리눅스에 Java 다운로드해서 설치하기",
+        "sub": false,
+        "title": "Java - 설치와 실행 2 : 리눅스에 Java 다운로드해서 설치하기",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 설치와 실행 2 : 리눅스에 Java 다운로드해서 설치하기' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 17:03",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "u7MKu4uDsJs",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=u7MKu4uDsJs&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=6",
+        "label": "Java - 설치와 실행 2 : 윈도우에 Java 설치하기",
+        "sub": false,
+        "title": "Java - 설치와 실행 2 : 윈도우에 Java 설치하기",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 설치와 실행 2 : 윈도우에 Java 설치하기' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:19",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "WGah1ng-d4o",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WGah1ng-d4o&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=7",
+        "label": "Java - 설치 - OSX",
+        "sub": false,
+        "title": "Java - 설치 - OSX",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 설치 - OSX' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 10:45",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "bsHk1L7rfGw",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=bsHk1L7rfGw&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=8",
+        "label": "Java - 실행",
+        "sub": false,
+        "title": "Java - 실행",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 실행' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:41",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "RoYZCChq_ko",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=RoYZCChq_ko&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=9",
+        "label": "Java - 실행 - 리눅스",
+        "sub": false,
+        "title": "Java - 실행 - 리눅스",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 실행 - 리눅스' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:25",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "E3qsLztOeRs",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=E3qsLztOeRs&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=10",
+        "label": "Java - Run - OSX",
+        "sub": false,
+        "title": "Java - Run - OSX",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Run - OSX' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:54",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "o4DIcMzjHoM",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=o4DIcMzjHoM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=11",
+        "label": "Java - Run - Windows",
+        "sub": false,
+        "title": "Java - Run - Windows",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Run - Windows' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:10",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "SohwzrJpKVY",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=SohwzrJpKVY&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=12",
+        "label": "Java - 개발도구와 이클립스",
+        "sub": false,
+        "title": "Java - 개발도구와 이클립스",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 개발도구와 이클립스' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:16",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "Mwbe3CeEKGM",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Mwbe3CeEKGM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=13",
+        "label": "Java - How to Install Eclipse - OSX",
+        "sub": false,
+        "title": "Java - How to Install Eclipse - OSX",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - How to Install Eclipse - OSX' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 2:42",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "syvJpnKIW1k",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=syvJpnKIW1k&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=14",
+        "label": "Java - 이클립스의 설치방법 - 윈도우",
+        "sub": false,
+        "title": "Java - 이클립스의 설치방법 - 윈도우",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 이클립스의 설치방법 - 윈도우' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 2:42",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "9g0IOMxpYbk",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9g0IOMxpYbk&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=15",
+        "label": "Java - 이클립스의 설치방법 - 리눅스",
+        "sub": false,
+        "title": "Java - 이클립스의 설치방법 - 리눅스",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 이클립스의 설치방법 - 리눅스' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:18",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 15,
+        "videoId": "yUru5Mk5mcI",
+        "playlistIndex": 16,
+        "youtubeUrl": "https://www.youtube.com/watch?v=yUru5Mk5mcI&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=16",
+        "label": "Java - How to use Eclipse features and examples",
+        "sub": false,
+        "title": "Java - How to use Eclipse features and examples",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - How to use Eclipse features and examples' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 23:41",
+          "재생목록 16번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 16,
+        "videoId": "SyKQ5mNqvJo",
+        "playlistIndex": 17,
+        "youtubeUrl": "https://www.youtube.com/watch?v=SyKQ5mNqvJo&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=17",
+        "label": "JAVA - 이클립스의 기능과 예제의 사용방법2 - ideone",
+        "sub": false,
+        "title": "JAVA - 이클립스의 기능과 예제의 사용방법2 - ideone",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'JAVA - 이클립스의 기능과 예제의 사용방법2 - ideone' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 2:39",
+          "재생목록 17번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 17,
+        "videoId": "o8IWnKNAG4s",
+        "playlistIndex": 18,
+        "youtubeUrl": "https://www.youtube.com/watch?v=o8IWnKNAG4s&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=18",
+        "label": "Java - 숫자와 문자열 - 숫자",
+        "sub": false,
+        "title": "Java - 숫자와 문자열 - 숫자",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 숫자와 문자열 - 숫자' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:30",
+          "재생목록 18번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 18,
+        "videoId": "1ZwCWAGA2PE",
+        "playlistIndex": 19,
+        "youtubeUrl": "https://www.youtube.com/watch?v=1ZwCWAGA2PE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=19",
+        "label": "Java - Strings",
+        "sub": false,
+        "title": "Java - Strings",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Strings' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 15:46",
+          "재생목록 19번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 19,
+        "videoId": "LTLVGjYxabs",
+        "playlistIndex": 20,
+        "youtubeUrl": "https://www.youtube.com/watch?v=LTLVGjYxabs&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=20",
+        "label": "Java - 변수 (1/4) : 변수의 선언과 할당",
+        "sub": false,
+        "title": "Java - 변수 (1/4) : 변수의 선언과 할당",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 변수 (1/4) : 변수의 선언과 할당' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 6:24",
+          "재생목록 20번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 20,
+        "videoId": "Y5UDSXhd5lI",
+        "playlistIndex": 21,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Y5UDSXhd5lI&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=21",
+        "label": "Java - Variables (2/4): Integers and Real Numbers",
+        "sub": false,
+        "title": "Java - Variables (2/4): Integers and Real Numbers",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Variables (2/4): Integers and Real Numbers' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 11:12",
+          "재생목록 21번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 21,
+        "videoId": "xmEpijPOybQ",
+        "playlistIndex": 22,
+        "youtubeUrl": "https://www.youtube.com/watch?v=xmEpijPOybQ&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=22",
+        "label": "Java - 변수 (3/4) : 문자열",
+        "sub": false,
+        "title": "Java - 변수 (3/4) : 문자열",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 변수 (3/4) : 문자열' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 3:52",
+          "재생목록 22번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 22,
+        "videoId": "Kc2CL4eN8ng",
+        "playlistIndex": 23,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Kc2CL4eN8ng&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=23",
+        "label": "Java - 변수 (4/4) : 변수의 효용",
+        "sub": false,
+        "title": "Java - 변수 (4/4) : 변수의 효용",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 변수 (4/4) : 변수의 효용' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:50",
+          "재생목록 23번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 23,
+        "videoId": "c9htmdZuPus",
+        "playlistIndex": 24,
+        "youtubeUrl": "https://www.youtube.com/watch?v=c9htmdZuPus&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=24",
+        "label": "Java - 주석과 세미콜론",
+        "sub": false,
+        "title": "Java - 주석과 세미콜론",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 주석과 세미콜론' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:51",
+          "재생목록 24번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 24,
+        "videoId": "i1OkU7XYSAU",
+        "playlistIndex": 25,
+        "youtubeUrl": "https://www.youtube.com/watch?v=i1OkU7XYSAU&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=25",
+        "label": "Java - Data Types (1/2): Data Size",
+        "sub": false,
+        "title": "Java - Data Types (1/2): Data Size",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Data Types (1/2): Data Size' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:23",
+          "재생목록 25번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 25,
+        "videoId": "4YE6dNqqEQ0",
+        "playlistIndex": 26,
+        "youtubeUrl": "https://www.youtube.com/watch?v=4YE6dNqqEQ0&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=26",
+        "label": "Java - 데이터타입 (2/2) : 데이터타입 비교",
+        "sub": false,
+        "title": "Java - 데이터타입 (2/2) : 데이터타입 비교",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 데이터타입 (2/2) : 데이터타입 비교' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 16:37",
+          "재생목록 26번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 26,
+        "videoId": "YYjS4wKW_Ug",
+        "playlistIndex": 27,
+        "youtubeUrl": "https://www.youtube.com/watch?v=YYjS4wKW_Ug&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=27",
+        "label": "Java - 상수형 데이터 타입",
+        "sub": false,
+        "title": "Java - 상수형 데이터 타입",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 상수형 데이터 타입' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:01",
+          "재생목록 27번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 27,
+        "videoId": "FWAHBg28zeY",
+        "playlistIndex": 28,
+        "youtubeUrl": "https://www.youtube.com/watch?v=FWAHBg28zeY&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=28",
+        "label": "Java - Type Conversion",
+        "sub": false,
+        "title": "Java - Type Conversion",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Type Conversion' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 15:41",
+          "재생목록 28번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 28,
+        "videoId": "y_TNfueftT4",
+        "playlistIndex": 29,
+        "youtubeUrl": "https://www.youtube.com/watch?v=y_TNfueftT4&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=29",
+        "label": "자바 - 명시적형변환",
+        "sub": false,
+        "title": "자바 - 명시적형변환",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 '자바 - 명시적형변환' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:15",
+          "재생목록 29번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 29,
+        "videoId": "SZFMO1cw3BA",
+        "playlistIndex": 30,
+        "youtubeUrl": "https://www.youtube.com/watch?v=SZFMO1cw3BA&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=30",
+        "label": "Java - 연산자 (1/4)",
+        "sub": false,
+        "title": "Java - 연산자 (1/4)",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 연산자 (1/4)' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:37",
+          "재생목록 30번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 30,
+        "videoId": "J-gkpLqmkZ8",
+        "playlistIndex": 31,
+        "youtubeUrl": "https://www.youtube.com/watch?v=J-gkpLqmkZ8&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=31",
+        "label": "Java - Operators (2/4) - Type Conversion",
+        "sub": false,
+        "title": "Java - Operators (2/4) - Type Conversion",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Operators (2/4) - Type Conversion' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:36",
+          "재생목록 31번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 31,
+        "videoId": "fXrRa0V6eKg",
+        "playlistIndex": 32,
+        "youtubeUrl": "https://www.youtube.com/watch?v=fXrRa0V6eKg&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=32",
+        "label": "Java - Operators (3/4) - Unary Operators",
+        "sub": false,
+        "title": "Java - Operators (3/4) - Unary Operators",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Operators (3/4) - Unary Operators' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:43",
+          "재생목록 32번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 32,
+        "videoId": "BCCdCq0rRso",
+        "playlistIndex": 33,
+        "youtubeUrl": "https://www.youtube.com/watch?v=BCCdCq0rRso&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=33",
+        "label": "Java - 연산자 (4/4) - 우선순위",
+        "sub": false,
+        "title": "Java - 연산자 (4/4) - 우선순위",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 연산자 (4/4) - 우선순위' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:34",
+          "재생목록 33번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 33,
+        "videoId": "kShhYYur7uk",
+        "playlistIndex": 34,
+        "youtubeUrl": "https://www.youtube.com/watch?v=kShhYYur7uk&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=34",
+        "label": "Java - Comparison and Boolean",
+        "sub": false,
+        "title": "Java - Comparison and Boolean",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Comparison and Boolean' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 11:59",
+          "재생목록 34번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 34,
+        "videoId": "bSVyiNyUeyc",
+        "playlistIndex": 35,
+        "youtubeUrl": "https://www.youtube.com/watch?v=bSVyiNyUeyc&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=35",
+        "label": "Java - 조건문 (1/4) : if",
+        "sub": false,
+        "title": "Java - 조건문 (1/4) : if",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 조건문 (1/4) : if' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:30",
+          "재생목록 35번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 35,
+        "videoId": "aMwP6VJgqIs",
+        "playlistIndex": 36,
+        "youtubeUrl": "https://www.youtube.com/watch?v=aMwP6VJgqIs&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=36",
+        "label": "Java - 조건문 (2/4) : else",
+        "sub": false,
+        "title": "Java - 조건문 (2/4) : else",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 조건문 (2/4) : else' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:55",
+          "재생목록 36번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 36,
+        "videoId": "wuQTAFMJRdE",
+        "playlistIndex": 37,
+        "youtubeUrl": "https://www.youtube.com/watch?v=wuQTAFMJRdE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=37",
+        "label": "Java - 조건문 (3/4) : 조건문의 응용",
+        "sub": false,
+        "title": "Java - 조건문 (3/4) : 조건문의 응용",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 조건문 (3/4) : 조건문의 응용' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:59",
+          "재생목록 37번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 37,
+        "videoId": "HXbICQjXisA",
+        "playlistIndex": 38,
+        "youtubeUrl": "https://www.youtube.com/watch?v=HXbICQjXisA&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=38",
+        "label": "Java - 조건문 (4/4) : 조건문의 중첩",
+        "sub": false,
+        "title": "Java - 조건문 (4/4) : 조건문의 중첩",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 조건문 (4/4) : 조건문의 중첩' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:18",
+          "재생목록 38번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 38,
+        "videoId": "0JCmfGsJGEY",
+        "playlistIndex": 39,
+        "youtubeUrl": "https://www.youtube.com/watch?v=0JCmfGsJGEY&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=39",
+        "label": "Java - 조건문 5 : switch",
+        "sub": false,
+        "title": "Java - 조건문 5 : switch",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 조건문 5 : switch' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:11",
+          "재생목록 39번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 39,
+        "videoId": "uT4cZw9IGWs",
+        "playlistIndex": 40,
+        "youtubeUrl": "https://www.youtube.com/watch?v=uT4cZw9IGWs&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=40",
+        "label": "JAVA - Logical Operators (1/3): and",
+        "sub": false,
+        "title": "JAVA - Logical Operators (1/3): and",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'JAVA - Logical Operators (1/3): and' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:24",
+          "재생목록 40번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 40,
+        "videoId": "icmwlyvrD-k",
+        "playlistIndex": 41,
+        "youtubeUrl": "https://www.youtube.com/watch?v=icmwlyvrD-k&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=41",
+        "label": "JAVA - Logical Operators (2/3): or",
+        "sub": false,
+        "title": "JAVA - Logical Operators (2/3): or",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'JAVA - Logical Operators (2/3): or' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:40",
+          "재생목록 41번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 41,
+        "videoId": "6NE_17zIPwk",
+        "playlistIndex": 42,
+        "youtubeUrl": "https://www.youtube.com/watch?v=6NE_17zIPwk&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=42",
+        "label": "JAVA - 논리연산자 (3/3) : not",
+        "sub": false,
+        "title": "JAVA - 논리연산자 (3/3) : not",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'JAVA - 논리연산자 (3/3) : not' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 2:39",
+          "재생목록 42번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 42,
+        "videoId": "Q_julHKhBQE",
+        "playlistIndex": 43,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Q_julHKhBQE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=43",
+        "label": "Java - 반복문 (1/5) : while",
+        "sub": false,
+        "title": "Java - 반복문 (1/5) : while",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 반복문 (1/5) : while' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:22",
+          "재생목록 43번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 43,
+        "videoId": "HoJnoXNCock",
+        "playlistIndex": 44,
+        "youtubeUrl": "https://www.youtube.com/watch?v=HoJnoXNCock&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=44",
+        "label": "Java - 반복문 (2/5) : for",
+        "sub": false,
+        "title": "Java - 반복문 (2/5) : for",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 반복문 (2/5) : for' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 10:49",
+          "재생목록 44번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 44,
+        "videoId": "kBnyX3_mV54",
+        "playlistIndex": 45,
+        "youtubeUrl": "https://www.youtube.com/watch?v=kBnyX3_mV54&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=45",
+        "label": "Java - Loops (3/5): Without Loops",
+        "sub": false,
+        "title": "Java - Loops (3/5): Without Loops",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Loops (3/5): Without Loops' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:05",
+          "재생목록 45번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 45,
+        "videoId": "SmpDc6RmDPI",
+        "playlistIndex": 46,
+        "youtubeUrl": "https://www.youtube.com/watch?v=SmpDc6RmDPI&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=46",
+        "label": "Java - 반복문 (4/5) : break, continue",
+        "sub": false,
+        "title": "Java - 반복문 (4/5) : break, continue",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 반복문 (4/5) : break, continue' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:28",
+          "재생목록 46번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 46,
+        "videoId": "aHlDo9S7NOY",
+        "playlistIndex": 47,
+        "youtubeUrl": "https://www.youtube.com/watch?v=aHlDo9S7NOY&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=47",
+        "label": "Java - 반복문 (5/5) :반복문의 중첩",
+        "sub": false,
+        "title": "Java - 반복문 (5/5) :반복문의 중첩",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 반복문 (5/5) :반복문의 중첩' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 11:09",
+          "재생목록 47번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 47,
+        "videoId": "pegfdsD1IY4",
+        "playlistIndex": 48,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pegfdsD1IY4&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=48",
+        "label": "Java - 배열 (1/6) :  배열과 그룹핑",
+        "sub": false,
+        "title": "Java - 배열 (1/6) :  배열과 그룹핑",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 배열 (1/6) :  배열과 그룹핑' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:45",
+          "재생목록 48번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 48,
+        "videoId": "r0HBnwdDyFQ",
+        "playlistIndex": 49,
+        "youtubeUrl": "https://www.youtube.com/watch?v=r0HBnwdDyFQ&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=49",
+        "label": "Java - Arrays (2/6) : Definition",
+        "sub": false,
+        "title": "Java - Arrays (2/6) : Definition",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Arrays (2/6) : Definition' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:16",
+          "재생목록 49번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 49,
+        "videoId": "gtdY_3LCk3Q",
+        "playlistIndex": 50,
+        "youtubeUrl": "https://www.youtube.com/watch?v=gtdY_3LCk3Q&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=50",
+        "label": "Java - 배열 (3/6) : 제어",
+        "sub": false,
+        "title": "Java - 배열 (3/6) : 제어",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 배열 (3/6) : 제어' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:43",
+          "재생목록 50번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 50,
+        "videoId": "R6qUydr9iQA",
+        "playlistIndex": 51,
+        "youtubeUrl": "https://www.youtube.com/watch?v=R6qUydr9iQA&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=51",
+        "label": "Java - 배열 (4/6) : 반복문과 배열의 조화",
+        "sub": false,
+        "title": "Java - 배열 (4/6) : 반복문과 배열의 조화",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 배열 (4/6) : 반복문과 배열의 조화' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:03",
+          "재생목록 51번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 51,
+        "videoId": "EcLZUcCLRxg",
+        "playlistIndex": 52,
+        "youtubeUrl": "https://www.youtube.com/watch?v=EcLZUcCLRxg&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=52",
+        "label": "Java - 배열 (5/6) : for-each",
+        "sub": false,
+        "title": "Java - 배열 (5/6) : for-each",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 배열 (5/6) : for-each' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:08",
+          "재생목록 52번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 52,
+        "videoId": "RzTmgNvNEr4",
+        "playlistIndex": 53,
+        "youtubeUrl": "https://www.youtube.com/watch?v=RzTmgNvNEr4&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=53",
+        "label": "Java - Arrays (6/6): Array Errors and Limitations",
+        "sub": false,
+        "title": "Java - Arrays (6/6): Array Errors and Limitations",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Arrays (6/6): Array Errors and Limitations' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:33",
+          "재생목록 53번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 53,
+        "videoId": "54hrXAyYUGo",
+        "playlistIndex": 54,
+        "youtubeUrl": "https://www.youtube.com/watch?v=54hrXAyYUGo&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=54",
+        "label": "Java - Methods (1/6): Method Orientation",
+        "sub": false,
+        "title": "Java - Methods (1/6): Method Orientation",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Methods (1/6): Method Orientation' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 6:42",
+          "재생목록 54번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 54,
+        "videoId": "kbMQy6_tNWE",
+        "playlistIndex": 55,
+        "youtubeUrl": "https://www.youtube.com/watch?v=kbMQy6_tNWE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=55",
+        "label": "Java - 메소드 (2/6) : 정의와 호출",
+        "sub": false,
+        "title": "Java - 메소드 (2/6) : 정의와 호출",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 메소드 (2/6) : 정의와 호출' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:03",
+          "재생목록 55번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 55,
+        "videoId": "0h6-5BY-pXw",
+        "playlistIndex": 56,
+        "youtubeUrl": "https://www.youtube.com/watch?v=0h6-5BY-pXw&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=56",
+        "label": "Java - 메소드 (3/6) : 메소드가 없다면?",
+        "sub": false,
+        "title": "Java - 메소드 (3/6) : 메소드가 없다면?",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 메소드 (3/6) : 메소드가 없다면?' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:26",
+          "재생목록 56번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 56,
+        "videoId": "pn0lcF88XIM",
+        "playlistIndex": 57,
+        "youtubeUrl": "https://www.youtube.com/watch?v=pn0lcF88XIM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=57",
+        "label": "Java - 메소드 (4/6) : 입력값",
+        "sub": false,
+        "title": "Java - 메소드 (4/6) : 입력값",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 메소드 (4/6) : 입력값' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:21",
+          "재생목록 57번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 57,
+        "videoId": "802oBCZiagE",
+        "playlistIndex": 58,
+        "youtubeUrl": "https://www.youtube.com/watch?v=802oBCZiagE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=58",
+        "label": "Java - 메소드 (5/6) : 출력값 1",
+        "sub": false,
+        "title": "Java - 메소드 (5/6) : 출력값 1",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 메소드 (5/6) : 출력값 1' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 10:34",
+          "재생목록 58번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 58,
+        "videoId": "83zNxlH7xtM",
+        "playlistIndex": 59,
+        "youtubeUrl": "https://www.youtube.com/watch?v=83zNxlH7xtM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=59",
+        "label": "Java - Method (6/6): Output 2",
+        "sub": false,
+        "title": "Java - Method (6/6): Output 2",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Method (6/6): Output 2' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 12:32",
+          "재생목록 59번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 59,
+        "videoId": "AVxG-_Q6JsM",
+        "playlistIndex": 60,
+        "youtubeUrl": "https://www.youtube.com/watch?v=AVxG-_Q6JsM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=60",
+        "label": "Java - 입력과 출력 (1/6) : 오리엔테이션",
+        "sub": false,
+        "title": "Java - 입력과 출력 (1/6) : 오리엔테이션",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 입력과 출력 (1/6) : 오리엔테이션' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:27",
+          "재생목록 60번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 60,
+        "videoId": "mXkSqhSviK0",
+        "playlistIndex": 61,
+        "youtubeUrl": "https://www.youtube.com/watch?v=mXkSqhSviK0&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=61",
+        "label": "Java - 입력과 출력 (2/6) : 앱이 시작할 때 데이터를 입력 1",
+        "sub": false,
+        "title": "Java - 입력과 출력 (2/6) : 앱이 시작할 때 데이터를 입력 1",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 입력과 출력 (2/6) : 앱이 시작할 때 데이터를 입력 1' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 14:48",
+          "재생목록 61번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 61,
+        "videoId": "gTJ34xIAwhU",
+        "playlistIndex": 62,
+        "youtubeUrl": "https://www.youtube.com/watch?v=gTJ34xIAwhU&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=62",
+        "label": "Java - Input and Output (3/6): Inputting Data When the App Starts 2",
+        "sub": false,
+        "title": "Java - Input and Output (3/6): Inputting Data When the App Starts 2",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Input and Output (3/6): Inputting Data When the App Starts 2' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 10:19",
+          "재생목록 62번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 62,
+        "videoId": "a4GnmuL6z-o",
+        "playlistIndex": 63,
+        "youtubeUrl": "https://www.youtube.com/watch?v=a4GnmuL6z-o&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=63",
+        "label": "Java - Input and Output (4/6) Entering data while the app is running 1",
+        "sub": false,
+        "title": "Java - Input and Output (4/6) Entering data while the app is running 1",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Input and Output (4/6) Entering data while the app is running 1' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 10:04",
+          "재생목록 63번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 63,
+        "videoId": "BTRRRW9YySk",
+        "playlistIndex": 64,
+        "youtubeUrl": "https://www.youtube.com/watch?v=BTRRRW9YySk&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=64",
+        "label": "Java - 입력과 출력 (5/6) 앱이 실행중에 데이터를 입력 2",
+        "sub": false,
+        "title": "Java - 입력과 출력 (5/6) 앱이 실행중에 데이터를 입력 2",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 입력과 출력 (5/6) 앱이 실행중에 데이터를 입력 2' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:25",
+          "재생목록 64번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 64,
+        "videoId": "9k66W8xIzFE",
+        "playlistIndex": 65,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9k66W8xIzFE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=65",
+        "label": "Java - Input and Output (6/6) Various Types of Input and Output",
+        "sub": false,
+        "title": "Java - Input and Output (6/6) Various Types of Input and Output",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Input and Output (6/6) Various Types of Input and Output' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:52",
+          "재생목록 65번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 65,
+        "videoId": "Yu49BOJueaw",
+        "playlistIndex": 66,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Yu49BOJueaw&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=66",
+        "label": "Java - Wrapping up Season 1...",
+        "sub": false,
+        "title": "Java - Wrapping up Season 1...",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Wrapping up Season 1...' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 12:06",
+          "재생목록 66번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 66,
+        "videoId": "9BVi9ygdWs0",
+        "playlistIndex": 67,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9BVi9ygdWs0&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=67",
+        "label": "Object-Oriented Programming (1/3): Orientation",
+        "sub": false,
+        "title": "Object-Oriented Programming (1/3): Orientation",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Object-Oriented Programming (1/3): Orientation' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 12:36",
+          "재생목록 67번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 67,
+        "videoId": "5NmyjJdoLZM",
+        "playlistIndex": 68,
+        "youtubeUrl": "https://www.youtube.com/watch?v=5NmyjJdoLZM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=68",
+        "label": "Object-Oriented Programming (2/3): Abstraction",
+        "sub": false,
+        "title": "Object-Oriented Programming (2/3): Abstraction",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Object-Oriented Programming (2/3): Abstraction' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:22",
+          "재생목록 68번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 68,
+        "videoId": "y7Z_Wpgmz-Q",
+        "playlistIndex": 69,
+        "youtubeUrl": "https://www.youtube.com/watch?v=y7Z_Wpgmz-Q&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=69",
+        "label": "Object-Oriented Programming (3/3): Componentization",
+        "sub": false,
+        "title": "Object-Oriented Programming (3/3): Componentization",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Object-Oriented Programming (3/3): Componentization' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 16:46",
+          "재생목록 69번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 69,
+        "videoId": "TEyLPQeo6pc",
+        "playlistIndex": 70,
+        "youtubeUrl": "https://www.youtube.com/watch?v=TEyLPQeo6pc&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=70",
+        "label": "Java  - 클래스와인스턴스그리고객체지향 (1/5) : 객체지향이전의 코딩",
+        "sub": false,
+        "title": "Java  - 클래스와인스턴스그리고객체지향 (1/5) : 객체지향이전의 코딩",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java  - 클래스와인스턴스그리고객체지향 (1/5) : 객체지향이전의 코딩' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:44",
+          "재생목록 70번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 70,
+        "videoId": "dCNgkYb51yc",
+        "playlistIndex": 71,
+        "youtubeUrl": "https://www.youtube.com/watch?v=dCNgkYb51yc&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=71",
+        "label": "Java  - 클래스와인스턴스그리고객체지향 (2/5) : 객체지향이전의 코딩 2",
+        "sub": false,
+        "title": "Java  - 클래스와인스턴스그리고객체지향 (2/5) : 객체지향이전의 코딩 2",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java  - 클래스와인스턴스그리고객체지향 (2/5) : 객체지향이전의 코딩 2' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:49",
+          "재생목록 71번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 71,
+        "videoId": "CygX8rO_eqA",
+        "playlistIndex": 72,
+        "youtubeUrl": "https://www.youtube.com/watch?v=CygX8rO_eqA&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=72",
+        "label": "Java  - 클래스와인스턴스그리고객체지향 (3/5) : 객체화",
+        "sub": false,
+        "title": "Java  - 클래스와인스턴스그리고객체지향 (3/5) : 객체화",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java  - 클래스와인스턴스그리고객체지향 (3/5) : 객체화' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:04",
+          "재생목록 72번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 72,
+        "videoId": "AjDv-pJ_LxY",
+        "playlistIndex": 73,
+        "youtubeUrl": "https://www.youtube.com/watch?v=AjDv-pJ_LxY&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=73",
+        "label": "Java - Classes, Instances, and Object-Oriented Programming (4/5): Objectification 2",
+        "sub": false,
+        "title": "Java - Classes, Instances, and Object-Oriented Programming (4/5): Objectification 2",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Classes, Instances, and Object-Oriented Programming (4/5): Objectification 2' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:27",
+          "재생목록 73번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 73,
+        "videoId": "cls3W2k7v7U",
+        "playlistIndex": 74,
+        "youtubeUrl": "https://www.youtube.com/watch?v=cls3W2k7v7U&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=74",
+        "label": "Java  - 클래스와인스턴스그리고객체지향 (5/5) : 객체화 3",
+        "sub": false,
+        "title": "Java  - 클래스와인스턴스그리고객체지향 (5/5) : 객체화 3",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java  - 클래스와인스턴스그리고객체지향 (5/5) : 객체화 3' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:23",
+          "재생목록 74번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 74,
+        "videoId": "FECD60d_PYA",
+        "playlistIndex": 75,
+        "youtubeUrl": "https://www.youtube.com/watch?v=FECD60d_PYA&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=75",
+        "label": "Java - Class Members, Instance Members (1/4): What are Members?",
+        "sub": false,
+        "title": "Java - Class Members, Instance Members (1/4): What are Members?",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Class Members, Instance Members (1/4): What are Members?' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:23",
+          "재생목록 75번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 75,
+        "videoId": "o73qn218VjM",
+        "playlistIndex": 76,
+        "youtubeUrl": "https://www.youtube.com/watch?v=o73qn218VjM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=76",
+        "label": "Java - Class Members, Instance Members (2/4): Class Variables",
+        "sub": false,
+        "title": "Java - Class Members, Instance Members (2/4): Class Variables",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Class Members, Instance Members (2/4): Class Variables' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:16",
+          "재생목록 76번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 76,
+        "videoId": "T1rmoRT6Nl0",
+        "playlistIndex": 77,
+        "youtubeUrl": "https://www.youtube.com/watch?v=T1rmoRT6Nl0&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=77",
+        "label": "Java - Class Members, Instance Members (3/4): Class Methods",
+        "sub": false,
+        "title": "Java - Class Members, Instance Members (3/4): Class Methods",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Class Members, Instance Members (3/4): Class Methods' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 6:53",
+          "재생목록 77번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 77,
+        "videoId": "AiquVwHyeGQ",
+        "playlistIndex": 78,
+        "youtubeUrl": "https://www.youtube.com/watch?v=AiquVwHyeGQ&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=78",
+        "label": "Java - 클래스 맴버, 인스턴스 맴버 (4/4) : 타입별 비교",
+        "sub": false,
+        "title": "Java - 클래스 맴버, 인스턴스 맴버 (4/4) : 타입별 비교",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 클래스 맴버, 인스턴스 맴버 (4/4) : 타입별 비교' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 13:03",
+          "재생목록 78번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 78,
+        "videoId": "qQqW0rBFPBI",
+        "playlistIndex": 79,
+        "youtubeUrl": "https://www.youtube.com/watch?v=qQqW0rBFPBI&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=79",
+        "label": "Java - 유효범위(1/4) : 유효범위란?",
+        "sub": false,
+        "title": "Java - 유효범위(1/4) : 유효범위란?",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 유효범위(1/4) : 유효범위란?' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:27",
+          "재생목록 79번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 79,
+        "videoId": "xgBIxK_Vvr0",
+        "playlistIndex": 80,
+        "youtubeUrl": "https://www.youtube.com/watch?v=xgBIxK_Vvr0&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=80",
+        "label": "Java - Scope (2/4) - Global Variables, Local Variables",
+        "sub": false,
+        "title": "Java - Scope (2/4) - Global Variables, Local Variables",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Scope (2/4) - Global Variables, Local Variables' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 12:37",
+          "재생목록 80번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 80,
+        "videoId": "xqPccJqA8kg",
+        "playlistIndex": 81,
+        "youtubeUrl": "https://www.youtube.com/watch?v=xqPccJqA8kg&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=81",
+        "label": "Java - 유효범위 (3/4) : 다양한 유효범위",
+        "sub": false,
+        "title": "Java - 유효범위 (3/4) : 다양한 유효범위",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 유효범위 (3/4) : 다양한 유효범위' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 11:11",
+          "재생목록 81번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 81,
+        "videoId": "7aDRGgIEgHY",
+        "playlistIndex": 82,
+        "youtubeUrl": "https://www.youtube.com/watch?v=7aDRGgIEgHY&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=82",
+        "label": "Java - 유효범위 (4/4) : this",
+        "sub": false,
+        "title": "Java - 유효범위 (4/4) : this",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 유효범위 (4/4) : this' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 14:51",
+          "재생목록 82번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 82,
+        "videoId": "9_5_bAVHd8c",
+        "playlistIndex": 83,
+        "youtubeUrl": "https://www.youtube.com/watch?v=9_5_bAVHd8c&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=83",
+        "label": "Java - Constructor",
+        "sub": false,
+        "title": "Java - Constructor",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Constructor' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 10:15",
+          "재생목록 83번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 83,
+        "videoId": "QK8bgsenqLY",
+        "playlistIndex": 84,
+        "youtubeUrl": "https://www.youtube.com/watch?v=QK8bgsenqLY&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=84",
+        "label": "Java - 상속 (1/3) : 상속의개념",
+        "sub": false,
+        "title": "Java - 상속 (1/3) : 상속의개념",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 상속 (1/3) : 상속의개념' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 10:44",
+          "재생목록 84번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 84,
+        "videoId": "hlqToCohNK0",
+        "playlistIndex": 85,
+        "youtubeUrl": "https://www.youtube.com/watch?v=hlqToCohNK0&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=85",
+        "label": "Java - 상속 (2/3) : 코드로 알아보는 상속",
+        "sub": false,
+        "title": "Java - 상속 (2/3) : 코드로 알아보는 상속",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 상속 (2/3) : 코드로 알아보는 상속' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 5:37",
+          "재생목록 85번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 85,
+        "videoId": "0n9LBHcEfcU",
+        "playlistIndex": 86,
+        "youtubeUrl": "https://www.youtube.com/watch?v=0n9LBHcEfcU&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=86",
+        "label": "Java - 상속 (3/3) : 다양한 종류의 상속",
+        "sub": false,
+        "title": "Java - 상속 (3/3) : 다양한 종류의 상속",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 상속 (3/3) : 다양한 종류의 상속' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:22",
+          "재생목록 86번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 86,
+        "videoId": "VorI5wQvspk",
+        "playlistIndex": 87,
+        "youtubeUrl": "https://www.youtube.com/watch?v=VorI5wQvspk&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=87",
+        "label": "Java - Inheritance and Constructors (1/2): Default Constructor",
+        "sub": false,
+        "title": "Java - Inheritance and Constructors (1/2): Default Constructor",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Inheritance and Constructors (1/2): Default Constructor' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:44",
+          "재생목록 87번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 87,
+        "videoId": "C5AvTQk4aJs",
+        "playlistIndex": 88,
+        "youtubeUrl": "https://www.youtube.com/watch?v=C5AvTQk4aJs&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=88",
+        "label": "Java - Inheritance and Constructors (2/2): super",
+        "sub": false,
+        "title": "Java - Inheritance and Constructors (2/2): super",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Inheritance and Constructors (2/2): super' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 12:55",
+          "재생목록 88번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 88,
+        "videoId": "-7BuLy6HJbg",
+        "playlistIndex": 89,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-7BuLy6HJbg&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=89",
+        "label": "Java - overriding (1/2)",
+        "sub": false,
+        "title": "Java - overriding (1/2)",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - overriding (1/2)' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:16",
+          "재생목록 89번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 89,
+        "videoId": "u3oj6XidtLA",
+        "playlistIndex": 90,
+        "youtubeUrl": "https://www.youtube.com/watch?v=u3oj6XidtLA&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=90",
+        "label": "Java - overriding (2/2)",
+        "sub": false,
+        "title": "Java - overriding (2/2)",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - overriding (2/2)' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:55",
+          "재생목록 90번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 90,
+        "videoId": "3XAhdn6LcWA",
+        "playlistIndex": 91,
+        "youtubeUrl": "https://www.youtube.com/watch?v=3XAhdn6LcWA&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=91",
+        "label": "Java - overloading (1/2)",
+        "sub": false,
+        "title": "Java - overloading (1/2)",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - overloading (1/2)' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 14:28",
+          "재생목록 91번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 91,
+        "videoId": "qx7rOaRxhwU",
+        "playlistIndex": 92,
+        "youtubeUrl": "https://www.youtube.com/watch?v=qx7rOaRxhwU&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=92",
+        "label": "Java - overloading (2/2)",
+        "sub": false,
+        "title": "Java - overloading (2/2)",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - overloading (2/2)' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 12:36",
+          "재생목록 92번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 92,
+        "videoId": "1HFicQuRwu8",
+        "playlistIndex": 93,
+        "youtubeUrl": "https://www.youtube.com/watch?v=1HFicQuRwu8&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=93",
+        "label": "Java - 클래스패스 (1/3) : 컴파일과 클래스",
+        "sub": false,
+        "title": "Java - 클래스패스 (1/3) : 컴파일과 클래스",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 클래스패스 (1/3) : 컴파일과 클래스' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 6:05",
+          "재생목록 93번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 93,
+        "videoId": "otnQaFoS8Oc",
+        "playlistIndex": 94,
+        "youtubeUrl": "https://www.youtube.com/watch?v=otnQaFoS8Oc&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=94",
+        "label": "Java - Classpath (2/3): The Relationship Between Classes and Paths",
+        "sub": false,
+        "title": "Java - Classpath (2/3): The Relationship Between Classes and Paths",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Classpath (2/3): The Relationship Between Classes and Paths' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 9:26",
+          "재생목록 94번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 94,
+        "videoId": "2XRGiziDQsM",
+        "playlistIndex": 95,
+        "youtubeUrl": "https://www.youtube.com/watch?v=2XRGiziDQsM&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=95",
+        "label": "Java - 클래스패스 (3/3) : 환경변수",
+        "sub": false,
+        "title": "Java - 클래스패스 (3/3) : 환경변수",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 클래스패스 (3/3) : 환경변수' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 8:35",
+          "재생목록 95번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 95,
+        "videoId": "Kf798AwSO5Y",
+        "playlistIndex": 96,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Kf798AwSO5Y&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=96",
+        "label": "Java - Packages (1/4): The Concept of Packages",
+        "sub": false,
+        "title": "Java - Packages (1/4): The Concept of Packages",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Packages (1/4): The Concept of Packages' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 6:53",
+          "재생목록 96번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 96,
+        "videoId": "7hKRx5chZPE",
+        "playlistIndex": 97,
+        "youtubeUrl": "https://www.youtube.com/watch?v=7hKRx5chZPE&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=97",
+        "label": "Java - Packages (2/4): Using Packages",
+        "sub": false,
+        "title": "Java - Packages (2/4): Using Packages",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Packages (2/4): Using Packages' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 11:24",
+          "재생목록 97번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 97,
+        "videoId": "Po9O_Nobh0g",
+        "playlistIndex": 98,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Po9O_Nobh0g&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=98",
+        "label": "Java - Packages (3/4): Hand Compilation",
+        "sub": false,
+        "title": "Java - Packages (3/4): Hand Compilation",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - Packages (3/4): Hand Compilation' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 7:19",
+          "재생목록 98번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 98,
+        "videoId": "TFdW6p0Mc8Y",
+        "playlistIndex": 99,
+        "youtubeUrl": "https://www.youtube.com/watch?v=TFdW6p0Mc8Y&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=99",
+        "label": "Java - 패키지 (4/4) : 로드된 패키지들간의 중복",
+        "sub": false,
+        "title": "Java - 패키지 (4/4) : 로드된 패키지들간의 중복",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - 패키지 (4/4) : 로드된 패키지들간의 중복' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 4:15",
+          "재생목록 99번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 99,
+        "videoId": "5fgLVBsz9ak",
+        "playlistIndex": 100,
+        "youtubeUrl": "https://www.youtube.com/watch?v=5fgLVBsz9ak&list=PLuHgQVnccGMCeAy-2-llhw3nWoQKUvQck&index=100",
+        "label": "Java - API and API Documentation (1/2): API",
+        "sub": false,
+        "title": "Java - API and API Documentation (1/2): API",
+        "desc": "생활코딩 Java 입문 수업 공식 재생목록의 'Java - API and API Documentation (1/2): API' 강의입니다. 영상과 함께 Java의 기본 문법과 객체지향 개념을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 Java 입문 수업 공식 재생목록",
+          "영상 길이 12:00",
+          "재생목록 100번째 영상"
+        ],
+        "code": null
+      }
+    ]
+  },
+  "php": {
+    "title": "WEB2-PHP",
+    "icon": "PHP",
+    "date": "2018-01-01",
+    "playlistId": "PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I",
+    "videoId": "Qh_6JheU_gY",
+    "lessons": [
+      {
+        "id": 0,
+        "videoId": "Qh_6JheU_gY",
+        "playlistIndex": 1,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Qh_6JheU_gY&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=1",
+        "label": "WEB2-PHP-1. Class Introduction",
+        "sub": false,
+        "title": "WEB2-PHP-1. Class Introduction",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-1. Class Introduction' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 3:33",
+          "재생목록 1번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 1,
+        "videoId": "w1CT7vlR-JI",
+        "playlistIndex": 2,
+        "youtubeUrl": "https://www.youtube.com/watch?v=w1CT7vlR-JI&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=2",
+        "label": "WEB2-PHP-2. Purpose of the lesson",
+        "sub": false,
+        "title": "WEB2-PHP-2. Purpose of the lesson",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-2. Purpose of the lesson' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 11:08",
+          "재생목록 2번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 2,
+        "videoId": "fNdKHF0tL9I",
+        "playlistIndex": 3,
+        "youtubeUrl": "https://www.youtube.com/watch?v=fNdKHF0tL9I&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=3",
+        "label": "WEB2-PHP-3.PHP 설치",
+        "sub": false,
+        "title": "WEB2-PHP-3.PHP 설치",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-3.PHP 설치' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 2:05",
+          "재생목록 3번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 3,
+        "videoId": "WboIThLXOGg",
+        "playlistIndex": 4,
+        "youtubeUrl": "https://www.youtube.com/watch?v=WboIThLXOGg&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=4",
+        "label": "WEB2-PHP-3.1.1.PHP 설치 (윈도우)",
+        "sub": false,
+        "title": "WEB2-PHP-3.1.1.PHP 설치 (윈도우)",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-3.1.1.PHP 설치 (윈도우)' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 7:25",
+          "재생목록 4번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 4,
+        "videoId": "ruraZy625Ak",
+        "playlistIndex": 5,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ruraZy625Ak&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=5",
+        "label": "WEB2-PHP-3.1.2.PHP 환경 설정 변경 (윈도우)",
+        "sub": false,
+        "title": "WEB2-PHP-3.1.2.PHP 환경 설정 변경 (윈도우)",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-3.1.2.PHP 환경 설정 변경 (윈도우)' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 8:14",
+          "재생목록 5번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 5,
+        "videoId": "YfP66IqFhS4",
+        "playlistIndex": 6,
+        "youtubeUrl": "https://www.youtube.com/watch?v=YfP66IqFhS4&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=6",
+        "label": "WEB2-PHP-3.2.1.PHP 설치 (맥)",
+        "sub": false,
+        "title": "WEB2-PHP-3.2.1.PHP 설치 (맥)",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-3.2.1.PHP 설치 (맥)' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 11:21",
+          "재생목록 6번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 6,
+        "videoId": "yMgQgzHdQ7w",
+        "playlistIndex": 7,
+        "youtubeUrl": "https://www.youtube.com/watch?v=yMgQgzHdQ7w&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=7",
+        "label": "WEB2-PHP-3.2.2.PHP 환경 설정 변경 (맥)",
+        "sub": false,
+        "title": "WEB2-PHP-3.2.2.PHP 환경 설정 변경 (맥)",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-3.2.2.PHP 환경 설정 변경 (맥)' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 7:45",
+          "재생목록 7번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 7,
+        "videoId": "ObrMbYq9DC4",
+        "playlistIndex": 8,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ObrMbYq9DC4&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=8",
+        "label": "WEB2-PHP-4.PHP Principles",
+        "sub": false,
+        "title": "WEB2-PHP-4.PHP Principles",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-4.PHP Principles' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 11:06",
+          "재생목록 8번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 8,
+        "videoId": "11-nKsKhEkY",
+        "playlistIndex": 9,
+        "youtubeUrl": "https://www.youtube.com/watch?v=11-nKsKhEkY&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=9",
+        "label": "Data Types in WEB2-PHP-5.PHP",
+        "sub": false,
+        "title": "Data Types in WEB2-PHP-5.PHP",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'Data Types in WEB2-PHP-5.PHP' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 2:47",
+          "재생목록 9번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 9,
+        "videoId": "-0LAb1Yvdq4",
+        "playlistIndex": 10,
+        "youtubeUrl": "https://www.youtube.com/watch?v=-0LAb1Yvdq4&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=10",
+        "label": "WEB2-PHP-5.1.PHP와 숫자",
+        "sub": false,
+        "title": "WEB2-PHP-5.1.PHP와 숫자",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-5.1.PHP와 숫자' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 10:40",
+          "재생목록 10번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 10,
+        "videoId": "O-sfI80mdbo",
+        "playlistIndex": 11,
+        "youtubeUrl": "https://www.youtube.com/watch?v=O-sfI80mdbo&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=11",
+        "label": "WEB2-PHP-5.2.PHP와 문자열",
+        "sub": false,
+        "title": "WEB2-PHP-5.2.PHP와 문자열",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-5.2.PHP와 문자열' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 12:12",
+          "재생목록 11번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 11,
+        "videoId": "2EIH5Lbfavc",
+        "playlistIndex": 12,
+        "youtubeUrl": "https://www.youtube.com/watch?v=2EIH5Lbfavc&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=12",
+        "label": "Variables in WEB2-PHP-6.PHP",
+        "sub": false,
+        "title": "Variables in WEB2-PHP-6.PHP",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'Variables in WEB2-PHP-6.PHP' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 9:00",
+          "재생목록 12번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 12,
+        "videoId": "73RCtVNZM4E",
+        "playlistIndex": 13,
+        "youtubeUrl": "https://www.youtube.com/watch?v=73RCtVNZM4E&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=13",
+        "label": "WEB2-PHP-7.1.PHP의 URL 파라미터",
+        "sub": false,
+        "title": "WEB2-PHP-7.1.PHP의 URL 파라미터",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-7.1.PHP의 URL 파라미터' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 11:44",
+          "재생목록 13번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 13,
+        "videoId": "gfEry-zN3CU",
+        "playlistIndex": 14,
+        "youtubeUrl": "https://www.youtube.com/watch?v=gfEry-zN3CU&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=14",
+        "label": "WEB2-PHP-7.2.URL 파라미터의 활용",
+        "sub": false,
+        "title": "WEB2-PHP-7.2.URL 파라미터의 활용",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-7.2.URL 파라미터의 활용' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 4:51",
+          "재생목록 14번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 14,
+        "videoId": "IIU4mypKLlw",
+        "playlistIndex": 15,
+        "youtubeUrl": "https://www.youtube.com/watch?v=IIU4mypKLlw&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=15",
+        "label": "Using WEB2-PHP-8.1 functions",
+        "sub": false,
+        "title": "Using WEB2-PHP-8.1 functions",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'Using WEB2-PHP-8.1 functions' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 11:18",
+          "재생목록 15번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 15,
+        "videoId": "FLBGEoiv7bE",
+        "playlistIndex": 16,
+        "youtubeUrl": "https://www.youtube.com/watch?v=FLBGEoiv7bE&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=16",
+        "label": "WEB2-PHP-8.2.Using functions",
+        "sub": false,
+        "title": "WEB2-PHP-8.2.Using functions",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-8.2.Using functions' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 7:52",
+          "재생목록 16번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 16,
+        "videoId": "AMN_UPvEr1U",
+        "playlistIndex": 17,
+        "youtubeUrl": "https://www.youtube.com/watch?v=AMN_UPvEr1U&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=17",
+        "label": "WEB2-PHP-9.제어문 예고",
+        "sub": false,
+        "title": "WEB2-PHP-9.제어문 예고",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-9.제어문 예고' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 3:49",
+          "재생목록 17번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 17,
+        "videoId": "Kfb8N_OdQEY",
+        "playlistIndex": 18,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Kfb8N_OdQEY&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=18",
+        "label": "WEB2-PHP-10.조건문 예고",
+        "sub": false,
+        "title": "WEB2-PHP-10.조건문 예고",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-10.조건문 예고' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 2:13",
+          "재생목록 18번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 18,
+        "videoId": "510Wp9CjtTk",
+        "playlistIndex": 19,
+        "youtubeUrl": "https://www.youtube.com/watch?v=510Wp9CjtTk&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=19",
+        "label": "WEB2-PHP-11.Boolean과 비교 연산자",
+        "sub": false,
+        "title": "WEB2-PHP-11.Boolean과 비교 연산자",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-11.Boolean과 비교 연산자' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 9:15",
+          "재생목록 19번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 19,
+        "videoId": "ZvhFgNsufHg",
+        "playlistIndex": 20,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZvhFgNsufHg&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=20",
+        "label": "WEB2-PHP-12.조건문의 형식",
+        "sub": false,
+        "title": "WEB2-PHP-12.조건문의 형식",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-12.조건문의 형식' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 7:42",
+          "재생목록 20번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 20,
+        "videoId": "U_kj_IlbH20",
+        "playlistIndex": 21,
+        "youtubeUrl": "https://www.youtube.com/watch?v=U_kj_IlbH20&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=21",
+        "label": "WEB2 PHP 13 조건문의활용",
+        "sub": false,
+        "title": "WEB2 PHP 13 조건문의활용",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2 PHP 13 조건문의활용' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 7:58",
+          "재생목록 21번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 21,
+        "videoId": "67os8K-ChEE",
+        "playlistIndex": 22,
+        "youtubeUrl": "https://www.youtube.com/watch?v=67os8K-ChEE&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=22",
+        "label": "WEB2-PHP-14.반복문 예고",
+        "sub": false,
+        "title": "WEB2-PHP-14.반복문 예고",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-14.반복문 예고' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 5:51",
+          "재생목록 22번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 22,
+        "videoId": "Nlz04vYZtcI",
+        "playlistIndex": 23,
+        "youtubeUrl": "https://www.youtube.com/watch?v=Nlz04vYZtcI&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=23",
+        "label": "WEB2-PHP-15.반복문의 형식",
+        "sub": false,
+        "title": "WEB2-PHP-15.반복문의 형식",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-15.반복문의 형식' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 14:11",
+          "재생목록 23번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 23,
+        "videoId": "5jl6ajMrCW8",
+        "playlistIndex": 24,
+        "youtubeUrl": "https://www.youtube.com/watch?v=5jl6ajMrCW8&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=24",
+        "label": "WEB2-PHP-16.Array format",
+        "sub": false,
+        "title": "WEB2-PHP-16.Array format",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-16.Array format' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 15:37",
+          "재생목록 24번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 24,
+        "videoId": "x2EGMVsavIg",
+        "playlistIndex": 25,
+        "youtubeUrl": "https://www.youtube.com/watch?v=x2EGMVsavIg&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=25",
+        "label": "WEB2-PHP-17.1.반복문과 조건문의 활용 1",
+        "sub": false,
+        "title": "WEB2-PHP-17.1.반복문과 조건문의 활용 1",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-17.1.반복문과 조건문의 활용 1' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 9:31",
+          "재생목록 25번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 25,
+        "videoId": "a_bKdbjpko4",
+        "playlistIndex": 26,
+        "youtubeUrl": "https://www.youtube.com/watch?v=a_bKdbjpko4&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=26",
+        "label": "WEB2-PHP-17.2.반복문과 조건문의 활용 2",
+        "sub": false,
+        "title": "WEB2-PHP-17.2.반복문과 조건문의 활용 2",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-17.2.반복문과 조건문의 활용 2' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 11:49",
+          "재생목록 26번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 26,
+        "videoId": "dOWhji4PY2k",
+        "playlistIndex": 27,
+        "youtubeUrl": "https://www.youtube.com/watch?v=dOWhji4PY2k&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=27",
+        "label": "WEB2-PHP-17.3. Using Loops and Conditional Statements 3",
+        "sub": false,
+        "title": "WEB2-PHP-17.3. Using Loops and Conditional Statements 3",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-17.3. Using Loops and Conditional Statements 3' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 7:18",
+          "재생목록 27번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 27,
+        "videoId": "XAVYo8uLlWM",
+        "playlistIndex": 28,
+        "youtubeUrl": "https://www.youtube.com/watch?v=XAVYo8uLlWM&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=28",
+        "label": "WEB2-PHP-18-함수 만들기 예고",
+        "sub": false,
+        "title": "WEB2-PHP-18-함수 만들기 예고",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-18-함수 만들기 예고' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 5:56",
+          "재생목록 28번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 28,
+        "videoId": "gfCyAy_kE7M",
+        "playlistIndex": 29,
+        "youtubeUrl": "https://www.youtube.com/watch?v=gfCyAy_kE7M&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=29",
+        "label": "WEB2-PHP-19.1. Function Format 1/3",
+        "sub": false,
+        "title": "WEB2-PHP-19.1. Function Format 1/3",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-19.1. Function Format 1/3' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 6:17",
+          "재생목록 29번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 29,
+        "videoId": "g1oXQ5hBDsc",
+        "playlistIndex": 30,
+        "youtubeUrl": "https://www.youtube.com/watch?v=g1oXQ5hBDsc&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=30",
+        "label": "WEB2-PHP-19.2.함수의 형식 2/3",
+        "sub": false,
+        "title": "WEB2-PHP-19.2.함수의 형식 2/3",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-19.2.함수의 형식 2/3' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 5:36",
+          "재생목록 30번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 30,
+        "videoId": "1JrU2jWH2h0",
+        "playlistIndex": 31,
+        "youtubeUrl": "https://www.youtube.com/watch?v=1JrU2jWH2h0&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=31",
+        "label": "WEB2-PHP-19.3.함수의 형식 3/3",
+        "sub": false,
+        "title": "WEB2-PHP-19.3.함수의 형식 3/3",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-19.3.함수의 형식 3/3' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 8:17",
+          "재생목록 31번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 31,
+        "videoId": "P6tQrxmLkhY",
+        "playlistIndex": 32,
+        "youtubeUrl": "https://www.youtube.com/watch?v=P6tQrxmLkhY&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=32",
+        "label": "WEB2-PHP.20.함수의 활용",
+        "sub": false,
+        "title": "WEB2-PHP.20.함수의 활용",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP.20.함수의 활용' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 5:16",
+          "재생목록 32번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 32,
+        "videoId": "PDtUg2rne8M",
+        "playlistIndex": 33,
+        "youtubeUrl": "https://www.youtube.com/watch?v=PDtUg2rne8M&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=33",
+        "label": "WEB2-PHP-21.웹앱 완성하기 예고",
+        "sub": false,
+        "title": "WEB2-PHP-21.웹앱 완성하기 예고",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-21.웹앱 완성하기 예고' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 5:26",
+          "재생목록 33번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 33,
+        "videoId": "7tewXu5Zo2Q",
+        "playlistIndex": 34,
+        "youtubeUrl": "https://www.youtube.com/watch?v=7tewXu5Zo2Q&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=34",
+        "label": "WEB2-PHP-22. Form and POST",
+        "sub": false,
+        "title": "WEB2-PHP-22. Form and POST",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-22. Form and POST' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 18:31",
+          "재생목록 34번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 34,
+        "videoId": "ExLCGW51mk0",
+        "playlistIndex": 35,
+        "youtubeUrl": "https://www.youtube.com/watch?v=ExLCGW51mk0&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=35",
+        "label": "WEB2-PHP-23.글생성",
+        "sub": false,
+        "title": "WEB2-PHP-23.글생성",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-23.글생성' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 8:49",
+          "재생목록 35번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 35,
+        "videoId": "vQnyPjih2dQ",
+        "playlistIndex": 36,
+        "youtubeUrl": "https://www.youtube.com/watch?v=vQnyPjih2dQ&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=36",
+        "label": "WEB2-PHP-24. Edit",
+        "sub": false,
+        "title": "WEB2-PHP-24. Edit",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-24. Edit' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 15:22",
+          "재생목록 36번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 36,
+        "videoId": "jGWumB5EZ1o",
+        "playlistIndex": 37,
+        "youtubeUrl": "https://www.youtube.com/watch?v=jGWumB5EZ1o&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=37",
+        "label": "WEB2-PHP-25. Delete Post",
+        "sub": false,
+        "title": "WEB2-PHP-25. Delete Post",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-25. Delete Post' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 9:03",
+          "재생목록 37번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 37,
+        "videoId": "XmNzWGKe3wg",
+        "playlistIndex": 38,
+        "youtubeUrl": "https://www.youtube.com/watch?v=XmNzWGKe3wg&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=38",
+        "label": "WEB2-PHP-26. Modularization with files - require",
+        "sub": false,
+        "title": "WEB2-PHP-26. Modularization with files - require",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-26. Modularization with files - require' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 14:58",
+          "재생목록 38번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 38,
+        "videoId": "8WV1Ym9BjEQ",
+        "playlistIndex": 39,
+        "youtubeUrl": "https://www.youtube.com/watch?v=8WV1Ym9BjEQ&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=39",
+        "label": "WEB2-PHP-27.1.보안 XSS",
+        "sub": false,
+        "title": "WEB2-PHP-27.1.보안 XSS",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-27.1.보안 XSS' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 10:09",
+          "재생목록 39번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 39,
+        "videoId": "t0qRL6BvkjE",
+        "playlistIndex": 40,
+        "youtubeUrl": "https://www.youtube.com/watch?v=t0qRL6BvkjE&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=40",
+        "label": "WEB2-PHP-27.2.보안 파일 경로 보호",
+        "sub": false,
+        "title": "WEB2-PHP-27.2.보안 파일 경로 보호",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-27.2.보안 파일 경로 보호' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 6:31",
+          "재생목록 40번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 40,
+        "videoId": "c4zbebEazs0",
+        "playlistIndex": 41,
+        "youtubeUrl": "https://www.youtube.com/watch?v=c4zbebEazs0&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=41",
+        "label": "WEB2-PHP-29. UI API 그리고 공부방법",
+        "sub": false,
+        "title": "WEB2-PHP-29. UI API 그리고 공부방법",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-29. UI API 그리고 공부방법' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 3:58",
+          "재생목록 41번째 영상"
+        ],
+        "code": null
+      },
+      {
+        "id": 41,
+        "videoId": "uMv5KpczgRg",
+        "playlistIndex": 42,
+        "youtubeUrl": "https://www.youtube.com/watch?v=uMv5KpczgRg&list=PLuHgQVnccGMAMMNByX8Bf1BkVrShBhj1I&index=42",
+        "label": "WEB2-PHP-30. 수업을 마치며",
+        "sub": false,
+        "title": "WEB2-PHP-30. 수업을 마치며",
+        "desc": "생활코딩 WEB2-PHP 공식 재생목록의 'WEB2-PHP-30. 수업을 마치며' 강의입니다. 영상과 함께 PHP 문법과 웹 애플리케이션 구현 흐름을 순서대로 학습합니다.",
+        "points": [
+          "생활코딩 WEB2-PHP 공식 재생목록",
+          "영상 길이 17:45",
+          "재생목록 42번째 영상"
+        ],
+        "code": null
+      }
+    ]
   }
 }

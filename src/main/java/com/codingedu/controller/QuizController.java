@@ -6,6 +6,7 @@ import com.codingedu.entity.Quiz;
 import com.codingedu.entity.QuizResult;
 import com.codingedu.entity.User;
 import com.codingedu.security.CustomUserDetails;
+import com.codingedu.service.QuizAiCoachService;
 import com.codingedu.service.QuizService;
 import com.codingedu.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,10 +28,13 @@ public class QuizController {
 
     private final QuizService quizService;
     private final UserService userService;
+    private final QuizAiCoachService quizAiCoachService;
 
-    public QuizController(QuizService quizService, UserService userService) {
+    public QuizController(QuizService quizService, UserService userService,
+                          QuizAiCoachService quizAiCoachService) {
         this.quizService = quizService;
         this.userService = userService;
+        this.quizAiCoachService = quizAiCoachService;
     }
 
     // 1. DB 기반 퀴즈 목록 (메인 퀴즈 페이지)
@@ -135,6 +139,7 @@ public class QuizController {
         model.addAttribute("quizResult", quizResult);
         model.addAttribute("quiz", quiz);
         model.addAttribute("questionViews", questionViews);
+        model.addAttribute("aiFeedback", quizAiCoachService.analyze(quiz, quizResult, details));
         return "quiz-result";
     }
 

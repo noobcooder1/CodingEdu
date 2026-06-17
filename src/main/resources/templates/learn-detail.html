@@ -482,6 +482,21 @@
         }
         .next-lesson-link:hover { color: var(--accent); }
         .next-lesson-link:disabled { opacity: .35; cursor: default; }
+        .lesson-watch-status {
+            margin: -12px 0 24px;
+            padding: 11px 14px;
+            border: 1px solid var(--border-card);
+            border-radius: 7px;
+            background: var(--bg-section);
+            color: var(--ink-2);
+            font-size: .82rem;
+            font-weight: 750;
+        }
+        .lesson-watch-status.ready {
+            border-color: rgba(16,185,129,.28);
+            background: rgba(16,185,129,.09);
+            color: var(--success);
+        }
         .page-lesson-detail .video-wrap {
             width: 100%;
             margin-bottom: 30px !important;
@@ -824,6 +839,10 @@ Object.entries(_rawNoteMap).forEach(([k, v]) => { noteMap[Number(k)] = v; });
 
 let currentLang = (initialLang && COURSES[initialLang]) ? initialLang : 'html';
 let currentLesson = 0;
+const watchedIndices = new Set(completedIndices);
+let lessonPlayer = null;
+let youtubeApiLoading = false;
+let youtubeApiCallbacks = [];
 
 function selectLang(lang, btn) {
     currentLang = lang;
@@ -864,14 +883,68 @@ function renderTopics() {
     document.getElementById('sideCourseProgressFill').style.width = progress + '%';
 }
 
+function canProceedToNext(idx) {
+    return completedIndices.has(idx) || watchedIndices.has(idx);
+}
+
+function getNextButtonLabel(idx) {
+    const course = COURSES[currentLang];
+    const isLast = idx === course.lessons.length - 1;
+    if (!canProceedToNext(idx)) return '영상 완료 후 다음 →';
+    if (isLast) return completedIndices.has(idx) ? '학습 완료' : '완료하기';
+    return completedIndices.has(idx) ? '다음 강의 →' : '완료 후 다음 강의 →';
+}
+
+function getWatchStatusText(idx) {
+    if (completedIndices.has(idx)) return '이미 완료한 강의입니다. 다음 강의로 이동할 수 있어요.';
+    if (watchedIndices.has(idx)) return '영상 시청 완료! 다음 강의로 이동할 수 있어요.';
+    return '영상을 끝까지 시청하면 다음 강의 버튼이 활성화됩니다.';
+}
+
+function updateNextControls() {
+    const course = COURSES[currentLang];
+    const canProceed = canProceedToNext(currentLesson);
+    const isLast = currentLesson === course.lessons.length - 1;
+    const nextBtn = document.getElementById('nextBtn');
+    const topNextBtn = document.getElementById('topNextBtn');
+    const watchStatus = document.getElementById('watchStatus');
+
+    if (nextBtn) {
+        nextBtn.disabled = !canProceed;
+        nextBtn.textContent = getNextButtonLabel(currentLesson);
+    }
+    if (topNextBtn) {
+        topNextBtn.disabled = isLast || !canProceed;
+        topNextBtn.innerHTML = `${canProceed ? '다음 강의' : '영상 완료 후 다음'} <span>›</span>`;
+    }
+    if (watchStatus) {
+        watchStatus.classList.toggle('ready', canProceed);
+        watchStatus.textContent = getWatchStatusText(currentLesson);
+    }
+}
+
+function markVideoWatched(idx) {
+    if (idx !== currentLesson) return;
+    watchedIndices.add(idx);
+    updateNextControls();
+}
+
 function renderLesson(idx) {
     const course = COURSES[currentLang];
     const l = course.lessons[idx];
     currentLesson = idx;
+    if (lessonPlayer && typeof lessonPlayer.destroy === 'function') {
+        lessonPlayer.destroy();
+        lessonPlayer = null;
+    }
 
     document.querySelectorAll(".topic-item").forEach((el, i) => {
         el.classList.toggle("active", i === idx);
     });
+
+    const isLastLesson = idx === course.lessons.length - 1;
+    const canProceed = canProceedToNext(idx);
+    const nextLabel = getNextButtonLabel(idx);
 
     const codeBlock = l.code ? `
         <div class="code-label">📋 예제 코드</div>
@@ -890,8 +963,9 @@ function renderLesson(idx) {
                 <h1 class="lesson-main-title">${l.title}</h1>
             </div>
             <button class="next-lesson-link" onclick="selectLesson(${idx + 1})"
-                    ${idx === course.lessons.length - 1 ? "disabled" : ""}>
-                다음 강의 <span>›</span>
+                    id="topNextBtn"
+                    ${isLastLesson || !canProceed ? "disabled" : ""}>
+                ${canProceed ? '다음 강의' : '영상 완료 후 다음'} <span>›</span>
             </button>
         </div>
 
@@ -904,6 +978,9 @@ function renderLesson(idx) {
             </div>
             <button class="play-btn" aria-label="강의 영상 재생"
                     onclick="playVideo('${l.videoId || course.videoId}', ${idx}, ${Number(l.videoStart || course.videoStart || 0)}, '${course.playlistId || ''}', ${Number(l.playlistIndex || idx + 1)})"></button>
+        </div>
+        <div class="lesson-watch-status ${canProceed ? 'ready' : ''}" id="watchStatus">
+            ${getWatchStatusText(idx)}
         </div>
 
         <div class="lesson-support-content">
@@ -921,8 +998,9 @@ function renderLesson(idx) {
                     ← 이전 강의
                 </button>
                 <button class="nav-btn next" id="nextBtn"
-                    onclick="completeAndNext(${idx})">
-                    ${completedIndices.has(idx) ? '다음 강의 →' : '완료 후 다음 강의 →'}
+                    onclick="completeAndNext(${idx})"
+                    ${canProceed ? "" : "disabled"}>
+                    ${nextLabel}
                 </button>
             </div>
         </div>
@@ -972,17 +1050,59 @@ function switchToolPanel(panel, button) {
     });
 }
 
+function ensureYouTubeApi(callback) {
+    if (window.YT && window.YT.Player) {
+        callback();
+        return;
+    }
+
+    youtubeApiCallbacks.push(callback);
+    if (youtubeApiLoading) return;
+
+    youtubeApiLoading = true;
+    window.onYouTubeIframeAPIReady = function () {
+        youtubeApiLoading = false;
+        const callbacks = youtubeApiCallbacks.slice();
+        youtubeApiCallbacks = [];
+        callbacks.forEach(cb => cb());
+    };
+
+    const script = document.createElement('script');
+    script.src = 'https://www.youtube.com/iframe_api';
+    script.async = true;
+    document.head.appendChild(script);
+}
+
 function playVideo(videoId, idx, start = 0, playlistId = '', playlistIndex = 1) {
     const wrap = document.getElementById('videoWrap');
     if (!wrap || !videoId) return;
-    const startParam = Number(start) > 0 ? `&start=${Number(start)}` : '';
-    const playlistParam = playlistId
-        ? `&list=${encodeURIComponent(playlistId)}&index=${Number(playlistIndex) || idx + 1}`
-        : '';
-    wrap.innerHTML = `<iframe
-        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${startParam}${playlistParam}"
-        style="position:absolute;inset:0;width:100%;height:100%;border:none;"
-        allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    wrap.innerHTML = '<div id="lessonYoutubePlayer" style="position:absolute;inset:0;width:100%;height:100%;"></div>';
+
+    ensureYouTubeApi(function () {
+        if (lessonPlayer && typeof lessonPlayer.destroy === 'function') {
+            lessonPlayer.destroy();
+        }
+
+        const playerVars = {
+            autoplay: 1,
+            rel: 0,
+            playsinline: 1,
+            origin: window.location.origin
+        };
+        if (Number(start) > 0) playerVars.start = Number(start);
+
+        lessonPlayer = new YT.Player('lessonYoutubePlayer', {
+            videoId: videoId,
+            playerVars: playerVars,
+            events: {
+                onStateChange: function (event) {
+                    if (event.data === YT.PlayerState.ENDED) {
+                        markVideoWatched(idx);
+                    }
+                }
+            }
+        });
+    });
 }
 
 function selectLesson(idx) {
@@ -994,6 +1114,11 @@ function selectLesson(idx) {
 async function completeAndNext(idx) {
     const course = COURSES[currentLang];
     const btn = document.getElementById('nextBtn');
+    if (!canProceedToNext(idx)) {
+        showWatchRequiredToast();
+        updateNextControls();
+        return;
+    }
     if (btn) { btn.disabled = true; btn.textContent = '저장 중...'; }
 
     if (isLoggedIn && !completedIndices.has(idx)) {
@@ -1016,8 +1141,25 @@ async function completeAndNext(idx) {
         selectLesson(idx + 1);
     } else {
         showCompleteToast(false, idx);
-        if (btn) { btn.disabled = false; btn.textContent = '다음 강의 →'; }
+        if (btn) { btn.disabled = false; btn.textContent = getNextButtonLabel(idx); }
     }
+}
+
+function showWatchRequiredToast() {
+    const existing = document.getElementById('complete-toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'complete-toast';
+    toast.style.cssText = `
+        position:fixed; bottom:32px; left:50%; transform:translateX(-50%);
+        background:var(--ink-1); color:#fff; border-radius:16px;
+        padding:16px 24px; font-weight:800; font-size:.92rem;
+        box-shadow:0 8px 24px rgba(0,0,0,0.3); z-index:9999;
+    `;
+    toast.textContent = '영상을 끝까지 시청하면 다음 강의로 이동할 수 있어요.';
+    document.body.appendChild(toast);
+    setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3000);
 }
 
 function showCompleteToast(hasNext, lessonIdx) {
@@ -1126,6 +1268,7 @@ if (activeBtn) activeBtn.classList.add("active");
 renderTopics();
 renderLesson(0);
 </script>
+<script src="/js/nav.js"></script>
 
 </body>
 </html>

@@ -91,14 +91,14 @@ public class ChallengeService {
                 .orElseThrow(() -> new IllegalArgumentException("Participation does not exist."));
         if (p.isCompleted()) return;
         if (githubUrl != null && !githubUrl.isBlank()) {
-            String safeGithubUrl = githubUrl.trim();
-            if (!safeGithubUrl.matches("^https?://github\\.com/[^/\\s]+/[^/\\s]+/?$")) {
-                throw new IllegalArgumentException("Enter a valid GitHub repository URL.");
+            String safeProofUrl = githubUrl.trim();
+            if (!safeProofUrl.matches("^https?://\\S+$")) {
+                throw new IllegalArgumentException("Enter a valid proof URL.");
             }
-            if (safeGithubUrl.length() > 300) {
-                throw new IllegalArgumentException("GitHub URL is too long.");
+            if (safeProofUrl.length() > 300) {
+                throw new IllegalArgumentException("Proof URL is too long.");
             }
-            p.setGithubUrl(safeGithubUrl);
+            p.setGithubUrl(safeProofUrl);
         }
         p.setCompletedAt(java.time.LocalDateTime.now());
         participationRepository.save(p);

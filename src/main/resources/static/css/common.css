@@ -552,6 +552,233 @@ section { padding: 100px 7%; }
 .card-body { padding: 28px; }
 
 /* ══════════════════════════════════════════════
+   AI 학습 도우미 — Floating Mascot Chat
+══════════════════════════════════════════════ */
+.ai-buddy {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 900;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: inherit;
+}
+.ai-buddy-panel {
+  position: absolute;
+  right: 0;
+  bottom: 86px;
+  display: flex;
+  flex-direction: column;
+  width: min(360px, calc(100vw - 32px));
+  max-height: min(620px, calc(100vh - 124px));
+  overflow: hidden;
+  border: 1px solid rgba(37,99,235,0.14);
+  border-radius: 24px;
+  background: var(--bg-surface);
+  box-shadow: 0 24px 70px rgba(15,23,42,0.20);
+  transform: translateY(12px) scale(0.96);
+  transform-origin: bottom right;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s cubic-bezier(0.22,1,0.36,1);
+}
+.ai-buddy.open .ai-buddy-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+.ai-buddy-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 18px 16px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(96,165,250,.28), transparent 32%),
+    linear-gradient(135deg, var(--accent), var(--mint));
+  color: #fff;
+}
+.ai-buddy-head strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 900;
+}
+.ai-buddy-subtitle {
+  display: block;
+  margin-top: 3px;
+  font-size: .78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.78);
+}
+.ai-buddy-close {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.16);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 900;
+}
+.ai-buddy-body {
+  min-height: 0;
+  flex: 1 1 auto;
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.ai-buddy-body::-webkit-scrollbar {
+  width: 8px;
+}
+.ai-buddy-body::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(79, 91, 238, .22);
+}
+.ai-buddy-msg {
+  max-width: 88%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  color: var(--ink-2);
+  background: var(--bg-section);
+  font-size: .88rem;
+  line-height: 1.55;
+  font-weight: 650;
+}
+.ai-buddy-msg.user {
+  justify-self: end;
+  color: #fff;
+  background: var(--accent);
+}
+.ai-buddy-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ai-buddy-chip {
+  border: 1px solid rgba(37,99,235,.18);
+  border-radius: 999px;
+  padding: 8px 11px;
+  background: var(--bg-surface);
+  color: var(--accent);
+  cursor: pointer;
+  font-size: .78rem;
+  font-weight: 850;
+}
+.ai-buddy-form {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+.ai-buddy-input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 11px 13px;
+  background: var(--bg);
+  color: var(--ink-1);
+  font: inherit;
+  font-size: .86rem;
+  outline: none;
+}
+.ai-buddy-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+.ai-buddy-send {
+  width: 44px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 950;
+}
+.ai-buddy-toggle {
+  min-width: 74px;
+  height: 74px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 16px 8px 8px;
+  background: var(--bg-surface);
+  color: var(--ink-1);
+  cursor: pointer;
+  box-shadow: 0 18px 44px rgba(37,99,235,.22);
+  font-weight: 900;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.ai-buddy-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 54px rgba(37,99,235,.28);
+}
+.ai-buddy-face {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255,255,255,.95), transparent 18%),
+    linear-gradient(145deg, #f7fbff, #dbeafe 58%, #bfdbfe);
+  border: 2px solid rgba(255,255,255,.82);
+  box-shadow: inset 0 -8px 16px rgba(37,99,235,.14), 0 8px 18px rgba(37,99,235,.18);
+}
+.ai-buddy-face::before,
+.ai-buddy-face::after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  width: 7px;
+  height: 11px;
+  border-radius: 999px;
+  background: #1e293b;
+}
+.ai-buddy-face::before { left: 14px; }
+.ai-buddy-face::after { right: 14px; }
+.ai-buddy-mouth {
+  display: none;
+}
+.ai-buddy-label {
+  font-size: .88rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .ai-buddy {
+    right: 16px;
+    bottom: 16px;
+  }
+  .ai-buddy-toggle {
+    min-width: 62px;
+    height: 62px;
+    padding: 5px;
+  }
+  .ai-buddy-label {
+    display: none;
+  }
+  .ai-buddy-face {
+    width: 50px;
+    height: 50px;
+  }
+  .ai-buddy-panel {
+    bottom: 74px;
+  }
+}
+
+/* ══════════════════════════════════════════════
    반응형
 ══════════════════════════════════════════════ */
 @media (max-width: 900px) {

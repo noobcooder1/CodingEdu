@@ -123,7 +123,7 @@ public class ChallengeController {
             challengeService.complete(user, challenge, githubUrl);
             ra.addFlashAttribute("completeMsg", "🎉 챌린지 완료를 인증했습니다! 수고하셨어요!");
         } catch (IllegalArgumentException e) {
-            ra.addFlashAttribute("challengeError", "완료 인증에 실패했어요. 챌린지 상태나 GitHub 저장소 주소를 확인해주세요.");
+            ra.addFlashAttribute("challengeError", "완료 인증에 실패했어요. 챌린지 상태나 학습 기록 링크를 확인해주세요.");
         }
         return "redirect:/challenge/" + id;
     }

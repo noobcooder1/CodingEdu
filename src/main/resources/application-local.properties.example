@@ -7,3 +7,10 @@ spring.datasource.url=jdbc:mysql://<gateway-host>.tidbcloud.com:4000/<database>?
 spring.datasource.username=<user>
 spring.datasource.password=<password>
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Gemini API
+# 실제 키는 application-local.properties 또는 환경변수 GEMINI_API_KEY에만 설정하세요.
+gemini.api.key=${GEMINI_API_KEY:}
+# 앞 모델의 제한량/오류가 발생하면 다음 모델을 순서대로 시도합니다.
+gemini.api.model=gemini-2.5-flash
+gemini.api.models=gemini-2.5-flash,gemini-2.5-flash-lite,gemini-2.0-flash,gemini-2.0-flash-lite

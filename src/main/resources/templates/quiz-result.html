@@ -71,6 +71,93 @@
             padding: 14px 18px; font-size: .9rem; color: var(--ink-2); line-height: 1.6; margin-top: 16px;
         }
 
+        .ai-coach-wrap {
+            margin: 0 0 32px;
+            background: linear-gradient(135deg, rgba(79,85,231,.10), rgba(16,185,129,.10));
+            border: 2px solid rgba(79,85,231,.18);
+            border-radius: 26px;
+            padding: 26px;
+            box-shadow: 0 10px 30px rgba(79,85,231,.10);
+        }
+        .ai-coach-head {
+            display: flex; align-items: center; justify-content: space-between; gap: 18px;
+            flex-wrap: wrap;
+        }
+        .ai-coach-title {
+            display: flex; align-items: center; gap: 14px;
+        }
+        .ai-coach-mark {
+            width: 52px; height: 52px; border-radius: 18px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--accent); color: white; font-weight: 900;
+            box-shadow: 0 10px 24px rgba(79,85,231,.26);
+        }
+        .ai-coach-title h2 {
+            font-size: 1.25rem; font-weight: 900; color: var(--ink-1); margin: 0;
+        }
+        .ai-coach-title p {
+            color: var(--ink-3); font-size: .9rem; font-weight: 700; margin-top: 4px;
+        }
+        .ai-toggle-btn {
+            border: 0; border-radius: 999px; padding: 13px 24px;
+            background: var(--accent); color: white; font-weight: 900;
+            cursor: pointer; box-shadow: 0 8px 20px rgba(79,85,231,.25);
+            transition: transform .2s, background .2s;
+        }
+        .ai-toggle-btn:hover { transform: translateY(-2px); background: var(--accent-h); }
+        .ai-coach-panel {
+            display: none; margin-top: 22px; gap: 16px;
+        }
+        .ai-coach-panel.open { display: grid; }
+        .ai-summary-grid {
+            display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;
+        }
+        .ai-summary-card {
+            background: var(--bg-surface); border: 2px solid var(--border);
+            border-radius: 18px; padding: 18px;
+        }
+        .ai-summary-card b {
+            display: block; color: var(--accent); font-size: .85rem; margin-bottom: 8px;
+        }
+        .ai-summary-card p {
+            color: var(--ink-2); font-size: .92rem; line-height: 1.55; font-weight: 700;
+        }
+        .ai-tip-list {
+            background: var(--bg-surface); border: 2px solid var(--border);
+            border-radius: 18px; padding: 18px 20px;
+        }
+        .ai-tip-list h3,
+        .ai-wrong-list h3 {
+            font-size: 1rem; font-weight: 900; color: var(--ink-1); margin-bottom: 10px;
+        }
+        .ai-tip-list li {
+            color: var(--ink-2); font-size: .92rem; line-height: 1.55; font-weight: 700;
+            margin: 8px 0;
+        }
+        .ai-wrong-list {
+            display: grid; gap: 12px;
+        }
+        .ai-wrong-card {
+            background: var(--bg-surface); border: 2px solid var(--border);
+            border-left: 6px solid var(--danger); border-radius: 18px; padding: 18px;
+        }
+        .ai-wrong-card strong {
+            display: block; color: var(--ink-1); font-weight: 900; margin-bottom: 10px;
+        }
+        .ai-answer-line {
+            display: grid; gap: 6px; color: var(--ink-2); font-size: .9rem; line-height: 1.5;
+        }
+        .ai-answer-line span { font-weight: 800; }
+        .ai-answer-line .selected { color: var(--danger); }
+        .ai-answer-line .correct { color: var(--success); }
+        .ai-empty {
+            background: var(--success-soft); border: 2px solid var(--success);
+            border-radius: 18px; padding: 18px; color: var(--success); font-weight: 900;
+        }
+        @media (max-width: 900px) {
+            .ai-summary-grid { grid-template-columns: 1fr; }
+        }
+
         .btn-group-result { display: flex; gap: 16px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
         .btn-retry {
             background: var(--accent); color: white; padding: 14px 36px;
@@ -158,6 +245,62 @@
         </div>
     </div>
 
+    <!-- AI 오답 해설 -->
+    <section class="ai-coach-wrap reveal" th:if="${aiFeedback != null}">
+        <div class="ai-coach-head">
+            <div class="ai-coach-title">
+                <span class="ai-coach-mark">AI</span>
+                <div>
+                    <h2>AI 오답 해설 코치</h2>
+                    <p>퀴즈 결과를 바탕으로 부족한 개념과 다음 학습 방향을 정리했어요.</p>
+                </div>
+            </div>
+            <button type="button" class="ai-toggle-btn" id="aiCoachToggle" aria-expanded="false" aria-controls="aiCoachPanel">
+                AI 해설 보기
+            </button>
+        </div>
+
+        <div class="ai-coach-panel" id="aiCoachPanel">
+            <div class="ai-summary-grid">
+                <article class="ai-summary-card">
+                    <b>결과 분석</b>
+                    <p th:text="${aiFeedback.summary}">결과 분석</p>
+                </article>
+                <article class="ai-summary-card">
+                    <b>집중 개념</b>
+                    <p th:text="${aiFeedback.focusConcept}">집중 개념</p>
+                </article>
+                <article class="ai-summary-card">
+                    <b>다음 행동</b>
+                    <p th:text="${aiFeedback.nextAction}">다음 행동</p>
+                </article>
+            </div>
+
+            <div class="ai-tip-list">
+                <h3>AI 학습 팁</h3>
+                <ul>
+                    <li th:each="tip : ${aiFeedback.studyTips}" th:text="${tip}">학습 팁</li>
+                </ul>
+            </div>
+
+            <div class="ai-empty" th:if="${#lists.isEmpty(aiFeedback.wrongReviews)}">
+                오답이 없어요. 같은 주제의 더 높은 난이도나 챌린지로 넘어가도 좋습니다.
+            </div>
+
+            <div class="ai-wrong-list" th:if="${!#lists.isEmpty(aiFeedback.wrongReviews)}">
+                <h3>오답별 핵심 해설</h3>
+                <article class="ai-wrong-card" th:each="review : ${aiFeedback.wrongReviews}">
+                    <strong th:text="'Q' + ${review.order} + '. ' + ${review.questionText}">문제</strong>
+                    <div class="ai-answer-line">
+                        <span class="selected" th:text="'내 선택: ' + ${review.selectedAnswer}">내 선택</span>
+                        <span class="correct" th:text="'정답: ' + ${review.correctAnswer}">정답</span>
+                        <span th:text="'AI 코멘트: ' + ${review.explanation}">AI 코멘트</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- 문제별 해설 -->
     <div class="review-section reveal">
         <h2>📋 문제별 해설</h2>
@@ -193,6 +336,15 @@
 </div>
 
 <script src="/js/nav.js"></script>
+<script>
+    const aiCoachToggle = document.getElementById('aiCoachToggle');
+    const aiCoachPanel = document.getElementById('aiCoachPanel');
+    aiCoachToggle?.addEventListener('click', () => {
+        const opened = aiCoachPanel.classList.toggle('open');
+        aiCoachToggle.setAttribute('aria-expanded', String(opened));
+        aiCoachToggle.textContent = opened ? 'AI 해설 접기' : 'AI 해설 보기';
+    });
+</script>
 
 </body>
 </html>

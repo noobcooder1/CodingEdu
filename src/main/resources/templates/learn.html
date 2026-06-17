@@ -55,7 +55,8 @@
                     <button class="course-tab" data-filter="html">HTML</button>
                     <button class="course-tab" data-filter="css">CSS</button>
                     <button class="course-tab" data-filter="javascript">JavaScript</button>
-                    <button class="course-tab" data-filter="project">프로젝트</button>
+                    <button class="course-tab" data-filter="java">Java</button>
+                    <button class="course-tab" data-filter="php">PHP</button>
                 </div>
 
                 <div class="course-grid-v2">
@@ -95,19 +96,6 @@
                                 <strong th:text="${percent} + '%'">0%</strong>
                             </div>
                             <div class="course-progress-track"><i th:style="'width:' + ${percent} + '%'"></i></div>
-                        </div>
-                    </a>
-
-                    <a href="/challenge" class="course-card-v2 course-project-card" data-course-type="project">
-                        <div class="course-thumbnail">
-                            <span class="course-language-mark">UI</span>
-                            <span class="course-thumbnail-code">⌘ + K</span>
-                        </div>
-                        <div class="course-card-body">
-                            <h2>반응형 웹 프로젝트</h2>
-                            <p>배운 내용을 활용해 나만의 웹 페이지를 완성해보세요.</p>
-                            <div class="course-progress-copy"><span>프로젝트 챌린지</span><strong>도전</strong></div>
-                            <div class="course-progress-track"><i style="width:20%"></i></div>
                         </div>
                     </a>
                 </div>

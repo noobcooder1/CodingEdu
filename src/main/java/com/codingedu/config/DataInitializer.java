@@ -13,11 +13,13 @@ import com.codingedu.repository.PostRepository;
 import com.codingedu.repository.QuizRepository;
 import com.codingedu.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -322,10 +324,10 @@ public class DataInitializer implements CommandLineRunner {
 
     // ── 강의 코스 시드 (upsert) ──────────────────────────────────────
     private void seedLessonCourses() {
-        // html, css, javascript 외의 기존 강의 코스는 DB에서 삭제
+        // 공식 강의 코스 외의 기존 강의 코스는 DB에서 삭제
         lessonCourseRepository.findAll().forEach(lc -> {
             String lang = lc.getLang();
-            if (!lang.equals("html") && !lang.equals("css") && !lang.equals("javascript")) {
+            if (!lang.equals("html") && !lang.equals("css") && !lang.equals("javascript") && !lang.equals("java") && !lang.equals("php")) {
                 lessonCourseRepository.delete(lc);
             }
         });
@@ -333,6 +335,8 @@ public class DataInitializer implements CommandLineRunner {
         upsertLc("html",       "WEB1 - HTML & Internet", "HTML", "web", "beginner",    28, "생활코딩 WEB1 공식 재생목록으로 배우는 HTML과 인터넷");
         upsertLc("css",        "WEB2 - CSS",            "🎨", "web",    "beginner",    15, "웹 페이지를 아름답게 꾸미는 스타일 언어");
         upsertLc("javascript", "WEB2 - JavaScript",     "⚡", "web",    "beginner",    38, "웹 페이지에 동작을 추가하는 프로그래밍 언어");
+        upsertLc("java",       "Java 입문 수업",          "JAVA", "backend", "beginner", 100, "생활코딩 Java 입문 수업 공식 재생목록으로 배우는 Java 기초와 객체지향");
+        upsertLc("php",        "WEB2-PHP",               "PHP", "backend", "beginner", 42, "생활코딩 WEB2-PHP 공식 재생목록으로 배우는 PHP와 웹 애플리케이션");
     }
 
     private void upsertLc(String lang, String title, String icon,
@@ -350,35 +354,70 @@ public class DataInitializer implements CommandLineRunner {
 
     // ── 챌린지 시드 ──────────────────────────────────────────────────
     private void seedChallenges() {
-        if (challengeRepository.count() > 0) return;
         LocalDate today = LocalDate.now();
-        challengeRepository.saveAll(List.of(
-            ch("30일 알고리즘 챌린지", "🚀",
-                "하루에 한 문제씩 꾸준히 풀며 코딩 테스트 실력을 확실하게 키워보세요! 스터디 그룹원들과 코드 리뷰도 진행합니다.",
+        List<Challenge> routineSeeds = List.of(
+            ch("WEB2 CSS 7일 완주 루틴", "CSS",
+                "생활코딩 CSS 강의를 매일 한 묶음씩 듣고, 바로 퀴즈와 노트로 복습하는 짧은 완주 루틴입니다.",
                 "active", true,
-                today.minusDays(15), today.plusDays(15), 30, 508,
-                "🔥 절반이나 왔어요! 지금 시작해도 충분합니다"),
-            ch("웹사이트 클론 코딩", "💻",
-                "유명한 웹사이트(넷플릭스, 에어비앤비 등)의 껍데기를 진짜 똑같이 만들어보며 프론트엔드 실전 경험을 쌓습니다!",
+                today.minusDays(2), today.plusDays(5), 7, 128,
+                "오늘 미션: CSS 강의 1개 시청 + 관련 퀴즈 3문제"),
+            ch("JavaScript 기초 5일 복습 루틴", "JS",
+                "JavaScript 핵심 강의를 보고 개념 퀴즈, 오답 해설, 짧은 실습까지 한 흐름으로 복습합니다.",
                 "active", false,
-                today.minusDays(9), today.plusDays(21), 3, 297,
-                "🎨 화면이 점점 멋져지네요! 지금 참여하세요"),
-            ch("백엔드 REST API 설계", "🎯",
-                "회원가입, 로그인, 게시판 기능이 있는 서버의 RESTful API를 직접 설계하고, Postman으로 테스트해 봅니다.",
+                today.minusDays(1), today.plusDays(4), 5, 96,
+                "오늘 미션: JavaScript 강의 1개 시청 + 오답 노트 정리"),
+            ch("PHP 웹앱 입문 루틴", "PHP",
+                "생활코딩 WEB2-PHP 강의를 따라가며 폼 처리와 웹 애플리케이션 흐름을 단계적으로 익힙니다.",
                 "active", false,
-                today.minusDays(5), today.plusDays(25), 12, 174,
-                "⚙️ 서버가 돌아가기 시작했어요! 아직 늦지 않았어요"),
-            ch("Python 데이터 분석 시각화", "📊",
-                "Pandas와 Matplotlib을 사용해서 넷플릭스 영화 데이터를 직접 분석하고 예쁜 차트로 시각화해 봅니다.",
+                today.minusDays(3), today.plusDays(11), 14, 72,
+                "오늘 미션: PHP 강의 1개 시청 + 핵심 문장 3줄 기록"),
+            ch("매일 퀴즈 3문제 챌린지", "✓",
+                "하루 3문제씩 풀고 AI 오답 해설로 부족한 개념을 바로 확인하는 문제 풀이 루틴입니다.",
+                "active", false,
+                today.minusDays(4), today.plusDays(10), 14, 154,
+                "오늘 미션: 원하는 과목 퀴즈 3문제 풀기"),
+            ch("Java 객체지향 7일 루틴", "JAVA",
+                "생활코딩 Java 강의를 기반으로 클래스, 상속, 인터페이스를 순서대로 익히는 백엔드 준비 루틴입니다.",
                 "upcoming", false,
-                today.plusDays(28), today.plusDays(42), 14, 0,
+                today.plusDays(12), today.plusDays(19), 7, 0,
                 null),
-            ch("Flutter 나만의 할 일 앱 만들기", "📱",
-                "iOS와 Android 양쪽에서 모두 동작하는 하이브리드 모바일 앱을 Flutter로 2주 안에 완성합니다.",
+            ch("질문 정리 습관 만들기", "Q",
+                "막힌 내용을 커뮤니티 질문으로 정리하고, 답변을 받기 쉬운 글쓰기 흐름을 연습합니다.",
                 "upcoming", false,
-                today.plusDays(44), today.plusDays(58), 14, 0,
+                today.plusDays(20), today.plusDays(27), 7, 0,
                 null)
-        ));
+        );
+
+        List<Challenge> current = challengeRepository.findAll(Sort.by("id").ascending());
+        List<Challenge> toSave = new ArrayList<>();
+        for (int i = 0; i < routineSeeds.size(); i++) {
+            Challenge target = i < current.size() ? current.get(i) : new Challenge();
+            copyChallengeSeed(target, routineSeeds.get(i));
+            toSave.add(target);
+        }
+        for (int i = routineSeeds.size(); i < current.size(); i++) {
+            Challenge old = current.get(i);
+            if ("active".equals(old.getStatus()) || "upcoming".equals(old.getStatus())) {
+                old.setStatus("ended");
+                old.setFeatured(false);
+                old.setProgressMessage("학습 루틴 중심으로 개편되며 종료된 챌린지입니다.");
+                toSave.add(old);
+            }
+        }
+        challengeRepository.saveAll(toSave);
+    }
+
+    private void copyChallengeSeed(Challenge target, Challenge source) {
+        target.setTitle(source.getTitle());
+        target.setIcon(source.getIcon());
+        target.setDescription(source.getDescription());
+        target.setStatus(source.getStatus());
+        target.setFeatured(source.isFeatured());
+        target.setStartDate(source.getStartDate());
+        target.setEndDate(source.getEndDate());
+        target.setTotalTasks(source.getTotalTasks());
+        target.setParticipantCount(source.getParticipantCount());
+        target.setProgressMessage(source.getProgressMessage());
     }
 
     private Challenge ch(String title, String icon, String description,
