@@ -224,3 +224,24 @@
     sendMessage(text);
   });
 })();
+
+// 강의 썸네일 보정: maxresdefault가 없는 영상은 유튜브가 404를 "회색 플레이스홀더 JPEG"로
+// 돌려줘 onerror가 발생하지 않는다. naturalWidth로 플레이스홀더/실패를 감지해 hqdefault로 교체.
+(function () {
+  function attach(img) {
+    var swapped = false;
+    function toFallback() {
+      if (swapped) return;
+      var fb = img.getAttribute('data-fallback-src');
+      if (fb && img.src !== fb) { swapped = true; img.src = fb; }
+    }
+    function check() {
+      // naturalWidth 0 = 로드 실패, <= 120 = 유튜브 회색 플레이스홀더(120x90)
+      if (img.naturalWidth === 0 || img.naturalWidth <= 120) toFallback();
+    }
+    img.addEventListener('error', toFallback);
+    if (img.complete) check();
+    else img.addEventListener('load', check);
+  }
+  document.querySelectorAll('.course-youtube-thumbnail img[data-fallback-src]').forEach(attach);
+})();
