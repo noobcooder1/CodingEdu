@@ -19,7 +19,6 @@
             gap: 24px;
             margin-bottom: 34px;
         }
-        .routine-spotlight,
         .routine-summary,
         .routine-card,
         .upcoming-routine {
@@ -28,24 +27,12 @@
             box-shadow: 0 16px 38px rgba(29, 44, 89, .08);
         }
         .routine-spotlight {
-            border-radius: 28px;
-            padding: 34px;
+            padding: 6px 4px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 26px;
-            overflow: hidden;
             position: relative;
-        }
-        .routine-spotlight::after {
-            content: "";
-            position: absolute;
-            right: -90px;
-            top: -120px;
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            background: rgba(79, 85, 231, .09);
         }
         .spotlight-copy { position: relative; z-index: 1; max-width: 620px; }
         .spotlight-label {
@@ -305,7 +292,7 @@
             .streak-badge { width: 80px; height: 80px; font-size: 2.2rem; }
         }
         @media (max-width: 720px) {
-            .routine-spotlight { flex-direction: column; padding: 26px; }
+            .routine-spotlight { flex-direction: column; padding: 6px 0; }
             .routine-meta { grid-template-columns: 1fr; }
             .routine-actions { flex-direction: column; }
             .upcoming-routine { grid-template-columns: 1fr; }
