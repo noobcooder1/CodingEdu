@@ -96,10 +96,40 @@
   var form = buddy.querySelector('#aiBuddyForm');
   var input = buddy.querySelector('#aiBuddyInput');
 
+  // ── 눈동자 시선 제어 ──
+  var faces = buddy.querySelectorAll('.ai-buddy-face');
+  var tracking = false; // 패널 열림 → 마우스 추적
+  var thinking = false; // 질문 받고 고민 중 → 눈 중앙 고정
+  var EYE_MAX = 3.2;    // 눈동자가 움직일 수 있는 최대 거리(px)
+
+  function lookAt(clientX, clientY) {
+    faces.forEach(function (face) {
+      var r = face.getBoundingClientRect();
+      var dx = clientX - (r.left + r.width / 2);
+      var dy = clientY - (r.top + r.height / 2);
+      var dist = Math.hypot(dx, dy) || 1;
+      face.style.setProperty('--aiEyeX', (dx / dist * EYE_MAX).toFixed(2) + 'px');
+      face.style.setProperty('--aiEyeY', (dy / dist * EYE_MAX).toFixed(2) + 'px');
+    });
+  }
+
+  function centerEyes() {
+    faces.forEach(function (face) {
+      face.style.setProperty('--aiEyeX', '0px');
+      face.style.setProperty('--aiEyeY', '0px');
+    });
+  }
+
+  document.addEventListener('mousemove', function (event) {
+    if (tracking && !thinking) lookAt(event.clientX, event.clientY);
+  });
+
   function setOpen(open) {
     buddy.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
     panel.setAttribute('aria-hidden', String(!open));
+    tracking = open;
+    if (!open) centerEyes();
     if (open) {
       window.setTimeout(function () {
         input.focus();
@@ -161,10 +191,14 @@
 
   function sendMessage(text) {
     addMessage(text, true);
+    // 질문을 받고 고민하는 동안에는 눈을 원래 위치(중앙)로 고정
+    thinking = true;
+    centerEyes();
     var pending = addMessage('답변을 준비하고 있어요...', false);
     requestAiAnswer(text).then(function (reply) {
       pending.textContent = reply;
       body.scrollTop = body.scrollHeight;
+      thinking = false; // 답변 완료 → 다시 마우스 추적
     });
   }
 
