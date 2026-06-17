@@ -360,32 +360,38 @@ public class DataInitializer implements CommandLineRunner {
                 "생활코딩 CSS 강의를 매일 한 묶음씩 듣고, 바로 퀴즈와 노트로 복습하는 짧은 완주 루틴입니다.",
                 "active", true,
                 today.minusDays(2), today.plusDays(5), 7, 128,
-                "오늘 미션: CSS 강의 1개 시청 + 관련 퀴즈 3문제"),
+                "오늘 미션: CSS 강의 1개 시청 + 관련 퀴즈 3문제",
+                "CSS 강의 시청,퀴즈 3문제,코드 따라치기,노트 정리"),
             ch("JavaScript 기초 5일 복습 루틴", "JS",
                 "JavaScript 핵심 강의를 보고 개념 퀴즈, 오답 해설, 짧은 실습까지 한 흐름으로 복습합니다.",
                 "active", false,
                 today.minusDays(1), today.plusDays(4), 5, 96,
-                "오늘 미션: JavaScript 강의 1개 시청 + 오답 노트 정리"),
+                "오늘 미션: JavaScript 강의 1개 시청 + 오답 노트 정리",
+                "JS 강의 시청,개념 퀴즈,오답 노트,짧은 실습"),
             ch("PHP 웹앱 입문 루틴", "PHP",
                 "생활코딩 WEB2-PHP 강의를 따라가며 폼 처리와 웹 애플리케이션 흐름을 단계적으로 익힙니다.",
                 "active", false,
                 today.minusDays(3), today.plusDays(11), 14, 72,
-                "오늘 미션: PHP 강의 1개 시청 + 핵심 문장 3줄 기록"),
+                "오늘 미션: PHP 강의 1개 시청 + 핵심 문장 3줄 기록",
+                "PHP 강의 시청,폼 처리 실습,핵심 3줄 기록"),
             ch("매일 퀴즈 3문제 챌린지", "✓",
                 "하루 3문제씩 풀고 AI 오답 해설로 부족한 개념을 바로 확인하는 문제 풀이 루틴입니다.",
                 "active", false,
                 today.minusDays(4), today.plusDays(10), 14, 154,
-                "오늘 미션: 원하는 과목 퀴즈 3문제 풀기"),
+                "오늘 미션: 원하는 과목 퀴즈 3문제 풀기",
+                "퀴즈 3문제,AI 오답 해설,취약 개념 체크"),
             ch("Java 객체지향 7일 루틴", "JAVA",
                 "생활코딩 Java 강의를 기반으로 클래스, 상속, 인터페이스를 순서대로 익히는 백엔드 준비 루틴입니다.",
                 "upcoming", false,
                 today.plusDays(12), today.plusDays(19), 7, 0,
-                null),
+                null,
+                "Java 강의 시청,클래스 실습,개념 정리"),
             ch("질문 정리 습관 만들기", "Q",
                 "막힌 내용을 커뮤니티 질문으로 정리하고, 답변을 받기 쉬운 글쓰기 흐름을 연습합니다.",
                 "upcoming", false,
                 today.plusDays(20), today.plusDays(27), 7, 0,
-                null)
+                null,
+                "막힌 점 메모,질문 글 작성,답변 정리")
         );
 
         List<Challenge> current = challengeRepository.findAll(Sort.by("id").ascending());
@@ -418,12 +424,14 @@ public class DataInitializer implements CommandLineRunner {
         target.setTotalTasks(source.getTotalTasks());
         target.setParticipantCount(source.getParticipantCount());
         target.setProgressMessage(source.getProgressMessage());
+        target.setMissions(source.getMissions());
     }
 
     private Challenge ch(String title, String icon, String description,
                           String status, boolean featured,
                           LocalDate startDate, LocalDate endDate,
-                          int totalTasks, int participantCount, String progressMessage) {
+                          int totalTasks, int participantCount, String progressMessage,
+                          String missions) {
         Challenge c = new Challenge();
         c.setTitle(title);
         c.setIcon(icon);
@@ -435,6 +443,7 @@ public class DataInitializer implements CommandLineRunner {
         c.setTotalTasks(totalTasks);
         c.setParticipantCount(participantCount);
         c.setProgressMessage(progressMessage);
+        c.setMissions(missions);
         return c;
     }
 

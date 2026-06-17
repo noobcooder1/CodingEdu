@@ -43,6 +43,10 @@ public class Challenge {
     @Column(name = "progress_message")
     private String progressMessage;
 
+    // 챌린지별 학습 미션(루틴) 라벨 — 콤마로 구분해 저장
+    @Column(name = "missions", columnDefinition = "TEXT")
+    private String missions;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -74,6 +78,17 @@ public class Challenge {
     public void setParticipantCount(int participantCount) { this.participantCount = participantCount; }
     public String getProgressMessage() { return progressMessage; }
     public void setProgressMessage(String progressMessage) { this.progressMessage = progressMessage; }
+    public String getMissions() { return missions; }
+    public void setMissions(String missions) { this.missions = missions; }
+
+    @Transient
+    public java.util.List<String> getMissionList() {
+        if (missions == null || missions.isBlank()) return java.util.List.of();
+        return java.util.Arrays.stream(missions.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .toList();
+    }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }

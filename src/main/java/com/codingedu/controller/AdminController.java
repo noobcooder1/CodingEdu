@@ -124,9 +124,10 @@ public class AdminController {
                                @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
                                @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
                                @RequestParam int totalTasks,
+                               @RequestParam(required = false, defaultValue = "") String missions,
                                RedirectAttributes ra) {
         challengeService.createChallenge(title, description, icon, status, featured,
-                startDate, endDate, totalTasks);
+                startDate, endDate, totalTasks, missions);
         ra.addFlashAttribute("msg", "챌린지가 추가되었습니다.");
         return "redirect:/admin?tab=challenges";
     }

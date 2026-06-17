@@ -136,7 +136,7 @@ public class ChallengeService {
     public Challenge createChallenge(String title, String description, String icon,
                                      String status, boolean featured,
                                      LocalDate startDate, LocalDate endDate,
-                                     int totalTasks) {
+                                     int totalTasks, String missions) {
         String safeTitle = requireText(title, "title", 255);
         if (!VALID_STATUSES.contains(status)) {
             throw new IllegalArgumentException("status must be active, upcoming, or ended.");
@@ -160,6 +160,7 @@ public class ChallengeService {
         c.setStartDate(startDate);
         c.setEndDate(endDate);
         c.setTotalTasks(totalTasks);
+        c.setMissions(missions == null ? "" : missions.trim());
         c.setParticipantCount(0);
         return challengeRepository.save(c);
     }

@@ -389,10 +389,8 @@
                         <h3 th:text="${c.title}">JavaScript 기초 루틴</h3>
                         <p th:text="${c.description}">설명</p>
 
-                        <div class="mission-list">
-                            <span>강의 시청</span>
-                            <span>퀴즈 풀이</span>
-                            <span>오답 정리</span>
+                        <div class="mission-list" th:if="${!c.missionList.isEmpty()}">
+                            <span th:each="m : ${c.missionList}" th:text="${m}">미션</span>
                         </div>
 
                         <div class="routine-meta">
