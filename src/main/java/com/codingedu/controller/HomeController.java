@@ -48,6 +48,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(@AuthenticationPrincipal CustomUserDetails userDetails, Model model) {
         model.addAttribute("siteUserCount", userService.countAll());
+        model.addAttribute("courses", lessonService.getAllCourses());
         model.addAttribute("siteCourseCount", lessonService.getAllCourses().size());
         model.addAttribute("siteLessonCount", lessonService.getAllCourses().stream()
                 .mapToInt(course -> course.getLessonCount())

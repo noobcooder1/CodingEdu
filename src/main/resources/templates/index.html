@@ -107,66 +107,34 @@
       <a href="/learn">전체 보기 <span>›</span></a>
     </div>
     <div class="recommended-grid">
-      <a href="/learn/html" class="course-card course-html">
+      <a th:each="c : ${courses}"
+         th:href="@{/learn/{lang}(lang=${c.lang})}"
+         class="course-card"
+         th:classappend="' course-' + ${c.lang}">
         <div class="course-cover course-youtube-thumbnail"
-             th:with="courseVideoId=${courseVideoIds['html']}"
+             th:with="courseVideoId=${courseVideoIds[c.lang]}"
              th:classappend="${courseVideoId == null or #strings.isEmpty(courseVideoId)} ? ' course-thumbnail-fallback' : ''">
           <img th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
                th:src="|https://i.ytimg.com/vi/${courseVideoId}/maxresdefault.jpg|"
                th:attr="data-fallback-src=|https://i.ytimg.com/vi/${courseVideoId}/hqdefault.jpg|"
-               alt="WEB1 - HTML &amp; Internet 유튜브 썸네일"
+               th:alt="${c.title} + ' 유튜브 썸네일'"
                loading="lazy">
           <span class="course-play-badge"
                 th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
                 aria-hidden="true"></span>
           <span class="course-logo"
-                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">HTML</span>
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}"
+                th:text="${c.lang == 'javascript' ? 'JS' : #strings.toUpperCase(c.lang)}">HTML</span>
           <span class="cover-code"
-                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">&lt; / &gt;</span>
+                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}"
+                th:text="${c.lang == 'html' ? '< / >' : c.lang == 'css' ? '{ }' : '( ) =>'}">&lt; / &gt;</span>
         </div>
-        <div class="course-info"><h3>WEB1 - HTML &amp; Internet</h3><p>웹의 기본 구조부터 차근차근</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['html'] != null ? langProgressMap['html'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['html'] != null ? langProgressMap['html'] : 0) + '%'}"></i></span></div>
-      </a>
-      <a href="/learn/css" class="course-card course-css">
-        <div class="course-cover course-youtube-thumbnail"
-             th:with="courseVideoId=${courseVideoIds['css']}"
-             th:classappend="${courseVideoId == null or #strings.isEmpty(courseVideoId)} ? ' course-thumbnail-fallback' : ''">
-          <img th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
-               th:src="|https://i.ytimg.com/vi/${courseVideoId}/maxresdefault.jpg|"
-               th:attr="data-fallback-src=|https://i.ytimg.com/vi/${courseVideoId}/hqdefault.jpg|"
-               alt="WEB2 - CSS 유튜브 썸네일"
-               loading="lazy">
-          <span class="course-play-badge"
-                th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
-                aria-hidden="true"></span>
-          <span class="course-logo"
-                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">CSS</span>
-          <span class="cover-code"
-                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">{ }</span>
+        <div class="course-info" th:with="pct=${langProgressMap != null and langProgressMap[c.lang] != null ? langProgressMap[c.lang] : 0}">
+          <h3 th:text="${c.title}">WEB1 - HTML &amp; Internet</h3>
+          <p th:text="${c.description}">웹의 기본 구조부터 차근차근</p>
+          <span class="course-progress-label">진도율 <b th:text="${pct} + '%'">0%</b></span>
+          <span class="course-progress"><i th:style="'width:' + ${pct} + '%'"></i></span>
         </div>
-        <div class="course-info"><h3>WEB2 - CSS</h3><p>웹 페이지를 아름답게 디자인하기</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['css'] != null ? langProgressMap['css'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['css'] != null ? langProgressMap['css'] : 0) + '%'}"></i></span></div>
-      </a>
-      <a href="/learn/javascript" class="course-card course-js">
-        <div class="course-cover course-youtube-thumbnail"
-             th:with="courseVideoId=${courseVideoIds['javascript']}"
-             th:classappend="${courseVideoId == null or #strings.isEmpty(courseVideoId)} ? ' course-thumbnail-fallback' : ''">
-          <img th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
-               th:src="|https://i.ytimg.com/vi/${courseVideoId}/maxresdefault.jpg|"
-               th:attr="data-fallback-src=|https://i.ytimg.com/vi/${courseVideoId}/hqdefault.jpg|"
-               alt="WEB2 - JavaScript 유튜브 썸네일"
-               loading="lazy">
-          <span class="course-play-badge"
-                th:if="${courseVideoId != null and not #strings.isEmpty(courseVideoId)}"
-                aria-hidden="true"></span>
-          <span class="course-logo"
-                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">JS</span>
-          <span class="cover-code"
-                th:if="${courseVideoId == null or #strings.isEmpty(courseVideoId)}">( ) =&gt;</span>
-        </div>
-        <div class="course-info"><h3>WEB2 - JavaScript</h3><p>웹에 생동감 있는 기능 더하기</p><span class="course-progress-label">진도율 <b th:text="${(langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}">0%</b></span><span class="course-progress"><i th:style="${'width:' + (langProgressMap != null and langProgressMap['javascript'] != null ? langProgressMap['javascript'] : 0) + '%'}"></i></span></div>
-      </a>
-      <a href="/challenge" class="course-card course-project">
-        <div class="course-cover"><span class="course-logo">UI</span><span class="cover-code">⌘ + K</span></div>
-        <div class="course-info"><h3>반응형 웹 프로젝트</h3><p>배운 내용을 실전에서 완성하기</p><span class="course-progress-label">프로젝트 챌린지</span><span class="course-progress"><i style="width:20%"></i></span></div>
       </a>
     </div>
   </section>
