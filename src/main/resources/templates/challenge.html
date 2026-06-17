@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="/css/design-refresh.css">
     <style>
         .challenge-content { max-width: 1240px; margin: 0 auto; word-break: keep-all; line-break: strict; }
+        /* 전역 section { padding:100px 7% } 무력화 — 섹션 간격은 자체 margin으로 관리 */
+        .challenge-content > section { padding: 0; }
         .challenge-hero {
             display: grid;
             grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
             gap: 48px;
-            align-items: center;
+            align-items: start;
             margin-bottom: 34px;
         }
         .routine-summary,
